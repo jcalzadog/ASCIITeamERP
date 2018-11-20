@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace ERP
 {
     static class Program
-    {
+    {//OOOO
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
