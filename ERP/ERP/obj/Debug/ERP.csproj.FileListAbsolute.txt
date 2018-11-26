@@ -18,3 +18,9 @@ D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache

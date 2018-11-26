@@ -41,7 +41,7 @@ namespace ERP
             objConexion.Close();
 
             return requestQuery;
-        }*/
+        }
 
         /**
          * Method to insert data in a table
