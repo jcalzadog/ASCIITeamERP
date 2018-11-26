@@ -12,17 +12,12 @@ namespace ERP
 {
     public partial class FormLogin : Form
     {
-        //private Boolean entrar=false;
-        //public Boolean Entrar
-        //{
-            //get { return entrar; }
-            //set { entrar = value; }
-        //}
+        ConnectOracle conector;
 
         public FormLogin()
         {
             InitializeComponent();
-            
+            conector = new ConnectOracle();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -60,11 +55,11 @@ namespace ERP
             String user = tbxUser.Text;
             //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
             String pass = tbxPassword.Text;
-            String condicion = " USUARIO = '" + user + "' AND CONTRASENA = '" + pass + "'";
+            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
-            //String passDB = Convert.ToString(conector.DLookUp("ID", "USUARIOS", condicion));
+            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
-            if (user.Equals("Diego"))
+            if (!passDB.Equals("-1"))
             {
                 //MessageBox.Show("Login Succesful");
                 //this.Dispose();
