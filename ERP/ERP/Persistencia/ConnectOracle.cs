@@ -1,7 +1,8 @@
 ﻿
-//using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace ERP
          * Parameter: Query
          * Parameter: Table
          */
-         /*
+         
         public DataSet getData(String query, String table)
         {
             OracleConnection objConexion;
@@ -46,7 +47,7 @@ namespace ERP
          * Method to insert data in a table
          * Parameter: Sentence 
          */
-         /*
+         
         public void setData(String sentencia)
         {
             OracleConnection objConexion;
@@ -58,7 +59,7 @@ namespace ERP
 
             objComando.ExecuteNonQuery();
             objComando.Connection.Close();
-        }*/
+        }
 
         /**
          * Method to retrieve only one value
@@ -66,7 +67,7 @@ namespace ERP
          * Parameter: Table
          * Parameter: Condition
          */
-         /*
+         
         public Object DLookUp(String columna, String tabla, String condicion)
         {
             OracleConnection objConexion;
@@ -99,7 +100,7 @@ namespace ERP
             objConexion.Close();
             return resultado;
 
-        }*/
+        }
         
 
     }

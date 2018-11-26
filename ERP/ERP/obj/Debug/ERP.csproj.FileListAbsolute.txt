@@ -9,3 +9,12 @@ D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.ex
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
+D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
