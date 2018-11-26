@@ -15,8 +15,11 @@ namespace ERP
         public FormPrincipal()
         {
             InitializeComponent();
+            tbcMenuPrincipal.Width = this.Width;
+            tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             
+
             FormLogin login = new FormLogin();
             login.ShowDialog();
         }
@@ -53,6 +56,43 @@ namespace ERP
             _stringFlags.Alignment = StringAlignment.Center;
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ((Control)tabPage1).Enabled = true;
+            ((Control)tabPage3).Enabled = true;
+            ((Control)tabPage4).Enabled = true;
+            ((Control)tabPage5).Enabled = true;
+            ((Control)tabPage6).Enabled = true;
+            ((Control)tabPage7).Enabled = true;
+            ((Control)tabPage8).Enabled = true;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tbcMenuPrincipal.SelectTab(1);
+            ((Control)tabPage1).Enabled = false;
+            ((Control)tabPage3).Enabled = false;
+            ((Control)tabPage4).Enabled = false;
+            ((Control)tabPage5).Enabled = false;
+            ((Control)tabPage6).Enabled = false;
+            ((Control)tabPage7).Enabled = false;
+            ((Control)tabPage8).Enabled = false;
+        }
+
+  
+
+        private void FormPrincipal_SizeChanged(object sender, EventArgs e)
+        {
+            tbcMenuPrincipal.Width = this.Width;
+            tbcMenuPrincipal.Height = this.Height;
         }
     }
 }
