@@ -46,5 +46,24 @@ namespace ERP
         {
             Close();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            String user = tbxUser.Text;
+            //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
+            String pass = tbxPassword.Text;
+            String condicion = " USUARIO = '" + user + "' AND CONTRASENA = '" + pass + "'";
+
+            //String passDB = Convert.ToString(conector.DLookUp("ID", "USUARIOS", condicion));
+
+            if (!passDB.Equals("-1"))
+            {
+                MessageBox.Show("Login Succesful");
+            }
+            else
+            {
+                MessageBox.Show("ERROR");
+            }
+        }
     }
 }
