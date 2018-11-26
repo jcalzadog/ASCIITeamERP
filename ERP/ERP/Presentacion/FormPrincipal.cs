@@ -94,5 +94,13 @@ namespace ERP
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
         }
+
+        private void tabPage2_Resize(object sender, EventArgs e)
+        {
+            
+            dataGridView1.Width = this.Width-150;
+            dataGridView1.Height = this.Height-100;
+
+        }
     }
 }
