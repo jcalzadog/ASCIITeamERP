@@ -102,5 +102,10 @@ namespace ERP
             dataGridView1.Height = this.Height-100;
 
         }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
