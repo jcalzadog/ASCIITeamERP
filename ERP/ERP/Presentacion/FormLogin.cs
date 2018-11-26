@@ -12,6 +12,13 @@ namespace ERP
 {
     public partial class FormLogin : Form
     {
+        //private Boolean entrar=false;
+        //public Boolean Entrar
+        //{
+            //get { return entrar; }
+            //set { entrar = value; }
+        //}
+
         public FormLogin()
         {
             InitializeComponent();
@@ -44,7 +51,7 @@ namespace ERP
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -56,14 +63,21 @@ namespace ERP
 
             //String passDB = Convert.ToString(conector.DLookUp("ID", "USUARIOS", condicion));
 
-            if (!passDB.Equals("-1"))
+            if (user.Equals("Diego"))
             {
-                MessageBox.Show("Login Succesful");
+                //MessageBox.Show("Login Succesful");
+                //this.Dispose();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("ERROR");
             }
+        }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

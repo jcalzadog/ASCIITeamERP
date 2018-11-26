@@ -8,3 +8,4 @@ D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.cs
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
