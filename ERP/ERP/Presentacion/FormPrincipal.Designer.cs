@@ -191,9 +191,9 @@
             this.checkBox2.Location = new System.Drawing.Point(787, 14);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(98, 21);
+            this.checkBox2.Size = new System.Drawing.Size(75, 21);
             this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.Text = "prueba";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // button2
