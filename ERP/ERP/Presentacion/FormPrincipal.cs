@@ -21,8 +21,11 @@ namespace ERP
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
+
             cargarComponentes();
+
             cargarTablaUser();
+            cargarTablaCustomer();
 
             FormLogin login = new FormLogin();
             login.ShowDialog();
@@ -30,6 +33,9 @@ namespace ERP
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectTab(1);*/
         }
 
+        /**
+         * Metodo para usar el "menu pestañas" . 
+         */
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -108,6 +114,11 @@ namespace ERP
             dgvUsers.Width = this.Width-150;
             dgvUsers.Height = this.Height-100;
 
+            dgvCustomers.Width = this.Width - 150;
+            dgvCustomers.Height = this.Height - 100;
+
+            dgvCategorie.Width = this.Width - 150;
+            dgvCategorie.Height = this.Height - 100;
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
@@ -169,8 +180,40 @@ namespace ERP
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        public void cargarTablaCustomer()
+        {
+            DataSet data = new DataSet();
+            ConnectOracle Search = new ConnectOracle();
+            //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
+            data = Search.getData("SELECT * FROM CUSTOMERS ORDER BY IDCUSTOMER", "CUSTOMERS");
+
+            DataTable tCustomers = data.Tables["CUSTOMERS"];
+
+            //dgvCustomers.DataSource = tcustomers;
+
+            dgvCustomers.Columns.Add("IDCUSTOMER", "ID");
+            dgvCustomers.Columns.Add("NAME", "NAME");
+            dgvCustomers.Columns.Add("SURNAME", "SURNAME");
+            dgvCustomers.Columns.Add("ADDRESS", "ADDRESS");
+            dgvCustomers.Columns.Add("PHONE", "PHONE");
+            dgvCustomers.Columns.Add("EMAIL", "EMAIL");
+            dgvCustomers.Columns.Add("DELETED", "DELETED");
+            dgvCustomers.Columns.Add("REFZIPCODESCITIES", "REFZIPCODESCITIES");
+
+            foreach (DataRow row in tCustomers.Rows)
+            {
+                dgvCustomers.Rows.Add(row["IDCUSTOMER"], row["NAME"], row["SURNAME"], row["ADDRESS"], row["PHONE"], row["EMAIL"], row["DELETED"], row["REFZIPCODESCITIES"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvCustomers.RowHeadersVisible = false;
+            dgvCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
         public void cargarComponentes()
         {
+            //General
+            
+
             //Usuarios
             btnNewUser.FlatStyle = FlatStyle.Flat;
             btnNewUser.FlatAppearance.BorderColor = Color.Black;
@@ -200,6 +243,11 @@ namespace ERP
             btnDeleteCategorie.FlatStyle = FlatStyle.Flat;
             btnDeleteCategorie.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
+
+            //System
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.FlatAppearance.BorderColor = Color.Black;
+            btnExit.FlatAppearance.BorderSize = 1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

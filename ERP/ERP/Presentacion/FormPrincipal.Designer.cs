@@ -41,19 +41,22 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvCategorie = new System.Windows.Forms.DataGridView();
             this.btnDeleteCategorie = new System.Windows.Forms.Button();
             this.btnUpdateCategorie = new System.Windows.Forms.Button();
             this.btnNewCategorie = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnExit = new System.Windows.Forms.Button();
+            this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).BeginInit();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -80,6 +83,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightGreen;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
@@ -87,7 +91,6 @@
             this.tabPage1.Size = new System.Drawing.Size(897, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -175,6 +178,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage3.Controls.Add(this.dgvCustomers);
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
@@ -182,10 +187,10 @@
             this.tabPage3.Size = new System.Drawing.Size(897, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
@@ -193,10 +198,10 @@
             this.tabPage4.Size = new System.Drawing.Size(897, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
@@ -204,12 +209,12 @@
             this.tabPage5.Size = new System.Drawing.Size(897, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
-            this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.dataGridView2);
+            this.tabPage6.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage6.Controls.Add(this.dgvCategorie);
             this.tabPage6.Controls.Add(this.btnDeleteCategorie);
             this.tabPage6.Controls.Add(this.btnUpdateCategorie);
             this.tabPage6.Controls.Add(this.btnNewCategorie);
@@ -220,16 +225,15 @@
             this.tabPage6.Size = new System.Drawing.Size(897, 484);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvCategorie
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 47);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(852, 441);
-            this.dataGridView2.TabIndex = 3;
+            this.dgvCategorie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorie.Location = new System.Drawing.Point(8, 43);
+            this.dgvCategorie.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCategorie.Name = "dgvCategorie";
+            this.dgvCategorie.Size = new System.Drawing.Size(803, 400);
+            this.dgvCategorie.TabIndex = 3;
             // 
             // btnDeleteCategorie
             // 
@@ -266,6 +270,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
@@ -273,11 +278,10 @@
             this.tabPage7.Size = new System.Drawing.Size(897, 484);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
-            this.tabPage8.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage8.BackColor = System.Drawing.Color.PaleGreen;
             this.tabPage8.Controls.Add(this.btnExit);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
@@ -289,13 +293,23 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnExit.Location = new System.Drawing.Point(32, 36);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 28);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // dgvCustomers
+            // 
+            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.Location = new System.Drawing.Point(8, 43);
+            this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.RowTemplate.Height = 24;
+            this.dgvCustomers.Size = new System.Drawing.Size(803, 400);
+            this.dgvCustomers.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -313,9 +327,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).EndInit();
             this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -337,10 +353,11 @@
         private System.Windows.Forms.Button btnRoles;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvCategorie;
         private System.Windows.Forms.Button btnDeleteCategorie;
         private System.Windows.Forms.Button btnUpdateCategorie;
         private System.Windows.Forms.Button btnNewCategorie;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridView dgvCustomers;
     }
 }
