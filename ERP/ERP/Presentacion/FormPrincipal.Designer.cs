@@ -43,9 +43,15 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.btnNewCategorie = new System.Windows.Forms.Button();
+            this.btnUpdateCategorie = new System.Windows.Forms.Button();
+            this.btnDeleteCategorie = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -192,6 +198,10 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.dataGridView2);
+            this.tabPage6.Controls.Add(this.btnDeleteCategorie);
+            this.tabPage6.Controls.Add(this.btnUpdateCategorie);
+            this.tabPage6.Controls.Add(this.btnNewCategorie);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -220,6 +230,44 @@
             this.tabPage8.Text = "System";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // btnNewCategorie
+            // 
+            this.btnNewCategorie.Location = new System.Drawing.Point(7, 9);
+            this.btnNewCategorie.Name = "btnNewCategorie";
+            this.btnNewCategorie.Size = new System.Drawing.Size(75, 23);
+            this.btnNewCategorie.TabIndex = 0;
+            this.btnNewCategorie.Text = "New ";
+            this.btnNewCategorie.UseVisualStyleBackColor = true;
+            this.btnNewCategorie.Click += new System.EventHandler(this.btnNewCategorie_Click);
+            // 
+            // btnUpdateCategorie
+            // 
+            this.btnUpdateCategorie.Location = new System.Drawing.Point(89, 8);
+            this.btnUpdateCategorie.Name = "btnUpdateCategorie";
+            this.btnUpdateCategorie.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCategorie.TabIndex = 1;
+            this.btnUpdateCategorie.Text = "Update";
+            this.btnUpdateCategorie.UseVisualStyleBackColor = true;
+            this.btnUpdateCategorie.Click += new System.EventHandler(this.btnUpdateCategorie_Click);
+            // 
+            // btnDeleteCategorie
+            // 
+            this.btnDeleteCategorie.Location = new System.Drawing.Point(171, 7);
+            this.btnDeleteCategorie.Name = "btnDeleteCategorie";
+            this.btnDeleteCategorie.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCategorie.TabIndex = 2;
+            this.btnDeleteCategorie.Text = "Delete";
+            this.btnDeleteCategorie.UseVisualStyleBackColor = true;
+            this.btnDeleteCategorie.Click += new System.EventHandler(this.btnDeleteCategorie_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(7, 38);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(639, 358);
+            this.dataGridView2.TabIndex = 3;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +283,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +306,9 @@
         private System.Windows.Forms.Button btnRoles;
         private System.Windows.Forms.Button btnNewUser;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnDeleteCategorie;
+        private System.Windows.Forms.Button btnUpdateCategorie;
+        private System.Windows.Forms.Button btnNewCategorie;
     }
 }

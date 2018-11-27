@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ERP.Presentacion.Categorias;
+
 namespace ERP
 {
     public partial class FormPrincipal : Form
@@ -133,6 +135,35 @@ namespace ERP
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
+
+            //Categorias
+            btnNewCategorie.FlatStyle = FlatStyle.Flat;
+            btnNewCategorie.FlatAppearance.BorderColor = Color.Black;
+            btnNewCategorie.FlatAppearance.BorderSize = 1;
+
+            btnUpdateCategorie.FlatStyle = FlatStyle.Flat;
+            btnUpdateCategorie.FlatAppearance.BorderColor = Color.Black;
+            btnUpdateCategorie.FlatAppearance.BorderSize = 1;
+
+            btnDeleteCategorie.FlatStyle = FlatStyle.Flat;
+            btnDeleteCategorie.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteCategorie.FlatAppearance.BorderSize = 1;
+        }
+
+        private void btnNewCategorie_Click(object sender, EventArgs e)
+        {
+            AddCategorie ncategorie = new AddCategorie();
+            ncategorie.ShowDialog();
+
+        }
+
+        private void btnUpdateCategorie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteCategorie_Click(object sender, EventArgs e)
+        {
 
         }
     }
