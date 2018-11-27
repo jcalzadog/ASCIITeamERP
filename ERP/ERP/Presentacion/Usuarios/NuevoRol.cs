@@ -57,7 +57,7 @@ namespace ERP.Presentacion.Usuarios
 
             dgvPermissions.Columns.Add("IDPERMIT", "ID");
             dgvPermissions.Columns.Add("NAME", "NAME");
-            dgvPermissions.Columns.Add(dgvColumnCheck);
+            dgvPermissions.Columns.Add(dgvColumnCheck);  // ---- PARA CHECBOX https://social.msdn.microsoft.com/Forums/es-ES/5e1770fc-10b3-4400-b895-a20192e28c34/como-agregar-un-checkbox-en-un-datagridview-en-vbnet?forum=vbes
 
             foreach (DataRow row in tPerm.Rows)
             {
