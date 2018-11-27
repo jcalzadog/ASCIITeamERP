@@ -83,6 +83,9 @@
     <EmbeddedResource Include="Presentacion\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Usuarios\NuevoRol.resx">
+      <DependentUpon>NuevoRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\NuevoUsuario.resx">
       <DependentUpon>NuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>

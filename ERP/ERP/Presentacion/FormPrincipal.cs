@@ -169,5 +169,11 @@ namespace ERP
         {
 
         }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            NuevoRol newRol = new NuevoRol();
+            newRol.ShowDialog();
+        }
     }
 }

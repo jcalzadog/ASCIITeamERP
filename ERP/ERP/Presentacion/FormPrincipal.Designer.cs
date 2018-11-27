@@ -41,12 +41,12 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnDeleteCategorie = new System.Windows.Forms.Button();
+            this.btnUpdateCategorie = new System.Windows.Forms.Button();
+            this.btnNewCategorie = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.btnNewCategorie = new System.Windows.Forms.Button();
-            this.btnUpdateCategorie = new System.Windows.Forms.Button();
-            this.btnDeleteCategorie = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,20 +67,22 @@
             this.tbcMenuPrincipal.Controls.Add(this.tabPage8);
             this.tbcMenuPrincipal.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tbcMenuPrincipal.ItemSize = new System.Drawing.Size(25, 100);
-            this.tbcMenuPrincipal.Location = new System.Drawing.Point(-5, 0);
+            this.tbcMenuPrincipal.Location = new System.Drawing.Point(-7, 0);
+            this.tbcMenuPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbcMenuPrincipal.Multiline = true;
             this.tbcMenuPrincipal.Name = "tbcMenuPrincipal";
             this.tbcMenuPrincipal.SelectedIndex = 0;
-            this.tbcMenuPrincipal.Size = new System.Drawing.Size(754, 400);
+            this.tbcMenuPrincipal.Size = new System.Drawing.Size(1005, 492);
             this.tbcMenuPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcMenuPrincipal.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(646, 392);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(897, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -95,27 +97,29 @@
             this.tabPage2.Controls.Add(this.btnNewUser);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(646, 392);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(897, 484);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(420, 9);
+            this.textBox1.Location = new System.Drawing.Point(496, 13);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
+            this.textBox1.Size = new System.Drawing.Size(249, 22);
             this.textBox1.TabIndex = 8;
             // 
             // btnLogs
             // 
             this.btnLogs.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnLogs.Location = new System.Drawing.Point(307, 5);
-            this.btnLogs.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogs.Location = new System.Drawing.Point(387, 9);
+            this.btnLogs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogs.Name = "btnLogs";
-            this.btnLogs.Size = new System.Drawing.Size(56, 24);
+            this.btnLogs.Size = new System.Drawing.Size(75, 30);
             this.btnLogs.TabIndex = 7;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
@@ -124,10 +128,10 @@
             // 
             this.btnDeleteUser.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteUser.Location = new System.Drawing.Point(189, 6);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteUser.Location = new System.Drawing.Point(241, 10);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(105, 23);
+            this.btnDeleteUser.Size = new System.Drawing.Size(140, 28);
             this.btnDeleteUser.TabIndex = 6;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
@@ -137,22 +141,23 @@
             // 
             this.btnRoles.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRoles.Location = new System.Drawing.Point(111, 7);
-            this.btnRoles.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRoles.Location = new System.Drawing.Point(148, 9);
+            this.btnRoles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRoles.Name = "btnRoles";
-            this.btnRoles.Size = new System.Drawing.Size(65, 23);
+            this.btnRoles.Size = new System.Drawing.Size(87, 28);
             this.btnRoles.TabIndex = 5;
             this.btnRoles.Text = "Roles";
             this.btnRoles.UseVisualStyleBackColor = false;
+            this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
             // 
             // btnNewUser
             // 
             this.btnNewUser.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewUser.Location = new System.Drawing.Point(20, 7);
-            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNewUser.Location = new System.Drawing.Point(27, 9);
+            this.btnNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(87, 23);
+            this.btnNewUser.Size = new System.Drawing.Size(116, 28);
             this.btnNewUser.TabIndex = 4;
             this.btnNewUser.Text = "New User";
             this.btnNewUser.UseVisualStyleBackColor = false;
@@ -160,17 +165,19 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Location = new System.Drawing.Point(6, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 43);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(602, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(803, 400);
             this.dataGridView1.TabIndex = 3;
             // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(646, 392);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Size = new System.Drawing.Size(897, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -178,9 +185,10 @@
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(646, 392);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Size = new System.Drawing.Size(897, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -188,9 +196,10 @@
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(646, 392);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Size = new System.Drawing.Size(897, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -203,19 +212,63 @@
             this.tabPage6.Controls.Add(this.btnUpdateCategorie);
             this.tabPage6.Controls.Add(this.btnNewCategorie);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(646, 392);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Size = new System.Drawing.Size(897, 484);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(9, 47);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(852, 441);
+            this.dataGridView2.TabIndex = 3;
+            // 
+            // btnDeleteCategorie
+            // 
+            this.btnDeleteCategorie.Location = new System.Drawing.Point(228, 9);
+            this.btnDeleteCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteCategorie.Name = "btnDeleteCategorie";
+            this.btnDeleteCategorie.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteCategorie.TabIndex = 2;
+            this.btnDeleteCategorie.Text = "Delete";
+            this.btnDeleteCategorie.UseVisualStyleBackColor = true;
+            this.btnDeleteCategorie.Click += new System.EventHandler(this.btnDeleteCategorie_Click);
+            // 
+            // btnUpdateCategorie
+            // 
+            this.btnUpdateCategorie.Location = new System.Drawing.Point(119, 10);
+            this.btnUpdateCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateCategorie.Name = "btnUpdateCategorie";
+            this.btnUpdateCategorie.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdateCategorie.TabIndex = 1;
+            this.btnUpdateCategorie.Text = "Update";
+            this.btnUpdateCategorie.UseVisualStyleBackColor = true;
+            this.btnUpdateCategorie.Click += new System.EventHandler(this.btnUpdateCategorie_Click);
+            // 
+            // btnNewCategorie
+            // 
+            this.btnNewCategorie.Location = new System.Drawing.Point(9, 11);
+            this.btnNewCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewCategorie.Name = "btnNewCategorie";
+            this.btnNewCategorie.Size = new System.Drawing.Size(100, 28);
+            this.btnNewCategorie.TabIndex = 0;
+            this.btnNewCategorie.Text = "New ";
+            this.btnNewCategorie.UseVisualStyleBackColor = true;
+            this.btnNewCategorie.Click += new System.EventHandler(this.btnNewCategorie_Click);
+            // 
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(646, 392);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Size = new System.Drawing.Size(897, 484);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -223,60 +276,24 @@
             // tabPage8
             // 
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(646, 392);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Size = new System.Drawing.Size(897, 484);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // btnNewCategorie
-            // 
-            this.btnNewCategorie.Location = new System.Drawing.Point(7, 9);
-            this.btnNewCategorie.Name = "btnNewCategorie";
-            this.btnNewCategorie.Size = new System.Drawing.Size(75, 23);
-            this.btnNewCategorie.TabIndex = 0;
-            this.btnNewCategorie.Text = "New ";
-            this.btnNewCategorie.UseVisualStyleBackColor = true;
-            this.btnNewCategorie.Click += new System.EventHandler(this.btnNewCategorie_Click);
-            // 
-            // btnUpdateCategorie
-            // 
-            this.btnUpdateCategorie.Location = new System.Drawing.Point(89, 8);
-            this.btnUpdateCategorie.Name = "btnUpdateCategorie";
-            this.btnUpdateCategorie.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateCategorie.TabIndex = 1;
-            this.btnUpdateCategorie.Text = "Update";
-            this.btnUpdateCategorie.UseVisualStyleBackColor = true;
-            this.btnUpdateCategorie.Click += new System.EventHandler(this.btnUpdateCategorie_Click);
-            // 
-            // btnDeleteCategorie
-            // 
-            this.btnDeleteCategorie.Location = new System.Drawing.Point(171, 7);
-            this.btnDeleteCategorie.Name = "btnDeleteCategorie";
-            this.btnDeleteCategorie.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteCategorie.TabIndex = 2;
-            this.btnDeleteCategorie.Text = "Delete";
-            this.btnDeleteCategorie.UseVisualStyleBackColor = true;
-            this.btnDeleteCategorie.Click += new System.EventHandler(this.btnDeleteCategorie_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 38);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(639, 358);
-            this.dataGridView2.TabIndex = 3;
-            // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 395);
+            this.ClientSize = new System.Drawing.Size(995, 486);
             this.Controls.Add(this.tbcMenuPrincipal);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = ">";
+            this.Text = "ERP Videogames";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.SizeChanged += new System.EventHandler(this.FormPrincipal_SizeChanged);
             this.tbcMenuPrincipal.ResumeLayout(false);

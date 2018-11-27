@@ -44,107 +44,125 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(155, 56);
+            this.lblUsername.Location = new System.Drawing.Point(207, 69);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(155, 90);
+            this.lblPassword.Location = new System.Drawing.Point(207, 111);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(69, 17);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
             // tbxUsername
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(216, 53);
+            this.tbxUsername.Location = new System.Drawing.Point(288, 65);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(100, 20);
+            this.tbxUsername.Size = new System.Drawing.Size(132, 22);
             this.tbxUsername.TabIndex = 2;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(216, 87);
+            this.tbxPassword.Location = new System.Drawing.Point(288, 107);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbxPassword.Size = new System.Drawing.Size(132, 22);
             this.tbxPassword.TabIndex = 3;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(179, 130);
+            this.lblRole.Location = new System.Drawing.Point(239, 160);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(29, 13);
+            this.lblRole.Size = new System.Drawing.Size(37, 17);
             this.lblRole.TabIndex = 4;
             this.lblRole.Text = "Role";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(216, 127);
+            this.comboBox1.Location = new System.Drawing.Point(288, 156);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.Size = new System.Drawing.Size(132, 24);
             this.comboBox1.TabIndex = 5;
             // 
             // btnNewRole
             // 
-            this.btnNewRole.Location = new System.Drawing.Point(332, 127);
+            this.btnNewRole.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnNewRole.Location = new System.Drawing.Point(443, 156);
+            this.btnNewRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewRole.Name = "btnNewRole";
-            this.btnNewRole.Size = new System.Drawing.Size(75, 23);
+            this.btnNewRole.Size = new System.Drawing.Size(100, 28);
             this.btnNewRole.TabIndex = 6;
             this.btnNewRole.Text = "New Role";
-            this.btnNewRole.UseVisualStyleBackColor = true;
+            this.btnNewRole.UseVisualStyleBackColor = false;
+            this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(487, 187);
+            this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.Location = new System.Drawing.Point(649, 230);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(406, 187);
+            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSave.Location = new System.Drawing.Point(541, 230);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.Location = new System.Drawing.Point(279, 187);
+            this.btnSaveAnother.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSaveAnother.Location = new System.Drawing.Point(372, 230);
+            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveAnother.Name = "btnSaveAnother";
-            this.btnSaveAnother.Size = new System.Drawing.Size(121, 23);
+            this.btnSaveAnother.Size = new System.Drawing.Size(161, 28);
             this.btnSaveAnother.TabIndex = 9;
             this.btnSaveAnother.Text = "Save and Another";
-            this.btnSaveAnother.UseVisualStyleBackColor = true;
+            this.btnSaveAnother.UseVisualStyleBackColor = false;
             this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnother_Click);
             // 
             // btnSaveClose
             // 
-            this.btnSaveClose.Location = new System.Drawing.Point(150, 187);
+            this.btnSaveClose.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSaveClose.Location = new System.Drawing.Point(200, 230);
+            this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveClose.Name = "btnSaveClose";
-            this.btnSaveClose.Size = new System.Drawing.Size(123, 23);
+            this.btnSaveClose.Size = new System.Drawing.Size(164, 28);
             this.btnSaveClose.TabIndex = 10;
             this.btnSaveClose.Text = "Save and Close";
-            this.btnSaveClose.UseVisualStyleBackColor = true;
+            this.btnSaveClose.UseVisualStyleBackColor = false;
             this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
             // 
             // NuevoUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 220);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(761, 271);
             this.Controls.Add(this.btnSaveClose);
             this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.btnSave);
@@ -156,6 +174,7 @@
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NuevoUsuario";
             this.Text = "New User";
             this.ResumeLayout(false);
