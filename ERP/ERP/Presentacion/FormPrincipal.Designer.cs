@@ -31,6 +31,7 @@
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnRoles = new System.Windows.Forms.Button();
@@ -72,7 +73,7 @@
             // 
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(646, 392);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
@@ -80,6 +81,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.btnLogs);
             this.tabPage2.Controls.Add(this.btnDeleteUser);
             this.tabPage2.Controls.Add(this.btnRoles);
@@ -87,17 +89,24 @@
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(646, 392);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(356, 9);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(188, 20);
+            this.textBox1.TabIndex = 8;
+            // 
             // btnLogs
             // 
-            this.btnLogs.Location = new System.Drawing.Point(256, 6);
-            this.btnLogs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogs.Location = new System.Drawing.Point(285, 6);
+            this.btnLogs.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(56, 24);
             this.btnLogs.TabIndex = 7;
@@ -106,8 +115,8 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(170, 7);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteUser.Location = new System.Drawing.Point(199, 7);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(82, 23);
             this.btnDeleteUser.TabIndex = 6;
@@ -117,8 +126,8 @@
             // 
             // btnRoles
             // 
-            this.btnRoles.Location = new System.Drawing.Point(99, 7);
-            this.btnRoles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRoles.Location = new System.Drawing.Point(128, 7);
+            this.btnRoles.Margin = new System.Windows.Forms.Padding(2);
             this.btnRoles.Name = "btnRoles";
             this.btnRoles.Size = new System.Drawing.Size(66, 23);
             this.btnRoles.TabIndex = 5;
@@ -127,12 +136,14 @@
             // 
             // btnNewUser
             // 
-            this.btnNewUser.Location = new System.Drawing.Point(6, 7);
-            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewUser.Location = new System.Drawing.Point(20, 7);
+            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(88, 23);
+            this.btnNewUser.Size = new System.Drawing.Size(87, 23);
             this.btnNewUser.TabIndex = 4;
             this.btnNewUser.Text = "New User";
+            this.btnNewUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
@@ -147,7 +158,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(646, 392);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
@@ -157,7 +168,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(646, 392);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
@@ -167,7 +178,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(646, 392);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
@@ -178,7 +189,7 @@
             // 
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(646, 392);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
@@ -188,7 +199,7 @@
             // 
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(646, 392);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
@@ -198,7 +209,7 @@
             // 
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(646, 392);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
@@ -217,6 +228,7 @@
             this.SizeChanged += new System.EventHandler(this.FormPrincipal_SizeChanged);
             this.tbcMenuPrincipal.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -238,5 +250,6 @@
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnRoles;
         private System.Windows.Forms.Button btnNewUser;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
