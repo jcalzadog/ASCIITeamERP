@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ERP.Presentacion.Categorias;
+//using ERP.Presentacion.Categorias;
 
 namespace ERP
 {
@@ -155,8 +155,8 @@ namespace ERP
 
         private void btnNewCategorie_Click(object sender, EventArgs e)
         {
-            AddCategorie ncategorie = new AddCategorie();
-            ncategorie.ShowDialog();
+            //AddCategorie ncategorie = new AddCategorie();
+            //ncategorie.ShowDialog();
 
         }
 
