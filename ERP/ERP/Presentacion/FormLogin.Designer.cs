@@ -109,6 +109,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(100, 20);
             this.tbxPassword.TabIndex = 7;
+            this.tbxPassword.UseSystemPasswordChar = true;
             this.tbxPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // FormLogin

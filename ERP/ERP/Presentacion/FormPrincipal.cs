@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Presentacion.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,7 +45,8 @@ namespace ERP
 
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(Color.Black);
-                g.FillRectangle(Brushes.Red, e.Bounds);
+                // g.FillRectangle(Brushes.Red, e.Bounds);
+                g.FillRectangle(Brushes.SteelBlue, e.Bounds);
             }
             else
             {
@@ -114,7 +116,8 @@ namespace ERP
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
-
+            NuevoUsuario newUser = new NuevoUsuario();
+            newUser.ShowDialog();
         }
 
         public void cargarComponentes()
