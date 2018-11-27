@@ -15,6 +15,7 @@ namespace ERP.Presentacion.Usuarios
         public NuevoUsuario()
         {
             InitializeComponent();
+            cargarComponentes();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -64,7 +64,7 @@
             // tbxUsername
             // 
             this.tbxUsername.Location = new System.Drawing.Point(288, 65);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(132, 22);
             this.tbxUsername.TabIndex = 2;
@@ -72,7 +72,7 @@
             // tbxPassword
             // 
             this.tbxPassword.Location = new System.Drawing.Point(288, 107);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(132, 22);
             this.tbxPassword.TabIndex = 3;
@@ -92,16 +92,16 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(288, 156);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(132, 24);
             this.comboBox1.TabIndex = 5;
             // 
             // btnNewRole
             // 
-            this.btnNewRole.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnNewRole.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNewRole.Location = new System.Drawing.Point(443, 156);
-            this.btnNewRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewRole.Name = "btnNewRole";
             this.btnNewRole.Size = new System.Drawing.Size(100, 28);
             this.btnNewRole.TabIndex = 6;
@@ -111,9 +111,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Location = new System.Drawing.Point(649, 230);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 7;
@@ -123,9 +123,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSave.Location = new System.Drawing.Point(541, 230);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 8;
@@ -135,9 +135,9 @@
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSaveAnother.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSaveAnother.Location = new System.Drawing.Point(372, 230);
-            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveAnother.Name = "btnSaveAnother";
             this.btnSaveAnother.Size = new System.Drawing.Size(161, 28);
             this.btnSaveAnother.TabIndex = 9;
@@ -147,9 +147,9 @@
             // 
             // btnSaveClose
             // 
-            this.btnSaveClose.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSaveClose.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSaveClose.Location = new System.Drawing.Point(200, 230);
-            this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveClose.Name = "btnSaveClose";
             this.btnSaveClose.Size = new System.Drawing.Size(164, 28);
             this.btnSaveClose.TabIndex = 10;
@@ -174,7 +174,7 @@
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NuevoUsuario";
             this.Text = "New User";
             this.ResumeLayout(false);

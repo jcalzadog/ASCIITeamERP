@@ -201,5 +201,10 @@ namespace ERP
             btnDeleteCategorie.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

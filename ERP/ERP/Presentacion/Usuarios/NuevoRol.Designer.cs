@@ -34,9 +34,9 @@
             this.btnDeny = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPermissions = new System.Windows.Forms.DataGridView();
             this.lblPermissions = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRole
@@ -57,7 +57,7 @@
             // 
             // btnAllow
             // 
-            this.btnAllow.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAllow.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAllow.Location = new System.Drawing.Point(364, 87);
             this.btnAllow.Name = "btnAllow";
             this.btnAllow.Size = new System.Drawing.Size(75, 27);
@@ -67,7 +67,7 @@
             // 
             // btnDeny
             // 
-            this.btnDeny.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDeny.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnDeny.Location = new System.Drawing.Point(445, 87);
             this.btnDeny.Name = "btnDeny";
             this.btnDeny.Size = new System.Drawing.Size(75, 27);
@@ -77,7 +77,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Location = new System.Drawing.Point(556, 369);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 29);
@@ -88,7 +88,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSave.Location = new System.Drawing.Point(475, 369);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 29);
@@ -96,14 +96,14 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvPermissions
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(76, 132);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(444, 216);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPermissions.Location = new System.Drawing.Point(76, 132);
+            this.dgvPermissions.Name = "dgvPermissions";
+            this.dgvPermissions.RowTemplate.Height = 24;
+            this.dgvPermissions.Size = new System.Drawing.Size(444, 216);
+            this.dgvPermissions.TabIndex = 6;
             // 
             // lblPermissions
             // 
@@ -121,7 +121,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(663, 410);
             this.Controls.Add(this.lblPermissions);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPermissions);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeny);
@@ -130,7 +130,7 @@
             this.Controls.Add(this.lblRole);
             this.Name = "NuevoRol";
             this.Text = "NuevoRol";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +144,7 @@
         private System.Windows.Forms.Button btnDeny;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPermissions;
         private System.Windows.Forms.Label lblPermissions;
     }
 }
