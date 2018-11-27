@@ -22,6 +22,7 @@ namespace ERP
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             cargarComponentes();
+            cargarTablaUser();
 
             FormLogin login = new FormLogin();
             login.ShowDialog();
@@ -104,8 +105,8 @@ namespace ERP
         private void tabPage2_Resize(object sender, EventArgs e)
         {
             
-            dataGridView1.Width = this.Width-150;
-            dataGridView1.Height = this.Height-100;
+            dgvUsers.Width = this.Width-150;
+            dgvUsers.Height = this.Height-100;
 
         }
 
@@ -118,6 +119,54 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
+        }
+
+        private void btnNewCategorie_Click(object sender, EventArgs e)
+        {
+            //AddCategorie ncategorie = new AddCategorie();
+            //ncategorie.ShowDialog();
+
+        }
+
+        private void btnUpdateCategorie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteCategorie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            NuevoRol newRol = new NuevoRol();
+            newRol.ShowDialog();
+        }
+
+        public void cargarTablaUser()
+        {
+            DataSet data = new DataSet();
+            ConnectOracle Search = new ConnectOracle();
+            //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
+            data = Search.getData("SELECT * FROM USERS ORDER BY IDUSER", "USERS");
+
+            DataTable tusers = data.Tables["USERS"];
+
+            //dgvCustomers.DataSource = tcustomers;
+
+            dgvUsers.Columns.Add("IDUSER", "ID");
+            dgvUsers.Columns.Add("NAME", "NAME");
+            dgvUsers.Columns.Add("PASSWORD", "PASSWORD");
+            dgvUsers.Columns.Add("DELETED", "DELETED");
+
+            foreach (DataRow row in tusers.Rows)
+            {
+                dgvUsers.Rows.Add(row["IDUSER"], row["NAME"], row["PASSWORD"], row["DELETED"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvUsers.RowHeadersVisible = false;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void cargarComponentes()
@@ -151,29 +200,6 @@ namespace ERP
             btnDeleteCategorie.FlatStyle = FlatStyle.Flat;
             btnDeleteCategorie.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
-        }
-
-        private void btnNewCategorie_Click(object sender, EventArgs e)
-        {
-            //AddCategorie ncategorie = new AddCategorie();
-            //ncategorie.ShowDialog();
-
-        }
-
-        private void btnUpdateCategorie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeleteCategorie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRoles_Click(object sender, EventArgs e)
-        {
-            NuevoRol newRol = new NuevoRol();
-            newRol.ShowDialog();
         }
     }
 }

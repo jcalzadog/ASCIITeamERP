@@ -17,6 +17,7 @@ namespace ERP
         public FormLogin()
         {
             InitializeComponent();
+            cargarComponentes();
             conector = new ConnectOracle();
         }
 
@@ -93,6 +94,19 @@ namespace ERP
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        public void cargarComponentes()
+        {
+            //Login
+            btnConfirm.FlatStyle = FlatStyle.Flat;
+            btnConfirm.FlatAppearance.BorderColor = Color.Black;
+            btnConfirm.FlatAppearance.BorderSize = 1;
+
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.FlatAppearance.BorderColor = Color.Black;
+            btnCancel.FlatAppearance.BorderSize = 1;
+
         }
     }
 }

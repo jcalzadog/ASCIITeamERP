@@ -36,7 +36,7 @@
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnRoles = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -49,7 +49,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.tbcMenuPrincipal.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tbcMenuPrincipal.ItemSize = new System.Drawing.Size(25, 100);
             this.tbcMenuPrincipal.Location = new System.Drawing.Point(-7, 0);
-            this.tbcMenuPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbcMenuPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.tbcMenuPrincipal.Multiline = true;
             this.tbcMenuPrincipal.Name = "tbcMenuPrincipal";
             this.tbcMenuPrincipal.SelectedIndex = 0;
@@ -79,9 +79,9 @@
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(897, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
@@ -95,11 +95,11 @@
             this.tabPage2.Controls.Add(this.btnDeleteUser);
             this.tabPage2.Controls.Add(this.btnRoles);
             this.tabPage2.Controls.Add(this.btnNewUser);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dgvUsers);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(897, 484);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
@@ -108,7 +108,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(496, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(249, 22);
             this.textBox1.TabIndex = 8;
@@ -163,20 +163,20 @@
             this.btnNewUser.UseVisualStyleBackColor = false;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            this.dataGridView1.Location = new System.Drawing.Point(8, 43);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(803, 400);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvUsers.Location = new System.Drawing.Point(8, 43);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.Size = new System.Drawing.Size(803, 400);
+            this.dgvUsers.TabIndex = 3;
             // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(897, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
@@ -185,9 +185,9 @@
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(897, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
@@ -196,9 +196,9 @@
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(897, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
@@ -212,9 +212,9 @@
             this.tabPage6.Controls.Add(this.btnUpdateCategorie);
             this.tabPage6.Controls.Add(this.btnNewCategorie);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(897, 484);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
@@ -224,7 +224,7 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(9, 47);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(852, 441);
             this.dataGridView2.TabIndex = 3;
@@ -232,7 +232,7 @@
             // btnDeleteCategorie
             // 
             this.btnDeleteCategorie.Location = new System.Drawing.Point(228, 9);
-            this.btnDeleteCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteCategorie.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCategorie.Name = "btnDeleteCategorie";
             this.btnDeleteCategorie.Size = new System.Drawing.Size(100, 28);
             this.btnDeleteCategorie.TabIndex = 2;
@@ -243,7 +243,7 @@
             // btnUpdateCategorie
             // 
             this.btnUpdateCategorie.Location = new System.Drawing.Point(119, 10);
-            this.btnUpdateCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateCategorie.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCategorie.Name = "btnUpdateCategorie";
             this.btnUpdateCategorie.Size = new System.Drawing.Size(100, 28);
             this.btnUpdateCategorie.TabIndex = 1;
@@ -254,7 +254,7 @@
             // btnNewCategorie
             // 
             this.btnNewCategorie.Location = new System.Drawing.Point(9, 11);
-            this.btnNewCategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewCategorie.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewCategorie.Name = "btnNewCategorie";
             this.btnNewCategorie.Size = new System.Drawing.Size(100, 28);
             this.btnNewCategorie.TabIndex = 0;
@@ -265,9 +265,9 @@
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage7.Size = new System.Drawing.Size(897, 484);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
@@ -276,9 +276,9 @@
             // tabPage8
             // 
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage8.Size = new System.Drawing.Size(897, 484);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
@@ -290,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 486);
             this.Controls.Add(this.tbcMenuPrincipal);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ERP Videogames";
@@ -299,7 +299,7 @@
             this.tbcMenuPrincipal.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -317,7 +317,7 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnLogs;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnRoles;
