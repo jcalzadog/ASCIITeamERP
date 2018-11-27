@@ -42,7 +42,8 @@ namespace ERP
 
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(Color.Black);
-                g.FillRectangle(Brushes.Red, e.Bounds);
+                // g.FillRectangle(Brushes.Red, e.Bounds);
+                g.FillRectangle(Brushes.SteelBlue, e.Bounds);
             }
             else
             {
