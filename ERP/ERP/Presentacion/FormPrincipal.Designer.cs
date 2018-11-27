@@ -81,6 +81,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.btnLogs);
             this.tabPage2.Controls.Add(this.btnDeleteUser);
@@ -93,58 +94,62 @@
             this.tabPage2.Size = new System.Drawing.Size(646, 392);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(356, 9);
+            this.textBox1.Location = new System.Drawing.Point(420, 9);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 20);
             this.textBox1.TabIndex = 8;
             // 
             // btnLogs
             // 
-            this.btnLogs.Location = new System.Drawing.Point(285, 6);
+            this.btnLogs.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnLogs.Location = new System.Drawing.Point(307, 5);
             this.btnLogs.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(56, 24);
             this.btnLogs.TabIndex = 7;
             this.btnLogs.Text = "Logs";
-            this.btnLogs.UseVisualStyleBackColor = true;
+            this.btnLogs.UseVisualStyleBackColor = false;
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(199, 7);
+            this.btnDeleteUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteUser.Location = new System.Drawing.Point(189, 6);
             this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(82, 23);
+            this.btnDeleteUser.Size = new System.Drawing.Size(105, 23);
             this.btnDeleteUser.TabIndex = 6;
             this.btnDeleteUser.Text = "Delete User";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnRoles
             // 
-            this.btnRoles.Location = new System.Drawing.Point(128, 7);
+            this.btnRoles.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRoles.Location = new System.Drawing.Point(111, 7);
             this.btnRoles.Margin = new System.Windows.Forms.Padding(2);
             this.btnRoles.Name = "btnRoles";
-            this.btnRoles.Size = new System.Drawing.Size(66, 23);
+            this.btnRoles.Size = new System.Drawing.Size(65, 23);
             this.btnRoles.TabIndex = 5;
             this.btnRoles.Text = "Roles";
-            this.btnRoles.UseVisualStyleBackColor = true;
+            this.btnRoles.UseVisualStyleBackColor = false;
             // 
             // btnNewUser
             // 
-            this.btnNewUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewUser.Location = new System.Drawing.Point(20, 7);
             this.btnNewUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewUser.Name = "btnNewUser";
             this.btnNewUser.Size = new System.Drawing.Size(87, 23);
             this.btnNewUser.TabIndex = 4;
             this.btnNewUser.Text = "New User";
-            this.btnNewUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNewUser.UseVisualStyleBackColor = true;
+            this.btnNewUser.UseVisualStyleBackColor = false;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // dataGridView1

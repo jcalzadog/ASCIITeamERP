@@ -18,7 +18,7 @@ namespace ERP
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
-            
+            cargarComponentes();
 
             FormLogin login = new FormLogin();
             login.ShowDialog();
@@ -42,7 +42,7 @@ namespace ERP
 
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(Color.Black);
-                g.FillRectangle(Brushes.Blue, e.Bounds);
+                g.FillRectangle(Brushes.Red, e.Bounds);
             }
             else
             {
@@ -112,6 +112,27 @@ namespace ERP
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public void cargarComponentes()
+        {
+            //Usuarios
+            btnNewUser.FlatStyle = FlatStyle.Flat;
+            btnNewUser.FlatAppearance.BorderColor = Color.Black;
+            btnNewUser.FlatAppearance.BorderSize = 1;
+
+            btnRoles.FlatStyle = FlatStyle.Flat;
+            btnRoles.FlatAppearance.BorderColor = Color.Black;
+            btnRoles.FlatAppearance.BorderSize = 1;
+
+            btnDeleteUser.FlatStyle = FlatStyle.Flat;
+            btnDeleteUser.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteUser.FlatAppearance.BorderSize = 1;
+
+            btnLogs.FlatStyle = FlatStyle.Flat;
+            btnLogs.FlatAppearance.BorderColor = Color.Black;
+            btnLogs.FlatAppearance.BorderSize = 1;
 
         }
     }
