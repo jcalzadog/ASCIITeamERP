@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Presentacion.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -113,7 +114,8 @@ namespace ERP
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
-
+            NuevoUsuario newUser = new NuevoUsuario();
+            newUser.ShowDialog();
         }
 
         public void cargarComponentes()

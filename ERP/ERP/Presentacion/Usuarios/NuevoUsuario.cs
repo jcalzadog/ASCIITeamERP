@@ -16,5 +16,25 @@ namespace ERP.Presentacion.Usuarios
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveAnother_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
