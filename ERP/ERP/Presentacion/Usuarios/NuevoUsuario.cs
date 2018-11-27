@@ -12,10 +12,13 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class NuevoUsuario : Form
     {
+        ConnectOracle conector;
         public NuevoUsuario()
         {
+            conector = new ConnectOracle();
             InitializeComponent();
             cargarComponentes();
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -46,7 +49,6 @@ namespace ERP.Presentacion.Usuarios
 
         public void cargarComponentes()
         {
-            //Usuarios
             btnNewRole.FlatStyle = FlatStyle.Flat;
             btnNewRole.FlatAppearance.BorderColor = Color.Black;
             btnNewRole.FlatAppearance.BorderSize = 1;
@@ -66,6 +68,23 @@ namespace ERP.Presentacion.Usuarios
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
+
+            LinkedList<Object> listaPermits = new LinkedList<Object>();
+            listaPermits.AddFirst(conector.DLookUp("NAME", "PERMITS", "IDPERMIT=1"));
+            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=2"));
+            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=3"));
+            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=4"));
+            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=5"));
+            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=6"));
+
+            cmbRoles.Items.Clear();
+            int cont = 0;
+            while(cont< listaPermits.Count)
+            {
+                cmbRoles.Items.Add(listaPermits.ElementAt(cont));
+                cont++;
+            }
+            
         }
     }
 }

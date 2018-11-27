@@ -33,7 +33,7 @@
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblRole = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.btnNewRole = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -88,19 +88,19 @@
             this.lblRole.TabIndex = 4;
             this.lblRole.Text = "Role";
             // 
-            // comboBox1
+            // cmbRoles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(288, 156);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 24);
-            this.comboBox1.TabIndex = 5;
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Location = new System.Drawing.Point(288, 156);
+            this.cmbRoles.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(252, 24);
+            this.cmbRoles.TabIndex = 5;
             // 
             // btnNewRole
             // 
             this.btnNewRole.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnNewRole.Location = new System.Drawing.Point(443, 156);
+            this.btnNewRole.Location = new System.Drawing.Point(562, 154);
             this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewRole.Name = "btnNewRole";
             this.btnNewRole.Size = new System.Drawing.Size(100, 28);
@@ -168,7 +168,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNewRole);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUsername);
@@ -189,7 +189,7 @@
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnNewRole;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;

@@ -104,6 +104,7 @@
             this.dgvPermissions.RowTemplate.Height = 24;
             this.dgvPermissions.Size = new System.Drawing.Size(444, 216);
             this.dgvPermissions.TabIndex = 6;
+            this.dgvPermissions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermissions_CellContentClick);
             // 
             // lblPermissions
             // 

@@ -51,12 +51,13 @@ namespace ERP.Presentacion.Usuarios
             data = Search.getData("SELECT * FROM PERMITS ORDER BY IDPERMIT", "PERMITS");
 
             DataTable tPerm = data.Tables["PERMITS"];
+            DataGridViewCheckBoxColumn dgvColumnCheck = new DataGridViewCheckBoxColumn();
 
             //dgvCustomers.DataSource = tcustomers;
 
             dgvPermissions.Columns.Add("IDPERMIT", "ID");
             dgvPermissions.Columns.Add("NAME", "NAME");
-
+            dgvPermissions.Columns.Add(dgvColumnCheck);
 
             foreach (DataRow row in tPerm.Rows)
             {
@@ -65,6 +66,11 @@ namespace ERP.Presentacion.Usuarios
             //dgvUsers.ColumnHeadersVisible = false;
             dgvPermissions.RowHeadersVisible = false;
             dgvPermissions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
