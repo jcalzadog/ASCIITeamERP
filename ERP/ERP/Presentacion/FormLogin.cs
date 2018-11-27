@@ -51,20 +51,39 @@ namespace ERP
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            String user = tbxUser.Text;
-            //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
-            String pass = tbxPassword.Text;
-            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+        { 
+        //    String user = tbxUser.Text;
+        //    //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
+        //    String pass = tbxPassword.Text;
+        //    String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
-            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+        //    String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
-            if (!passDB.Equals("-1"))
+        //    if (!passDB.Equals("-1"))
+        //    {
+        //        //MessageBox.Show("Login Succesful");
+        //        //this.Dispose();
+        //        this.Hide();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("ERROR");
+        //    }
+        //----------------------------
+
+        String user = tbxUser.Text;
+        //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
+        String pass = tbxPassword.Text;
+        String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+
+        //String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+
+            if (user.Equals("Diego"))
             {
                 //MessageBox.Show("Login Succesful");
                 //this.Dispose();
                 this.Hide();
-            }
+           }
             else
             {
                 MessageBox.Show("ERROR");

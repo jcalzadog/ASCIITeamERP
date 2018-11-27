@@ -22,6 +22,8 @@ namespace ERP
 
             FormLogin login = new FormLogin();
             login.ShowDialog();
+
+            /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectTab(1);*/
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -39,8 +41,8 @@ namespace ERP
             {
 
                 // Draw a different background color, and don't paint a focus rectangle.
-                _textBrush = new SolidBrush(Color.Red);
-                g.FillRectangle(Brushes.Gray, e.Bounds);
+                _textBrush = new SolidBrush(Color.Black);
+                g.FillRectangle(Brushes.Blue, e.Bounds);
             }
             else
             {
@@ -104,6 +106,11 @@ namespace ERP
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewUser_Click(object sender, EventArgs e)
         {
 
         }
