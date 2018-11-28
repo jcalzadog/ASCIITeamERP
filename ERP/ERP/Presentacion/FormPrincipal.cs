@@ -157,27 +157,35 @@ namespace ERP
 
         public void cargarTablaUser()
         {
+            //PARA COLORES
+            //'Color para el fondo de la celda 
+            //Me.DataGridView1.Rows(0).Cells(0).Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF000F")
+
+            //'Color para el texto de la celda 
+            //Me.DataGridView1.Rows(0).Cells(0).Style.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006")
+
+
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
             //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
-            data = Search.getData("SELECT * FROM USERS ORDER BY IDUSER", "USERS");
+            data = Search.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
 
-            DataTable tusers = data.Tables["USERS"];
+            DataTable tusers = data.Tables["USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE"];
 
             //dgvCustomers.DataSource = tcustomers;
 
-            dgvUsers.Columns.Add("IDUSER", "ID");
             dgvUsers.Columns.Add("NAME", "NAME");
-            dgvUsers.Columns.Add("PASSWORD", "PASSWORD");
-            dgvUsers.Columns.Add("DELETED", "DELETED");
+            dgvUsers.Columns.Add("ROLE", "ROLE");
 
             foreach (DataRow row in tusers.Rows)
             {
-                dgvUsers.Rows.Add(row["IDUSER"], row["NAME"], row["PASSWORD"], row["DELETED"]);
+                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
             }
             //dgvUsers.ColumnHeadersVisible = false;
             dgvUsers.RowHeadersVisible = false;
+            dgvUsers.AllowUserToAddRows = false;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.BackgroundColor = Color.FromArgb(114, 47, 55);
         }
 
         public void cargarTablaCustomer()

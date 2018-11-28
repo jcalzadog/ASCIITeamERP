@@ -137,10 +137,10 @@
             this.btnDeleteUser.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteUser.Location = new System.Drawing.Point(241, 10);
+            this.btnDeleteUser.Location = new System.Drawing.Point(241, 9);
             this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(140, 28);
+            this.btnDeleteUser.Size = new System.Drawing.Size(140, 29);
             this.btnDeleteUser.TabIndex = 6;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
@@ -175,6 +175,7 @@
             // 
             // dgvUsers
             // 
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsers.Name = "dgvUsers";
