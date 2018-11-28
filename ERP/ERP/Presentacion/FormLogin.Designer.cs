@@ -41,6 +41,7 @@
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(384, 226);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
@@ -53,6 +54,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(492, 226);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
@@ -65,10 +67,11 @@
             // lblLanguage
             // 
             this.lblLanguage.AutoSize = true;
+            this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLanguage.Location = new System.Drawing.Point(32, 186);
             this.lblLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(72, 17);
+            this.lblLanguage.Size = new System.Drawing.Size(80, 17);
             this.lblLanguage.TabIndex = 2;
             this.lblLanguage.Text = "Language";
             // 
@@ -84,10 +87,11 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.Location = new System.Drawing.Point(199, 94);
             this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(38, 17);
+            this.lblUser.Size = new System.Drawing.Size(42, 17);
             this.lblUser.TabIndex = 4;
             this.lblUser.Text = "User";
             this.lblUser.Click += new System.EventHandler(this.label2_Click);
@@ -95,10 +99,11 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(167, 129);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(164, 129);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Password";
             this.lblPassword.Click += new System.EventHandler(this.label3_Click);

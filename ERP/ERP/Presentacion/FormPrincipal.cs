@@ -212,7 +212,8 @@ namespace ERP
         public void cargarComponentes()
         {
             //General
-            
+            tbxSearchUser.Text = "Search a Name...";
+            tbxSearchUser.ForeColor = Color.Gray;
 
             //Usuarios
             btnNewUser.FlatStyle = FlatStyle.Flat;
@@ -253,6 +254,24 @@ namespace ERP
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tbxSearchUser_Enter(object sender, EventArgs e)
+        {
+            if(tbxSearchUser.Text.Equals("Search a Name..."))
+            {
+                tbxSearchUser.Text = "";
+                tbxSearchUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxSearchUser_Leave(object sender, EventArgs e)
+        {
+            if (tbxSearchUser.Text.Equals(""))
+            {
+                tbxSearchUser.ForeColor = Color.Gray;
+                tbxSearchUser.Text = "Search a Name...";
+            }
         }
     }
 }

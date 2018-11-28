@@ -31,13 +31,14 @@
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxSearchUser = new System.Windows.Forms.TextBox();
             this.btnLogs = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnRoles = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -48,15 +49,14 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnExit = new System.Windows.Forms.Button();
-            this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).BeginInit();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -95,7 +95,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.tbxSearchUser);
             this.tabPage2.Controls.Add(this.btnLogs);
             this.tabPage2.Controls.Add(this.btnDeleteUser);
             this.tabPage2.Controls.Add(this.btnRoles);
@@ -110,17 +110,20 @@
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
-            // textBox1
+            // tbxSearchUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(496, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 22);
-            this.textBox1.TabIndex = 8;
+            this.tbxSearchUser.Location = new System.Drawing.Point(496, 13);
+            this.tbxSearchUser.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxSearchUser.Name = "tbxSearchUser";
+            this.tbxSearchUser.Size = new System.Drawing.Size(249, 22);
+            this.tbxSearchUser.TabIndex = 8;
+            this.tbxSearchUser.Enter += new System.EventHandler(this.tbxSearchUser_Enter);
+            this.tbxSearchUser.Leave += new System.EventHandler(this.tbxSearchUser_Leave);
             // 
             // btnLogs
             // 
             this.btnLogs.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.Location = new System.Drawing.Point(387, 9);
             this.btnLogs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogs.Name = "btnLogs";
@@ -132,6 +135,7 @@
             // btnDeleteUser
             // 
             this.btnDeleteUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteUser.Location = new System.Drawing.Point(241, 10);
             this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -145,6 +149,7 @@
             // btnRoles
             // 
             this.btnRoles.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRoles.Location = new System.Drawing.Point(148, 9);
             this.btnRoles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -158,7 +163,7 @@
             // btnNewUser
             // 
             this.btnNewUser.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewUser.Location = new System.Drawing.Point(27, 9);
             this.btnNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewUser.Name = "btnNewUser";
@@ -187,6 +192,15 @@
             this.tabPage3.Size = new System.Drawing.Size(897, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
+            // 
+            // dgvCustomers
+            // 
+            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.Location = new System.Drawing.Point(8, 43);
+            this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.RowTemplate.Height = 24;
+            this.dgvCustomers.Size = new System.Drawing.Size(803, 400);
+            this.dgvCustomers.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -302,15 +316,6 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // dgvCustomers
-            // 
-            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Location = new System.Drawing.Point(8, 43);
-            this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.RowTemplate.Height = 24;
-            this.dgvCustomers.Size = new System.Drawing.Size(803, 400);
-            this.dgvCustomers.TabIndex = 0;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,10 +333,10 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).EndInit();
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,7 +357,7 @@
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnRoles;
         private System.Windows.Forms.Button btnNewUser;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxSearchUser;
         private System.Windows.Forms.DataGridView dgvCategorie;
         private System.Windows.Forms.Button btnDeleteCategorie;
         private System.Windows.Forms.Button btnUpdateCategorie;
