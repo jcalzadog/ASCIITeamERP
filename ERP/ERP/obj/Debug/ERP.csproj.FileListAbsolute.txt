@@ -53,3 +53,4 @@ C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.
 C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoUsuario.resources
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoRol.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources

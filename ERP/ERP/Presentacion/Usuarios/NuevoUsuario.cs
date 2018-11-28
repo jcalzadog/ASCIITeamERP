@@ -53,6 +53,10 @@ namespace ERP.Presentacion.Usuarios
             btnNewRole.FlatAppearance.BorderColor = Color.Black;
             btnNewRole.FlatAppearance.BorderSize = 1;
 
+            btnEditRole.FlatStyle = FlatStyle.Flat;
+            btnEditRole.FlatAppearance.BorderColor = Color.Black;
+            btnEditRole.FlatAppearance.BorderSize = 1;
+
             btnSaveClose.FlatStyle = FlatStyle.Flat;
             btnSaveClose.FlatAppearance.BorderColor = Color.Black;
             btnSaveClose.FlatAppearance.BorderSize = 1;
@@ -85,6 +89,12 @@ namespace ERP.Presentacion.Usuarios
                 cont++;
             }
             
+        }
+
+        private void btnEditRole_Click(object sender, EventArgs e)
+        {
+            EditarRol editRol = new EditarRol();
+            editRol.ShowDialog();
         }
     }
 }

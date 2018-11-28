@@ -151,8 +151,8 @@ namespace ERP
 
         private void btnRoles_Click(object sender, EventArgs e)
         {
-            NuevoRol newRol = new NuevoRol();
-            newRol.ShowDialog();
+            EditarRol editRol = new EditarRol();
+            editRol.ShowDialog();
         }
 
         public void cargarTablaUser()

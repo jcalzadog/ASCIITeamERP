@@ -39,25 +39,28 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnSaveClose = new System.Windows.Forms.Button();
+            this.btnEditRole = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(207, 69);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 17);
+            this.lblUsername.Size = new System.Drawing.Size(81, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(207, 111);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
@@ -81,10 +84,11 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.Location = new System.Drawing.Point(239, 160);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(37, 17);
+            this.lblRole.Size = new System.Drawing.Size(41, 17);
             this.lblRole.TabIndex = 4;
             this.lblRole.Text = "Role";
             // 
@@ -100,7 +104,8 @@
             // btnNewRole
             // 
             this.btnNewRole.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnNewRole.Location = new System.Drawing.Point(562, 154);
+            this.btnNewRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewRole.Location = new System.Drawing.Point(676, 154);
             this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewRole.Name = "btnNewRole";
             this.btnNewRole.Size = new System.Drawing.Size(100, 28);
@@ -112,7 +117,8 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCancel.Location = new System.Drawing.Point(649, 230);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(734, 230);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
@@ -124,7 +130,8 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSave.Location = new System.Drawing.Point(541, 230);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(626, 230);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 28);
@@ -136,7 +143,8 @@
             // btnSaveAnother
             // 
             this.btnSaveAnother.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSaveAnother.Location = new System.Drawing.Point(372, 230);
+            this.btnSaveAnother.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAnother.Location = new System.Drawing.Point(457, 230);
             this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveAnother.Name = "btnSaveAnother";
             this.btnSaveAnother.Size = new System.Drawing.Size(161, 28);
@@ -148,7 +156,8 @@
             // btnSaveClose
             // 
             this.btnSaveClose.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSaveClose.Location = new System.Drawing.Point(200, 230);
+            this.btnSaveClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveClose.Location = new System.Drawing.Point(285, 230);
             this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveClose.Name = "btnSaveClose";
             this.btnSaveClose.Size = new System.Drawing.Size(164, 28);
@@ -157,12 +166,25 @@
             this.btnSaveClose.UseVisualStyleBackColor = false;
             this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
             // 
+            // btnEditRole
+            // 
+            this.btnEditRole.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditRole.Location = new System.Drawing.Point(557, 154);
+            this.btnEditRole.Name = "btnEditRole";
+            this.btnEditRole.Size = new System.Drawing.Size(99, 28);
+            this.btnEditRole.TabIndex = 11;
+            this.btnEditRole.Text = "Edit Role";
+            this.btnEditRole.UseVisualStyleBackColor = false;
+            this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
+            // 
             // NuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(761, 271);
+            this.ClientSize = new System.Drawing.Size(847, 271);
+            this.Controls.Add(this.btnEditRole);
             this.Controls.Add(this.btnSaveClose);
             this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.btnSave);
@@ -195,5 +217,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSaveAnother;
         private System.Windows.Forms.Button btnSaveClose;
+        private System.Windows.Forms.Button btnEditRole;
     }
 }

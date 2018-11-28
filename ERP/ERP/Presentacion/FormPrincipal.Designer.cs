@@ -83,7 +83,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightGreen;
+            this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
