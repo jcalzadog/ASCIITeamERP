@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ERP
 {
@@ -95,6 +96,7 @@ namespace ERP
             }
             catch (Exception a)
             {
+                //MessageBox.Show(a.ToString());
                 resultado = -1;
             }
             objConexion.Close();

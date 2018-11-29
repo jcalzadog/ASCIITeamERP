@@ -13,7 +13,6 @@ namespace ERP
 {
     public partial class FormLogin : Form
     {
-        ConnectOracle conector;
         GestorUsuario gestorU;
         TabControl tbMenuP;
 
@@ -25,30 +24,9 @@ namespace ERP
 
             InitializeComponent();
             cargarComponentes();
-            conector = new ConnectOracle();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -63,9 +41,8 @@ namespace ERP
             String user = tbxUser.Text;
             //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
             String pass = tbxPassword.Text;
-            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
-            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+            String passDB = gestorU.loguearse(user, pass);
 
             if (!passDB.Equals("-1"))
             {

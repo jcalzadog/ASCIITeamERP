@@ -61,8 +61,11 @@ namespace ERP.Dominio.Gestores
         public void comprobarPermisos(String name,String password,TabControl tbcMenuPrincipal)
         {
             //SELECT R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE U.NAME='root' AND U.PASSWORD='admin1234';
-            Object rol = conector.DLookUp("R.NAME", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "U.NAME='" + name + "' AND U.PASSWORD='" + password + "'");
-            String role = Convert.ToString(rol);
+            //   Object rol = conector.DLookUp("R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "U.NAME='root' AND U.PASSWORD='admin1234'");
+            //------------devuelve -1 en vez del id. EHCHO TODO EN UNO ABAJO EN VEZ DE POR PARTES.
+            
+            //MessageBox.Show(rol.ToString());
+
             Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", "");
 
             //taboage de 1 a 6
@@ -70,8 +73,9 @@ namespace ERP.Dominio.Gestores
             for (int i = 0;i< numPermisos; i++)
             {
                 //si existe el id role con nombre de ese usuario con el permiso, le permite usarlo.
-                //problema en el rol
-                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND R.NAME='" + role + "'");
+                //problema en el rol DE ARRIBA ASIQUE TODO EN 1.
+                //tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND R.IDROLE=" + rol);
+                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.NAME = '"+ name+"' AND U.PASSWORD = '"+password+"'");
                 if (tienePermiso == 0)
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
@@ -90,6 +94,15 @@ namespace ERP.Dominio.Gestores
             //{
             //    tienePermiso = (Decimal)conexion.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
             //}
+        }
+
+        public String loguearse(String user,String pass)
+        {
+            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+
+            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+
+            return passDB;
         }
     }
 }

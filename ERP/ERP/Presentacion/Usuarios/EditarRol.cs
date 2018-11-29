@@ -13,13 +13,11 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class EditarRol : Form
     {
-        ConnectOracle conector;
         private GestorRol gestorR;
 
         public EditarRol()
         {
             gestorR = new GestorRol();
-            conector = new ConnectOracle();
             InitializeComponent();
             cargarComponentes();
 
@@ -32,21 +30,6 @@ namespace ERP.Presentacion.Usuarios
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRole_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPermissions_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EditarRol_Load(object sender, EventArgs e)
         {
 
         }

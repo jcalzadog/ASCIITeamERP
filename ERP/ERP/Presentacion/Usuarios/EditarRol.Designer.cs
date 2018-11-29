@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPermissions = new System.Windows.Forms.Label();
             this.dgvPermissions = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
@@ -50,18 +50,17 @@
             this.lblPermissions.Size = new System.Drawing.Size(95, 17);
             this.lblPermissions.TabIndex = 15;
             this.lblPermissions.Text = "Permissions";
-            this.lblPermissions.Click += new System.EventHandler(this.lblPermissions_Click);
             // 
             // dgvPermissions
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermissions.Location = new System.Drawing.Point(76, 132);
             this.dgvPermissions.Name = "dgvPermissions";
@@ -132,7 +131,6 @@
             this.lblRole.Size = new System.Drawing.Size(41, 17);
             this.lblRole.TabIndex = 8;
             this.lblRole.Text = "Role";
-            this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
             // 
             // cmbRoles
             // 
@@ -181,7 +179,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Rol";
-            this.Load += new System.EventHandler(this.EditarRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
