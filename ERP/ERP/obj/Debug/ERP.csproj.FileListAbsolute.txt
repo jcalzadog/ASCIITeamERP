@@ -1,4 +1,3 @@
-D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
@@ -9,15 +8,6 @@ D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.ex
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
-D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
-D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
-D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
@@ -56,3 +46,4 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoRol.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarExit.resources

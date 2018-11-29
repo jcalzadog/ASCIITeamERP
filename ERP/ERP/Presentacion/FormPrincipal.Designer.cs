@@ -54,8 +54,8 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -96,7 +96,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(646, 392);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
@@ -112,7 +112,7 @@
             this.tabPage2.Controls.Add(this.dgvUsers);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(646, 392);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
@@ -132,7 +132,7 @@
             this.btnLogs.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.Location = new System.Drawing.Point(290, 7);
-            this.btnLogs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogs.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Size = new System.Drawing.Size(56, 24);
             this.btnLogs.TabIndex = 7;
@@ -147,7 +147,7 @@
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteUser.Location = new System.Drawing.Point(181, 7);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(105, 24);
             this.btnDeleteUser.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRoles.Location = new System.Drawing.Point(111, 7);
-            this.btnRoles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRoles.Margin = new System.Windows.Forms.Padding(2);
             this.btnRoles.Name = "btnRoles";
             this.btnRoles.Size = new System.Drawing.Size(65, 23);
             this.btnRoles.TabIndex = 5;
@@ -178,7 +178,7 @@
             this.btnNewUser.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewUser.Location = new System.Drawing.Point(20, 7);
-            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewUser.Name = "btnNewUser";
             this.btnNewUser.Size = new System.Drawing.Size(87, 23);
             this.btnNewUser.TabIndex = 4;
@@ -221,7 +221,7 @@
             this.tabPage3.Controls.Add(this.dgvCustomers);
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(646, 392);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
@@ -229,7 +229,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(6, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 1;
@@ -240,7 +240,7 @@
             // 
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(6, 35);
-            this.dgvCustomers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCustomers.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.RowTemplate.Height = 24;
             this.dgvCustomers.Size = new System.Drawing.Size(602, 325);
@@ -252,7 +252,7 @@
             this.tabPage4.Controls.Add(this.button2);
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(646, 392);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
@@ -260,7 +260,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(5, 20);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 19);
             this.button2.TabIndex = 2;
@@ -273,7 +273,7 @@
             this.tabPage5.Controls.Add(this.button3);
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(646, 392);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
@@ -281,7 +281,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(45, 32);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(56, 19);
             this.button3.TabIndex = 2;
@@ -297,7 +297,7 @@
             this.tabPage6.Controls.Add(this.btnNewCategorie);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(646, 392);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
@@ -346,7 +346,7 @@
             this.tabPage7.Controls.Add(this.button4);
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(646, 392);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
@@ -354,7 +354,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(27, 22);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(56, 19);
             this.button4.TabIndex = 2;
@@ -368,25 +368,10 @@
             this.tabPage8.Controls.Add(this.btnExit);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(646, 392);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(24, 80);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(211, 23);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
-            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // btnLogOut
             // 
@@ -397,8 +382,24 @@
             this.btnLogOut.TabIndex = 1;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
             this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(24, 80);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(211, 23);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // FormPrincipal
             // 
