@@ -20,6 +20,7 @@ namespace ERP
 
         public FormPrincipal()
         {
+
             gestorU = new GestorUsuario();
 
             InitializeComponent();
@@ -33,10 +34,12 @@ namespace ERP
             gestorU.cargarTablaUser(dgvUsers);
             //cargarTablaCustomer();
 
-            FormLogin login = new FormLogin();
+            FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
 
-            /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectTab(1);*/
+            /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
+
+            // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
         }
 
         /**

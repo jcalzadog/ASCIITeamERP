@@ -22,7 +22,8 @@ namespace ERP.Presentacion.Usuarios
             conector = new ConnectOracle();
             InitializeComponent();
             cargarComponentes();
-            gestorR.cargarTablaPermisos(dgvPermissions);
+
+            gestorR.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
 
         private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -115,6 +116,7 @@ namespace ERP.Presentacion.Usuarios
 
         public void cargarComponentes()
         {
+
             btnAllow.BackColor = Color.FromArgb(114, 47, 55);
             btnAllow.ForeColor = Color.White;
             btnAllow.FlatStyle = FlatStyle.Flat;
@@ -145,22 +147,8 @@ namespace ERP.Presentacion.Usuarios
             btnSave.FlatAppearance.BorderColor = Color.Black;
             btnSave.FlatAppearance.BorderSize = 1;
 
-            LinkedList<Object> listaPermits = new LinkedList<Object>();
-            listaPermits.AddFirst(conector.DLookUp("NAME", "PERMITS", "IDPERMIT=1"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=2"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=3"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=4"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=5"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=6"));
-
-            cmbRoles.Items.Clear();
-            int cont = 0;
-            while (cont < listaPermits.Count)
-            {
-                cmbRoles.Items.Add(listaPermits.ElementAt(cont));
-                cont++;
-            }
-
+            gestorR.refrescarRoles(cmbRoles);
+            cmbRoles.SelectedIndex = 0;
         }
         private void btnAllow_MouseEnter(object sender, EventArgs e)
         {
@@ -225,6 +213,11 @@ namespace ERP.Presentacion.Usuarios
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //gestorR.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
     }
 }

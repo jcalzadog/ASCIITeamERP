@@ -11,9 +11,11 @@ namespace ERP.Dominio.Gestores
 {
     class GestorUsuario
     {
+        ConnectOracle conector;
+
         public GestorUsuario()
         {
-
+            conector = new ConnectOracle();
         }
 
         public void cargarTablaUser(DataGridView dgvUsers)
@@ -27,9 +29,9 @@ namespace ERP.Dominio.Gestores
 
 
             DataSet data = new DataSet();
-            ConnectOracle Search = new ConnectOracle();
+  
             //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
-            data = Search.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
+            data = conector.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
 
             DataTable tusers = data.Tables["USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE"];
 
@@ -56,5 +58,38 @@ namespace ERP.Dominio.Gestores
             dgvUsers.ReadOnly = true;
         }
 
+        public void comprobarPermisos(String name,String password,TabControl tbcMenuPrincipal)
+        {
+            //SELECT R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE U.NAME='root' AND U.PASSWORD='admin1234';
+            Object rol = conector.DLookUp("R.NAME", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "U.NAME='" + name + "' AND U.PASSWORD='" + password + "'");
+            String role = Convert.ToString(rol);
+            Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", "");
+
+            //taboage de 1 a 6
+            Decimal tienePermiso = 0;
+            for (int i = 0;i< numPermisos; i++)
+            {
+                //si existe el id role con nombre de ese usuario con el permiso, le permite usarlo.
+                //problema en el rol
+                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND R.NAME='" + role + "'");
+                if (tienePermiso == 0)
+                {
+                    TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
+                    ((Control)tp).Enabled = false;
+                } else
+                {
+                    TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
+                    ((Control)tp).Enabled = true;
+                }
+            }
+
+
+
+            //Decimal tienePermiso = 0;
+            //if (!Role.Equals(""))
+            //{
+            //    tienePermiso = (Decimal)conexion.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
+            //}
+        }
     }
 }

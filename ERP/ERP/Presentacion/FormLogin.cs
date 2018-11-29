@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,15 @@ namespace ERP
     public partial class FormLogin : Form
     {
         ConnectOracle conector;
+        GestorUsuario gestorU;
+        TabControl tbMenuP;
 
-        public FormLogin()
+
+        public FormLogin(TabControl tbcMenu)
         {
+            gestorU = new GestorUsuario();
+            this.tbMenuP = tbcMenu;
+
             InitializeComponent();
             cargarComponentes();
             conector = new ConnectOracle();
@@ -52,43 +59,44 @@ namespace ERP
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
-        { 
-        //    String user = tbxUser.Text;
-        //    //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
-        //    String pass = tbxPassword.Text;
-        //    String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+        {
+            String user = tbxUser.Text;
+            //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
+            String pass = tbxPassword.Text;
+            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
-        //    String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
-        //    if (!passDB.Equals("-1"))
-        //    {
-        //        //MessageBox.Show("Login Succesful");
-        //        //this.Dispose();
-        //        this.Hide();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("ERROR");
-        //    }
-        //----------------------------
-
-        String user = tbxUser.Text;
-        //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
-        String pass = tbxPassword.Text;
-        String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
-
-        //String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
-
-            if (user.Equals("Diego"))
+            if (!passDB.Equals("-1"))
             {
                 //MessageBox.Show("Login Succesful");
                 //this.Dispose();
+                gestorU.comprobarPermisos(user, pass, this.tbMenuP);
                 this.Hide();
-           }
+            }
             else
             {
                 MessageBox.Show("ERROR");
             }
+            //----------------------------
+
+            //    String user = tbxUser.Text;
+            ////String pass = Encryptor.MD5Hash(tbxContraseña.Text);
+            //String pass = tbxPassword.Text;
+            //String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+
+            ////String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+
+            //    if (user.Equals("Diego"))
+            //    {
+            //        //MessageBox.Show("Login Succesful");
+            //        //this.Dispose();
+            //        this.Hide();
+            //   }
+            //    else
+            //    {
+            //        MessageBox.Show("ERROR");
+            //    }
         }
 
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)

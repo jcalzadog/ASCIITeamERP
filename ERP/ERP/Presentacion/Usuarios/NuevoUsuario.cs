@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class NuevoUsuario : Form
     {
-        ConnectOracle conector;
+
+        GestorRol gestorR;
+
         public NuevoUsuario()
         {
-            conector = new ConnectOracle();
+            
+            gestorR = new GestorRol();
             InitializeComponent();
             cargarComponentes();
 
@@ -80,22 +84,7 @@ namespace ERP.Presentacion.Usuarios
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
-            LinkedList<Object> listaPermits = new LinkedList<Object>();
-            listaPermits.AddFirst(conector.DLookUp("NAME", "PERMITS", "IDPERMIT=1"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=2"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=3"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=4"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=5"));
-            listaPermits.AddLast(conector.DLookUp("NAME", "PERMITS", " IDPERMIT=6"));
-
-            cmbRoles.Items.Clear();
-            int cont = 0;
-            while(cont< listaPermits.Count)
-            {
-                cmbRoles.Items.Add(listaPermits.ElementAt(cont));
-                cont++;
-            }
-            
+            gestorR.refrescarRoles(cmbRoles);
         }
 
         private void btnEditRole_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace ERP.Presentacion.Usuarios
             gestorR = new GestorRol();
             InitializeComponent();
             cargarComponentes();
-            gestorR.cargarTablaPermisos(dgvPermissions);
+            gestorR.cargarTablaPermisos(dgvPermissions,"");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
