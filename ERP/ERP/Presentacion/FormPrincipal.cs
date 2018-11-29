@@ -197,8 +197,11 @@ namespace ERP
         public void cargarComponentes()
         {
             //General
-            tbxSearchUser.Text = "Search a Name...";
             tbxSearchUser.ForeColor = Color.Gray;
+            tbxSearchUser.Text = "Search a Name...";
+
+            tbxSearchUser.ForeColor = Color.Gray;
+            tbxSearchCustomer.Text = "Search a Name...";
 
             //Usuarios
             btnNewUser.BackColor = Color.FromArgb(114, 47, 55);
@@ -361,6 +364,24 @@ namespace ERP
             ConfirmarLogOut confirmLogOut = new ConfirmarLogOut(tbcMenuPrincipal);
             confirmLogOut.ShowDialog();
 
+        }
+
+        private void tbxSearchCustomer_Enter(object sender, EventArgs e)
+        {
+            if (tbxSearchCustomer.Text.Equals("Search a Name..."))
+            {
+                tbxSearchCustomer.Text = "";
+                tbxSearchCustomer.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxSearchCustomer_Leave(object sender, EventArgs e)
+        {
+            if (tbxSearchCustomer.Text.Equals(""))
+            {
+                tbxSearchCustomer.ForeColor = Color.Gray;
+                tbxSearchCustomer.Text = "Search a Name...";
+            }
         }
     }
 }
