@@ -17,12 +17,14 @@ namespace ERP
 {
     public partial class FormPrincipal : Form
     {
-        private GestorUsuario gestorU;
+        private GestorUsuario gestorUser;
+        private GestorCliente gestorCliente;
 
         public FormPrincipal()
         {
 
-            gestorU = new GestorUsuario();
+            gestorUser = new GestorUsuario();
+            gestorCliente = new GestorCliente();
 
             InitializeComponent();
 
@@ -32,8 +34,8 @@ namespace ERP
 
             cargarComponentes();
 
-            gestorU.cargarTablaUser(dgvUsers);
-            //cargarTablaCustomer();
+            gestorUser.cargarTablaUser(dgvUsers);
+            gestorCliente.cargarTablaCustomer(dgvCustomers);
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -135,7 +137,7 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            gestorU.refrescarTablaUser(dgvUsers);
+            gestorUser.refrescarTablaUser(dgvUsers);
 
         }
 
@@ -163,7 +165,7 @@ namespace ERP
         }
 
 
-        public void cargarTablaCustomer()
+        /*public void cargarTablaCustomer()
         {
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
@@ -190,7 +192,7 @@ namespace ERP
             //dgvUsers.ColumnHeadersVisible = false;
             dgvCustomers.RowHeadersVisible = false;
             dgvCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
+        }*/
 
         public void cargarComponentes()
         {
@@ -223,6 +225,22 @@ namespace ERP
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
 
+            //Productos
+            txtBuscarProd.Text = "Buscar";
+            txtBuscarProd.ForeColor = Color.Gray;
+
+            btnNewProd.FlatStyle = FlatStyle.Flat;
+            btnNewProd.FlatAppearance.BorderColor = Color.Black;
+            btnNewProd.FlatAppearance.BorderSize = 1;
+
+            btnEditProd.FlatStyle = FlatStyle.Flat;
+            btnEditProd.FlatAppearance.BorderColor = Color.Black;
+            btnEditProd.FlatAppearance.BorderSize = 1;
+
+            btnDeleteProd.FlatStyle = FlatStyle.Flat;
+            btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteProd.FlatAppearance.BorderSize = 1;
+            
             //Categorias
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
             btnNewCategorie.FlatAppearance.BorderColor = Color.Black;
@@ -356,10 +374,14 @@ namespace ERP
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            FormLogin login = new FormLogin(tbcMenuPrincipal);
-            this.Hide();
-            login.ShowDialog();
-            this.Visible = true;
+            ConfirmarLogOut confirmLogOut = new ConfirmarLogOut(tbcMenuPrincipal);
+            confirmLogOut.ShowDialog();
+
+        }
+
+        private void txtBuscarProd_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
