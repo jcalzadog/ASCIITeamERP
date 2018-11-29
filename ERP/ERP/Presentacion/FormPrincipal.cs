@@ -1,4 +1,5 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
 using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
 using System;
@@ -17,14 +18,14 @@ namespace ERP
 {
     public partial class FormPrincipal : Form
     {
-        private GestorUsuario gestorUser;
-        private GestorCliente gestorCliente;
+        //private GestorUsuario gestorUser;
+        //private GestorCliente gestorCliente;
 
         public FormPrincipal()
         {
 
-            gestorUser = new GestorUsuario();
-            gestorCliente = new GestorCliente();
+            //gestorUser = new GestorUsuario();
+            //gestorCliente = new GestorCliente();
 
             InitializeComponent();
 
@@ -33,9 +34,10 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
 
             cargarComponentes();
+            cargarTablaUsuarios("");
 
-            gestorUser.cargarTablaUser(dgvUsers);
-            gestorCliente.cargarTablaCustomer(dgvCustomers);
+            //gestorUser.cargarTablaUser(dgvUsers);
+            //gestorCliente.cargarTablaCustomer(dgvCustomers);
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -92,7 +94,7 @@ namespace ERP
         //    ((Control)tabPage6).Enabled = true;
         //    ((Control)tabPage7).Enabled = true;
         //    ((Control)tabPage8).Enabled = true;
-            
+
         //}
 
         //private void button1_Click(object sender, EventArgs e)
@@ -107,7 +109,70 @@ namespace ERP
         //    ((Control)tabPage8).Enabled = false;
         //}
 
-  
+
+        private void cargarTablaUsuarios(String condicion)
+        {
+            dgvUsers.Columns.Clear();
+
+            User usuario = new User();
+            usuario.gestorusuario.leerUsuarios(condicion);
+
+
+            DataTable tusers = usuario.gestorusuario.tabla;
+            dgvUsers.Columns.Clear();
+
+            dgvUsers.Columns.Add("NAME", "NAME");
+            dgvUsers.Columns.Add("ROLE", "ROLE");
+
+            foreach (DataRow row in tusers.Rows)
+            {
+                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvUsers.RowHeadersVisible = false;
+            dgvUsers.AllowUserToAddRows = false;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.BackgroundColor = Color.FromArgb(114, 47, 55);
+
+            ////Colores de Header (no va nose porque)
+            //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
+            //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            //No editable
+            dgvUsers.ReadOnly = true;
+
+        }
+
+        public void filtrarTablaUsuario()
+        {
+            String condicion="";
+            int añadida = 0;
+
+            if (tbxSearchUser.Text!=null && !tbxSearchUser.Text.Equals("Search a name..."))
+            {
+                condicion += " U.NAME like '%" + tbxSearchUser.Text + "%' ";
+                añadida = 1;
+            }
+            //if (cbxUserDeleted.CheckState == CheckState.Checked)
+            //{
+            //    if (añadida == 1)
+            //    {
+            //        condicion += " AND ";
+            //    }
+            //    condicion += "U.DELETED = 1";
+            //    añadida = 1;
+            //} else //if (cbxUserDeleted.CheckState != CheckState.Checked)
+            //{
+            //    if (añadida == 1)
+            //    {
+            //        condicion += " AND ";
+            //    }
+            //    condicion += "U.DELETED = 0";
+            //    añadida = 1;
+            //}
+
+            cargarTablaUsuarios(condicion);
+        }
 
         private void FormPrincipal_SizeChanged(object sender, EventArgs e)
         {
@@ -137,7 +202,7 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            gestorUser.refrescarTablaUser(dgvUsers);
+            //gestorUser.refrescarTablaUser(dgvUsers);
 
         }
 
@@ -229,20 +294,20 @@ namespace ERP
             btnLogs.FlatAppearance.BorderSize = 1;
 
             //Productos
-            txtBuscarProd.Text = "Buscar";
-            txtBuscarProd.ForeColor = Color.Gray;
+            //txtBuscarProd.Text = "Buscar";
+            //txtBuscarProd.ForeColor = Color.Gray;
 
-            btnNewProd.FlatStyle = FlatStyle.Flat;
-            btnNewProd.FlatAppearance.BorderColor = Color.Black;
-            btnNewProd.FlatAppearance.BorderSize = 1;
+            //btnNewProd.FlatStyle = FlatStyle.Flat;
+            //btnNewProd.FlatAppearance.BorderColor = Color.Black;
+            //btnNewProd.FlatAppearance.BorderSize = 1;
 
-            btnEditProd.FlatStyle = FlatStyle.Flat;
-            btnEditProd.FlatAppearance.BorderColor = Color.Black;
-            btnEditProd.FlatAppearance.BorderSize = 1;
+            //btnEditProd.FlatStyle = FlatStyle.Flat;
+            //btnEditProd.FlatAppearance.BorderColor = Color.Black;
+            //btnEditProd.FlatAppearance.BorderSize = 1;
 
-            btnDeleteProd.FlatStyle = FlatStyle.Flat;
-            btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
-            btnDeleteProd.FlatAppearance.BorderSize = 1;
+            //btnDeleteProd.FlatStyle = FlatStyle.Flat;
+            //btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
+            //btnDeleteProd.FlatAppearance.BorderSize = 1;
             
             //Categorias
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
@@ -382,7 +447,7 @@ namespace ERP
 
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         private void tbxSearchCustomer_Enter(object sender, EventArgs e)
         {
             if (tbxSearchCustomer.Text.Equals("Search a Name..."))
@@ -399,11 +464,17 @@ namespace ERP
                 tbxSearchCustomer.ForeColor = Color.Gray;
                 tbxSearchCustomer.Text = "Search a Name...";
             }
-=======
+        }
+//=======
         private void txtBuscarProd_TextChanged(object sender, EventArgs e)
         {
 
->>>>>>> a3a8c49b150b7208ae5c3ba9ebe7b0b90e5daec2
+//>>>>>>> a3a8c49b150b7208ae5c3ba9ebe7b0b90e5daec2
+        }
+
+        private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtrarTablaUsuario();
         }
     }
 }

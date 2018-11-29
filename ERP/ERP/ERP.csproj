@@ -54,6 +54,7 @@
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
     <Compile Include="Dominio\Gestores\GestorRol.cs" />
     <Compile Include="Dominio\Gestores\GestorUsuario.cs" />
+    <Compile Include="Dominio\Role.cs" />
     <Compile Include="Dominio\User.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
     <Compile Include="Presentacion\FormLogin.cs">

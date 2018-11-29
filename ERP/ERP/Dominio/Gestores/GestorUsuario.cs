@@ -11,14 +11,31 @@ namespace ERP.Dominio.Gestores
 {
     class GestorUsuario
     {
+        public DataTable tabla { get; set; }
         ConnectOracle conector;
 
         public GestorUsuario()
         {
             conector = new ConnectOracle();
+            tabla = new DataTable();
         }
 
-        public void cargarTablaUser(DataGridView dgvUsers)
+        public void leerUsuarios(String condicion)
+        {
+            DataSet data = new DataSet();
+
+            if (condicion.Equals(""))
+            {
+                data = conector.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
+            }
+            else
+            {
+                data = conector.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE " + condicion, "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
+            }
+            tabla = data.Tables["USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE"];
+        }
+
+        /*public void cargarTablaUser(DataGridView dgvUsers)
         {
             //PARA COLORES
             //'Color para el fondo de la celda 
@@ -91,7 +108,7 @@ namespace ERP.Dominio.Gestores
 
             //No editable
             dgvUsers.ReadOnly = true;
-        }
+        }*/
 
         public void comprobarPermisos(String name,String password,TabControl tbcMenuPrincipal)
         {
