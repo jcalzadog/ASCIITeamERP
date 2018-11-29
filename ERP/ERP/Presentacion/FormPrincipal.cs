@@ -358,14 +358,9 @@ namespace ERP
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            FormLogin login = new FormLogin(tbcMenuPrincipal);
-            this.Hide();
-            login.ShowDialog();
-            if (!login.IsDisposed)
-            {
-                this.Visible = true;
-            }
-            
+            ConfirmarLogOut confirmLogOut = new ConfirmarLogOut(tbcMenuPrincipal);
+            confirmLogOut.ShowDialog();
+
         }
     }
 }
