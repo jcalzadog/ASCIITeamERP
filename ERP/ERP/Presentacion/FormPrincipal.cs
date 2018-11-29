@@ -361,7 +361,11 @@ namespace ERP
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             this.Hide();
             login.ShowDialog();
-            this.Visible = true;
+            if (!login.IsDisposed)
+            {
+                this.Visible = true;
+            }
+            
         }
     }
 }
