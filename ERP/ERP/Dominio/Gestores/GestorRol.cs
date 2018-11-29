@@ -25,7 +25,8 @@ namespace ERP.Dominio.Gestores
             Decimal numRoles = (Decimal)conector.DLookUp("MAX(IDROLE)", "ROLES", "");
             //int numRoles = int.Parse(numR);
 
-            for(int i = 1; i <= numRoles; i++)
+            listaPermits = new LinkedList<Object>();
+            for (int i = 1; i <= numRoles; i++)
             {
                 listaPermits.AddLast(conector.DLookUp("NAME", "ROLES", " IDROLE="+i));
             }
@@ -46,7 +47,7 @@ namespace ERP.Dominio.Gestores
             //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
             //data = Search.getData("SELECT * FROM PERMITS ORDER BY IDPERMIT", "PERMITS
             //data = Search.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
-            data = Search.getData("SELECT NAME FROM PERMITS", "PERMITS");
+            data = Search.getData("SELECT NAME FROM PERMITS ORDER BY IDPERMIT", "PERMITS");
 
             //USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE
             DataTable tPerm = data.Tables["PERMITS"];
@@ -118,5 +119,95 @@ namespace ERP.Dominio.Gestores
                 columnaCheck++;
             }
         }
+
+        public Boolean nuevoRol(DataGridView dgvPermissions, String nombreRol)
+        {
+            Boolean creado = false;
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='"+nombreRol.ToUpper()+"'");
+
+            if (existe == 0)
+            {
+                Decimal idRol = (Decimal)conector.DLookUp("MAX(IDROLE)", "ROLES", "");
+                Decimal idRol_Permits = (Decimal)conector.DLookUp("MAX(IDROLPERM)", "ROL_PERM", "");
+                idRol_Permits += 1;
+                idRol += 1;
+
+                String sentencia1 = "INSERT INTO ROLES VALUES(" + (idRol) + ",'" + nombreRol.ToUpper() + "')";
+                conector.setData(sentencia1);
+
+                int checkedPermit = 0;
+                foreach (DataGridViewRow row in dgvPermissions.Rows)
+                {
+                    if (row.Cells[1].Value != null && (bool)row.Cells[1].Value)
+                    {
+                        String sentencia2 = "INSERT INTO ROL_PERM VALUES(" + (idRol_Permits + checkedPermit) + "," + (checkedPermit+1) + "," + (idRol) + ")";
+                        conector.setData(sentencia2);
+                    } else
+                    {
+                        //nada
+                    }
+                    checkedPermit++;
+                }
+
+                existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE="+ (idRol) +" AND NAME ='" + nombreRol.ToUpper()+"'");
+                if(existe != 0)
+                {
+                    MessageBox.Show("El Rol se ha añadido correctamente.");
+                    creado = true;
+                }
+            } else
+            {
+                MessageBox.Show("El Rol ya existe.");
+            }
+
+
+            return creado;
+           
+        }
+        public void modificarRol(DataGridView dgvPermissions, String nombreRol)
+        {
+
+            Decimal idRol = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='"+ nombreRol+"'");
+            Decimal idRol_Permits = (Decimal)conector.DLookUp("MAX(IDROLPERM)", "ROL_PERM", "");
+            idRol_Permits += 1;
+
+            int[] modelo = { 0, 0, 0, 0, 0, 0 };
+
+            int checkedPermit = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                if (row.Cells[1].Value != null && (bool)row.Cells[1].Value)
+                {
+                    modelo[checkedPermit] = 1;
+                }
+                else
+                {
+                    //nada
+                }
+                checkedPermit++;
+            }
+
+            //Borro todo para meter las nuevas
+            String sentencia1 = "DELETE FROM ROL_PERM WHERE IDROLE="+ idRol;
+            conector.setData(sentencia1);
+
+            checkedPermit = 0;
+            for (int i = 0;i< modelo.Length; i++)
+            {
+                if (modelo[i] == 1)
+                {
+                    String sentencia2 = "INSERT INTO ROL_PERM VALUES(" + (idRol_Permits + checkedPermit) + "," + (checkedPermit + 1) + "," + (idRol) + ")";
+                    conector.setData(sentencia2);
+                }
+                checkedPermit++;
+            }
+
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE=" + (idRol) + " AND NAME ='" + nombreRol.ToUpper() + "'");
+                if (existe != 0)
+                {
+                    MessageBox.Show("El Rol se ha modificado correctamente.");
+                }
+        }
+
     }
 }

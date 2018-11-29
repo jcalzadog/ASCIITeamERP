@@ -13,7 +13,12 @@ namespace ERP.Dominio
         private String nameRol { get; set; }
         private LinkedList<Object> listaPermits { get; set; }
 
-        private GestorRol gestorRol;
+        public GestorRol gestorRol { get; set; }
+
+        public Role()
+        {
+            this.gestorRol = new GestorRol();
+        }
 
         public Role(int idRol, String nameRol, LinkedList<Object> listaPermits)
         {

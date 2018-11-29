@@ -81,6 +81,12 @@
     <Compile Include="Presentacion\SystemTab\ConfirmarLogOut.Designer.cs">
       <DependentUpon>ConfirmarLogOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Usuarios\ConfirmarBorrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Usuarios\ConfirmarBorrarUsuario.Designer.cs">
+      <DependentUpon>ConfirmarBorrarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Usuarios\EditarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\SystemTab\ConfirmarLogOut.resx">
       <DependentUpon>ConfirmarLogOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Usuarios\ConfirmarBorrarUsuario.resx">
+      <DependentUpon>ConfirmarBorrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\EditarRol.resx">
       <DependentUpon>EditarRol.cs</DependentUpon>

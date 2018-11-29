@@ -20,10 +20,12 @@ namespace ERP
     {
         //private GestorUsuario gestorUser;
         //private GestorCliente gestorCliente;
+        private User usuario;
+        public static String nombreFilaSeleccionada;
 
         public FormPrincipal()
         {
-
+            usuario = new User();
             //gestorUser = new GestorUsuario();
             //gestorCliente = new GestorCliente();
 
@@ -195,14 +197,23 @@ namespace ERP
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-
+            if (!nombreFilaSeleccionada.Equals(""))
+            {
+                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionada);
+                deletedUser.ShowDialog();
+                cargarTablaUsuarios("");
+            } else
+            {
+                MessageBox.Show("No se ha sellecionado ninguna fila.");
+            }
+            
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            //gestorUser.refrescarTablaUser(dgvUsers);
+            cargarTablaUsuarios("");
 
         }
 
@@ -475,6 +486,11 @@ namespace ERP
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
         {
             filtrarTablaUsuario();
+        }
+
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString(); //No secontrola System.ArgumentOutOfRangeException'
         }
     }
 }

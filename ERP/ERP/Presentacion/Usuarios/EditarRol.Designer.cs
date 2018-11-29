@@ -79,6 +79,7 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
             this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
             // 
@@ -106,6 +107,7 @@
             this.btnDeny.TabIndex = 11;
             this.btnDeny.Text = "Deny All";
             this.btnDeny.UseVisualStyleBackColor = false;
+            this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click_1);
             this.btnDeny.MouseEnter += new System.EventHandler(this.btnDeny_MouseEnter);
             this.btnDeny.MouseLeave += new System.EventHandler(this.btnDeny_MouseLeave);
             // 
@@ -119,6 +121,7 @@
             this.btnAllow.TabIndex = 10;
             this.btnAllow.Text = "Allow All";
             this.btnAllow.UseVisualStyleBackColor = false;
+            this.btnAllow.Click += new System.EventHandler(this.btnAllow_Click_1);
             this.btnAllow.MouseEnter += new System.EventHandler(this.btnAllow_MouseEnter);
             this.btnAllow.MouseLeave += new System.EventHandler(this.btnAllow_MouseLeave);
             // 

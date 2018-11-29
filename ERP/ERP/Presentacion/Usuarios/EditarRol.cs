@@ -1,4 +1,5 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +14,15 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class EditarRol : Form
     {
-        private GestorRol gestorR;
+        private Role rol;
 
         public EditarRol()
         {
-            gestorR = new GestorRol();
+            rol = new Role();
             InitializeComponent();
             cargarComponentes();
 
-            gestorR.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            rol.gestorRol.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
 
         private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,6 +59,8 @@ namespace ERP.Presentacion.Usuarios
         {
             NuevoRol newRol = new NuevoRol();
             newRol.ShowDialog();
+            rol.gestorRol.refrescarRoles(cmbRoles);
+            cmbRoles.SelectedIndex = 0;
         }
 
         /*public void cargarTablaPermisos()
@@ -130,7 +133,7 @@ namespace ERP.Presentacion.Usuarios
             btnSave.FlatAppearance.BorderColor = Color.Black;
             btnSave.FlatAppearance.BorderSize = 1;
 
-            gestorR.refrescarRoles(cmbRoles);
+            rol.gestorRol.refrescarRoles(cmbRoles);
             cmbRoles.SelectedIndex = 0;
         }
         private void btnAllow_MouseEnter(object sender, EventArgs e)
@@ -201,7 +204,32 @@ namespace ERP.Presentacion.Usuarios
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
             //dgvPermissions = new DataGridView();
-            gestorR.refrescarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            rol.gestorRol.refrescarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+        }
+
+        private void btnAllow_Click_1(object sender, EventArgs e)
+        {
+            int columnaCheck = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                dgvPermissions.Rows[columnaCheck].Cells[1].Value = true;
+                columnaCheck++;
+            }
+        }
+
+        private void btnDeny_Click_1(object sender, EventArgs e)
+        {
+            int columnaCheck = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                dgvPermissions.Rows[columnaCheck].Cells[1].Value = false;
+                columnaCheck++;
+            }
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            rol.gestorRol.modificarRol(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
     }
 }

@@ -83,5 +83,10 @@ namespace ERP.Presentacion.SystemTab
             btnConfirmar.BackColor = Color.FromArgb(114, 47, 55);
             btnConfirmar.ForeColor = Color.White;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

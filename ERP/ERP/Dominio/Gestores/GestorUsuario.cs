@@ -159,28 +159,53 @@ namespace ERP.Dominio.Gestores
             return passDB;
         }
 
-        public void nuevoUsuario(String name,String pass,String rol)
+        public Boolean nuevoUsuario(String name,String pass,String rol)
         {
-            Decimal idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
-            Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
-            Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='"+rol+"'");
+            Boolean creado = false;
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='"+name+"'");
 
-            String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser+1) + ",'"+name+"','"+pass+"',0)";
-            conector.setData(sentencia1);
-
-            String sentencia2 = "INSERT INTO USERS_ROLES VALUES(" + (idUser_Roles + 1) + "," + (idUser + 1) + "," + idRoles + ")";
-            conector.setData(sentencia2);
-
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='"+name+"' AND PASSWORD ='"+pass+"'");
-
-            if (existe > 0)
+            if (existe == 0)
             {
-                MessageBox.Show("El usuario se ha añadido correctamente.");
-            }
-        }
-        public void eliminarUsuario()
-        {
+                Decimal idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
+                Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
+                Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + rol + "'");
 
+                String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser + 1) + ",'" + name + "','" + pass + "',0)";
+                conector.setData(sentencia1);
+
+                String sentencia2 = "INSERT INTO USERS_ROLES VALUES(" + (idUser_Roles + 1) + "," + (idUser + 1) + "," + idRoles + ")";
+                conector.setData(sentencia2);
+
+                existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='" + name + "' AND IDUSER =" + (idUser + 1) + " AND PASSWORD ='" + pass + "'");
+
+                if (existe > 0)
+                {
+                    MessageBox.Show("El usuario se ha añadido correctamente.");
+                    creado = true;
+                }
+            } else
+            {
+                MessageBox.Show("El nombre de usuario no es Valido.");
+            }
+            return creado;
+        }
+        public void eliminarUsuario(DataGridView dgvUsersaa, String nombreFilaSeleccionada)
+        {
+            //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+
+
+            String name = nombreFilaSeleccionada;
+            
+            //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
+            //DELETE FROM USERS WHERE NAME = 'aaa'
+
+            //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
+            //conector.setData(sentencia1);-------
+
+            //String sentencia2 = "DELETE FROM USERS WHERE NAME = '" + name + "'";----
+            //conector.setData(sentencia2);-------
+
+            MessageBox.Show("El usuario se ha eliminado correctamente.");
         }
     }
 }

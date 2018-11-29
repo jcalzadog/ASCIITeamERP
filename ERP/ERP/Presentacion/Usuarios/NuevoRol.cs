@@ -1,4 +1,4 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +13,14 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class NuevoRol : Form
     {
-        private GestorRol gestorR;
+        private Role rol;
 
         public NuevoRol()
         {
-            gestorR = new GestorRol();
+            rol = new Role();
             InitializeComponent();
             cargarComponentes();
-            gestorR.cargarTablaPermisos(dgvPermissions,"");
+            rol.gestorRol.cargarTablaPermisos(dgvPermissions,"");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -102,6 +102,35 @@ namespace ERP.Presentacion.Usuarios
         {
             btnCancel.BackColor = Color.FromArgb(114, 47, 55);
             btnCancel.ForeColor = Color.White;
+        }
+
+        private void btnAllow_Click(object sender, EventArgs e)
+        {
+            int columnaCheck = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                dgvPermissions.Rows[columnaCheck].Cells[1].Value = true;
+                columnaCheck++;
+            }
+        }
+
+        private void btnDeny_Click(object sender, EventArgs e)
+        {
+            int columnaCheck = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                dgvPermissions.Rows[columnaCheck].Cells[1].Value = false;
+                columnaCheck++;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Boolean creado= rol.gestorRol.nuevoRol(dgvPermissions, tbxNombreRol.Text);
+            if (creado)
+            {
+                this.Dispose();
+            }
         }
     }
 }

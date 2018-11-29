@@ -1,4 +1,5 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,13 @@ namespace ERP.Presentacion.Usuarios
     public partial class NuevoUsuario : Form
     {
 
-        GestorRol gestorR;
-        GestorUsuario gestorU;
+        Role rol;
+        User usuario;
         public NuevoUsuario()
         {
-            
-            gestorR = new GestorRol();
-            gestorU = new GestorUsuario();
+
+            rol = new Role();
+            usuario = new User();
 
             InitializeComponent();
             cargarComponentes();
@@ -40,13 +41,24 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-
+            Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+            if (creado)
+            {
+                tbxUsername.Text = "";
+                tbxPassword.Text = "";
+                cmbRoles.SelectedIndex = 0;
+            }
+            
         }
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-            gestorU.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
-            this.Dispose();
+            Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+            if (creado)
+            {
+                this.Dispose();
+            }
+            
         }
 
         private void btnNewRole_Click(object sender, EventArgs e)
@@ -87,7 +99,7 @@ namespace ERP.Presentacion.Usuarios
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
-            gestorR.refrescarRoles(cmbRoles);
+            rol.gestorRol.refrescarRoles(cmbRoles);
             cmbRoles.SelectedIndex = 0;
         }
 
