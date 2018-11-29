@@ -1,4 +1,6 @@
-﻿namespace ERP
+﻿using ERP.Recursos;
+
+namespace ERP
 {
     partial class FormLogin
     {
@@ -42,12 +44,11 @@
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(384, 226);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirm.Location = new System.Drawing.Point(288, 184);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(100, 28);
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 0;
-            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.Text = global::ERP.Recursos.StringResources.Confirm;
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             this.btnConfirm.MouseEnter += new System.EventHandler(this.btnConfirm_MouseEnter);
@@ -57,12 +58,11 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(492, 226);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(369, 184);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = global::ERP.Recursos.StringResources.Cancel;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
@@ -72,30 +72,34 @@
             // 
             this.lblLanguage.AutoSize = true;
             this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(32, 186);
-            this.lblLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLanguage.Location = new System.Drawing.Point(24, 151);
             this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(80, 17);
+            this.lblLanguage.Size = new System.Drawing.Size(59, 13);
             this.lblLanguage.TabIndex = 2;
-            this.lblLanguage.Text = "Language";
+            this.lblLanguage.Text = "Languaje";
             // 
             // cmbLanguage
             // 
             this.cmbLanguage.FormattingEnabled = true;
-            this.cmbLanguage.Location = new System.Drawing.Point(36, 206);
-            this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbLanguage.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.cmbLanguage.Items.AddRange(new object[] {
+            StringResources.English,
+            StringResources.Spanish});
+            this.cmbLanguage.SelectedIndex = 0;
+            this.cmbLanguage.Location = new System.Drawing.Point(27, 167);
             this.cmbLanguage.Name = "cmbLanguage";
-            this.cmbLanguage.Size = new System.Drawing.Size(205, 24);
+            this.cmbLanguage.Size = new System.Drawing.Size(155, 21);
             this.cmbLanguage.TabIndex = 3;
+            this.cmbLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbLanguage_SelectedIndexChanged);
+            this.cmbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(199, 94);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUser.Location = new System.Drawing.Point(149, 76);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(42, 17);
+            this.lblUser.Size = new System.Drawing.Size(33, 13);
             this.lblUser.TabIndex = 4;
             this.lblUser.Text = "User";
             // 
@@ -103,36 +107,33 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(164, 129);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Location = new System.Drawing.Point(123, 105);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(77, 17);
+            this.lblPassword.Size = new System.Drawing.Size(61, 13);
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Password";
             // 
             // tbxUser
             // 
-            this.tbxUser.Location = new System.Drawing.Point(245, 90);
-            this.tbxUser.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxUser.Location = new System.Drawing.Point(184, 73);
             this.tbxUser.Name = "tbxUser";
-            this.tbxUser.Size = new System.Drawing.Size(132, 22);
+            this.tbxUser.Size = new System.Drawing.Size(100, 20);
             this.tbxUser.TabIndex = 6;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(245, 126);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxPassword.Location = new System.Drawing.Point(184, 102);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(132, 22);
+            this.tbxPassword.Size = new System.Drawing.Size(100, 20);
             this.tbxPassword.TabIndex = 7;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(608, 270);
+            this.ClientSize = new System.Drawing.Size(458, 226);
             this.ControlBox = false;
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUser);
@@ -143,11 +144,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(626, 317);
+            this.MaximumSize = new System.Drawing.Size(474, 265);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(626, 317);
+            this.MinimumSize = new System.Drawing.Size(474, 265);
             this.Name = "FormLogin";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
