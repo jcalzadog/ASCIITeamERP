@@ -60,7 +60,7 @@ namespace ERP.Presentacion.Usuarios
             newRol.ShowDialog();
         }
 
-        public void cargarTablaPermisos()
+        /*public void cargarTablaPermisos()
         {
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
@@ -95,7 +95,7 @@ namespace ERP.Presentacion.Usuarios
 
             //No editable
             dgvPermissions.ReadOnly = true;
-        }
+        }*/
 
         public void cargarComponentes()
         {
@@ -200,7 +200,8 @@ namespace ERP.Presentacion.Usuarios
 
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //gestorR.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            //dgvPermissions = new DataGridView();
+            gestorR.refrescarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
     }
 }

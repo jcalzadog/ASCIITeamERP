@@ -93,9 +93,30 @@ namespace ERP.Dominio.Gestores
             dgvPermissions.Columns["NAME"].ReadOnly = true;
         }
 
-        public void refrescarTablaPermisos(DataGridView dgvPermissions)
+        public void refrescarTablaPermisos(DataGridView dgvPermissions,String Role)
         {
+            int columnaCheck = 0;
+            foreach (DataGridViewRow row in dgvPermissions.Rows)
+            {
+                //SI TIENE PERMISO SE PONE CHECKED
+                //SELECT COUNT(R.IDROLE) FROM ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT WHERE P.IDPERMIT=1 AND R.NAME='ADMIN';
+                Decimal tienePermiso = 0;
+                if (!Role.Equals(""))
+                {
+                    tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
+                }
 
+                if (tienePermiso == 1)
+                {
+                    //Pone checked
+                    dgvPermissions.Rows[columnaCheck].Cells[1].Value = true;
+                } else
+                {
+                    dgvPermissions.Rows[columnaCheck].Cells[1].Value = false;
+                }
+
+                columnaCheck++;
+            }
         }
     }
 }
