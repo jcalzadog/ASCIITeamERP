@@ -50,6 +50,7 @@ namespace ERP
                 //this.Dispose();
                 gestorU.comprobarPermisos(user, pass, this.tbMenuP);
                 this.Hide();
+                tbMenuP.SelectedIndex = 0;
             }
             else
             {

@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio.Gestores;
+using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -251,7 +252,8 @@ namespace ERP
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ConfirmarExit cExit = new ConfirmarExit();
+            cExit.ShowDialog();
         }
 
         private void tbxSearchUser_Enter(object sender, EventArgs e)
@@ -350,6 +352,14 @@ namespace ERP
         {
             btnLogOut.BackColor = Color.FromArgb(114, 47, 55);
             btnLogOut.ForeColor = Color.White;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FormLogin login = new FormLogin(tbcMenuPrincipal);
+            this.Hide();
+            login.ShowDialog();
+            this.Visible = true;
         }
     }
 }
