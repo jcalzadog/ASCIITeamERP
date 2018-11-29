@@ -50,6 +50,8 @@
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirm.MouseEnter += new System.EventHandler(this.btnConfirm_MouseEnter);
+            this.btnConfirm.MouseLeave += new System.EventHandler(this.btnConfirm_MouseLeave);
             // 
             // btnCancel
             // 
@@ -63,6 +65,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
             // 
             // lblLanguage
             // 
@@ -133,6 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(608, 270);
+            this.ControlBox = false;
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUser);
             this.Controls.Add(this.lblPassword);
@@ -141,8 +146,14 @@
             this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(626, 317);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(626, 317);
             this.Name = "FormLogin";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Activated += new System.EventHandler(this.textBox1_TextChanged);

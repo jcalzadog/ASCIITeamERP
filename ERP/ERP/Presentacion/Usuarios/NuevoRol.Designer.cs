@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRole = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAllow = new System.Windows.Forms.Button();
@@ -66,6 +68,8 @@
             this.btnAllow.TabIndex = 2;
             this.btnAllow.Text = "Allow All";
             this.btnAllow.UseVisualStyleBackColor = false;
+            this.btnAllow.MouseEnter += new System.EventHandler(this.btnAllow_MouseEnter);
+            this.btnAllow.MouseLeave += new System.EventHandler(this.btnAllow_MouseLeave);
             // 
             // btnDeny
             // 
@@ -77,6 +81,8 @@
             this.btnDeny.TabIndex = 3;
             this.btnDeny.Text = "Deny All";
             this.btnDeny.UseVisualStyleBackColor = false;
+            this.btnDeny.MouseEnter += new System.EventHandler(this.btnDeny_MouseEnter);
+            this.btnDeny.MouseLeave += new System.EventHandler(this.btnDeny_MouseLeave);
             // 
             // btnCancel
             // 
@@ -89,6 +95,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
             // 
             // btnSave
             // 
@@ -100,16 +108,33 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
             // 
             // dgvPermissions
             // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPermissions.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvPermissions.Location = new System.Drawing.Point(76, 132);
             this.dgvPermissions.Name = "dgvPermissions";
             this.dgvPermissions.RowTemplate.Height = 24;
             this.dgvPermissions.Size = new System.Drawing.Size(444, 216);
             this.dgvPermissions.TabIndex = 6;
-            this.dgvPermissions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermissions_CellContentClick);
             // 
             // lblPermissions
             // 
@@ -127,6 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(663, 410);
+            this.ControlBox = false;
             this.Controls.Add(this.lblPermissions);
             this.Controls.Add(this.dgvPermissions);
             this.Controls.Add(this.btnSave);
@@ -135,8 +161,13 @@
             this.Controls.Add(this.btnAllow);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblRole);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(681, 457);
+            this.MinimumSize = new System.Drawing.Size(681, 457);
             this.Name = "NuevoRol";
-            this.Text = "NuevoRol";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "New Rol";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

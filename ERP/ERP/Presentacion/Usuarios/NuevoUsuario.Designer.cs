@@ -36,7 +36,6 @@
             this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.btnNewRole = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnSaveClose = new System.Windows.Forms.Button();
             this.btnEditRole = new System.Windows.Forms.Button();
@@ -113,6 +112,8 @@
             this.btnNewRole.Text = "New Role";
             this.btnNewRole.UseVisualStyleBackColor = false;
             this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
+            this.btnNewRole.MouseEnter += new System.EventHandler(this.btnNewRole_MouseEnter);
+            this.btnNewRole.MouseLeave += new System.EventHandler(this.btnNewRole_MouseLeave);
             // 
             // btnCancel
             // 
@@ -126,25 +127,14 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(626, 230);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 28);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
             // 
             // btnSaveAnother
             // 
             this.btnSaveAnother.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSaveAnother.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAnother.Location = new System.Drawing.Point(457, 230);
+            this.btnSaveAnother.Location = new System.Drawing.Point(393, 230);
             this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveAnother.Name = "btnSaveAnother";
             this.btnSaveAnother.Size = new System.Drawing.Size(161, 28);
@@ -152,12 +142,14 @@
             this.btnSaveAnother.Text = "Save and Another";
             this.btnSaveAnother.UseVisualStyleBackColor = false;
             this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnother_Click);
+            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.btnSaveAnother_MouseEnter);
+            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.btnSaveAnother_MouseLeave);
             // 
             // btnSaveClose
             // 
             this.btnSaveClose.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSaveClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveClose.Location = new System.Drawing.Point(285, 230);
+            this.btnSaveClose.Location = new System.Drawing.Point(562, 230);
             this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveClose.Name = "btnSaveClose";
             this.btnSaveClose.Size = new System.Drawing.Size(164, 28);
@@ -165,6 +157,8 @@
             this.btnSaveClose.Text = "Save and Close";
             this.btnSaveClose.UseVisualStyleBackColor = false;
             this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
+            this.btnSaveClose.MouseEnter += new System.EventHandler(this.btnSaveClose_MouseEnter);
+            this.btnSaveClose.MouseLeave += new System.EventHandler(this.btnSaveClose_MouseLeave);
             // 
             // btnEditRole
             // 
@@ -177,6 +171,8 @@
             this.btnEditRole.Text = "Edit Role";
             this.btnEditRole.UseVisualStyleBackColor = false;
             this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
+            this.btnEditRole.MouseEnter += new System.EventHandler(this.btnEditRole_MouseEnter);
+            this.btnEditRole.MouseLeave += new System.EventHandler(this.btnEditRole_MouseLeave);
             // 
             // NuevoUsuario
             // 
@@ -185,10 +181,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(847, 271);
+            this.ControlBox = false;
             this.Controls.Add(this.btnEditRole);
             this.Controls.Add(this.btnSaveClose);
             this.Controls.Add(this.btnSaveAnother);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNewRole);
             this.Controls.Add(this.cmbRoles);
@@ -197,9 +193,15 @@
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(865, 318);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(865, 318);
             this.Name = "NuevoUsuario";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New User";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -216,7 +218,6 @@
         private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnNewRole;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSaveAnother;
         private System.Windows.Forms.Button btnSaveClose;
         private System.Windows.Forms.Button btnEditRole;

@@ -1,4 +1,5 @@
-﻿using ERP.Presentacion.Usuarios;
+﻿using ERP.Dominio.Gestores;
+using ERP.Presentacion.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,22 @@ namespace ERP
 {
     public partial class FormPrincipal : Form
     {
+        private GestorUsuario gestorU;
+
         public FormPrincipal()
         {
+            gestorU = new GestorUsuario();
+
             InitializeComponent();
+
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
 
             cargarComponentes();
 
-            cargarTablaUser();
-            cargarTablaCustomer();
+            gestorU.cargarTablaUser(dgvUsers);
+            //cargarTablaCustomer();
 
             FormLogin login = new FormLogin();
             login.ShowDialog();
@@ -51,7 +57,7 @@ namespace ERP
             {
 
                 // Draw a different background color, and don't paint a focus rectangle.
-                _textBrush = new SolidBrush(Color.Black);
+                _textBrush = new SolidBrush(Color.FromArgb(114, 47, 55));
                 // g.FillRectangle(Brushes.Red, e.Bounds);
                 g.FillRectangle(Brushes.SteelBlue, e.Bounds);
             }
@@ -71,34 +77,29 @@ namespace ERP
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ((Control)tabPage1).Enabled = true;
-            ((Control)tabPage3).Enabled = true;
-            ((Control)tabPage4).Enabled = true;
-            ((Control)tabPage5).Enabled = true;
-            ((Control)tabPage6).Enabled = true;
-            ((Control)tabPage7).Enabled = true;
-            ((Control)tabPage8).Enabled = true;
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    ((Control)tabPage1).Enabled = true;
+        //    ((Control)tabPage3).Enabled = true;
+        //    ((Control)tabPage4).Enabled = true;
+        //    ((Control)tabPage5).Enabled = true;
+        //    ((Control)tabPage6).Enabled = true;
+        //    ((Control)tabPage7).Enabled = true;
+        //    ((Control)tabPage8).Enabled = true;
             
-        }
+        //}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tbcMenuPrincipal.SelectTab(1);
-            ((Control)tabPage1).Enabled = false;
-            ((Control)tabPage3).Enabled = false;
-            ((Control)tabPage4).Enabled = false;
-            ((Control)tabPage5).Enabled = false;
-            ((Control)tabPage6).Enabled = false;
-            ((Control)tabPage7).Enabled = false;
-            ((Control)tabPage8).Enabled = false;
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    tbcMenuPrincipal.SelectTab(1);
+        //    ((Control)tabPage1).Enabled = false;
+        //    ((Control)tabPage3).Enabled = false;
+        //    ((Control)tabPage4).Enabled = false;
+        //    ((Control)tabPage5).Enabled = false;
+        //    ((Control)tabPage6).Enabled = false;
+        //    ((Control)tabPage7).Enabled = false;
+        //    ((Control)tabPage8).Enabled = false;
+        //}
 
   
 
@@ -155,38 +156,6 @@ namespace ERP
             editRol.ShowDialog();
         }
 
-        public void cargarTablaUser()
-        {
-            //PARA COLORES
-            //'Color para el fondo de la celda 
-            //Me.DataGridView1.Rows(0).Cells(0).Style.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF000F")
-
-            //'Color para el texto de la celda 
-            //Me.DataGridView1.Rows(0).Cells(0).Style.ForeColor = System.Drawing.ColorTranslator.FromHtml("#006")
-
-
-            DataSet data = new DataSet();
-            ConnectOracle Search = new ConnectOracle();
-            //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
-            data = Search.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
-
-            DataTable tusers = data.Tables["USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE"];
-
-            //dgvCustomers.DataSource = tcustomers;
-
-            dgvUsers.Columns.Add("NAME", "NAME");
-            dgvUsers.Columns.Add("ROLE", "ROLE");
-
-            foreach (DataRow row in tusers.Rows)
-            {
-                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
-            }
-            //dgvUsers.ColumnHeadersVisible = false;
-            dgvUsers.RowHeadersVisible = false;
-            dgvUsers.AllowUserToAddRows = false;
-            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsers.BackgroundColor = Color.FromArgb(114, 47, 55);
-        }
 
         public void cargarTablaCustomer()
         {
@@ -224,18 +193,26 @@ namespace ERP
             tbxSearchUser.ForeColor = Color.Gray;
 
             //Usuarios
+            btnNewUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewUser.ForeColor = Color.White;
             btnNewUser.FlatStyle = FlatStyle.Flat;
             btnNewUser.FlatAppearance.BorderColor = Color.Black;
             btnNewUser.FlatAppearance.BorderSize = 1;
 
+            btnRoles.BackColor = Color.FromArgb(114, 47, 55);
+            btnRoles.ForeColor = Color.White;
             btnRoles.FlatStyle = FlatStyle.Flat;
             btnRoles.FlatAppearance.BorderColor = Color.Black;
             btnRoles.FlatAppearance.BorderSize = 1;
 
+            btnDeleteUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeleteUser.ForeColor = Color.White;
             btnDeleteUser.FlatStyle = FlatStyle.Flat;
             btnDeleteUser.FlatAppearance.BorderColor = Color.Black;
             btnDeleteUser.FlatAppearance.BorderSize = 1;
 
+            btnLogs.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogs.ForeColor = Color.White;
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
@@ -254,6 +231,8 @@ namespace ERP
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
 
             //System
+            btnExit.BackColor = Color.FromArgb(114, 47, 55);
+            btnExit.ForeColor = Color.White;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.FlatAppearance.BorderColor = Color.Black;
             btnExit.FlatAppearance.BorderSize = 1;
@@ -280,6 +259,66 @@ namespace ERP
                 tbxSearchUser.ForeColor = Color.Gray;
                 tbxSearchUser.Text = "Search a Name...";
             }
+        }
+
+        private void btnNewUser_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewUser.BackColor = Color.White;
+            btnNewUser.ForeColor = Color.Black;
+        }
+
+        private void btnNewUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewUser.ForeColor = Color.White;
+        }
+
+        private void btnRoles_MouseEnter(object sender, EventArgs e)
+        {
+            btnRoles.BackColor = Color.White;
+            btnRoles.ForeColor = Color.Black;
+        }
+
+        private void btnRoles_MouseLeave(object sender, EventArgs e)
+        {
+            btnRoles.BackColor = Color.FromArgb(114, 47, 55);
+            btnRoles.ForeColor = Color.White;
+        }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.White;
+            btnExit.ForeColor = Color.Black;
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.FromArgb(114, 47, 55);
+            btnExit.ForeColor = Color.White;
+        }
+
+        private void btnDeleteUser_MouseEnter(object sender, EventArgs e)
+        {
+            btnDeleteUser.BackColor = Color.White;
+            btnDeleteUser.ForeColor = Color.Black;
+        }
+
+        private void btnDeleteUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeleteUser.ForeColor = Color.White;
+        }
+
+        private void btnLogs_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogs.BackColor = Color.White;
+            btnLogs.ForeColor = Color.Black;
+        }
+
+        private void btnLogs_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogs.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogs.ForeColor = Color.White;
         }
     }
 }

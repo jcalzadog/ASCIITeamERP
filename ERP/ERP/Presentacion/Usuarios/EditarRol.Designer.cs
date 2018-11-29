@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPermissions = new System.Windows.Forms.Label();
             this.dgvPermissions = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
@@ -35,7 +36,7 @@
             this.btnDeny = new System.Windows.Forms.Button();
             this.btnAllow = new System.Windows.Forms.Button();
             this.lblRole = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.btnNewRole = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,14 @@
             // 
             // dgvPermissions
             // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermissions.Location = new System.Drawing.Point(76, 132);
             this.dgvPermissions.Name = "dgvPermissions";
@@ -71,7 +80,8 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
             // 
             // btnCancel
             // 
@@ -83,7 +93,9 @@
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
             // 
             // btnDeny
             // 
@@ -95,7 +107,8 @@
             this.btnDeny.TabIndex = 11;
             this.btnDeny.Text = "Deny All";
             this.btnDeny.UseVisualStyleBackColor = false;
-            this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click);
+            this.btnDeny.MouseEnter += new System.EventHandler(this.btnDeny_MouseEnter);
+            this.btnDeny.MouseLeave += new System.EventHandler(this.btnDeny_MouseLeave);
             // 
             // btnAllow
             // 
@@ -107,7 +120,8 @@
             this.btnAllow.TabIndex = 10;
             this.btnAllow.Text = "Allow All";
             this.btnAllow.UseVisualStyleBackColor = false;
-            this.btnAllow.Click += new System.EventHandler(this.btnAllow_Click);
+            this.btnAllow.MouseEnter += new System.EventHandler(this.btnAllow_MouseEnter);
+            this.btnAllow.MouseLeave += new System.EventHandler(this.btnAllow_MouseLeave);
             // 
             // lblRole
             // 
@@ -120,13 +134,13 @@
             this.lblRole.Text = "Role";
             this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
             // 
-            // comboBox1
+            // cmbRoles
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(166, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 24);
-            this.comboBox1.TabIndex = 16;
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Location = new System.Drawing.Point(166, 46);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(201, 24);
+            this.cmbRoles.TabIndex = 16;
             // 
             // btnNewRole
             // 
@@ -140,6 +154,8 @@
             this.btnNewRole.Text = "New Role";
             this.btnNewRole.UseVisualStyleBackColor = false;
             this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
+            this.btnNewRole.MouseEnter += new System.EventHandler(this.btnNewRole_MouseEnter);
+            this.btnNewRole.MouseLeave += new System.EventHandler(this.btnNewRole_MouseLeave);
             // 
             // EditarRol
             // 
@@ -147,8 +163,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(663, 410);
+            this.ControlBox = false;
             this.Controls.Add(this.btnNewRole);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.lblPermissions);
             this.Controls.Add(this.dgvPermissions);
             this.Controls.Add(this.btnSave);
@@ -156,8 +173,13 @@
             this.Controls.Add(this.btnDeny);
             this.Controls.Add(this.btnAllow);
             this.Controls.Add(this.lblRole);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximumSize = new System.Drawing.Size(681, 457);
+            this.MinimumSize = new System.Drawing.Size(681, 457);
             this.Name = "EditarRol";
-            this.Text = "EditarRol";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Edit Rol";
             this.Load += new System.EventHandler(this.EditarRol_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).EndInit();
             this.ResumeLayout(false);
@@ -174,7 +196,7 @@
         private System.Windows.Forms.Button btnDeny;
         private System.Windows.Forms.Button btnAllow;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnNewRole;
     }
 }

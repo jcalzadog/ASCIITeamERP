@@ -99,14 +99,42 @@ namespace ERP
         public void cargarComponentes()
         {
             //Login
+            btnConfirm.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirm.ForeColor = Color.White;
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.FlatAppearance.BorderColor = Color.Black;
             btnConfirm.FlatAppearance.BorderSize = 1;
 
+            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.ForeColor = Color.White;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
+        }
+
+        private void btnConfirm_MouseEnter(object sender, EventArgs e)
+        {
+            btnConfirm.BackColor = Color.White;
+            btnConfirm.ForeColor = Color.Black;
+        }
+
+        private void btnConfirm_MouseLeave(object sender, EventArgs e)
+        {
+            btnConfirm.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirm.ForeColor = Color.White;
+        }
+
+        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.White;
+            btnCancel.ForeColor = Color.Black;
+        }
+
+        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.ForeColor = Color.White;
         }
     }
 }

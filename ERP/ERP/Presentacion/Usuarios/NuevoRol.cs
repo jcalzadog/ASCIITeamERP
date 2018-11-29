@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,14 @@ namespace ERP.Presentacion.Usuarios
 {
     public partial class NuevoRol : Form
     {
+        private GestorRol gestorR;
+
         public NuevoRol()
         {
+            gestorR = new GestorRol();
             InitializeComponent();
             cargarComponentes();
-            cargarTablaPermisos();
+            gestorR.cargarTablaPermisos(dgvPermissions);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -26,55 +30,78 @@ namespace ERP.Presentacion.Usuarios
 
         public void cargarComponentes()
         {
+            btnAllow.BackColor = Color.FromArgb(114, 47, 55);
+            btnAllow.ForeColor = Color.White;
             btnAllow.FlatStyle = FlatStyle.Flat;
             btnAllow.FlatAppearance.BorderColor = Color.Black;
             btnAllow.FlatAppearance.BorderSize = 1;
 
+            btnDeny.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeny.ForeColor = Color.White;
             btnDeny.FlatStyle = FlatStyle.Flat;
             btnDeny.FlatAppearance.BorderColor = Color.Black;
             btnDeny.FlatAppearance.BorderSize = 1;
 
+            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.ForeColor = Color.White;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
+            btnSave.BackColor = Color.FromArgb(114, 47, 55);
+            btnSave.ForeColor = Color.White;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.FlatAppearance.BorderColor = Color.Black;
             btnSave.FlatAppearance.BorderSize = 1;
         }
 
-        public void cargarTablaPermisos()
+
+        private void btnAllow_MouseEnter(object sender, EventArgs e)
         {
-            DataSet data = new DataSet();
-            ConnectOracle Search = new ConnectOracle();
-            //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
-            //data = Search.getData("SELECT * FROM PERMITS ORDER BY IDPERMIT", "PERMITS
-            //data = Search.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
-            data = Search.getData("SELECT NAME FROM PERMITS", "PERMITS");
-
-            //USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE
-            DataTable tPerm = data.Tables["PERMITS"];
-            DataGridViewCheckBoxColumn dgvColumnCheck = new DataGridViewCheckBoxColumn();
-
-            //dgvCustomers.DataSource = tcustomers;
-
-            dgvPermissions.Columns.Add("NAME", "NAME");
-            dgvPermissions.Columns.Add(dgvColumnCheck);  // ---- PARA CHECBOX https://social.msdn.microsoft.com/Forums/es-ES/5e1770fc-10b3-4400-b895-a20192e28c34/como-agregar-un-checkbox-en-un-datagridview-en-vbnet?forum=vbes
-
-            foreach (DataRow row in tPerm.Rows)
-            {
-                dgvPermissions.Rows.Add(row["NAME"]);
-            }
-            //dgvUsers.ColumnHeadersVisible = false;
-            dgvPermissions.RowHeadersVisible = false;
-
-            dgvPermissions.AllowUserToAddRows = false;
-            dgvPermissions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            btnAllow.BackColor = Color.White;
+            btnAllow.ForeColor = Color.Black;
         }
 
-        private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAllow_MouseLeave(object sender, EventArgs e)
         {
+            btnAllow.BackColor = Color.FromArgb(114, 47, 55);
+            btnAllow.ForeColor = Color.White;
+        }
 
+        private void btnDeny_MouseEnter(object sender, EventArgs e)
+        {
+            btnDeny.BackColor = Color.White;
+            btnDeny.ForeColor = Color.Black;
+        }
+
+        private void btnDeny_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeny.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeny.ForeColor = Color.White;
+        }
+
+        private void btnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.White;
+            btnSave.ForeColor = Color.Black;
+        }
+
+        private void btnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.FromArgb(114, 47, 55);
+            btnSave.ForeColor = Color.White;
+        }
+
+        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.White;
+            btnCancel.ForeColor = Color.Black;
+        }
+
+        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.ForeColor = Color.White;
         }
     }
 }

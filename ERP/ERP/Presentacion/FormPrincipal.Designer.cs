@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -112,7 +113,7 @@
             // 
             // tbxSearchUser
             // 
-            this.tbxSearchUser.Location = new System.Drawing.Point(496, 13);
+            this.tbxSearchUser.Location = new System.Drawing.Point(491, 13);
             this.tbxSearchUser.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSearchUser.Name = "tbxSearchUser";
             this.tbxSearchUser.Size = new System.Drawing.Size(249, 22);
@@ -131,6 +132,8 @@
             this.btnLogs.TabIndex = 7;
             this.btnLogs.Text = "Logs";
             this.btnLogs.UseVisualStyleBackColor = false;
+            this.btnLogs.MouseEnter += new System.EventHandler(this.btnLogs_MouseEnter);
+            this.btnLogs.MouseLeave += new System.EventHandler(this.btnLogs_MouseLeave);
             // 
             // btnDeleteUser
             // 
@@ -145,6 +148,8 @@
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            this.btnDeleteUser.MouseEnter += new System.EventHandler(this.btnDeleteUser_MouseEnter);
+            this.btnDeleteUser.MouseLeave += new System.EventHandler(this.btnDeleteUser_MouseLeave);
             // 
             // btnRoles
             // 
@@ -159,6 +164,8 @@
             this.btnRoles.Text = "Roles";
             this.btnRoles.UseVisualStyleBackColor = false;
             this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
+            this.btnRoles.MouseEnter += new System.EventHandler(this.btnRoles_MouseEnter);
+            this.btnRoles.MouseLeave += new System.EventHandler(this.btnRoles_MouseLeave);
             // 
             // btnNewUser
             // 
@@ -172,10 +179,21 @@
             this.btnNewUser.Text = "New User";
             this.btnNewUser.UseVisualStyleBackColor = false;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
+            this.btnNewUser.MouseEnter += new System.EventHandler(this.btnNewUser_MouseEnter);
+            this.btnNewUser.MouseLeave += new System.EventHandler(this.btnNewUser_MouseLeave);
             // 
             // dgvUsers
             // 
             this.dgvUsers.BackgroundColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsers.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsers.Name = "dgvUsers";
@@ -224,7 +242,6 @@
             this.tabPage5.Size = new System.Drawing.Size(897, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // tabPage6
             // 
@@ -296,7 +313,7 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.BackColor = System.Drawing.Color.PaleGreen;
+            this.tabPage8.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage8.Controls.Add(this.btnExit);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
@@ -309,6 +326,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(32, 36);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 28);
@@ -316,15 +334,19 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 486);
+            this.ControlBox = false;
             this.Controls.Add(this.tbcMenuPrincipal);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ERP Videogames";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
