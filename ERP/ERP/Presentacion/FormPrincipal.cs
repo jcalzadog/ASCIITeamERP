@@ -241,6 +241,12 @@ namespace ERP
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.FlatAppearance.BorderColor = Color.Black;
             btnExit.FlatAppearance.BorderSize = 1;
+
+            btnLogOut.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogOut.ForeColor = Color.White;
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.FlatAppearance.BorderColor = Color.Black;
+            btnLogOut.FlatAppearance.BorderSize = 1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -324,6 +330,26 @@ namespace ERP
         {
             btnLogs.BackColor = Color.FromArgb(114, 47, 55);
             btnLogs.ForeColor = Color.White;
+        }
+
+        private void tbcMenuPrincipal_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!e.TabPage.Enabled)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnLogOut_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogOut.BackColor = Color.White;
+            btnLogOut.ForeColor = Color.Black;
+        }
+
+        private void btnLogOut_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogOut.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogOut.ForeColor = Color.White;
         }
     }
 }
