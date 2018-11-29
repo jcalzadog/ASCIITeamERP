@@ -223,6 +223,22 @@ namespace ERP
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
 
+            //Productos
+            txtBuscarProd.Text = "Buscar";
+            txtBuscarProd.ForeColor = Color.Gray;
+
+            btnNewProd.FlatStyle = FlatStyle.Flat;
+            btnNewProd.FlatAppearance.BorderColor = Color.Black;
+            btnNewProd.FlatAppearance.BorderSize = 1;
+
+            btnEditProd.FlatStyle = FlatStyle.Flat;
+            btnEditProd.FlatAppearance.BorderColor = Color.Black;
+            btnEditProd.FlatAppearance.BorderSize = 1;
+
+            btnDeleteProd.FlatStyle = FlatStyle.Flat;
+            btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteProd.FlatAppearance.BorderSize = 1;
+            
             //Categorias
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
             btnNewCategorie.FlatAppearance.BorderColor = Color.Black;
@@ -360,6 +376,11 @@ namespace ERP
             this.Hide();
             login.ShowDialog();
             this.Visible = true;
+        }
+
+        private void txtBuscarProd_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
