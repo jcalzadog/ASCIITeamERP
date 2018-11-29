@@ -114,7 +114,9 @@ namespace ERP.Dominio.Gestores
                 if (tienePermiso == 0)
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
+                    //((Control)tp).Text = "";
                     ((Control)tp).Enabled = false;
+                    
                 } else
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
