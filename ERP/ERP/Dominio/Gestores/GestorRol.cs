@@ -39,7 +39,7 @@ namespace ERP.Dominio.Gestores
             }
         }
 
-        public void cargarTablaPermisos(DataGridView dgvPermissions,string Role)
+        public void cargarTablaPermisos(DataGridView dgvPermissions, String Role)
         {
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();

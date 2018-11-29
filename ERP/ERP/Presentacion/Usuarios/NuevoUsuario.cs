@@ -15,11 +15,13 @@ namespace ERP.Presentacion.Usuarios
     {
 
         GestorRol gestorR;
-
+        GestorUsuario gestorU;
         public NuevoUsuario()
         {
             
             gestorR = new GestorRol();
+            gestorU = new GestorUsuario();
+
             InitializeComponent();
             cargarComponentes();
 
@@ -43,7 +45,8 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-
+            gestorU.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+            this.Dispose();
         }
 
         private void btnNewRole_Click(object sender, EventArgs e)
@@ -85,6 +88,7 @@ namespace ERP.Presentacion.Usuarios
             btnCancel.FlatAppearance.BorderSize = 1;
 
             gestorR.refrescarRoles(cmbRoles);
+            cmbRoles.SelectedIndex = 0;
         }
 
         private void btnEditRole_Click(object sender, EventArgs e)

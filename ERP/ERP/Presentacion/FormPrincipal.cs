@@ -134,6 +134,8 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
+            gestorU.refrescarTablaUser(dgvUsers);
+
         }
 
         private void btnNewCategorie_Click(object sender, EventArgs e)

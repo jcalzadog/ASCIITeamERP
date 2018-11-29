@@ -58,6 +58,41 @@ namespace ERP.Dominio.Gestores
             dgvUsers.ReadOnly = true;
         }
 
+        public void refrescarTablaUser(DataGridView dgvUsers)
+        {
+            dgvUsers.Columns.Remove("NAME");
+            dgvUsers.Columns.Remove("ROLE");
+
+            DataSet data = new DataSet();
+
+            //SELECT U.NAME,R.NAME FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE;
+            data = conector.getData("SELECT U.NAME NAME,R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE");
+
+            DataTable tusers = data.Tables["USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE"];
+
+            //dgvCustomers.DataSource = tcustomers;
+
+            dgvUsers.Columns.Add("NAME", "NAME");
+            dgvUsers.Columns.Add("ROLE", "ROLE");
+
+            foreach (DataRow row in tusers.Rows)
+            {
+                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvUsers.RowHeadersVisible = false;
+            dgvUsers.AllowUserToAddRows = false;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.BackgroundColor = Color.FromArgb(114, 47, 55);
+
+            ////Colores de Header (no va nose porque)
+            //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
+            //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            //No editable
+            dgvUsers.ReadOnly = true;
+        }
+
         public void comprobarPermisos(String name,String password,TabControl tbcMenuPrincipal)
         {
             //SELECT R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE U.NAME='root' AND U.PASSWORD='admin1234';
@@ -103,6 +138,30 @@ namespace ERP.Dominio.Gestores
             String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
             return passDB;
+        }
+
+        public void nuevoUsuario(String name,String pass,String rol)
+        {
+            Decimal idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
+            Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
+            Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='"+rol+"'");
+
+            String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser+1) + ",'"+name+"','"+pass+"',0)";
+            conector.setData(sentencia1);
+
+            String sentencia2 = "INSERT INTO USERS_ROLES VALUES(" + (idUser_Roles + 1) + "," + (idUser + 1) + "," + idRoles + ")";
+            conector.setData(sentencia2);
+
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='"+name+"' AND PASSWORD ='"+pass+"'");
+
+            if (existe > 0)
+            {
+                MessageBox.Show("El usuario se ha añadido correctamente.");
+            }
+        }
+        public void eliminarUsuario()
+        {
+
         }
     }
 }
