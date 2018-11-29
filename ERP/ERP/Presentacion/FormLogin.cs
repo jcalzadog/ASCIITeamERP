@@ -1,9 +1,11 @@
 ﻿using ERP.Dominio.Gestores;
+using ERP.Recursos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,6 +123,28 @@ namespace ERP
         {
             btnCancel.BackColor = Color.FromArgb(114, 47, 55);
             btnCancel.ForeColor = Color.White;
+        }
+        private void aplicarIdioma()
+        {
+            this.btnCancel.Text = StringResources.Cancel;
+            this.btnConfirm.Text = StringResources.Confirm;
+
+        }
+
+        private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLanguage.SelectedIndex == 0)
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new
+                CultureInfo("EN-US");
+                aplicarIdioma();
+            }
+            else
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new
+                CultureInfo("ES-ES");
+                aplicarIdioma();
+            }
         }
     }
 }
