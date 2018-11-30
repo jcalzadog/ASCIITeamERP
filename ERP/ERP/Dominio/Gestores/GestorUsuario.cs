@@ -195,15 +195,15 @@ namespace ERP.Dominio.Gestores
 
 
             String name = nombreFilaSeleccionada;
-            
+
             //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
             //DELETE FROM USERS WHERE NAME = 'aaa'
 
             //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
             //conector.setData(sentencia1);-------
 
-            //String sentencia2 = "DELETE FROM USERS WHERE NAME = '" + name + "'";----
-            //conector.setData(sentencia2);-------
+            String sentencia2 = "UPDATE USERS SET DELETED = 1 WHERE NAME = '" + name + "'";
+            conector.setData(sentencia2); 
 
             MessageBox.Show("El usuario se ha eliminado correctamente.");
         }

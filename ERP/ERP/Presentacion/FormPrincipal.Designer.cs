@@ -59,6 +59,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbxUserDeleted = new System.Windows.Forms.CheckBox();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -109,6 +110,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.Controls.Add(this.cbxUserDeleted);
             this.tabPage2.Controls.Add(this.tbxSearchUser);
             this.tabPage2.Controls.Add(this.btnLogs);
             this.tabPage2.Controls.Add(this.btnDeleteUser);
@@ -468,6 +470,19 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // cbxUserDeleted
+            // 
+            this.cbxUserDeleted.AutoSize = true;
+            this.cbxUserDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxUserDeleted.ForeColor = System.Drawing.Color.Maroon;
+            this.cbxUserDeleted.Location = new System.Drawing.Point(713, 16);
+            this.cbxUserDeleted.Name = "cbxUserDeleted";
+            this.cbxUserDeleted.Size = new System.Drawing.Size(86, 21);
+            this.cbxUserDeleted.TabIndex = 9;
+            this.cbxUserDeleted.Text = "Deleted";
+            this.cbxUserDeleted.UseVisualStyleBackColor = true;
+            this.cbxUserDeleted.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -530,5 +545,6 @@
         private System.Windows.Forms.Button btnEditCustomer;
         private System.Windows.Forms.Button btnNewCustomer;
         private System.Windows.Forms.TextBox tbxSearchCustomer;
+        private System.Windows.Forms.CheckBox cbxUserDeleted;
     }
 }

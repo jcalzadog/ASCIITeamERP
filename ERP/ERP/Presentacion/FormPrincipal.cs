@@ -16,6 +16,12 @@ using System.Windows.Forms;
 
 namespace ERP
 {
+    //----------PARA VALIDATE DNI TODO JUNTO -->  
+    //if(Cadena.Contains("'")){
+    //    return false;
+    //}
+    //Regex.IsMatch(cadena, "^[0-9]{8}[A-Z]");
+
     public partial class FormPrincipal : Form
     {
         //private GestorUsuario gestorUser;
@@ -36,7 +42,7 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
 
             cargarComponentes();
-            cargarTablaUsuarios("");
+            cargarTablaUsuarios("DELETED=0");
 
             //gestorUser.cargarTablaUser(dgvUsers);
             //gestorCliente.cargarTablaCustomer(dgvCustomers);
@@ -145,17 +151,26 @@ namespace ERP
 
         }
 
-        public void filtrarTablaUsuario()
+        public void filtrarTablaUsuario(String name,bool check)
         {
             String condicion="";
             int añadida = 0;
 
-            if (tbxSearchUser.Text!=null && !tbxSearchUser.Text.Equals("Search a name..."))
+            //if (check)
+            //{
+            //    condicion += " U.NAME like '%" + name + "%' AND U.DELETED=1";
+            //} else
+            //{
+            //    condicion += " U.NAME like '%" + name + "%' AND U.DELETED=0";
+            //}
+
+
+            if (tbxSearchUser.Text != null && !tbxSearchUser.Text.Equals("Search a name..."))
             {
-                condicion += " U.NAME like '%" + tbxSearchUser.Text + "%' ";
+                condicion += " U.NAME like '%" + tbxSearchUser.Text + "%' AND U.DELETED=0";
                 añadida = 1;
             }
-            //if (cbxUserDeleted.CheckState == CheckState.Checked)
+            //if (check)
             //{
             //    if (añadida == 1)
             //    {
@@ -163,7 +178,8 @@ namespace ERP
             //    }
             //    condicion += "U.DELETED = 1";
             //    añadida = 1;
-            //} else //if (cbxUserDeleted.CheckState != CheckState.Checked)
+            //}
+            //else //if (cbxUserDeleted.CheckState != CheckState.Checked)
             //{
             //    if (añadida == 1)
             //    {
@@ -485,12 +501,33 @@ namespace ERP
 
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
         {
-            filtrarTablaUsuario();
+            filtroTotal();
         }
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString(); //No secontrola System.ArgumentOutOfRangeException'
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            filtroTotal();
+            //String condicion = "";
+            //if (cbxUserDeleted.CheckState == CheckState.Checked)
+            //{
+            //    condicion += "U.DELETED = 1";
+
+            //}
+            //else if (cbxUserDeleted.CheckState != CheckState.Checked)
+            //{
+            //    condicion += "U.DELETED = 0";
+            //}
+            //cargarTablaUsuarios(condicion);
+
+        }
+        public void filtroTotal()
+        {
+            filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a name...") ? "" : tbxSearchUser.Text, cbxUserDeleted.Checked);
         }
     }
 }
