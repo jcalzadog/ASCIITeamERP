@@ -302,6 +302,12 @@ namespace ERP
             btnNewUser.FlatAppearance.BorderColor = Color.Black;
             btnNewUser.FlatAppearance.BorderSize = 1;
 
+            btnEditUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditUser.ForeColor = Color.White;
+            btnEditUser.FlatStyle = FlatStyle.Flat;
+            btnEditUser.FlatAppearance.BorderColor = Color.Black;
+            btnEditUser.FlatAppearance.BorderSize = 1;
+
             btnRoles.BackColor = Color.FromArgb(114, 47, 55);
             btnRoles.ForeColor = Color.White;
             btnRoles.FlatStyle = FlatStyle.Flat;
@@ -528,6 +534,18 @@ namespace ERP
         public void filtroTotal()
         {
             filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a name...") ? "" : tbxSearchUser.Text, cbxUserDeleted.Checked);
+        }
+
+        private void btnEditUser_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditUser.BackColor = Color.White;
+            btnEditUser.ForeColor = Color.Black;
+        }
+
+        private void btnEditUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditUser.ForeColor = Color.White;
         }
     }
 }
