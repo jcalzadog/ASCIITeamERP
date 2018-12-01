@@ -47,7 +47,7 @@ namespace ERP
             this.btnConfirm.BackColor = System.Drawing.Color.Azure;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(387, 41);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 28);
             this.btnConfirm.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace ERP
             this.btnCancel.BackColor = System.Drawing.Color.Azure;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(495, 41);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 1;
@@ -94,7 +94,7 @@ namespace ERP
             global::ERP.Recursos.StringResources.English,
             global::ERP.Recursos.StringResources.Spanish});
             this.cmbLanguage.Location = new System.Drawing.Point(36, 206);
-            this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.cmbLanguage.Name = "cmbLanguage";
             this.cmbLanguage.Size = new System.Drawing.Size(205, 24);
             this.cmbLanguage.TabIndex = 3;
@@ -117,7 +117,7 @@ namespace ERP
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPassword.Location = new System.Drawing.Point(165, 108);
+            this.lblPassword.Location = new System.Drawing.Point(173, 108);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(77, 17);
@@ -126,16 +126,16 @@ namespace ERP
             // 
             // tbxUser
             // 
-            this.tbxUser.Location = new System.Drawing.Point(246, 61);
-            this.tbxUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxUser.Location = new System.Drawing.Point(269, 61);
+            this.tbxUser.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUser.Name = "tbxUser";
             this.tbxUser.Size = new System.Drawing.Size(132, 22);
             this.tbxUser.TabIndex = 6;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(246, 105);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPassword.Location = new System.Drawing.Point(269, 105);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(132, 22);
             this.tbxPassword.TabIndex = 7;
@@ -166,7 +166,7 @@ namespace ERP
             this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(626, 315);
             this.MinimizeBox = false;

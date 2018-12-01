@@ -130,6 +130,9 @@ namespace ERP
         {
             this.btnCancel.Text = StringResources.Cancel;
             this.btnConfirm.Text = StringResources.Confirm;
+            this.lblUser.Text = StringResources.User;
+            this.lblPassword.Text = StringResources.Password;
+            this.lblLanguage.Text = StringResources.Languaje;
 
         }
 
