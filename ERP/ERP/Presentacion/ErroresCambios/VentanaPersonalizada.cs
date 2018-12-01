@@ -8,25 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP.Presentacion.Errores
+namespace ERP.Presentacion.ErroresCambios
 {
-    public partial class ErrorPersonalizado : Form
+    public partial class VentanaPersonalizada : Form
     {
-        public ErrorPersonalizado(String mensaje)
+        public VentanaPersonalizada(String mensaje)
         {
             InitializeComponent();
             cargarComponentes();
+
             lblMensaje.Text = mensaje;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
 
         public void cargarComponentes()
         {
-            btnClose.BackColor = Color.FromArgb(114, 47, 55);
+            btnClose.BackColor = Color.Black;
             btnClose.ForeColor = Color.White;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.FlatAppearance.BorderColor = Color.Black;
             btnClose.FlatAppearance.BorderSize = 1;
-
         }
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
@@ -37,13 +42,8 @@ namespace ERP.Presentacion.Errores
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.BackColor = Color.FromArgb(114, 47, 55);
+            btnClose.BackColor = Color.Black
             btnClose.ForeColor = Color.White;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

@@ -36,9 +36,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(145, 101);
+            this.btnCancelar.Location = new System.Drawing.Point(193, 124);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(87, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(116, 28);
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(315, 101);
+            this.btnConfirmar.Location = new System.Drawing.Point(420, 124);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(87, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(116, 28);
             this.btnConfirmar.TabIndex = 1;
             this.btnConfirmar.Text = "Confirm";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -63,26 +65,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 50);
+            this.label1.Location = new System.Drawing.Point(37, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(512, 24);
+            this.label1.Size = new System.Drawing.Size(635, 29);
             this.label1.TabIndex = 6;
             this.label1.Text = "The program is going to close. Are you sure to leave?";
             // 
             // ConfirmarExit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(563, 154);
+            this.BackColor = System.Drawing.Color.DarkOrange;
+            this.ClientSize = new System.Drawing.Size(748, 180);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximumSize = new System.Drawing.Size(579, 193);
-            this.MinimumSize = new System.Drawing.Size(579, 193);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(766, 227);
+            this.MinimumSize = new System.Drawing.Size(766, 227);
             this.Name = "ConfirmarExit";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

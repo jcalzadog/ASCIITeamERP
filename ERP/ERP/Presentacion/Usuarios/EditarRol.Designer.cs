@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPermissions = new System.Windows.Forms.Label();
             this.dgvPermissions = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
@@ -38,6 +38,7 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.btnNewRole = new System.Windows.Forms.Button();
+            this.btnDeleteRol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermissions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,14 +54,14 @@
             // 
             // dgvPermissions
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPermissions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermissions.Location = new System.Drawing.Point(76, 132);
             this.dgvPermissions.Name = "dgvPermissions";
@@ -71,7 +72,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSave.BackColor = System.Drawing.Color.White;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(475, 369);
             this.btnSave.Name = "btnSave";
@@ -85,7 +86,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(556, 369);
             this.btnCancel.Name = "btnCancel";
@@ -99,7 +100,7 @@
             // 
             // btnDeny
             // 
-            this.btnDeny.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDeny.BackColor = System.Drawing.Color.White;
             this.btnDeny.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeny.Location = new System.Drawing.Point(425, 87);
             this.btnDeny.Name = "btnDeny";
@@ -113,7 +114,7 @@
             // 
             // btnAllow
             // 
-            this.btnAllow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAllow.BackColor = System.Drawing.Color.White;
             this.btnAllow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllow.Location = new System.Drawing.Point(319, 87);
             this.btnAllow.Name = "btnAllow";
@@ -147,7 +148,7 @@
             // 
             // btnNewRole
             // 
-            this.btnNewRole.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewRole.BackColor = System.Drawing.Color.White;
             this.btnNewRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewRole.Location = new System.Drawing.Point(374, 43);
             this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
@@ -160,13 +161,25 @@
             this.btnNewRole.MouseEnter += new System.EventHandler(this.btnNewRole_MouseEnter);
             this.btnNewRole.MouseLeave += new System.EventHandler(this.btnNewRole_MouseLeave);
             // 
+            // btnDeleteRol
+            // 
+            this.btnDeleteRol.BackColor = System.Drawing.Color.White;
+            this.btnDeleteRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRol.Location = new System.Drawing.Point(76, 369);
+            this.btnDeleteRol.Name = "btnDeleteRol";
+            this.btnDeleteRol.Size = new System.Drawing.Size(127, 28);
+            this.btnDeleteRol.TabIndex = 18;
+            this.btnDeleteRol.Text = "Delete Role";
+            this.btnDeleteRol.UseVisualStyleBackColor = false;
+            // 
             // EditarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(663, 410);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDeleteRol);
             this.Controls.Add(this.btnNewRole);
             this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.lblPermissions);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnNewRole;
+        private System.Windows.Forms.Button btnDeleteRol;
     }
 }

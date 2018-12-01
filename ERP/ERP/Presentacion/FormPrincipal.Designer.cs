@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -61,6 +61,8 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -99,7 +101,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage1.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
@@ -110,7 +112,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.BackColor = System.Drawing.Color.DarkOrange;
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.btnEditUser);
             this.tabPage2.Controls.Add(this.cbxUserDeleted);
             this.tabPage2.Controls.Add(this.tbxSearchUser);
@@ -130,7 +133,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditUser.BackColor = System.Drawing.Color.White;
             this.btnEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditUser.Location = new System.Drawing.Point(111, 10);
             this.btnEditUser.Name = "btnEditUser";
@@ -145,14 +148,15 @@
             // cbxUserDeleted
             // 
             this.cbxUserDeleted.AutoSize = true;
+            this.cbxUserDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.cbxUserDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxUserDeleted.ForeColor = System.Drawing.Color.Maroon;
+            this.cbxUserDeleted.ForeColor = System.Drawing.Color.Black;
             this.cbxUserDeleted.Location = new System.Drawing.Point(754, 14);
             this.cbxUserDeleted.Name = "cbxUserDeleted";
             this.cbxUserDeleted.Size = new System.Drawing.Size(86, 21);
             this.cbxUserDeleted.TabIndex = 9;
             this.cbxUserDeleted.Text = "Deleted";
-            this.cbxUserDeleted.UseVisualStyleBackColor = true;
+            this.cbxUserDeleted.UseVisualStyleBackColor = false;
             this.cbxUserDeleted.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tbxSearchUser
@@ -168,7 +172,7 @@
             // 
             // btnLogs
             // 
-            this.btnLogs.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnLogs.BackColor = System.Drawing.Color.White;
             this.btnLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.Location = new System.Drawing.Point(450, 10);
             this.btnLogs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -183,7 +187,7 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDeleteUser.BackColor = System.Drawing.Color.White;
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteUser.Location = new System.Drawing.Point(304, 10);
@@ -199,7 +203,7 @@
             // 
             // btnRoles
             // 
-            this.btnRoles.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnRoles.BackColor = System.Drawing.Color.White;
             this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRoles.Location = new System.Drawing.Point(211, 10);
@@ -215,7 +219,7 @@
             // 
             // btnNewUser
             // 
-            this.btnNewUser.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewUser.BackColor = System.Drawing.Color.White;
             this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewUser.Location = new System.Drawing.Point(8, 10);
             this.btnNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -232,30 +236,30 @@
             // 
             this.dgvUsers.AllowUserToResizeColumns = false;
             this.dgvUsers.AllowUserToResizeRows = false;
-            this.dgvUsers.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.Desktop;
             this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(803, 400);
             this.dgvUsers.TabIndex = 3;
@@ -263,7 +267,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage3.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage3.Controls.Add(this.tbxSearchCustomer);
             this.tabPage3.Controls.Add(this.btnDeleteCustomer);
             this.tabPage3.Controls.Add(this.btnEditCustomer);
@@ -326,7 +330,7 @@
             // 
             // dgvCustomers
             // 
-            this.dgvCustomers.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.dgvCustomers.BackgroundColor = System.Drawing.Color.Black;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Location = new System.Drawing.Point(8, 43);
             this.dgvCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -337,7 +341,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage4.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage4.Controls.Add(this.button2);
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
@@ -359,7 +363,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage5.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage5.Controls.Add(this.button3);
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
@@ -381,7 +385,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage6.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage6.Controls.Add(this.dgvCategorie);
             this.tabPage6.Controls.Add(this.btnDeleteCategorie);
             this.tabPage6.Controls.Add(this.btnUpdateCategorie);
@@ -396,6 +400,7 @@
             // 
             // dgvCategorie
             // 
+            this.dgvCategorie.BackgroundColor = System.Drawing.Color.Black;
             this.dgvCategorie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategorie.Location = new System.Drawing.Point(8, 43);
             this.dgvCategorie.Margin = new System.Windows.Forms.Padding(4);
@@ -438,7 +443,7 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage7.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage7.Controls.Add(this.button4);
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
@@ -460,7 +465,8 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage8.BackColor = System.Drawing.Color.DarkOrange;
+            this.tabPage8.Controls.Add(this.panel2);
             this.tabPage8.Controls.Add(this.btnLogOut);
             this.tabPage8.Controls.Add(this.btnExit);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
@@ -500,10 +506,27 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(0, 450);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(901, 34);
+            this.panel1.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Location = new System.Drawing.Point(354, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(543, 484);
+            this.panel2.TabIndex = 2;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(995, 486);
             this.ControlBox = false;
             this.Controls.Add(this.tbcMenuPrincipal);
@@ -564,5 +587,7 @@
         private System.Windows.Forms.TextBox tbxSearchCustomer;
         private System.Windows.Forms.CheckBox cbxUserDeleted;
         private System.Windows.Forms.Button btnEditUser;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

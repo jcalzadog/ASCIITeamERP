@@ -103,35 +103,41 @@ namespace ERP.Presentacion.Usuarios
         public void cargarComponentes()
         {
 
-            btnAllow.BackColor = Color.FromArgb(114, 47, 55);
+            btnAllow.BackColor = Color.Black;
             btnAllow.ForeColor = Color.White;
             btnAllow.FlatStyle = FlatStyle.Flat;
             btnAllow.FlatAppearance.BorderColor = Color.Black;
             btnAllow.FlatAppearance.BorderSize = 1;
 
-            btnNewRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewRole.BackColor = Color.Black;
             btnNewRole.ForeColor = Color.White;
             btnNewRole.FlatStyle = FlatStyle.Flat;
             btnNewRole.FlatAppearance.BorderColor = Color.Black;
             btnNewRole.FlatAppearance.BorderSize = 1;
 
-            btnDeny.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeny.BackColor = Color.Black;
             btnDeny.ForeColor = Color.White;
             btnDeny.FlatStyle = FlatStyle.Flat;
             btnDeny.FlatAppearance.BorderColor = Color.Black;
             btnDeny.FlatAppearance.BorderSize = 1;
 
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
-            btnSave.BackColor = Color.FromArgb(114, 47, 55);
+            btnSave.BackColor = Color.Black;
             btnSave.ForeColor = Color.White;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.FlatAppearance.BorderColor = Color.Black;
             btnSave.FlatAppearance.BorderSize = 1;
+
+            btnDeleteRol.BackColor = Color.Black;
+            btnDeleteRol.ForeColor = Color.White;
+            btnDeleteRol.FlatStyle = FlatStyle.Flat;
+            btnDeleteRol.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteRol.FlatAppearance.BorderSize = 1;
 
             rol.gestorRol.refrescarRoles(cmbRoles);
             cmbRoles.SelectedIndex = 0;
@@ -144,7 +150,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnAllow_MouseLeave(object sender, EventArgs e)
         {
-            btnAllow.BackColor = Color.FromArgb(114, 47, 55);
+            btnAllow.BackColor = Color.Black;
             btnAllow.ForeColor = Color.White;
         }
 
@@ -156,7 +162,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnDeny_MouseLeave(object sender, EventArgs e)
         {
-            btnDeny.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeny.BackColor = Color.Black;
             btnDeny.ForeColor = Color.White;
         }
 
@@ -168,7 +174,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSave_MouseLeave(object sender, EventArgs e)
         {
-            btnSave.BackColor = Color.FromArgb(114, 47, 55);
+            btnSave.BackColor = Color.Black;
             btnSave.ForeColor = Color.White;
         }
 
@@ -180,7 +186,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnCancel_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
         }
 
@@ -192,7 +198,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnNewRole_MouseLeave(object sender, EventArgs e)
         {
-            btnNewRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewRole.BackColor = Color.Black;
             btnNewRole.ForeColor = Color.White;
         }
 

@@ -38,15 +38,18 @@ namespace ERP
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbxUser = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConfirm
             // 
-            this.btnConfirm.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnConfirm.BackColor = System.Drawing.Color.Azure;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(288, 184);
+            this.btnConfirm.Location = new System.Drawing.Point(387, 41);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(100, 28);
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = global::ERP.Recursos.StringResources.Confirm;
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -56,11 +59,12 @@ namespace ERP
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.Azure;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(369, 184);
+            this.btnCancel.Location = new System.Drawing.Point(495, 41);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = global::ERP.Recursos.StringResources.Cancel;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -71,35 +75,40 @@ namespace ERP
             // lblLanguage
             // 
             this.lblLanguage.AutoSize = true;
+            this.lblLanguage.BackColor = System.Drawing.Color.DarkOrange;
             this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(24, 151);
+            this.lblLanguage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblLanguage.Location = new System.Drawing.Point(32, 186);
+            this.lblLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(59, 13);
+            this.lblLanguage.Size = new System.Drawing.Size(75, 17);
             this.lblLanguage.TabIndex = 2;
             this.lblLanguage.Text = "Languaje";
             // 
             // cmbLanguage
             // 
+            this.cmbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLanguage.FormattingEnabled = true;
             this.cmbLanguage.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.cmbLanguage.Items.AddRange(new object[] {
-            StringResources.English,
-            StringResources.Spanish});
-            this.cmbLanguage.SelectedIndex = 0;
-            this.cmbLanguage.Location = new System.Drawing.Point(27, 167);
+            global::ERP.Recursos.StringResources.English,
+            global::ERP.Recursos.StringResources.Spanish});
+            this.cmbLanguage.Location = new System.Drawing.Point(36, 206);
+            this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbLanguage.Name = "cmbLanguage";
-            this.cmbLanguage.Size = new System.Drawing.Size(155, 21);
+            this.cmbLanguage.Size = new System.Drawing.Size(205, 24);
             this.cmbLanguage.TabIndex = 3;
             this.cmbLanguage.SelectedIndexChanged += new System.EventHandler(this.cmbLanguage_SelectedIndexChanged);
-            this.cmbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(149, 76);
+            this.lblUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUser.Location = new System.Drawing.Point(200, 65);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(33, 13);
+            this.lblUser.Size = new System.Drawing.Size(42, 17);
             this.lblUser.TabIndex = 4;
             this.lblUser.Text = "User";
             // 
@@ -107,33 +116,47 @@ namespace ERP
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(123, 105);
+            this.lblPassword.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPassword.Location = new System.Drawing.Point(165, 108);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(61, 13);
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Password";
             // 
             // tbxUser
             // 
-            this.tbxUser.Location = new System.Drawing.Point(184, 73);
+            this.tbxUser.Location = new System.Drawing.Point(246, 61);
+            this.tbxUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxUser.Name = "tbxUser";
-            this.tbxUser.Size = new System.Drawing.Size(100, 20);
+            this.tbxUser.Size = new System.Drawing.Size(132, 22);
             this.tbxUser.TabIndex = 6;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(184, 102);
+            this.tbxPassword.Location = new System.Drawing.Point(246, 105);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbxPassword.Size = new System.Drawing.Size(132, 22);
             this.tbxPassword.TabIndex = 7;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnConfirm);
+            this.panel1.Location = new System.Drawing.Point(0, 174);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(609, 82);
+            this.panel1.TabIndex = 8;
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(458, 226);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(608, 268);
             this.ControlBox = false;
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUser);
@@ -141,19 +164,20 @@ namespace ERP
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.cmbLanguage);
             this.Controls.Add(this.lblLanguage);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(474, 265);
+            this.MaximumSize = new System.Drawing.Size(626, 315);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(474, 265);
+            this.MinimumSize = new System.Drawing.Size(626, 315);
             this.Name = "FormLogin";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Activated += new System.EventHandler(this.textBox1_TextChanged);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +193,7 @@ namespace ERP
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbxUser;
         private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

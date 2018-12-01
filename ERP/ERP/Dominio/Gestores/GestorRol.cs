@@ -84,7 +84,7 @@ namespace ERP.Dominio.Gestores
 
             dgvPermissions.AllowUserToAddRows = false;
             dgvPermissions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPermissions.BackgroundColor = Color.FromArgb(114, 47, 55);
+            dgvPermissions.BackgroundColor = Color.Black;
 
             ////Colores de Header (no va nose porque)
             //dgvPermissions.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);

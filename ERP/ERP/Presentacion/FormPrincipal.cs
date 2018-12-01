@@ -1,6 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
-using ERP.Presentacion.Errores;
+using ERP.Presentacion.ErroresCambios;
 using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
 using System;
@@ -74,9 +74,9 @@ namespace ERP
             {
 
                 // Draw a different background color, and don't paint a focus rectangle.
-                _textBrush = new SolidBrush(Color.FromArgb(114, 47, 55));
+                _textBrush = new SolidBrush(Color.Black);
                 // g.FillRectangle(Brushes.Red, e.Bounds);
-                g.FillRectangle(Brushes.SteelBlue, e.Bounds);
+                g.FillRectangle(Brushes.DarkOrange, e.Bounds);
             }
             else
             {
@@ -141,7 +141,7 @@ namespace ERP
             dgvUsers.RowHeadersVisible = false;
             dgvUsers.AllowUserToAddRows = false;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsers.BackgroundColor = Color.FromArgb(114, 47, 55);
+            dgvUsers.BackgroundColor = Color.Black;
 
             ////Colores de Header (no va nose porque)
             //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
@@ -211,6 +211,14 @@ namespace ERP
 
             dgvCategorie.Width = this.Width - 150;
             dgvCategorie.Height = this.Height - 100;
+
+            //Diseño
+            panel1.Width = tbcMenuPrincipal.Width;
+            panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
+
+            panel2.Width = tbcMenuPrincipal.Width;
+            panel2.Height = tbcMenuPrincipal.Height;
+
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
@@ -223,8 +231,8 @@ namespace ERP
             } else
             {
                 String mensaje = "No se ha sellecionado ninguna fila.";
-                ErrorPersonalizado error = new ErrorPersonalizado(mensaje);
-                error.ShowDialog();
+                //ErrorPersonalizado error = new ErrorPersonalizado(mensaje);
+                //error.ShowDialog();
                 //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
             
@@ -293,6 +301,7 @@ namespace ERP
 
         public void cargarComponentes()
         {
+            
             //General
             tbxSearchUser.ForeColor = Color.Gray;
             tbxSearchUser.Text = "Search a Name...";
@@ -301,31 +310,31 @@ namespace ERP
             tbxSearchCustomer.Text = "Search a Name...";
 
             //Usuarios
-            btnNewUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewUser.BackColor = Color.Black;
             btnNewUser.ForeColor = Color.White;
             btnNewUser.FlatStyle = FlatStyle.Flat;
             btnNewUser.FlatAppearance.BorderColor = Color.Black;
             btnNewUser.FlatAppearance.BorderSize = 1;
 
-            btnEditUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditUser.BackColor = Color.Black;
             btnEditUser.ForeColor = Color.White;
             btnEditUser.FlatStyle = FlatStyle.Flat;
             btnEditUser.FlatAppearance.BorderColor = Color.Black;
             btnEditUser.FlatAppearance.BorderSize = 1;
 
-            btnRoles.BackColor = Color.FromArgb(114, 47, 55);
+            btnRoles.BackColor = Color.Black;
             btnRoles.ForeColor = Color.White;
             btnRoles.FlatStyle = FlatStyle.Flat;
             btnRoles.FlatAppearance.BorderColor = Color.Black;
             btnRoles.FlatAppearance.BorderSize = 1;
 
-            btnDeleteUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeleteUser.BackColor = Color.Black;
             btnDeleteUser.ForeColor = Color.White;
             btnDeleteUser.FlatStyle = FlatStyle.Flat;
             btnDeleteUser.FlatAppearance.BorderColor = Color.Black;
             btnDeleteUser.FlatAppearance.BorderSize = 1;
 
-            btnLogs.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogs.BackColor = Color.Black;
             btnLogs.ForeColor = Color.White;
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.FlatAppearance.BorderColor = Color.Black;
@@ -361,13 +370,13 @@ namespace ERP
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
 
             //System
-            btnExit.BackColor = Color.FromArgb(114, 47, 55);
+            btnExit.BackColor = Color.Black;
             btnExit.ForeColor = Color.White;
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.FlatAppearance.BorderColor = Color.Black;
             btnExit.FlatAppearance.BorderSize = 1;
 
-            btnLogOut.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogOut.BackColor = Color.Black;
             btnLogOut.ForeColor = Color.White;
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
@@ -406,7 +415,7 @@ namespace ERP
 
         private void btnNewUser_MouseLeave(object sender, EventArgs e)
         {
-            btnNewUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewUser.BackColor = Color.Black;
             btnNewUser.ForeColor = Color.White;
         }
 
@@ -418,7 +427,7 @@ namespace ERP
 
         private void btnRoles_MouseLeave(object sender, EventArgs e)
         {
-            btnRoles.BackColor = Color.FromArgb(114, 47, 55);
+            btnRoles.BackColor = Color.Black;
             btnRoles.ForeColor = Color.White;
         }
 
@@ -430,7 +439,7 @@ namespace ERP
 
         private void btnExit_MouseLeave(object sender, EventArgs e)
         {
-            btnExit.BackColor = Color.FromArgb(114, 47, 55);
+            btnExit.BackColor = Color.Black;
             btnExit.ForeColor = Color.White;
         }
 
@@ -442,7 +451,7 @@ namespace ERP
 
         private void btnDeleteUser_MouseLeave(object sender, EventArgs e)
         {
-            btnDeleteUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnDeleteUser.BackColor = Color.Black;
             btnDeleteUser.ForeColor = Color.White;
         }
 
@@ -454,7 +463,7 @@ namespace ERP
 
         private void btnLogs_MouseLeave(object sender, EventArgs e)
         {
-            btnLogs.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogs.BackColor = Color.Black;
             btnLogs.ForeColor = Color.White;
         }
 
@@ -474,7 +483,7 @@ namespace ERP
 
         private void btnLogOut_MouseLeave(object sender, EventArgs e)
         {
-            btnLogOut.BackColor = Color.FromArgb(114, 47, 55);
+            btnLogOut.BackColor = Color.Black;
             btnLogOut.ForeColor = Color.White;
         }
 
@@ -517,11 +526,19 @@ namespace ERP
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex < 0)
             {
                 return;
             }
-            nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString(); //No secontrola System.ArgumentOutOfRangeException'
+            if (dgvUsers.Rows.Count > 0 && dgvUsers.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
+            {
+                if (!String.IsNullOrEmpty(dgvUsers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    // do sonmthind
+                    nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+                }
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -558,7 +575,7 @@ namespace ERP
 
         private void btnEditUser_MouseLeave(object sender, EventArgs e)
         {
-            btnEditUser.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditUser.BackColor = Color.Black;
             btnEditUser.ForeColor = Color.White;
         }
 

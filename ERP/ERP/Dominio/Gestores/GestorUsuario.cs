@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Presentacion.ErroresCambios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -185,7 +186,10 @@ namespace ERP.Dominio.Gestores
                 }
             } else
             {
-                MessageBox.Show("El nombre de usuario no es Valido.");
+                String mensaje = "El nombre de usuario no es Valido.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                //MessageBox.Show("El nombre de usuario no es Valido.");
             }
             return creado;
         }

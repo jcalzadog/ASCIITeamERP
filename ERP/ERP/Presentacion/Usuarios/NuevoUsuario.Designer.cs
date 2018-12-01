@@ -103,7 +103,7 @@
             // 
             // btnNewRole
             // 
-            this.btnNewRole.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNewRole.BackColor = System.Drawing.Color.White;
             this.btnNewRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewRole.Location = new System.Drawing.Point(676, 154);
             this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
@@ -118,7 +118,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(734, 230);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
@@ -133,7 +133,7 @@
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSaveAnother.BackColor = System.Drawing.Color.White;
             this.btnSaveAnother.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveAnother.Location = new System.Drawing.Point(393, 230);
             this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
@@ -148,7 +148,7 @@
             // 
             // btnSaveClose
             // 
-            this.btnSaveClose.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSaveClose.BackColor = System.Drawing.Color.White;
             this.btnSaveClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveClose.Location = new System.Drawing.Point(562, 230);
             this.btnSaveClose.Margin = new System.Windows.Forms.Padding(4);
@@ -163,7 +163,7 @@
             // 
             // btnEditRole
             // 
-            this.btnEditRole.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditRole.BackColor = System.Drawing.Color.White;
             this.btnEditRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditRole.Location = new System.Drawing.Point(557, 154);
             this.btnEditRole.Name = "btnEditRole";
@@ -180,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(847, 271);
             this.ControlBox = false;
             this.Controls.Add(this.btnEditRole);

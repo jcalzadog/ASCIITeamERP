@@ -86,14 +86,16 @@ namespace ERP
 
         public void cargarComponentes()
         {
+            //Color rojo oscuso --> Color.FromArgb(114, 47, 55);
+
             //Login
-            btnConfirm.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirm.BackColor = Color.Black;
             btnConfirm.ForeColor = Color.White;
             btnConfirm.FlatStyle = FlatStyle.Flat;
             btnConfirm.FlatAppearance.BorderColor = Color.Black;
             btnConfirm.FlatAppearance.BorderSize = 1;
 
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
@@ -109,7 +111,7 @@ namespace ERP
 
         private void btnConfirm_MouseLeave(object sender, EventArgs e)
         {
-            btnConfirm.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirm.BackColor = Color.Black;
             btnConfirm.ForeColor = Color.White;
         }
 
@@ -121,7 +123,7 @@ namespace ERP
 
         private void btnCancel_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
         }
         private void aplicarIdioma()

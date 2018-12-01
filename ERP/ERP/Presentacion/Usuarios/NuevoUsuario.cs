@@ -69,31 +69,31 @@ namespace ERP.Presentacion.Usuarios
 
         public void cargarComponentes()
         {
-            btnNewRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewRole.BackColor = Color.Black;
             btnNewRole.ForeColor = Color.White;
             btnNewRole.FlatStyle = FlatStyle.Flat;
             btnNewRole.FlatAppearance.BorderColor = Color.Black;
             btnNewRole.FlatAppearance.BorderSize = 1;
 
-            btnEditRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditRole.BackColor = Color.Black;
             btnEditRole.ForeColor = Color.White;
             btnEditRole.FlatStyle = FlatStyle.Flat;
             btnEditRole.FlatAppearance.BorderColor = Color.Black;
             btnEditRole.FlatAppearance.BorderSize = 1;
 
-            btnSaveClose.BackColor = Color.FromArgb(114, 47, 55);
+            btnSaveClose.BackColor = Color.Black;
             btnSaveClose.ForeColor = Color.White;
             btnSaveClose.FlatStyle = FlatStyle.Flat;
             btnSaveClose.FlatAppearance.BorderColor = Color.Black;
             btnSaveClose.FlatAppearance.BorderSize = 1;
 
-            btnSaveAnother.BackColor = Color.FromArgb(114, 47, 55);
+            btnSaveAnother.BackColor = Color.Black;
             btnSaveAnother.ForeColor = Color.White;
             btnSaveAnother.FlatStyle = FlatStyle.Flat;
             btnSaveAnother.FlatAppearance.BorderColor = Color.Black;
             btnSaveAnother.FlatAppearance.BorderSize = 1;
 
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.FlatAppearance.BorderColor = Color.Black;
@@ -117,7 +117,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnEditRole_MouseLeave(object sender, EventArgs e)
         {
-            btnEditRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnEditRole.BackColor = Color.Black;
             btnEditRole.ForeColor = Color.White;
         }
 
@@ -129,7 +129,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnNewRole_MouseLeave(object sender, EventArgs e)
         {
-            btnNewRole.BackColor = Color.FromArgb(114, 47, 55);
+            btnNewRole.BackColor = Color.Black;
             btnNewRole.ForeColor = Color.White;
         }
 
@@ -141,7 +141,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveAnother_MouseLeave(object sender, EventArgs e)
         {
-            btnSaveAnother.BackColor = Color.FromArgb(114, 47, 55);
+            btnSaveAnother.BackColor = Color.Black;
             btnSaveAnother.ForeColor = Color.White;
         }
 
@@ -153,7 +153,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveClose_MouseLeave(object sender, EventArgs e)
         {
-            btnSaveClose.BackColor = Color.FromArgb(114, 47, 55);
+            btnSaveClose.BackColor = Color.Black;
             btnSaveClose.ForeColor = Color.White;
         }
 
@@ -165,7 +165,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnCancel_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
         }
     }

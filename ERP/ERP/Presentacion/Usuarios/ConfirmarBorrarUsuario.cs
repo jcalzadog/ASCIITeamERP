@@ -29,13 +29,13 @@ namespace ERP.Presentacion.Usuarios
         public void cargarComponentes()
         {
             //Exit
-            btnConfirmar.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirmar.BackColor = Color.Black;
             btnConfirmar.ForeColor = Color.White;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
             btnConfirmar.FlatAppearance.BorderColor = Color.Black;
             btnConfirmar.FlatAppearance.BorderSize = 1;
 
-            btnCancelar.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancelar.BackColor = Color.Black;
             btnCancelar.ForeColor = Color.White;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.FlatAppearance.BorderColor = Color.Black;
@@ -61,7 +61,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
-            btnCancelar.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancelar.BackColor = Color.Black;
             btnCancelar.ForeColor = Color.White;
         }
 
@@ -73,7 +73,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnConfirmar_MouseLeave(object sender, EventArgs e)
         {
-            btnConfirmar.BackColor = Color.FromArgb(114, 47, 55);
+            btnConfirmar.BackColor = Color.Black;
             btnConfirmar.ForeColor = Color.White;
         }
     }

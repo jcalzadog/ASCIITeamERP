@@ -60,7 +60,7 @@
             // 
             // btnAllow
             // 
-            this.btnAllow.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAllow.BackColor = System.Drawing.Color.White;
             this.btnAllow.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllow.Location = new System.Drawing.Point(335, 87);
             this.btnAllow.Name = "btnAllow";
@@ -74,7 +74,7 @@
             // 
             // btnDeny
             // 
-            this.btnDeny.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDeny.BackColor = System.Drawing.Color.White;
             this.btnDeny.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeny.Location = new System.Drawing.Point(431, 87);
             this.btnDeny.Name = "btnDeny";
@@ -88,7 +88,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(556, 369);
             this.btnCancel.Name = "btnCancel";
@@ -102,7 +102,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSave.BackColor = System.Drawing.Color.White;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(475, 369);
             this.btnSave.Name = "btnSave";
@@ -116,6 +116,7 @@
             // 
             // dgvPermissions
             // 
+            this.dgvPermissions.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(663, 410);
             this.ControlBox = false;
             this.Controls.Add(this.lblPermissions);

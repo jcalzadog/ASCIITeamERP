@@ -69,11 +69,11 @@
     <Compile Include="Presentacion\Categories\UpdCategorie.Designer.cs">
       <DependentUpon>UpdCategorie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Errores\ErrorPersonalizado.cs">
+    <Compile Include="Presentacion\ErroresCambios\VentanaPersonalizada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Errores\ErrorPersonalizado.Designer.cs">
-      <DependentUpon>ErrorPersonalizado.cs</DependentUpon>
+    <Compile Include="Presentacion\ErroresCambios\VentanaPersonalizada.Designer.cs">
+      <DependentUpon>VentanaPersonalizada.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FormLogin.cs">
       <SubType>Form</SubType>
@@ -141,8 +141,8 @@
     <EmbeddedResource Include="Presentacion\Categories\UpdCategorie.resx">
       <DependentUpon>UpdCategorie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Errores\ErrorPersonalizado.resx">
-      <DependentUpon>ErrorPersonalizado.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\ErroresCambios\VentanaPersonalizada.resx">
+      <DependentUpon>VentanaPersonalizada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
