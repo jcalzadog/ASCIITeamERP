@@ -156,20 +156,21 @@ namespace ERP
             String condicion="";
             int añadida = 0;
 
-            //if (check)
-            //{
-            //    condicion += " U.NAME like '%" + name + "%' AND U.DELETED=1";
-            //} else
-            //{
-            //    condicion += " U.NAME like '%" + name + "%' AND U.DELETED=0";
-            //}
-
-
-            if (tbxSearchUser.Text != null && !tbxSearchUser.Text.Equals("Search a name..."))
+            if (check)
             {
-                condicion += " U.NAME like '%" + tbxSearchUser.Text + "%' AND U.DELETED=0";
-                añadida = 1;
+                condicion += " U.NAME like '%" + name + "%' AND U.DELETED=1";
             }
+            else
+            {
+                condicion += " U.NAME like '%" + name + "%' AND U.DELETED=0";
+            }
+
+
+            //if (tbxSearchUser.Text != null && !tbxSearchUser.Text.Equals("Search a name..."))
+            //{
+            //    condicion += " U.NAME like '%" + tbxSearchUser.Text + "%' AND U.DELETED=0";
+            //    añadida = 1;
+            //}
             //if (check)
             //{
             //    if (añadida == 1)
@@ -533,7 +534,12 @@ namespace ERP
         }
         public void filtroTotal()
         {
-            filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a name...") ? "" : tbxSearchUser.Text, cbxUserDeleted.Checked);
+            bool deleted = false;
+            if(cbxUserDeleted.CheckState == CheckState.Checked)
+            {
+                deleted = true;
+            }
+            filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a name...") ? "" : tbxSearchUser.Text, deleted);
         }
 
         private void btnEditUser_MouseEnter(object sender, EventArgs e)
