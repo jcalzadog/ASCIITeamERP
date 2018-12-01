@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.Errores;
 using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
 using System;
@@ -218,10 +219,13 @@ namespace ERP
             {
                 ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionada);
                 deletedUser.ShowDialog();
-                cargarTablaUsuarios("");
+                filtroTotal();
             } else
             {
-                MessageBox.Show("No se ha sellecionado ninguna fila.");
+                String mensaje = "No se ha sellecionado ninguna fila.";
+                ErrorPersonalizado error = new ErrorPersonalizado(mensaje);
+                error.ShowDialog();
+                //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
             
         }
@@ -230,7 +234,7 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            cargarTablaUsuarios("");
+            filtroTotal();//Usa cargar tabla usuariospara actualizar tabla
 
         }
 
@@ -513,6 +517,10 @@ namespace ERP
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
             nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString(); //No secontrola System.ArgumentOutOfRangeException'
         }
 
@@ -539,7 +547,7 @@ namespace ERP
             {
                 deleted = true;
             }
-            filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a name...") ? "" : tbxSearchUser.Text, deleted);
+            filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a Name...") ? "" : tbxSearchUser.Text, deleted);
         }
 
         private void btnEditUser_MouseEnter(object sender, EventArgs e)
@@ -552,6 +560,16 @@ namespace ERP
         {
             btnEditUser.BackColor = Color.FromArgb(114, 47, 55);
             btnEditUser.ForeColor = Color.White;
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
