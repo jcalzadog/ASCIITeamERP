@@ -209,11 +209,14 @@ namespace ERP.Dominio.Gestores
 
             if (pass.Equals(""))
             {
-                String sentencia2 = "UPDATE USERS SET DELETED = 1 WHERE NAME = '" + nombreUser + "'";
+                String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
                 conector.setData(sentencia2);
             } else
             {
-                String sentencia2 = "UPDATE USERS SET PASSWORD ='"+pass+"' WHERE NAME = '" + nombreUser + "'";
+                String sentencia1 = "UPDATE USERS SET PASSWORD ='"+pass+"' WHERE NAME = '" + nombreUser + "'";
+                conector.setData(sentencia1);
+
+                String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
                 conector.setData(sentencia2);
             }
             MessageBox.Show("El usuario se ha eliminado correctamente.");

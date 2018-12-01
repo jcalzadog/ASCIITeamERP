@@ -14,14 +14,18 @@ namespace ERP.Presentacion.Usuarios
     public partial class EditarUsuario : Form
     {
         private Role rol;
+        private User user;
         private bool cambiarPass=false;
+        private String nombreRol;
         public EditarUsuario(String nameU,String nameR)
         {
             rol = new Role();
+            user = new User();
             InitializeComponent();
             cargarComponentes();
             tbxUsername.Text = nameU;
             rol.gestorRol.seleccionarRoles(cmbRoles, nameR);
+            nombreRol = nameR;
             panel1.BringToFront();
         }
 
@@ -128,10 +132,13 @@ namespace ERP.Presentacion.Usuarios
         {
             if(cambiarPass == true)
             {
-
-            }else
+                user.gestorusuario.modificarUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+                this.Dispose();
+            }
+            else
             {
-
+                user.gestorusuario.modificarUsuario(tbxUsername.Text, "", cmbRoles.SelectedItem.ToString());
+                this.Dispose();
             }
         }
     }

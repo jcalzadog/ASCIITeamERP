@@ -121,11 +121,11 @@ namespace ERP.Presentacion.Usuarios
             btnDeny.FlatAppearance.BorderColor = Color.Black;
             btnDeny.FlatAppearance.BorderSize = 1;
 
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.FlatAppearance.BorderColor = Color.Black;
-            btnCancel.FlatAppearance.BorderSize = 1;
+            btnClose.BackColor = Color.Black;
+            btnClose.ForeColor = Color.White;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.FlatAppearance.BorderColor = Color.Black;
+            btnClose.FlatAppearance.BorderSize = 1;
 
             btnSave.BackColor = Color.Black;
             btnSave.ForeColor = Color.White;
@@ -180,14 +180,14 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnCancel_MouseEnter(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
+            btnClose.BackColor = Color.White;
+            btnClose.ForeColor = Color.Black;
         }
 
         private void btnCancel_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
+            btnClose.BackColor = Color.Black;
+            btnClose.ForeColor = Color.White;
         }
 
         private void btnNewRole_MouseEnter(object sender, EventArgs e)
