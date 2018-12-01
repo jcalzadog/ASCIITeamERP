@@ -237,5 +237,26 @@ namespace ERP.Presentacion.Usuarios
         {
             rol.gestorRol.modificarRol(dgvPermissions, cmbRoles.SelectedItem.ToString());
         }
+
+        private void btnDeleteRol_Click(object sender, EventArgs e)
+        {
+            String nameRol = cmbRoles.SelectedItem.ToString();
+            ConfirmarBorrarRol confirmDeletedRole = new ConfirmarBorrarRol(nameRol);
+            confirmDeletedRole.ShowDialog();
+            rol.gestorRol.refrescarRoles(cmbRoles);
+            cmbRoles.SelectedIndex = 0;
+        }
+
+        private void btnDeleteRol_MouseEnter(object sender, EventArgs e)
+        { 
+            btnDeleteRol.BackColor = Color.White;
+            btnDeleteRol.ForeColor = Color.Black;
+        }
+        private void btnDeleteRol_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteRol.BackColor = Color.Black;
+            btnDeleteRol.ForeColor = Color.White;
+        }
     }
 }
+

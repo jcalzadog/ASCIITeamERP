@@ -231,8 +231,8 @@ namespace ERP
             } else
             {
                 String mensaje = "No se ha sellecionado ninguna fila.";
-                //ErrorPersonalizado error = new ErrorPersonalizado(mensaje);
-                //error.ShowDialog();
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
                 //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
             

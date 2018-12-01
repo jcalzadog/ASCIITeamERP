@@ -171,6 +171,9 @@
             this.btnDeleteRol.TabIndex = 18;
             this.btnDeleteRol.Text = "Delete Role";
             this.btnDeleteRol.UseVisualStyleBackColor = false;
+            this.btnDeleteRol.Click += new System.EventHandler(this.btnDeleteRol_Click);
+            this.btnDeleteRol.MouseEnter += new System.EventHandler(this.btnDeleteRol_MouseEnter);
+            this.btnDeleteRol.MouseLeave += new System.EventHandler(this.btnDeleteRol_MouseLeave);
             // 
             // EditarRol
             // 

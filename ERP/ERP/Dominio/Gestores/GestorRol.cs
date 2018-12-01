@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Presentacion.ErroresCambios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -207,6 +208,37 @@ namespace ERP.Dominio.Gestores
                 {
                     MessageBox.Show("El Rol se ha modificado correctamente.");
                 }
+        }
+
+        public bool eliminarRole(String nombreRole)
+        {
+            bool result = false;
+            //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+
+
+            //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
+            //DELETE FROM USERS WHERE NAME = 'aaa'
+
+            //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
+            //conector.setData(sentencia1);-------
+
+            String sentencia1 = "DELETE FROM ROL_PERM WHERE IDROLE = (SELECT IDROLE FROM ROLES WHERE NAME = '"+nombreRole+"')";
+            conector.setData(sentencia1);
+
+            String sentencia2 = "DELETE FROM ROLES WHERE NAME = '" + nombreRole + "'";
+            conector.setData(sentencia2);
+
+
+            String mensaje = "El rol se ha eliminado correctamente.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='" + nombreRole + "'");
+            if (existe == 0)
+            {
+                result = true;
+            }
+            return result;
         }
 
     }

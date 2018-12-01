@@ -79,3 +79,4 @@ C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.AddCategoria.resources
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.UpdCategorie.resources
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.ErroresCambios.VentanaPersonalizada.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
