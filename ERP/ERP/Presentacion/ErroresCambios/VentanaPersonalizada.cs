@@ -42,7 +42,7 @@ namespace ERP.Presentacion.ErroresCambios
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.BackColor = Color.Black
+            btnClose.BackColor = Color.Black;
             btnClose.ForeColor = Color.White;
         }
     }
