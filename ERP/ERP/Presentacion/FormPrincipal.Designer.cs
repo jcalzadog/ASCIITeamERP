@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.cbxUserDeleted = new System.Windows.Forms.CheckBox();
             this.tbxSearchUser = new System.Windows.Forms.TextBox();
@@ -50,7 +53,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dgvCategorie = new System.Windows.Forms.DataGridView();
             this.btnDeleteCategorie = new System.Windows.Forms.Button();
@@ -59,10 +61,16 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbFilPlatform = new System.Windows.Forms.ComboBox();
+            this.cmbFilCategory = new System.Windows.Forms.ComboBox();
+            this.txtSearchProd = new System.Windows.Forms.TextBox();
+            this.btnDeleteProd = new System.Windows.Forms.Button();
+            this.btnUpdateProd = new System.Windows.Forms.Button();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.btnNewProd = new System.Windows.Forms.Button();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -74,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -130,6 +139,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(0, 450);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(901, 34);
+            this.panel1.TabIndex = 11;
             // 
             // btnEditUser
             // 
@@ -238,28 +255,28 @@
             this.dgvUsers.AllowUserToResizeRows = false;
             this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.Desktop;
             this.dgvUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(803, 400);
             this.dgvUsers.TabIndex = 3;
@@ -364,7 +381,13 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.DarkOrange;
-            this.tabPage5.Controls.Add(this.button3);
+            this.tabPage5.Controls.Add(this.dgvProducts);
+            this.tabPage5.Controls.Add(this.cmbFilPlatform);
+            this.tabPage5.Controls.Add(this.cmbFilCategory);
+            this.tabPage5.Controls.Add(this.txtSearchProd);
+            this.tabPage5.Controls.Add(this.btnDeleteProd);
+            this.tabPage5.Controls.Add(this.btnUpdateProd);
+            this.tabPage5.Controls.Add(this.btnNewProd);
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
@@ -372,16 +395,6 @@
             this.tabPage5.Size = new System.Drawing.Size(897, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(60, 39);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // tabPage6
             // 
@@ -477,6 +490,14 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Location = new System.Drawing.Point(354, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(543, 484);
+            this.panel2.TabIndex = 2;
+            // 
             // btnLogOut
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -506,21 +527,103 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
-            // panel1
+            // cmbFilPlatform
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(0, 450);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 34);
-            this.panel1.TabIndex = 11;
+            this.cmbFilPlatform.FormattingEnabled = true;
+            this.cmbFilPlatform.Location = new System.Drawing.Point(694, 13);
+            this.cmbFilPlatform.Name = "cmbFilPlatform";
+            this.cmbFilPlatform.Size = new System.Drawing.Size(82, 24);
+            this.cmbFilPlatform.TabIndex = 18;
+            this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
             // 
-            // panel2
+            // cmbFilCategory
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel2.Location = new System.Drawing.Point(354, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(543, 484);
-            this.panel2.TabIndex = 2;
+            this.cmbFilCategory.FormattingEnabled = true;
+            this.cmbFilCategory.Location = new System.Drawing.Point(601, 13);
+            this.cmbFilCategory.Name = "cmbFilCategory";
+            this.cmbFilCategory.Size = new System.Drawing.Size(87, 24);
+            this.cmbFilCategory.TabIndex = 17;
+            this.cmbFilCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFilCategory_SelectedIndexChanged);
+            // 
+            // txtSearchProd
+            // 
+            this.txtSearchProd.Location = new System.Drawing.Point(388, 13);
+            this.txtSearchProd.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchProd.Name = "txtSearchProd";
+            this.txtSearchProd.Size = new System.Drawing.Size(206, 22);
+            this.txtSearchProd.TabIndex = 16;
+            this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged);
+            // 
+            // btnDeleteProd
+            // 
+            this.btnDeleteProd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeleteProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProd.Location = new System.Drawing.Point(257, 10);
+            this.btnDeleteProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteProd.Name = "btnDeleteProd";
+            this.btnDeleteProd.Size = new System.Drawing.Size(124, 28);
+            this.btnDeleteProd.TabIndex = 14;
+            this.btnDeleteProd.Text = "Delete Product";
+            this.btnDeleteProd.UseVisualStyleBackColor = false;
+            this.btnDeleteProd.Click += new System.EventHandler(this.btnDeleteProd_Click);
+            // 
+            // btnUpdateProd
+            // 
+            this.btnUpdateProd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdateProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProd.Location = new System.Drawing.Point(122, 10);
+            this.btnUpdateProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdateProd.Name = "btnUpdateProd";
+            this.btnUpdateProd.Size = new System.Drawing.Size(129, 28);
+            this.btnUpdateProd.TabIndex = 13;
+            this.btnUpdateProd.Text = "Update Product";
+            this.btnUpdateProd.UseVisualStyleBackColor = false;
+            this.btnUpdateProd.Click += new System.EventHandler(this.btnUpdateProd_Click);
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.AllowUserToResizeColumns = false;
+            this.dgvProducts.AllowUserToResizeRows = false;
+            this.dgvProducts.BackgroundColor = System.Drawing.SystemColors.Desktop;
+            this.dgvProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProducts.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvProducts.Location = new System.Drawing.Point(8, 43);
+            this.dgvProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProducts.MultiSelect = false;
+            this.dgvProducts.Name = "dgvProducts";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProducts.Size = new System.Drawing.Size(803, 400);
+            this.dgvProducts.TabIndex = 19;
+            // 
+            // btnNewProd
+            // 
+            this.btnNewProd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProd.Location = new System.Drawing.Point(8, 10);
+            this.btnNewProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNewProd.Name = "btnNewProd";
+            this.btnNewProd.Size = new System.Drawing.Size(108, 28);
+            this.btnNewProd.TabIndex = 12;
+            this.btnNewProd.Text = "New Product";
+            this.btnNewProd.UseVisualStyleBackColor = false;
+            this.btnNewProd.Click += new System.EventHandler(this.btnNewProd_Click);
             // 
             // FormPrincipal
             // 
@@ -546,10 +649,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,7 +683,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnDeleteCustomer;
@@ -589,5 +693,12 @@
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cmbFilPlatform;
+        private System.Windows.Forms.ComboBox cmbFilCategory;
+        private System.Windows.Forms.TextBox txtSearchProd;
+        private System.Windows.Forms.Button btnDeleteProd;
+        private System.Windows.Forms.Button btnUpdateProd;
+        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.Button btnNewProd;
     }
 }

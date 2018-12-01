@@ -588,5 +588,40 @@ namespace ERP
         {
 
         }
+
+        private void btnNewProd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchProd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateProd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
