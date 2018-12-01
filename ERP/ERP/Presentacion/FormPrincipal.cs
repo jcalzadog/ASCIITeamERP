@@ -152,6 +152,39 @@ namespace ERP
 
         }
 
+        private void cargarTablaProductos(String condicion)
+        {
+            dgvUsers.Columns.Clear();
+
+            User usuario = new User();
+            usuario.gestorusuario.leerUsuarios(condicion);
+
+
+            DataTable tusers = usuario.gestorusuario.tabla;
+            dgvUsers.Columns.Clear();
+
+            dgvUsers.Columns.Add("NAME", "NAME");
+            dgvUsers.Columns.Add("ROLE", "ROLE");
+
+            foreach (DataRow row in tusers.Rows)
+            {
+                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvUsers.RowHeadersVisible = false;
+            dgvUsers.AllowUserToAddRows = false;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.BackgroundColor = Color.Black;
+
+            ////Colores de Header (no va nose porque)
+            //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
+            //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            //No editable
+            dgvUsers.ReadOnly = true;
+
+        }
+
         public void filtrarTablaUsuario(String name,bool check)
         {
             String condicion="";
@@ -622,6 +655,12 @@ namespace ERP
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage5_Resize(object sender, EventArgs e)
+        {
+            dgvProducts.Width = this.Width - 150;
+            dgvProducts.Height = this.Height - 100;
         }
     }
 }
