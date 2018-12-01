@@ -117,6 +117,12 @@
     <Compile Include="Presentacion\Usuarios\EditarRol.Designer.cs">
       <DependentUpon>EditarRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Usuarios\EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Usuarios\EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Usuarios\NuevoRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\EditarRol.resx">
       <DependentUpon>EditarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Usuarios\EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\NuevoRol.resx">
       <DependentUpon>NuevoRol.cs</DependentUpon>

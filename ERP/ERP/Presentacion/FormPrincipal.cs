@@ -28,7 +28,8 @@ namespace ERP
         //private GestorUsuario gestorUser;
         //private GestorCliente gestorCliente;
         private User usuario;
-        public static String nombreFilaSeleccionada;
+        public static String nombreFilaSeleccionadaUsers;
+        public static String rolFilaSellecionadaUsers;
 
         public FormPrincipal()
         {
@@ -256,14 +257,14 @@ namespace ERP
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            if (!nombreFilaSeleccionada.Equals(""))
+            if (!nombreFilaSeleccionadaUsers.Equals(""))
             {
-                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionada);
+                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
                 deletedUser.ShowDialog();
                 filtroTotal();
             } else
             {
-                String mensaje = "No se ha sellecionado ninguna fila.";
+                String mensaje = "No se ha selecionado ninguna fila.";
                 VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
                 cambio.ShowDialog();
                 //MessageBox.Show("No se ha sellecionado ninguna fila.");
@@ -569,7 +570,8 @@ namespace ERP
                 if (!String.IsNullOrEmpty(dgvUsers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
                 {
                     // do sonmthind
-                    nombreFilaSeleccionada = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    nombreFilaSeleccionadaUsers = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    rolFilaSellecionadaUsers = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
                 }
             }
         }
@@ -614,7 +616,19 @@ namespace ERP
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-
+            if (!rolFilaSellecionadaUsers.Equals(""))
+            {
+                EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
+                editUser.ShowDialog();
+                filtroTotal();//Usa cargar tabla usuariospara actualizar tabla
+            }
+            else
+            {
+                String mensaje = "No se ha selecionado ninguna fila.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                //MessageBox.Show("No se ha sellecionado ninguna fila.");
+            }
         }
 
         private void btnLogs_Click(object sender, EventArgs e)

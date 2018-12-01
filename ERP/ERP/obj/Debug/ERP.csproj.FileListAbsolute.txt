@@ -92,3 +92,5 @@ C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources

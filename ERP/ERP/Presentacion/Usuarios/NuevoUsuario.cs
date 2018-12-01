@@ -34,11 +34,6 @@ namespace ERP.Presentacion.Usuarios
             this.Dispose();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
             Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
@@ -69,11 +64,6 @@ namespace ERP.Presentacion.Usuarios
 
         public void cargarComponentes()
         {
-            btnNewRole.BackColor = Color.Black;
-            btnNewRole.ForeColor = Color.White;
-            btnNewRole.FlatStyle = FlatStyle.Flat;
-            btnNewRole.FlatAppearance.BorderColor = Color.Black;
-            btnNewRole.FlatAppearance.BorderSize = 1;
 
             btnEditRole.BackColor = Color.Black;
             btnEditRole.ForeColor = Color.White;
@@ -119,18 +109,6 @@ namespace ERP.Presentacion.Usuarios
         {
             btnEditRole.BackColor = Color.Black;
             btnEditRole.ForeColor = Color.White;
-        }
-
-        private void btnNewRole_MouseEnter(object sender, EventArgs e)
-        {
-            btnNewRole.BackColor = Color.White;
-            btnNewRole.ForeColor = Color.Black;
-        }
-
-        private void btnNewRole_MouseLeave(object sender, EventArgs e)
-        {
-            btnNewRole.BackColor = Color.Black;
-            btnNewRole.ForeColor = Color.White;
         }
 
         private void btnSaveAnother_MouseEnter(object sender, EventArgs e)

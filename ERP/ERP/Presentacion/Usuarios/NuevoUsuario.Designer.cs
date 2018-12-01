@@ -34,7 +34,6 @@
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.cmbRoles = new System.Windows.Forms.ComboBox();
-            this.btnNewRole = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnSaveClose = new System.Windows.Forms.Button();
@@ -100,21 +99,6 @@
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(252, 24);
             this.cmbRoles.TabIndex = 5;
-            // 
-            // btnNewRole
-            // 
-            this.btnNewRole.BackColor = System.Drawing.Color.White;
-            this.btnNewRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewRole.Location = new System.Drawing.Point(676, 154);
-            this.btnNewRole.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNewRole.Name = "btnNewRole";
-            this.btnNewRole.Size = new System.Drawing.Size(100, 28);
-            this.btnNewRole.TabIndex = 6;
-            this.btnNewRole.Text = "New Role";
-            this.btnNewRole.UseVisualStyleBackColor = false;
-            this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
-            this.btnNewRole.MouseEnter += new System.EventHandler(this.btnNewRole_MouseEnter);
-            this.btnNewRole.MouseLeave += new System.EventHandler(this.btnNewRole_MouseLeave);
             // 
             // btnCancel
             // 
@@ -187,7 +171,6 @@
             this.Controls.Add(this.btnSaveClose);
             this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnNewRole);
             this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.tbxPassword);
@@ -217,7 +200,6 @@
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.ComboBox cmbRoles;
-        private System.Windows.Forms.Button btnNewRole;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSaveAnother;
         private System.Windows.Forms.Button btnSaveClose;

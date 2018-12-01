@@ -41,6 +41,14 @@ namespace ERP.Dominio.Gestores
             }
         }
 
+        public void seleccionarRoles(ComboBox cmbRoles,String nameR)
+        {
+            //Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='"+nameUser+"'");
+            //Object idRol = conector.DLookUp("R.IDROLE", "ROLES R INNER JOIN USERS_ROLES U ON R.IDROLE=U.IDROLE", "U.IDUSER=" + idUser);
+            //int numRoles = int.Parse(numR);
+            cmbRoles.SelectedItem = nameR;
+        }
+
         public void cargarTablaPermisos(DataGridView dgvPermissions, String Role)
         {
             DataSet data = new DataSet();

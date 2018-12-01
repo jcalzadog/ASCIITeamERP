@@ -193,6 +193,32 @@ namespace ERP.Dominio.Gestores
             }
             return creado;
         }
+
+        public void modificarUsuario(String nombreUser,String pass,String role)
+        {
+            //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+
+            //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
+            //DELETE FROM USERS WHERE NAME = 'aaa'
+
+            //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
+            //conector.setData(sentencia1);-------
+
+            Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='" + nombreUser + "'");
+            Object idRol = conector.DLookUp("IDROLE", "ROLES", "NAME='"+role+"'");
+
+            if (pass.Equals(""))
+            {
+                String sentencia2 = "UPDATE USERS SET DELETED = 1 WHERE NAME = '" + nombreUser + "'";
+                conector.setData(sentencia2);
+            } else
+            {
+                String sentencia2 = "UPDATE USERS SET PASSWORD ='"+pass+"' WHERE NAME = '" + nombreUser + "'";
+                conector.setData(sentencia2);
+            }
+            MessageBox.Show("El usuario se ha eliminado correctamente.");
+        }
+
         public void eliminarUsuario(DataGridView dgvUsersaa, String nombreFilaSeleccionada)
         {
             //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
