@@ -57,6 +57,18 @@
     <Compile Include="Dominio\Role.cs" />
     <Compile Include="Dominio\User.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
+    <Compile Include="Presentacion\Categories\AddCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Categories\AddCategoria.Designer.cs">
+      <DependentUpon>AddCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Categories\UpdCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Categories\UpdCategorie.Designer.cs">
+      <DependentUpon>UpdCategorie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StringResources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentacion\Categories\AddCategoria.resx">
+      <DependentUpon>AddCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Categories\UpdCategorie.resx">
+      <DependentUpon>UpdCategorie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
