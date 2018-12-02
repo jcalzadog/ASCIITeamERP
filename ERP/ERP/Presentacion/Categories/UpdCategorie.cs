@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,22 @@ namespace ERP.Presentacion.Categories
 {
     public partial class UpdCategorie : Form
     {
+        Categorias categoria;
+     
         public UpdCategorie()
         {
             InitializeComponent();
+            categoria = new Categorias();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
+        {   
+            
+            categoria.gestor.updateCategorias(textBox1.Text);
+            this.Dispose();
+            categoria.gestor.readCategorias();
         }
+    
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

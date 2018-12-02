@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.Categories;
 using ERP.Presentacion.ErroresCambios;
 using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
@@ -30,7 +31,8 @@ namespace ERP
         private User usuario;
         public static String nombreFilaSeleccionadaUsers;
         public static String rolFilaSellecionadaUsers;
-
+        private Categorias categoria;
+        public static String nombreviejo;
         public FormPrincipal()
         {
             usuario = new User();
@@ -42,10 +44,10 @@ namespace ERP
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
-
+            cargarCategorias();
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
-
+           
             //gestorUser.cargarTablaUser(dgvUsers);
             //gestorCliente.cargarTablaCustomer(dgvCustomers);
 
@@ -56,6 +58,34 @@ namespace ERP
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
         }
+
+
+
+        public void cargarCategorias() {
+            dgvCategorie.Columns.Clear();
+            categoria = new Categorias();
+            categoria.gestor.readCategorias();
+            DataTable tcategorias = categoria.gestor.tabla;
+
+            dgvCategorie.Columns.Clear();
+           
+            dgvCategorie.Columns.Add("NAME", "NAME");
+            dgvCategorie.Columns.Add("CUENTA", "NUMBER OF PRODUCTS");
+            
+
+            foreach (DataRow row in tcategorias.Rows)
+            {
+                dgvCategorie.Rows.Add(row["NAME"],row["CUENTA"]);
+            }
+
+           
+            dgvCategorie.RowHeadersVisible = false;
+            dgvCategorie.AllowUserToAddRows = false;
+            dgvCategorie.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategorie.BackgroundColor = Color.Black;
+           
+        }
+
 
         /**
          * Metodo para usar el "menu pestañas" . 
@@ -284,19 +314,34 @@ namespace ERP
 
         private void btnNewCategorie_Click(object sender, EventArgs e)
         {
-            //AddCategorie ncategorie = new AddCategorie();
-            //ncategorie.ShowDialog();
+            AddCategoria ncategorie = new AddCategoria();
+            ncategorie.ShowDialog();
+            cargarCategorias();
 
         }
 
         private void btnUpdateCategorie_Click(object sender, EventArgs e)
-        {
+        {   
 
+            UpdCategorie ucategorie = new UpdCategorie();
+            String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            ucategorie.textBox1.Text = name;
+            nombreviejo = name;
+            ucategorie.ShowDialog();
+          
+            cargarCategorias();
         }
 
         private void btnDeleteCategorie_Click(object sender, EventArgs e)
         {
+            String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            if (MessageBox.Show("Do you want to delete this categorie ?", "Delete Categorie", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                categoria.gestor.deleteCategoria(name);
+              
 
+            }
+            cargarCategorias();
         }
 
         private void btnRoles_Click(object sender, EventArgs e)
@@ -418,14 +463,22 @@ namespace ERP
             btnDeleteProd.FlatAppearance.BorderSize = 1;
 
             //Categorias
+
+            btnNewCategorie.BackColor = Color.Black;
+            btnNewCategorie.ForeColor = Color.White;
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
             btnNewCategorie.FlatAppearance.BorderColor = Color.Black;
             btnNewCategorie.FlatAppearance.BorderSize = 1;
 
+            btnUpdateCategorie.BackColor = Color.Black;
+            btnUpdateCategorie.ForeColor = Color.White;
             btnUpdateCategorie.FlatStyle = FlatStyle.Flat;
             btnUpdateCategorie.FlatAppearance.BorderColor = Color.Black;
             btnUpdateCategorie.FlatAppearance.BorderSize = 1;
 
+
+            btnDeleteCategorie.BackColor = Color.Black;
+            btnDeleteCategorie.ForeColor = Color.White;
             btnDeleteCategorie.FlatStyle = FlatStyle.Flat;
             btnDeleteCategorie.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCategorie.FlatAppearance.BorderSize = 1;
@@ -770,6 +823,16 @@ namespace ERP
         {
             btnDeleteCustomer.BackColor = Color.Black;
             btnDeleteCustomer.ForeColor = Color.White;
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvCategorie_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

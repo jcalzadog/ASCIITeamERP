@@ -50,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
     <Compile Include="Dominio\Gestores\GestorProducto.cs" />
     <Compile Include="Dominio\Gestores\GestorRol.cs" />
@@ -64,6 +66,12 @@
     </Compile>
     <Compile Include="Presentacion\Categories\AddCategoria.Designer.cs">
       <DependentUpon>AddCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Categories\DeleteCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Categories\DeleteCategorie.Designer.cs">
+      <DependentUpon>DeleteCategorie.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Categories\UpdCategorie.cs">
       <SubType>Form</SubType>
@@ -157,6 +165,9 @@
     </Compile>
     <EmbeddedResource Include="Presentacion\Categories\AddCategoria.resx">
       <DependentUpon>AddCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Categories\DeleteCategorie.resx">
+      <DependentUpon>DeleteCategorie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Categories\UpdCategorie.resx">
       <DependentUpon>UpdCategorie.cs</DependentUpon>
