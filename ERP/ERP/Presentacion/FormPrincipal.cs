@@ -28,6 +28,7 @@ namespace ERP
     {
         private User usuario;
         private Customer cliente;
+        private Producto producto;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -35,6 +36,7 @@ namespace ERP
         {
             usuario = new User();
             cliente = new Customer();
+            producto = new Producto();
 
             InitializeComponent();
 
@@ -44,6 +46,7 @@ namespace ERP
 
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
+            cargarTablaProductos("DELETED=0");
             //cargarTablaClientes("DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
@@ -55,6 +58,7 @@ namespace ERP
 
 
             controlErrores();
+            controlErroresProduct();
         }
 
         /**
@@ -153,6 +157,36 @@ namespace ERP
 
         }
 
+        private void cargarTablaProductos(String condicion)
+        {
+            dgvProducts.Columns.Clear();
+
+            producto.gestorProducto.leerProductos(condicion);
+
+
+            DataTable tproduct = producto.gestorProducto.tabla;
+            dgvProducts.Columns.Clear();
+
+            dgvProducts.Columns.Add("NAME", "NAME");
+            dgvProducts.Columns.Add("IDCATEGORY", "CATEGORY");
+            dgvProducts.Columns.Add("IDPLATFORM", "PLATFORM");
+            dgvProducts.Columns.Add("MINIMUMAGE", "PEGI");
+            dgvProducts.Columns.Add("PRICE", "PRICE");
+
+            foreach (DataRow row in tproduct.Rows)
+            {
+                dgvProducts.Rows.Add(row["NAME"], row["CATEGORY"], row["PLATFORM"], row["PEGI"], row["PRICE"]);
+            }
+
+            dgvProducts.RowHeadersVisible = false;
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.BackgroundColor = Color.Black;
+
+            dgvProducts.ReadOnly = true;
+
+        }
+
         private void cargarTablaClientes(String condicion)
         {
             dgvCustomers.Columns.Clear();
@@ -209,37 +243,20 @@ namespace ERP
             }
         }
 
-        private void cargarTablaProductos(String condicion)
+        private void controlErroresProduct()
         {
-            dgvUsers.Columns.Clear();
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
 
-            User usuario = new User();
-            usuario.gestorusuario.leerUsuarios(condicion);
-
-
-            DataTable tusers = usuario.gestorusuario.tabla;
-            dgvUsers.Columns.Clear();
-
-            dgvUsers.Columns.Add("NAME", "NAME");
-            dgvUsers.Columns.Add("ROLE", "ROLE");
-
-            foreach (DataRow row in tusers.Rows)
+            if (nombreFilaSeleccionadaUsers.Equals(""))
             {
-                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
+                dgvProducts.Rows[dgvProducts.Rows[0].Index].Selected = true;
+                dgvProducts.CurrentCell = dgvProducts.Rows[dgvProducts.Rows[0].Index].Cells[0];
+                nombreFilaSeleccionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
+                rolFilaSellecionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
             }
-            //dgvUsers.ColumnHeadersVisible = false;
-            dgvUsers.RowHeadersVisible = false;
-            dgvUsers.AllowUserToAddRows = false;
-            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsers.BackgroundColor = Color.Black;
-
-            ////Colores de Header (no va nose porque)
-            //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
-            //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            //No editable
-            dgvUsers.ReadOnly = true;
-
         }
 
         public void filtrarTablaUsuario(String name,bool check)
