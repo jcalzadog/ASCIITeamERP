@@ -715,10 +715,5 @@ namespace ERP
                 ((TextBox)sender).Text = "Search a Name...";
             }
         }
-
-        private void tbxSearchUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
