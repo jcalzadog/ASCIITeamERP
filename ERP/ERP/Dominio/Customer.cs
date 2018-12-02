@@ -17,7 +17,12 @@ namespace ERP.Dominio.Gestores
         private int deleted { get; set; }
         private int refzipcodescities { get; set; }
 
-        private GestorCliente gestorCliente { get; set; }
+        public GestorCliente gestorCliente { get; set; }
+
+        public Customer()
+        {
+            gestorCliente = new GestorCliente();
+        }
 
         public Customer(int idC, String nameC, String surnameC, String addressC, int phoneC, String emailC, int deletedC, int refzipcodescitiesC)
         {

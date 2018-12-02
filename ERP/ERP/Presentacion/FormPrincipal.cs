@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.Clientes;
 using ERP.Presentacion.ErroresCambios;
 using ERP.Presentacion.SystemTab;
 using ERP.Presentacion.Usuarios;
@@ -25,17 +26,15 @@ namespace ERP
 
     public partial class FormPrincipal : Form
     {
-        //private GestorUsuario gestorUser;
-        //private GestorCliente gestorCliente;
         private User usuario;
+        private Customer cliente;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
         public FormPrincipal()
         {
             usuario = new User();
-            //gestorUser = new GestorUsuario();
-            //gestorCliente = new GestorCliente();
+            cliente = new Customer();
 
             InitializeComponent();
 
@@ -45,9 +44,7 @@ namespace ERP
 
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
-
-            //gestorUser.cargarTablaUser(dgvUsers);
-            //gestorCliente.cargarTablaCustomer(dgvCustomers);
+            //cargarTablaClientes("DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -126,7 +123,6 @@ namespace ERP
         {
             dgvUsers.Columns.Clear();
 
-            User usuario = new User();
             usuario.gestorusuario.leerUsuarios(condicion);
 
 
@@ -152,6 +148,46 @@ namespace ERP
 
             //No editable
             dgvUsers.ReadOnly = true;
+            //dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+            //dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
+
+        }
+
+        private void cargarTablaClientes(String condicion)
+        {
+            dgvCustomers.Columns.Clear();
+
+            cliente.gestorCliente.leerClientes(condicion);
+
+
+            DataTable tcustomers = cliente.gestorCliente.tabla;
+            dgvCustomers.Columns.Clear();
+
+            dgvCustomers.Columns.Add("DNI", "DNI");
+            dgvCustomers.Columns.Add("NAME", "NAME");
+            dgvCustomers.Columns.Add("SURNAME", "SURNAME");
+            dgvCustomers.Columns.Add("ADDRESS", "ADDRESS");
+            dgvCustomers.Columns.Add("PHONE", "PHONE");
+            dgvCustomers.Columns.Add("EMAIL", "EMAIL");
+            dgvCustomers.Columns.Add("REGION", "REGION");
+            dgvCustomers.Columns.Add("CITY", "CITY");
+
+            foreach (DataRow row in tcustomers.Rows)
+            {
+                dgvCustomers.Rows.Add(row["DNI"], row["NAME"], row["SURNAME"], row["ADDRESS"], row["PHONE"], row["EMAIL"], row["REGION"], row["CITY"]);
+            }
+            //dgvUsers.ColumnHeadersVisible = false;
+            dgvCustomers.RowHeadersVisible = false;
+            dgvCustomers.AllowUserToAddRows = false;
+            dgvCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCustomers.BackgroundColor = Color.Black;
+
+            ////Colores de Header (no va nose porque)
+            //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
+            //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            //No editable
+            dgvCustomers.ReadOnly = true;
             //dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
             //dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
 
@@ -298,7 +334,7 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            filtroTotal();//Usa cargar tabla usuariospara actualizar tabla
+            filtroTotal();//Usa cargar tabla usuarios para actualizar tabla
 
         }
 
@@ -796,6 +832,13 @@ namespace ERP
         {
             btnDeleteCustomer.BackColor = Color.Black;
             btnDeleteCustomer.ForeColor = Color.White;
+        }
+
+        private void btnNewCustomer_Click(object sender, EventArgs e)
+        {
+            NuevoCliente newCustomer = new NuevoCliente();
+            newCustomer.ShowDialog();
+            //filtroTotal();
         }
     }
 }
