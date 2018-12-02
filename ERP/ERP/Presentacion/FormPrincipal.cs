@@ -152,8 +152,8 @@ namespace ERP
 
             //No editable
             dgvUsers.ReadOnly = true;
-            dgvUsers.Rows[dgvUsers.Rows[1].Index].Selected = true;
-            dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
+            //dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+            //dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
 
         }
 
@@ -166,6 +166,8 @@ namespace ERP
 
             if (nombreFilaSeleccionadaUsers.Equals(""))
             {
+                dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+                dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
                 nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
                 rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
             }
