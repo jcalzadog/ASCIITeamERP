@@ -181,12 +181,15 @@ namespace ERP.Dominio.Gestores
 
                 if (existe > 0)
                 {
-                    MessageBox.Show("El usuario se ha añadido correctamente.");
+                    String mensaje = "The user has been added correctly.";
+                    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                    cambio.ShowDialog();
+                    //MessageBox.Show("El usuario se ha añadido correctamente.");
                     creado = true;
                 }
             } else
             {
-                String mensaje = "El nombre de usuario no es Valido.";
+                String mensaje = "Username is not valid.";
                 VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
                 cambio.ShowDialog();
                 //MessageBox.Show("El nombre de usuario no es Valido.");
@@ -219,7 +222,11 @@ namespace ERP.Dominio.Gestores
                 String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
                 conector.setData(sentencia2);
             }
-            MessageBox.Show("El usuario se ha eliminado correctamente.");
+
+            String mensaje = "The user has been modified correctly.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
         }
 
         public void eliminarUsuario(DataGridView dgvUsersaa, String nombreFilaSeleccionada)
@@ -236,9 +243,12 @@ namespace ERP.Dominio.Gestores
             //conector.setData(sentencia1);-------
 
             String sentencia2 = "UPDATE USERS SET DELETED = 1 WHERE NAME = '" + name + "'";
-            conector.setData(sentencia2); 
+            conector.setData(sentencia2);
 
-            MessageBox.Show("El usuario se ha eliminado correctamente.");
+            String mensaje = "The user has been successfully deleted.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
         }
     }
 }
