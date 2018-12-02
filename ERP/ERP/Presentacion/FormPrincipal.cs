@@ -697,5 +697,28 @@ namespace ERP
             ((Button)sender).BackColor = Color.White;
             ((Button)sender).ForeColor = Color.Black;
         }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Search a Name..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Search a Name...";
+            }
+        }
+
+        private void tbxSearchUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
