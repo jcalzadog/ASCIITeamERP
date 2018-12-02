@@ -96,3 +96,4 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.NuevoCliente.resources

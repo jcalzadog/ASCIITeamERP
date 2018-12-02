@@ -28,8 +28,8 @@ namespace ERP
         //private GestorUsuario gestorUser;
         //private GestorCliente gestorCliente;
         private User usuario;
-        public static String nombreFilaSeleccionadaUsers;
-        public static String rolFilaSellecionadaUsers;
+        public static String nombreFilaSeleccionadaUsers="";
+        public static String rolFilaSellecionadaUsers="";
 
         public FormPrincipal()
         {
@@ -55,6 +55,9 @@ namespace ERP
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
+
+
+            controlErrores();
         }
 
         /**
@@ -119,7 +122,6 @@ namespace ERP
         //    ((Control)tabPage8).Enabled = false;
         //}
 
-
         private void cargarTablaUsuarios(String condicion)
         {
             dgvUsers.Columns.Clear();
@@ -150,7 +152,23 @@ namespace ERP
 
             //No editable
             dgvUsers.ReadOnly = true;
+            dgvUsers.Rows[dgvUsers.Rows[1].Index].Selected = true;
+            dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
 
+        }
+
+        private void controlErrores()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (nombreFilaSeleccionadaUsers.Equals(""))
+            {
+                nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
+                rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
+            }
         }
 
         private void cargarTablaProductos(String condicion)
