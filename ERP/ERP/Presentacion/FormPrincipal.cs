@@ -625,13 +625,19 @@ namespace ERP
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+
+            if (cbxUserDeleted.CheckState == CheckState.Checked)
+            {
+                btnDeleteUser.Enabled = false;
+
+
+            } else
+            {
+                btnDeleteUser.Enabled = true;
+            }
             filtroTotal();
             //String condicion = "";
-            //if (cbxUserDeleted.CheckState == CheckState.Checked)
-            //{
-            //    condicion += "U.DELETED = 1";
 
-            //}
             //else if (cbxUserDeleted.CheckState != CheckState.Checked)
             //{
             //    condicion += "U.DELETED = 0";

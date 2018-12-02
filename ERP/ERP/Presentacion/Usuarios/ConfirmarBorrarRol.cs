@@ -61,8 +61,8 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            bool creado = rol.gestorRol.eliminarRole(this.nameRol);
-            if (creado)
+            bool borrado = rol.gestorRol.eliminarRole(this.nameRol);
+            if (borrado)
             {
                 this.Dispose();
             }

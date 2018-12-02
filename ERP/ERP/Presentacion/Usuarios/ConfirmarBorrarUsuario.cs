@@ -51,6 +51,7 @@ namespace ERP.Presentacion.Usuarios
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             usuario.gestorusuario.eliminarUsuario(dgvUsers, this.nombreFilaSeleccionada);
+            this.Dispose();
         }
 
         private void btnCancelar_MouseEnter(object sender, EventArgs e)

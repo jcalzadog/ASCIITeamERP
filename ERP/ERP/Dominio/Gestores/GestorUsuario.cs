@@ -153,7 +153,7 @@ namespace ERP.Dominio.Gestores
 
         public String loguearse(String user,String pass)
         {
-            String condicion = " NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+            String condicion = " DELETED = 0 AND NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
             String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
