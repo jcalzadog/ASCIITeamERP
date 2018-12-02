@@ -189,7 +189,6 @@ namespace ERP
         public void filtrarTablaUsuario(String name,bool check)
         {
             String condicion="";
-            int añadida = 0;
 
             if (check)
             {
@@ -249,6 +248,9 @@ namespace ERP
             //Diseño
             panel1.Width = tbcMenuPrincipal.Width;
             panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
+
+            panel3.Width = tbcMenuPrincipal.Width;
+            panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
             panel2.Width = tbcMenuPrincipal.Width;
             panel2.Height = tbcMenuPrincipal.Height;
@@ -377,6 +379,25 @@ namespace ERP
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
 
+            //Clientes
+            btnNewCustomer.BackColor = Color.Black;
+            btnNewCustomer.ForeColor = Color.White;
+            btnNewCustomer.FlatStyle = FlatStyle.Flat;
+            btnNewCustomer.FlatAppearance.BorderColor = Color.Black;
+            btnNewCustomer.FlatAppearance.BorderSize = 1;
+
+            btnEditCustomer.BackColor = Color.Black;
+            btnEditCustomer.ForeColor = Color.White;
+            btnEditCustomer.FlatStyle = FlatStyle.Flat;
+            btnEditCustomer.FlatAppearance.BorderColor = Color.Black;
+            btnEditCustomer.FlatAppearance.BorderSize = 1;
+
+            btnDeleteCustomer.BackColor = Color.Black;
+            btnDeleteCustomer.ForeColor = Color.White;
+            btnDeleteCustomer.FlatStyle = FlatStyle.Flat;
+            btnDeleteCustomer.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteCustomer.FlatAppearance.BorderSize = 1;
+
             //Productos
             btnNewProd.BackColor = Color.Black;
             btnNewProd.ForeColor = Color.White;
@@ -395,7 +416,6 @@ namespace ERP
             btnDeleteProd.FlatStyle = FlatStyle.Flat;
             btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
             btnDeleteProd.FlatAppearance.BorderSize = 1;
-            ;
 
             //Categorias
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
@@ -714,6 +734,42 @@ namespace ERP
                 ((TextBox)sender).ForeColor = Color.Gray;
                 ((TextBox)sender).Text = "Search a Name...";
             }
+        }
+
+        private void btnNewCustomer_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewCustomer.BackColor = Color.White;
+            btnNewCustomer.ForeColor = Color.Black;
+        }
+
+        private void btnNewCustomer_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewCustomer.BackColor = Color.Black;
+            btnNewCustomer.ForeColor = Color.White;
+        }
+
+        private void btnEditCustomer_MouseEnter(object sender, EventArgs e)
+        {
+            btnEditCustomer.BackColor = Color.White;
+            btnEditCustomer.ForeColor = Color.Black;
+        }
+
+        private void btnEditCustomer_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditCustomer.BackColor = Color.Black;
+            btnEditCustomer.ForeColor = Color.White;
+        }
+
+        private void btnDeleteCustomer_MouseEnter(object sender, EventArgs e)
+        {
+            btnDeleteCustomer.BackColor = Color.White;
+            btnDeleteCustomer.ForeColor = Color.Black;
+        }
+
+        private void btnDeleteCustomer_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteCustomer.BackColor = Color.Black;
+            btnDeleteCustomer.ForeColor = Color.White;
         }
     }
 }
