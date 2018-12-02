@@ -340,8 +340,11 @@ namespace ERP
             tbxSearchUser.ForeColor = Color.Gray;
             tbxSearchUser.Text = "Search a Name...";
 
-            tbxSearchUser.ForeColor = Color.Gray;
+            tbxSearchCustomer.ForeColor = Color.Gray;
             tbxSearchCustomer.Text = "Search a Name...";
+
+            txtSearchProd.ForeColor = Color.Gray;
+            txtSearchProd.Text = "Search a Name...";
 
             //Usuarios
             btnNewUser.BackColor = Color.Black;
@@ -375,21 +378,25 @@ namespace ERP
             btnLogs.FlatAppearance.BorderSize = 1;
 
             //Productos
-            //txtBuscarProd.Text = "Buscar";
-            //txtBuscarProd.ForeColor = Color.Gray;
+            btnNewProd.BackColor = Color.Black;
+            btnNewProd.ForeColor = Color.White;
+            btnNewProd.FlatStyle = FlatStyle.Flat;
+            btnNewProd.FlatAppearance.BorderColor = Color.Black;
+            btnNewProd.FlatAppearance.BorderSize = 1;
 
-            //btnNewProd.FlatStyle = FlatStyle.Flat;
-            //btnNewProd.FlatAppearance.BorderColor = Color.Black;
-            //btnNewProd.FlatAppearance.BorderSize = 1;
+            btnUpdateProd.BackColor = Color.Black;
+            btnUpdateProd.ForeColor = Color.White;
+            btnUpdateProd.FlatStyle = FlatStyle.Flat;
+            btnUpdateProd.FlatAppearance.BorderColor = Color.Black;
+            btnUpdateProd.FlatAppearance.BorderSize = 1;
 
-            //btnEditProd.FlatStyle = FlatStyle.Flat;
-            //btnEditProd.FlatAppearance.BorderColor = Color.Black;
-            //btnEditProd.FlatAppearance.BorderSize = 1;
+            btnDeleteProd.BackColor = Color.Black;
+            btnDeleteProd.ForeColor = Color.White;
+            btnDeleteProd.FlatStyle = FlatStyle.Flat;
+            btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
+            btnDeleteProd.FlatAppearance.BorderSize = 1;
+            ;
 
-            //btnDeleteProd.FlatStyle = FlatStyle.Flat;
-            //btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
-            //btnDeleteProd.FlatAppearance.BorderSize = 1;
-            
             //Categorias
             btnNewCategorie.FlatStyle = FlatStyle.Flat;
             btnNewCategorie.FlatAppearance.BorderColor = Color.Black;
@@ -675,6 +682,20 @@ namespace ERP
         {
             dgvProducts.Width = this.Width - 150;
             dgvProducts.Height = this.Height - 100;
+        }
+
+        
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
         }
     }
 }
