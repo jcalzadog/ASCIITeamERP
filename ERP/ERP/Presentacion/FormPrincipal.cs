@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.Clientes;
 using ERP.Presentacion.Categories;
 using ERP.Presentacion.ErroresCambios;
 using ERP.Presentacion.SystemTab;
@@ -18,7 +19,7 @@ using System.Windows.Forms;
 
 namespace ERP
 {
-    //----------PARA VALIDATE DNI TODO JUNTO -->  
+    //----------PARA VALIDATE DNI TODO JUNTO -->
     //if(Cadena.Contains("'")){
     //    return false;
     //}
@@ -26,18 +27,20 @@ namespace ERP
 
     public partial class FormPrincipal : Form
     {
-        //private GestorUsuario gestorUser;
-        //private GestorCliente gestorCliente;
         private User usuario;
-        public static String nombreFilaSeleccionadaUsers;
-        public static String rolFilaSellecionadaUsers;
+        private Customer cliente;
+        private Producto producto;
+        public static String nombreFilaSeleccionadaUsers="";
+        public static String rolFilaSellecionadaUsers="";
+
+      
         private Categorias categoria;
         public static String nombreviejo;
         public FormPrincipal()
         {
             usuario = new User();
-            //gestorUser = new GestorUsuario();
-            //gestorCliente = new GestorCliente();
+            cliente = new Customer();
+            //producto = new Producto();
 
             InitializeComponent();
 
@@ -47,9 +50,8 @@ namespace ERP
             cargarCategorias();
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
-           
-            //gestorUser.cargarTablaUser(dgvUsers);
-            //gestorCliente.cargarTablaCustomer(dgvCustomers);
+            //cargarTablaProductos("DELETED=0");
+            //cargarTablaClientes("DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -57,6 +59,10 @@ namespace ERP
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
+
+
+            controlErrores();
+            //controlErroresProduct();
         }
 
 
@@ -68,27 +74,27 @@ namespace ERP
             DataTable tcategorias = categoria.gestor.tabla;
 
             dgvCategorie.Columns.Clear();
-           
+
             dgvCategorie.Columns.Add("NAME", "NAME");
             dgvCategorie.Columns.Add("CUENTA", "NUMBER OF PRODUCTS");
-            
+
 
             foreach (DataRow row in tcategorias.Rows)
             {
                 dgvCategorie.Rows.Add(row["NAME"],row["CUENTA"]);
             }
 
-           
+
             dgvCategorie.RowHeadersVisible = false;
             dgvCategorie.AllowUserToAddRows = false;
             dgvCategorie.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategorie.BackgroundColor = Color.Black;
-           
+
         }
 
 
         /**
-         * Metodo para usar el "menu pestañas" . 
+         * Metodo para usar el "menu pestañas" .
          */
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
@@ -149,12 +155,10 @@ namespace ERP
         //    ((Control)tabPage8).Enabled = false;
         //}
 
-
         private void cargarTablaUsuarios(String condicion)
         {
             dgvUsers.Columns.Clear();
 
-            User usuario = new User();
             usuario.gestorusuario.leerUsuarios(condicion);
 
 
@@ -180,40 +184,111 @@ namespace ERP
 
             //No editable
             dgvUsers.ReadOnly = true;
+            //dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+            //dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
 
         }
 
         private void cargarTablaProductos(String condicion)
         {
-            dgvUsers.Columns.Clear();
+            dgvProducts.Columns.Clear();
 
-            User usuario = new User();
-            usuario.gestorusuario.leerUsuarios(condicion);
+            producto.gestorProducto.leerProductos(condicion);
 
 
-            DataTable tusers = usuario.gestorusuario.tabla;
-            dgvUsers.Columns.Clear();
+            DataTable tproduct = producto.gestorProducto.tabla;
+            dgvProducts.Columns.Clear();
 
-            dgvUsers.Columns.Add("NAME", "NAME");
-            dgvUsers.Columns.Add("ROLE", "ROLE");
+            dgvProducts.Columns.Add("NAME", "NAME");
+            dgvProducts.Columns.Add("IDCATEGORY", "CATEGORY");
+            dgvProducts.Columns.Add("IDPLATFORM", "PLATFORM");
+            dgvProducts.Columns.Add("MINIMUMAGE", "PEGI");
+            dgvProducts.Columns.Add("PRICE", "PRICE");
 
-            foreach (DataRow row in tusers.Rows)
+            foreach (DataRow row in tproduct.Rows)
             {
-                dgvUsers.Rows.Add(row["NAME"], row["ROLE"]);
+                dgvProducts.Rows.Add(row["NAME"], row["CATEGORY"], row["PLATFORM"], row["PEGI"], row["PRICE"]);
+            }
+
+            dgvProducts.RowHeadersVisible = false;
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.BackgroundColor = Color.Black;
+
+            dgvProducts.ReadOnly = true;
+
+        }
+
+        private void cargarTablaClientes(String condicion)
+        {
+            dgvCustomers.Columns.Clear();
+
+            cliente.gestorCliente.leerClientes(condicion);
+
+
+            DataTable tcustomers = cliente.gestorCliente.tabla;
+            dgvCustomers.Columns.Clear();
+
+            dgvCustomers.Columns.Add("DNI", "DNI");
+            dgvCustomers.Columns.Add("NAME", "NAME");
+            dgvCustomers.Columns.Add("SURNAME", "SURNAME");
+            dgvCustomers.Columns.Add("ADDRESS", "ADDRESS");
+            dgvCustomers.Columns.Add("PHONE", "PHONE");
+            dgvCustomers.Columns.Add("EMAIL", "EMAIL");
+            dgvCustomers.Columns.Add("REGION", "REGION");
+            dgvCustomers.Columns.Add("CITY", "CITY");
+
+            foreach (DataRow row in tcustomers.Rows)
+            {
+                dgvCustomers.Rows.Add(row["DNI"], row["NAME"], row["SURNAME"], row["ADDRESS"], row["PHONE"], row["EMAIL"], row["REGION"], row["CITY"]);
             }
             //dgvUsers.ColumnHeadersVisible = false;
-            dgvUsers.RowHeadersVisible = false;
-            dgvUsers.AllowUserToAddRows = false;
-            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsers.BackgroundColor = Color.Black;
+            dgvCustomers.RowHeadersVisible = false;
+            dgvCustomers.AllowUserToAddRows = false;
+            dgvCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCustomers.BackgroundColor = Color.Black;
 
             ////Colores de Header (no va nose porque)
             //dgvUsers.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(114, 47, 55);
             //dgvUsers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             //No editable
-            dgvUsers.ReadOnly = true;
+            dgvCustomers.ReadOnly = true;
+            //dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+            //dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
 
+        }
+
+        private void controlErrores()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (nombreFilaSeleccionadaUsers.Equals(""))
+            {
+                dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+                dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
+                nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
+                rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
+            }
+        }
+
+        private void controlErroresProduct()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (nombreFilaSeleccionadaUsers.Equals(""))
+            {
+                dgvProducts.Rows[dgvProducts.Rows[0].Index].Selected = true;
+                dgvProducts.CurrentCell = dgvProducts.Rows[dgvProducts.Rows[0].Index].Cells[0];
+                nombreFilaSeleccionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
+                rolFilaSellecionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
+            }
         }
 
         public void filtrarTablaUsuario(String name,bool check)
@@ -265,7 +340,7 @@ namespace ERP
 
         private void tabPage2_Resize(object sender, EventArgs e)
         {
-            
+
             dgvUsers.Width = this.Width-150;
             dgvUsers.Height = this.Height-100;
 
@@ -301,14 +376,14 @@ namespace ERP
                 cambio.ShowDialog();
                 //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
-            
+
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            filtroTotal();//Usa cargar tabla usuariospara actualizar tabla
+            filtroTotal();//Usa cargar tabla usuarios para actualizar tabla
 
         }
 
@@ -321,14 +396,14 @@ namespace ERP
         }
 
         private void btnUpdateCategorie_Click(object sender, EventArgs e)
-        {   
+        {
 
             UpdCategorie ucategorie = new UpdCategorie();
             String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
             ucategorie.textBox1.Text = name;
             nombreviejo = name;
             ucategorie.ShowDialog();
-          
+
             cargarCategorias();
         }
 
@@ -338,7 +413,7 @@ namespace ERP
             if (MessageBox.Show("Do you want to delete this categorie ?", "Delete Categorie", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 categoria.gestor.deleteCategoria(name);
-              
+
 
             }
             cargarCategorias();
@@ -382,7 +457,7 @@ namespace ERP
 
         public void cargarComponentes()
         {
-            
+
             //General
             tbxSearchUser.ForeColor = Color.Gray;
             tbxSearchUser.Text = "Search a Name...";
@@ -658,13 +733,19 @@ namespace ERP
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+
+            if (cbxUserDeleted.CheckState == CheckState.Checked)
+            {
+                btnDeleteUser.Enabled = false;
+
+
+            } else
+            {
+                btnDeleteUser.Enabled = true;
+            }
             filtroTotal();
             //String condicion = "";
-            //if (cbxUserDeleted.CheckState == CheckState.Checked)
-            //{
-            //    condicion += "U.DELETED = 1";
 
-            //}
             //else if (cbxUserDeleted.CheckState != CheckState.Checked)
             //{
             //    condicion += "U.DELETED = 0";
@@ -757,7 +838,7 @@ namespace ERP
             dgvProducts.Height = this.Height - 100;
         }
 
-        
+
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
@@ -825,14 +906,11 @@ namespace ERP
             btnDeleteCustomer.ForeColor = Color.White;
         }
 
-        private void tabPage6_Click(object sender, EventArgs e)
+        private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgvCategorie_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            NuevoCliente newCustomer = new NuevoCliente();
+            newCustomer.ShowDialog();
+            //filtroTotal();
         }
     }
 }
