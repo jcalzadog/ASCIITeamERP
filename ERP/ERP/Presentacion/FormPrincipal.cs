@@ -36,7 +36,7 @@ namespace ERP
         {
             usuario = new User();
             cliente = new Customer();
-            producto = new Producto();
+            //producto = new Producto();
 
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace ERP
 
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
-            cargarTablaProductos("DELETED=0");
+            //cargarTablaProductos("DELETED=0");
             //cargarTablaClientes("DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
@@ -58,7 +58,7 @@ namespace ERP
 
 
             controlErrores();
-            controlErroresProduct();
+            //controlErroresProduct();
         }
 
         /**
