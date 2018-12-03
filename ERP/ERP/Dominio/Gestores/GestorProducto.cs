@@ -66,5 +66,38 @@ namespace ERP.Dominio.Gestores
             }
             return creado;
         }
+
+        //public void modificarProducto(String nombreProducto, int idCat, int idPlat, int pegi, int price)
+        //{
+        //    //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+
+        //    //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
+        //    //DELETE FROM USERS WHERE NAME = 'aaa'
+
+        //    //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
+        //    //conector.setData(sentencia1);-------
+
+        //    Object idProducto = conector.DLookUp("IDPRODUCTO", "USERS", "NAME='" + nombreUser + "'");
+        //    Object idCat = conector.DLookUp("IDROLE", "ROLES", "NAME='" + role + "'");
+
+        //    if (pass.Equals(""))
+        //    {
+        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
+        //        conector.setData(sentencia2);
+        //    }
+        //    else
+        //    {
+        //        String sentencia1 = "UPDATE USERS SET PASSWORD ='" + pass + "' WHERE NAME = '" + nombreUser + "'";
+        //        conector.setData(sentencia1);
+
+        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
+        //        conector.setData(sentencia2);
+        //    }
+
+        //    String mensaje = "The user has been modified correctly.";
+        //    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+        //    cambio.ShowDialog();
+        //    //MessageBox.Show("El usuario se ha eliminado correctamente.");
+        //}
     }
 }
