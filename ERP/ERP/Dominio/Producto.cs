@@ -10,18 +10,25 @@ namespace ERP.Dominio
     class Producto
     {
         //Atributos
-        private int idProduct { get; set; }
-        private String name { get; set; }
-        private int idCategory { get; set; }
-        private int idPlatform { get; set; }
-        private int miniNumage { get; set; }
-        private float prize { get; set; }
-        private int deleted { get; set; }
+        public int idProduct { get; set; }
+        public String name { get; set; }
+        public int idCategory { get; set; }
+        public int idPlatform { get; set; }
+        public int miniNumage { get; set; }
+        public float prize { get; set; }
+        public int deleted { get; set; }
         public GestorProducto gestorProducto { get; set; }
 
         //Metodos
         public Producto()
         {
+            gestorProducto = new GestorProducto();
+        }
+
+        public Producto(String nameP)
+        {
+            
+            name = nameP;
             gestorProducto = new GestorProducto();
         }
 
