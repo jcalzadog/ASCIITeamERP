@@ -35,8 +35,10 @@ namespace ERP.Dominio.Gestores
             tabla = data.Tables["PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM"];
         }
         
-        public Boolean nuevoProducto(String name, int idCat, int idPlat,int pegi,int price)
+        public Boolean nuevoProducto(String name, String nomCat, String nomPlat,int pegi,int price)
         {
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '"+nomCat+"'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlat + "'");
             Boolean creado = false;
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
 
@@ -44,7 +46,7 @@ namespace ERP.Dominio.Gestores
             {
                 Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
                 Decimal idPlatfrom = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
-                Decimal idCategory = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "");
+                Decimal idCategory = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
 
                 String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+")";
                 conector.setData(sentencia);
@@ -67,37 +69,30 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        //public void modificarProducto(String nombreProducto, int idCat, int idPlat, int pegi, int price)
+        //public void modificarproducto(string nombreproducto, int idcat, int idplat, int pegi, int price)
         //{
-        //    //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+            
+        //    object idproducto = conector.dlookup("idproduct", "products", "name='" + nombreproducto + "'");
+        //    object idcate = conector.dlookup("idcategory", "categories", "='" +  + "'");
 
-        //    //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
-        //    //DELETE FROM USERS WHERE NAME = 'aaa'
-
-        //    //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
-        //    //conector.setData(sentencia1);-------
-
-        //    Object idProducto = conector.DLookUp("IDPRODUCTO", "USERS", "NAME='" + nombreUser + "'");
-        //    Object idCat = conector.DLookUp("IDROLE", "ROLES", "NAME='" + role + "'");
-
-        //    if (pass.Equals(""))
+        //    if (pass.equals(""))
         //    {
-        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
-        //        conector.setData(sentencia2);
+        //        string sentencia2 = "update users_roles set idrole =" + idrol + " where iduser = " + iduser;
+        //        conector.setdata(sentencia2);
         //    }
         //    else
         //    {
-        //        String sentencia1 = "UPDATE USERS SET PASSWORD ='" + pass + "' WHERE NAME = '" + nombreUser + "'";
-        //        conector.setData(sentencia1);
+        //        string sentencia1 = "update users set password ='" + pass + "' where name = '" + nombreuser + "'";
+        //        conector.setdata(sentencia1);
 
-        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
-        //        conector.setData(sentencia2);
+        //        string sentencia2 = "update users_roles set idrole =" + idrol + " where iduser = " + iduser;
+        //        conector.setdata(sentencia2);
         //    }
 
-        //    String mensaje = "The user has been modified correctly.";
-        //    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
-        //    cambio.ShowDialog();
-        //    //MessageBox.Show("El usuario se ha eliminado correctamente.");
+        //    string mensaje = "the user has been modified correctly.";
+        //    ventanapersonalizada cambio = new ventanapersonalizada(mensaje);
+        //    cambio.showdialog();
+        //    //messagebox.show("el usuario se ha eliminado correctamente.");
         //}
     }
 }

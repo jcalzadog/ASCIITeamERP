@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ERP.Presentacion.Products;
 
 //using ERP.Presentacion.Categorias;
 
@@ -330,6 +331,22 @@ namespace ERP
             //}
 
             cargarTablaUsuarios(condicion);
+        }
+
+        public void filtrarTablaProductos(String name, bool check)
+        {
+            String condicion = "";
+
+            if (check)
+            {
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1";
+            }
+            else
+            {
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0";
+            }
+
+            cargarTablaProductos(condicion);
         }
 
         private void FormPrincipal_SizeChanged(object sender, EventArgs e)
@@ -763,6 +780,16 @@ namespace ERP
             filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a Name...") ? "" : tbxSearchUser.Text, deleted);
         }
 
+        public void filtroTotalProd()
+        {
+            bool deleted = false;
+            if (ckbDeleted.CheckState == CheckState.Checked)
+            {
+                deleted = true;
+            }
+            filtrarTablaProductos(txtSearchProd.Text.Equals("Search a Name...") ? "" : txtSearchProd.Text, deleted);
+        }
+
         private void btnEditUser_MouseEnter(object sender, EventArgs e)
         {
             btnEditUser.BackColor = Color.White;
@@ -799,7 +826,9 @@ namespace ERP
 
         private void btnNewProd_Click(object sender, EventArgs e)
         {
-
+            AñadirProducto addProduct = new AñadirProducto();
+            addProduct.ShowDialog();
+            filtroTotalProd();//Usa cargar tabla usuarios para actualizar tabla
         }
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)

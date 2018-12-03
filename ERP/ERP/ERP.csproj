@@ -103,6 +103,12 @@
     <Compile Include="Presentacion\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Products\AñadirProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Products\AñadirProducto.Designer.cs">
+      <DependentUpon>AñadirProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\SystemTab\ConfirmarExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Products\AñadirProducto.resx">
+      <DependentUpon>AñadirProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\SystemTab\ConfirmarExit.resx">
       <DependentUpon>ConfirmarExit.cs</DependentUpon>
