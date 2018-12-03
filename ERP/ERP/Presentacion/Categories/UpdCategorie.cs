@@ -19,6 +19,7 @@ namespace ERP.Presentacion.Categories
         {
             InitializeComponent();
             categoria = new Categorias();
+            cargarComponentes();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -33,6 +34,46 @@ namespace ERP.Presentacion.Categories
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.White;
+            btnUpdate.ForeColor = Color.Black;
+        }
+
+        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.White;
+            btnCancel.ForeColor = Color.Black;
+        }
+
+        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.Black;
+            btnCancel.ForeColor = Color.White;
+        }
+
+        private void btnUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.Black;
+            btnUpdate.ForeColor = Color.White;
+        }
+        public void cargarComponentes()
+        {
+            //Exit
+           btnUpdate.BackColor = Color.Black;
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.FlatAppearance.BorderColor = Color.Black;
+            btnUpdate.FlatAppearance.BorderSize = 1;
+
+            btnCancel.BackColor = Color.Black;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.FlatAppearance.BorderColor = Color.Black;
+            btnCancel.FlatAppearance.BorderSize = 1;
+
         }
     }
 }
