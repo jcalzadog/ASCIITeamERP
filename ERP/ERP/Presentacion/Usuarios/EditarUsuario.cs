@@ -29,12 +29,12 @@ namespace ERP.Presentacion.Usuarios
 
             nombreRol = nameR;
             tbxUsername.Text = nameU;
-            user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+            
 
             rol = new Role(cmbRoles.SelectedItem.ToString());
             cargarComponentes();
             rol.gestorRol.seleccionarRoles(cmbRoles, nameR);
-            
+            user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
 
             panel1.BringToFront();
         }
@@ -142,7 +142,7 @@ namespace ERP.Presentacion.Usuarios
         {
             if(cambiarPass == true)
             {
-
+                user.password = tbxPassword.Text;
                 user.gestorusuario.modificarUsuario(user);
                 this.Dispose();
             }

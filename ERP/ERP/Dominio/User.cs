@@ -21,11 +21,13 @@ namespace ERP.Dominio
         //Metodos
         public User()
         {
+            this.rol = new Role();
             gestorusuario = new GestorUsuario();
         }
 
         public User(String nameU)
         {
+            this.rol = new Role();
             name = nameU;
             gestorusuario = new GestorUsuario();
         }

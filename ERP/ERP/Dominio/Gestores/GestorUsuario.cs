@@ -208,7 +208,7 @@ namespace ERP.Dominio.Gestores
             //conector.setData(sentencia1);-------
 
             Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='" + U.name + "'");
-            Object idRol = conector.DLookUp("IDROLE", "ROLES", "NAME='"+U.rol+"'");
+            Object idRol = conector.DLookUp("IDROLE", "ROLES", "NAME='"+U.rol.nameRol+"'");
 
             if (U.password.Equals(""))
             {
