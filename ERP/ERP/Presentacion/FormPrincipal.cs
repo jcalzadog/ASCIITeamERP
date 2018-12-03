@@ -1123,6 +1123,20 @@ namespace ERP
         private void ckbDeleted_CheckedChanged(object sender, EventArgs e)
         {
 
+            if (ckbDeleted.CheckState == CheckState.Checked)
+            {
+                btnDeleteProd.Enabled = false;
+                btnDeleteProd.BackColor = Color.DarkOrange;
+
+
+            }
+            else
+            {
+                btnDeleteProd.Enabled = true;
+                btnDeleteProd.BackColor = Color.Black;
+            }
+            filtroTotalProd();
+
         }
 
         private void tabPage5_Click(object sender, EventArgs e)

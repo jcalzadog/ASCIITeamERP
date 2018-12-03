@@ -95,7 +95,7 @@ namespace ERP.Dominio.Gestores
         String sentencia = "UPDATE PRODUCTS SET DELETED = 1 WHERE NAME = '" + P.name + "'";
         conector.setData(sentencia);
 
-            String mensaje = "The user has been successfully deleted.";
+            String mensaje = "The product has been successfully deleted.";
         VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
         cambio.ShowDialog();
         }
