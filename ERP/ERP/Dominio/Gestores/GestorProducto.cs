@@ -45,8 +45,7 @@ namespace ERP.Dominio.Gestores
             if (existe == 0)
             {
                 Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
-                Decimal idPlatfrom = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
-                Decimal idCategory = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
+                
 
                 String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+","+0+")";
                 conector.setData(sentencia);
@@ -68,6 +67,26 @@ namespace ERP.Dominio.Gestores
             }
             return creado;
         }
+
+        public void modificarProducto(String name, String nomCat, String nomPlat, int pegi, int price, String nomCatVieja,String nomPlatVieja)
+        {
+            Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
+            Object idCat = conector.getData("SELECT IDCATEGORY FROM CATEGORIES WHERE NAME = "+nomCat,"CATEGORIES");
+            Object idPlat = conector.getData("SELECT IDPLATFORM FROM PLATFORMS WHERE NAME = " + nomPlat, "PLATFORMS");
+            Object idCatVieja = conector.getData("SELECT IDCATEGORY FROM CATEGORIES WHERE NAME = "+nomCatVieja,"CATEGORIES");
+            Object idPlatVieja = conector.getData("SELECT IDPLATFORM FROM PLATFORMS WHERE NAME = " + nomPlatVieja, "PLATFORMS");
+            
+
+            String sentencia = "UPDATE PRODUCTS SET idcategory = "+idCat+", idplatform = "+idPlat+", minimumage = "+pegi+", price = "+price+" WHERE name = '"+name+"' and idcategory = "+idCatVieja+" and idplatform = "+idPlatVieja;
+            conector.setData(sentencia);
+
+
+            String mensaje = "The user has been modified correctly.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            //cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
+        }
+
 
     }
 }

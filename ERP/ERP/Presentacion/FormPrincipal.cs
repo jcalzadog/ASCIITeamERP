@@ -31,10 +31,15 @@ namespace ERP
         private User usuario;
         private Customer cliente;
         private Producto producto;
-        public static String nombreFilaSeleccionadaUsers="";
-        public static String rolFilaSellecionadaUsers="";
+        private Platform plataforma;
 
-      
+        public static String nombreFilaSeleccionadaUsers="";
+        public static String nombreFilaSeleccionadaProducts = "";
+
+        public static String rolFilaSellecionadaUsers="";
+        public static String rolFilaSellecionadaProducts = "";
+
+
         private Categorias categoria;
         public static String nombreviejo;
         public FormPrincipal()
@@ -42,6 +47,7 @@ namespace ERP
             usuario = new User();
             cliente = new Customer();
             producto = new Producto();
+            plataforma = new Platform();
 
             InitializeComponent();
 
@@ -537,6 +543,8 @@ namespace ERP
             btnDeleteCustomer.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCustomer.FlatAppearance.BorderSize = 1;
 
+            
+
             //Productos
             btnNewProd.BackColor = Color.Black;
             btnNewProd.ForeColor = Color.White;
@@ -555,6 +563,9 @@ namespace ERP
             btnDeleteProd.FlatStyle = FlatStyle.Flat;
             btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
             btnDeleteProd.FlatAppearance.BorderSize = 1;
+
+            categoria.gestor.refrescarCategorias(cmbFilCategory);
+            plataforma.gestor.refrescarPlatform(cmbFilPlatform);
 
             //Categorias
 
@@ -702,7 +713,7 @@ namespace ERP
 
         }
 
-//<<<<<<< HEAD
+
         private void tbxSearchCustomer_Enter(object sender, EventArgs e)
         {
             if (tbxSearchCustomer.Text.Equals("Search a Name..."))
@@ -720,11 +731,11 @@ namespace ERP
                 tbxSearchCustomer.Text = "Search a Name...";
             }
         }
-//=======
+
         private void txtBuscarProd_TextChanged(object sender, EventArgs e)
         {
 
-//>>>>>>> a3a8c49b150b7208ae5c3ba9ebe7b0b90e5daec2
+
         }
 
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
@@ -947,6 +958,23 @@ namespace ERP
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (dgvProducts.Rows.Count > 0 && dgvProducts.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
+            {
+                if (!String.IsNullOrEmpty(dgvProducts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    // do sonmthind
+                    nombreFilaSeleccionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    rolFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[1].Value.ToString();
+                }
+            }
         }
     }
 }

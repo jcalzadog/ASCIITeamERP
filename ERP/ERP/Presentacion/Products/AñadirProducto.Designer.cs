@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnSaveAnhother = new System.Windows.Forms.Button();
+            this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -126,16 +126,16 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Price";
             // 
-            // btnSaveAnhother
+            // btnSaveAnother
             // 
-            this.btnSaveAnhother.Location = new System.Drawing.Point(40, 291);
-            this.btnSaveAnhother.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveAnhother.Name = "btnSaveAnhother";
-            this.btnSaveAnhother.Size = new System.Drawing.Size(165, 28);
-            this.btnSaveAnhother.TabIndex = 10;
-            this.btnSaveAnhother.Text = "Save and Another";
-            this.btnSaveAnhother.UseVisualStyleBackColor = true;
-            this.btnSaveAnhother.Click += new System.EventHandler(this.btnSaveAnhother_Click);
+            this.btnSaveAnother.Location = new System.Drawing.Point(40, 291);
+            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveAnother.Name = "btnSaveAnother";
+            this.btnSaveAnother.Size = new System.Drawing.Size(165, 28);
+            this.btnSaveAnother.TabIndex = 10;
+            this.btnSaveAnother.Text = "Save and Another";
+            this.btnSaveAnother.UseVisualStyleBackColor = true;
+            this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnhother_Click);
             // 
             // btnSave
             // 
@@ -144,7 +144,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 28);
             this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "Sve and Close";
+            this.btnSave.Text = "Save and Close";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -157,6 +157,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AñadirProducto
             // 
@@ -165,7 +166,7 @@
             this.ClientSize = new System.Drawing.Size(532, 332);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSaveAnhother);
+            this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPegi);
@@ -195,7 +196,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSaveAnhother;
+        private System.Windows.Forms.Button btnSaveAnother;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
     }

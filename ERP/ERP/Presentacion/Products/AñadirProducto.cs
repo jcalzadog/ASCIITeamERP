@@ -25,6 +25,8 @@ namespace ERP.Presentacion.Products
             categoria = new Categorias();
             InitializeComponent();
             cargarDatos();
+            
+
         }
 
         private void btnSaveAnhother_Click(object sender, EventArgs e)
@@ -45,11 +47,7 @@ namespace ERP.Presentacion.Products
             Boolean creado = producto.gestorProducto.nuevoProducto(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
             if (creado)
             {
-                txtName.Text = "";
-                cmbCategory.SelectedIndex = 0;
-                cmbPlatform.SelectedIndex = 0;
-                txtPegi.Text = "";
-                txtPrice.Text = "";
+                this.Dispose();
             }
         }
 
@@ -62,6 +60,11 @@ namespace ERP.Presentacion.Products
         {
             categoria.gestor.refrescarCategorias(cmbCategory);
             plataforma.gestor.refrescarPlatform(cmbPlatform);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
