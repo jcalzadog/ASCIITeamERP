@@ -33,6 +33,7 @@ namespace ERP
         private Customer cliente;
         private Producto producto;
         private Platforms plataforma;
+        private GestorOrder orders;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -75,7 +76,7 @@ namespace ERP
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
-            cargarTablaOrders();
+            //cargarTablaOrders();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
 
@@ -266,7 +267,7 @@ namespace ERP
 
         }
 
-        private void cargarTablaOrders(String condicion)
+        private void cargarTablaOrders()
         {
             dgvOrders.Columns.Clear();
 
