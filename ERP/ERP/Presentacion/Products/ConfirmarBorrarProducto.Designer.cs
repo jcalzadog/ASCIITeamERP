@@ -78,6 +78,7 @@
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
             this.Name = "ConfirmarBorrarProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfirmarBorrarProducto";
             this.ResumeLayout(false);
             this.PerformLayout();
