@@ -932,7 +932,18 @@ namespace ERP
 
         private void btnDeleteProd_Click(object sender, EventArgs e)
         {
-
+            if (!nombreFilaSeleccionadaProducts.Equals(""))
+            {
+                ConfirmarBorrarProducto deletedProduct = new ConfirmarBorrarProducto(dgvProducts, nombreFilaSeleccionadaProducts);
+                deletedProduct.ShowDialog();
+                filtroTotalProd();
+            }
+            else
+            {
+                String mensaje = "No se ha selecionado ninguna fila.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+            }
         }
 
         private void btnUpdateProd_Click(object sender, EventArgs e)
@@ -1212,6 +1223,11 @@ namespace ERP
             dp.nameDelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
             dp.ShowDialog();
             cargarPlataformas();
+        }
+
+        private void txtSearchProd_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalProd();
         }
     }
 }

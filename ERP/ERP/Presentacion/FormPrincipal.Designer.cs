@@ -105,9 +105,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // tbcMenuPrincipal
-            // 
+            //
             this.tbcMenuPrincipal.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tbcMenuPrincipal.Controls.Add(this.tabPage1);
             this.tbcMenuPrincipal.Controls.Add(this.tabPage2);
@@ -128,9 +128,9 @@
             this.tbcMenuPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcMenuPrincipal.TabIndex = 0;
             this.tbcMenuPrincipal.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcMenuPrincipal_Selecting);
-            // 
+            //
             // tabPage1
-            // 
+            //
             this.tabPage1.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -139,9 +139,9 @@
             this.tabPage1.Size = new System.Drawing.Size(1140, 484);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
-            // 
+            //
             // tabPage2
-            // 
+            //
             this.tabPage2.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage2.Controls.Add(this.btnEditUser);
             this.tabPage2.Controls.Add(this.cbxUserDeleted);
@@ -159,9 +159,9 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
-            // 
+            //
             // btnEditUser
-            // 
+            //
             this.btnEditUser.BackColor = System.Drawing.Color.White;
             this.btnEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditUser.Location = new System.Drawing.Point(111, 10);
@@ -174,9 +174,9 @@
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             this.btnEditUser.MouseEnter += new System.EventHandler(this.btnEditUser_MouseEnter);
             this.btnEditUser.MouseLeave += new System.EventHandler(this.btnEditUser_MouseLeave);
-            // 
+            //
             // cbxUserDeleted
-            // 
+            //
             this.cbxUserDeleted.AutoSize = true;
             this.cbxUserDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.cbxUserDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,9 +189,9 @@
             this.cbxUserDeleted.Text = "Deleted";
             this.cbxUserDeleted.UseVisualStyleBackColor = false;
             this.cbxUserDeleted.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
+            //
             // tbxSearchUser
-            // 
+            //
             this.tbxSearchUser.Location = new System.Drawing.Point(532, 14);
             this.tbxSearchUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxSearchUser.Name = "tbxSearchUser";
@@ -200,9 +200,9 @@
             this.tbxSearchUser.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.tbxSearchUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearchUser_KeyUp);
             this.tbxSearchUser.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
+            //
             // btnLogs
-            // 
+            //
             this.btnLogs.BackColor = System.Drawing.Color.White;
             this.btnLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogs.Location = new System.Drawing.Point(451, 10);
@@ -215,9 +215,9 @@
             this.btnLogs.Click += new System.EventHandler(this.btnLogs_Click);
             this.btnLogs.MouseEnter += new System.EventHandler(this.btnLogs_MouseEnter);
             this.btnLogs.MouseLeave += new System.EventHandler(this.btnLogs_MouseLeave);
-            // 
+            //
             // btnDeleteUser
-            // 
+            //
             this.btnDeleteUser.BackColor = System.Drawing.Color.White;
             this.btnDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,9 +231,9 @@
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             this.btnDeleteUser.MouseEnter += new System.EventHandler(this.btnDeleteUser_MouseEnter);
             this.btnDeleteUser.MouseLeave += new System.EventHandler(this.btnDeleteUser_MouseLeave);
-            // 
+            //
             // btnRoles
-            // 
+            //
             this.btnRoles.BackColor = System.Drawing.Color.White;
             this.btnRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,9 +247,9 @@
             this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
             this.btnRoles.MouseEnter += new System.EventHandler(this.btnRoles_MouseEnter);
             this.btnRoles.MouseLeave += new System.EventHandler(this.btnRoles_MouseLeave);
-            // 
+            //
             // btnNewUser
-            // 
+            //
             this.btnNewUser.BackColor = System.Drawing.Color.White;
             this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewUser.Location = new System.Drawing.Point(8, 10);
@@ -262,9 +262,9 @@
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             this.btnNewUser.MouseEnter += new System.EventHandler(this.btnNewUser_MouseEnter);
             this.btnNewUser.MouseLeave += new System.EventHandler(this.btnNewUser_MouseLeave);
-            // 
+            //
             // dgvUsers
-            // 
+            //
             this.dgvUsers.AllowUserToResizeColumns = false;
             this.dgvUsers.AllowUserToResizeRows = false;
             this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.Desktop;
@@ -295,9 +295,9 @@
             this.dgvUsers.Size = new System.Drawing.Size(803, 400);
             this.dgvUsers.TabIndex = 3;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
-            // 
+            //
             // tabPage3
-            // 
+            //
             this.tabPage3.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Controls.Add(this.cbxCustomerDeleted);
@@ -313,9 +313,9 @@
             this.tabPage3.Size = new System.Drawing.Size(1140, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
-            // 
+            //
             // panel3
-            // 
+            //
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3.Location = new System.Drawing.Point(0, 554);
@@ -323,9 +323,9 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1340, 606);
             this.panel3.TabIndex = 11;
-            // 
+            //
             // cbxCustomerDeleted
-            // 
+            //
             this.cbxCustomerDeleted.AutoSize = true;
             this.cbxCustomerDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCustomerDeleted.Location = new System.Drawing.Point(753, 12);
@@ -336,9 +336,9 @@
             this.cbxCustomerDeleted.Text = "Deleted";
             this.cbxCustomerDeleted.UseVisualStyleBackColor = true;
             this.cbxCustomerDeleted.CheckedChanged += new System.EventHandler(this.cbxDeleted_CheckedChanged);
-            // 
+            //
             // tbxSearchCustomer
-            // 
+            //
             this.tbxSearchCustomer.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbxSearchCustomer.Location = new System.Drawing.Point(496, 11);
             this.tbxSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -348,9 +348,9 @@
             this.tbxSearchCustomer.Enter += new System.EventHandler(this.tbxSearchCustomer_Enter);
             this.tbxSearchCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearchCustomer_KeyUp);
             this.tbxSearchCustomer.Leave += new System.EventHandler(this.tbxSearchCustomer_Leave);
-            // 
+            //
             // btnDeleteCustomer
-            // 
+            //
             this.btnDeleteCustomer.BackColor = System.Drawing.Color.White;
             this.btnDeleteCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCustomer.Location = new System.Drawing.Point(339, 9);
@@ -363,9 +363,9 @@
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             this.btnDeleteCustomer.MouseEnter += new System.EventHandler(this.btnDeleteCustomer_MouseEnter);
             this.btnDeleteCustomer.MouseLeave += new System.EventHandler(this.btnDeleteCustomer_MouseLeave);
-            // 
+            //
             // btnEditCustomer
-            // 
+            //
             this.btnEditCustomer.BackColor = System.Drawing.Color.White;
             this.btnEditCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCustomer.Location = new System.Drawing.Point(183, 9);
@@ -378,9 +378,9 @@
             this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             this.btnEditCustomer.MouseEnter += new System.EventHandler(this.btnEditCustomer_MouseEnter);
             this.btnEditCustomer.MouseLeave += new System.EventHandler(this.btnEditCustomer_MouseLeave);
-            // 
+            //
             // btnNewCustomer
-            // 
+            //
             this.btnNewCustomer.BackColor = System.Drawing.Color.White;
             this.btnNewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewCustomer.Location = new System.Drawing.Point(27, 9);
@@ -393,9 +393,9 @@
             this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             this.btnNewCustomer.MouseEnter += new System.EventHandler(this.btnNewCustomer_MouseEnter);
             this.btnNewCustomer.MouseLeave += new System.EventHandler(this.btnNewCustomer_MouseLeave);
-            // 
+            //
             // dgvCustomers
-            // 
+            //
             this.dgvCustomers.AllowUserToResizeColumns = false;
             this.dgvCustomers.AllowUserToResizeRows = false;
             this.dgvCustomers.BackgroundColor = System.Drawing.Color.Black;
@@ -418,9 +418,9 @@
             this.dgvCustomers.TabIndex = 0;
             this.dgvCustomers.TabStop = false;
             this.dgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellClick);
-            // 
+            //
             // tabPage4
-            // 
+            //
             this.tabPage4.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage4.Controls.Add(this.dgvOrders);
             this.tabPage4.Controls.Add(this.dtpOrder);
@@ -437,9 +437,9 @@
             this.tabPage4.Size = new System.Drawing.Size(1140, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
-            // 
+            //
             // dgvOrders
-            // 
+            //
             this.dgvOrders.AllowUserToResizeColumns = false;
             this.dgvOrders.AllowUserToResizeRows = false;
             this.dgvOrders.BackgroundColor = System.Drawing.SystemColors.Desktop;
@@ -469,25 +469,25 @@
             this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrders.Size = new System.Drawing.Size(803, 400);
             this.dgvOrders.TabIndex = 20;
-            // 
+            //
             // dtpOrder
-            // 
+            //
             this.dtpOrder.Location = new System.Drawing.Point(883, 14);
             this.dtpOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpOrder.Name = "dtpOrder";
             this.dtpOrder.Size = new System.Drawing.Size(203, 22);
             this.dtpOrder.TabIndex = 19;
-            // 
+            //
             // txtSearchOrder
-            // 
+            //
             this.txtSearchOrder.Location = new System.Drawing.Point(683, 14);
             this.txtSearchOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearchOrder.Name = "txtSearchOrder";
             this.txtSearchOrder.Size = new System.Drawing.Size(191, 22);
             this.txtSearchOrder.TabIndex = 18;
-            // 
+            //
             // btnDeleteOrder
-            // 
+            //
             this.btnDeleteOrder.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteOrder.Location = new System.Drawing.Point(549, 10);
@@ -499,9 +499,9 @@
             this.btnDeleteOrder.UseVisualStyleBackColor = false;
             this.btnDeleteOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnDeleteOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnPrintOrder
-            // 
+            //
             this.btnPrintOrder.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPrintOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintOrder.Location = new System.Drawing.Point(417, 10);
@@ -513,9 +513,9 @@
             this.btnPrintOrder.UseVisualStyleBackColor = false;
             this.btnPrintOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnPrintOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnViewDetails
-            // 
+            //
             this.btnViewDetails.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.Location = new System.Drawing.Point(285, 10);
@@ -527,9 +527,9 @@
             this.btnViewDetails.UseVisualStyleBackColor = false;
             this.btnViewDetails.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnViewDetails.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnEditOrder
-            // 
+            //
             this.btnEditOrder.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditOrder.Location = new System.Drawing.Point(153, 10);
@@ -541,9 +541,9 @@
             this.btnEditOrder.UseVisualStyleBackColor = false;
             this.btnEditOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnEditOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnNewOrder
-            // 
+            //
             this.btnNewOrder.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewOrder.Location = new System.Drawing.Point(21, 10);
@@ -556,9 +556,9 @@
             this.btnNewOrder.Click += new System.EventHandler(this.button1_Click);
             this.btnNewOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnNewOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // tabPage5
-            // 
+            //
             this.tabPage5.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage5.Controls.Add(this.label2);
             this.tabPage5.Controls.Add(this.label1);
@@ -579,9 +579,9 @@
             this.tabPage5.Text = "Products";
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             this.tabPage5.Resize += new System.EventHandler(this.tabPage5_Resize);
-            // 
+            //
             // label2
-            // 
+            //
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(681, 18);
@@ -590,9 +590,9 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Categories";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(880, 18);
@@ -601,9 +601,9 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Platforms";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
+            //
             // ckbDeleted
-            // 
+            //
             this.ckbDeleted.AutoSize = true;
             this.ckbDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.ckbDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -616,9 +616,9 @@
             this.ckbDeleted.Text = "Deleted";
             this.ckbDeleted.UseVisualStyleBackColor = false;
             this.ckbDeleted.CheckedChanged += new System.EventHandler(this.ckbDeleted_CheckedChanged);
-            // 
+            //
             // dgvProducts
-            // 
+            //
             this.dgvProducts.AllowUserToResizeColumns = false;
             this.dgvProducts.AllowUserToResizeRows = false;
             this.dgvProducts.BackgroundColor = System.Drawing.SystemColors.Desktop;
@@ -649,9 +649,9 @@
             this.dgvProducts.Size = new System.Drawing.Size(803, 400);
             this.dgvProducts.TabIndex = 19;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
-            // 
+            //
             // cmbFilPlatform
-            // 
+            //
             this.cmbFilPlatform.FormattingEnabled = true;
             this.cmbFilPlatform.Location = new System.Drawing.Point(965, 14);
             this.cmbFilPlatform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -659,9 +659,9 @@
             this.cmbFilPlatform.Size = new System.Drawing.Size(140, 24);
             this.cmbFilPlatform.TabIndex = 18;
             this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
-            // 
+            //
             // cmbFilCategory
-            // 
+            //
             this.cmbFilCategory.FormattingEnabled = true;
             this.cmbFilCategory.Location = new System.Drawing.Point(777, 12);
             this.cmbFilCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -669,9 +669,9 @@
             this.cmbFilCategory.Size = new System.Drawing.Size(95, 24);
             this.cmbFilCategory.TabIndex = 17;
             this.cmbFilCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFilCategory_SelectedIndexChanged);
-            // 
+            //
             // txtSearchProd
-            // 
+            //
             this.txtSearchProd.Location = new System.Drawing.Point(465, 12);
             this.txtSearchProd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtSearchProd.Name = "txtSearchProd";
@@ -679,10 +679,11 @@
             this.txtSearchProd.TabIndex = 16;
             this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged_1);
             this.txtSearchProd.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearchProd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchProd_KeyUp);
             this.txtSearchProd.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
+            //
             // btnDeleteProd
-            // 
+            //
             this.btnDeleteProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDeleteProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteProd.Location = new System.Drawing.Point(305, 10);
@@ -695,9 +696,9 @@
             this.btnDeleteProd.Click += new System.EventHandler(this.btnDeleteProd_Click);
             this.btnDeleteProd.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnDeleteProd.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnUpdateProd
-            // 
+            //
             this.btnUpdateProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnUpdateProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateProd.Location = new System.Drawing.Point(155, 10);
@@ -710,9 +711,9 @@
             this.btnUpdateProd.Click += new System.EventHandler(this.btnUpdateProd_Click);
             this.btnUpdateProd.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnUpdateProd.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnNewProd
-            // 
+            //
             this.btnNewProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNewProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewProd.Location = new System.Drawing.Point(21, 10);
@@ -725,9 +726,9 @@
             this.btnNewProd.Click += new System.EventHandler(this.btnNewProd_Click);
             this.btnNewProd.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnNewProd.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // tabPage6
-            // 
+            //
             this.tabPage6.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage6.Controls.Add(this.dgvCategorie);
             this.tabPage6.Controls.Add(this.btnDeleteCategorie);
@@ -740,9 +741,9 @@
             this.tabPage6.Size = new System.Drawing.Size(1140, 484);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
-            // 
+            //
             // dgvCategorie
-            // 
+            //
             this.dgvCategorie.BackgroundColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
@@ -767,9 +768,9 @@
             this.dgvCategorie.ReadOnly = true;
             this.dgvCategorie.Size = new System.Drawing.Size(803, 400);
             this.dgvCategorie.TabIndex = 3;
-            // 
+            //
             // btnDeleteCategorie
-            // 
+            //
             this.btnDeleteCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCategorie.Location = new System.Drawing.Point(376, 9);
             this.btnDeleteCategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -781,9 +782,9 @@
             this.btnDeleteCategorie.Click += new System.EventHandler(this.btnDeleteCategorie_Click);
             this.btnDeleteCategorie.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnDeleteCategorie.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnUpdateCategorie
-            // 
+            //
             this.btnUpdateCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCategorie.Location = new System.Drawing.Point(176, 9);
             this.btnUpdateCategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -795,9 +796,9 @@
             this.btnUpdateCategorie.Click += new System.EventHandler(this.btnUpdateCategorie_Click);
             this.btnUpdateCategorie.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnUpdateCategorie.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnNewCategorie
-            // 
+            //
             this.btnNewCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewCategorie.Location = new System.Drawing.Point(7, 9);
             this.btnNewCategorie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -809,9 +810,9 @@
             this.btnNewCategorie.Click += new System.EventHandler(this.btnNewCategorie_Click);
             this.btnNewCategorie.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnNewCategorie.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // tabPage7
-            // 
+            //
             this.tabPage7.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage7.Controls.Add(this.dgvPlatforms);
             this.tabPage7.Controls.Add(this.btnDeletePlatform);
@@ -824,9 +825,9 @@
             this.tabPage7.Size = new System.Drawing.Size(1140, 484);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
-            // 
+            //
             // dgvPlatforms
-            // 
+            //
             this.dgvPlatforms.BackgroundColor = System.Drawing.Color.Black;
             this.dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlatforms.Location = new System.Drawing.Point(8, 43);
@@ -834,9 +835,9 @@
             this.dgvPlatforms.Name = "dgvPlatforms";
             this.dgvPlatforms.Size = new System.Drawing.Size(803, 400);
             this.dgvPlatforms.TabIndex = 3;
-            // 
+            //
             // btnDeletePlatform
-            // 
+            //
             this.btnDeletePlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePlatform.Location = new System.Drawing.Point(295, 10);
             this.btnDeletePlatform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -848,9 +849,9 @@
             this.btnDeletePlatform.Click += new System.EventHandler(this.btnDeletePlatform_Click);
             this.btnDeletePlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnDeletePlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnUpdatePlatform
-            // 
+            //
             this.btnUpdatePlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdatePlatform.Location = new System.Drawing.Point(147, 10);
             this.btnUpdatePlatform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -862,9 +863,9 @@
             this.btnUpdatePlatform.Click += new System.EventHandler(this.btnUpdatePlatform_Click);
             this.btnUpdatePlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnUpdatePlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // btnNewPlatform
-            // 
+            //
             this.btnNewPlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewPlatform.Location = new System.Drawing.Point(4, 10);
             this.btnNewPlatform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -876,9 +877,9 @@
             this.btnNewPlatform.Click += new System.EventHandler(this.btnNewPlatform_Click);
             this.btnNewPlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnNewPlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
+            //
             // tabPage8
-            // 
+            //
             this.tabPage8.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage8.Controls.Add(this.panel2);
             this.tabPage8.Controls.Add(this.btnLogOut);
@@ -890,18 +891,18 @@
             this.tabPage8.Size = new System.Drawing.Size(1140, 484);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel2.Location = new System.Drawing.Point(355, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(543, 484);
             this.panel2.TabIndex = 2;
-            // 
+            //
             // btnLogOut
-            // 
+            //
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(32, 53);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -913,9 +914,9 @@
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
             this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
-            // 
+            //
             // btnExit
-            // 
+            //
             this.btnExit.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(32, 98);
@@ -928,9 +929,9 @@
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
-            // 
+            //
             // FormPrincipal
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;

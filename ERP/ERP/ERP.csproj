@@ -143,6 +143,12 @@
     <Compile Include="Presentacion\Products\AñadirProducto.Designer.cs">
       <DependentUpon>AñadirProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Products\ConfirmarBorrarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Products\ConfirmarBorrarProducto.Designer.cs">
+      <DependentUpon>ConfirmarBorrarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Products\EditarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Products\AñadirProducto.resx">
       <DependentUpon>AñadirProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Products\ConfirmarBorrarProducto.resx">
+      <DependentUpon>ConfirmarBorrarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Products\EditarProducto.resx">
       <DependentUpon>EditarProducto.cs</DependentUpon>
