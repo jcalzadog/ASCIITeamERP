@@ -1224,5 +1224,10 @@ namespace ERP
             dp.ShowDialog();
             cargarPlataformas();
         }
+
+        private void txtSearchProd_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalProd();
+        }
     }
 }
