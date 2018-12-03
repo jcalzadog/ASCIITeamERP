@@ -13,7 +13,7 @@ namespace ERP.Dominio.Gestores
         ConnectOracle conector;
         public DataTable tabla { get; set; }
         public GestorCategorias() {
-            conector = new ConnectOracle(); 
+            conector = new ConnectOracle();
             tabla = new DataTable();
         }
 

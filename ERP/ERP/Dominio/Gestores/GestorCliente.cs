@@ -13,15 +13,11 @@ namespace ERP.Dominio.Gestores
     {
         public DataTable tabla { get; set; }
         ConnectOracle conector;
-        LinkedList<Object> listaRegiones;
-        LinkedList<Object> listaStates;
 
         public GestorCliente()
         {
             conector = new ConnectOracle();
             tabla = new DataTable();
-            listaRegiones = new LinkedList<Object>();
-            listaStates = new LinkedList<Object>();
         }
 
         public void leerClientes(String condicion)
@@ -38,90 +34,6 @@ namespace ERP.Dominio.Gestores
                 data = conector.getData("SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL,R.REGION,T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY WHERE " + condicion, "CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY");
             }
             tabla = data.Tables["CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY"];
-        }
-
-        public void refrescarRegions(ComboBox cmbRegions)
-        {
-            Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
-
-            for (int i = 1; i <= numRegions; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
-
-            cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
-            }
-            cmbRegions.SelectedIndex = 0;
-        }
-
-        public void refrescarState(ComboBox cmbState,String region)
-        {
-            Decimal numState = (Decimal)conector.DLookUp("MAX(STATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "'");
-            //int numRoles = int.Parse(numR);
-
-            for (int i = 1; i <= numState; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "' AND IDSTATE=" + i));
-            }
-
-            cmbState.Items.Clear();
-            int cont = 0;
-            cmbState.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbState.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
-            }
-            cmbState.SelectedIndex = 0;
-        }
-
-        public void refrescarCities(ComboBox cmbRegions)
-        {
-            Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
-
-            for (int i = 1; i <= numRegions; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
-
-            cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
-            }
-            cmbRegions.SelectedIndex = 0;
-        }
-
-        public void refrescarZipCode(ComboBox cmbRegions)
-        {
-            Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
-
-            for (int i = 1; i <= numRegions; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
-
-            cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
-            }
-            cmbRegions.SelectedIndex = 0;
         }
 
         public void eliminarCliente(DataGridView dgvUsersaa, String dniFilaSeleccionada)

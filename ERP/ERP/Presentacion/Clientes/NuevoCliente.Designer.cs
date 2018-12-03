@@ -35,8 +35,8 @@
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.tbxPhone = new System.Windows.Forms.TextBox();
             this.cbxZipCode = new System.Windows.Forms.ComboBox();
-            this.cmbState = new System.Windows.Forms.ComboBox();
-            this.cmbRegion = new System.Windows.Forms.ComboBox();
+            this.cbxState = new System.Windows.Forms.ComboBox();
+            this.cbxRegion = new System.Windows.Forms.ComboBox();
             this.cbxCities = new System.Windows.Forms.ComboBox();
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -53,7 +53,6 @@
             this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxDNI
@@ -100,40 +99,35 @@
             // 
             // cbxZipCode
             // 
-            this.cbxZipCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxZipCode.FormattingEnabled = true;
-            this.cbxZipCode.Location = new System.Drawing.Point(477, 58);
+            this.cbxZipCode.Location = new System.Drawing.Point(484, 407);
             this.cbxZipCode.Name = "cbxZipCode";
-            this.cbxZipCode.Size = new System.Drawing.Size(255, 24);
+            this.cbxZipCode.Size = new System.Drawing.Size(121, 24);
             this.cbxZipCode.TabIndex = 6;
             this.cbxZipCode.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // cmbState
+            // cbxState
             // 
-            this.cmbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbState.FormattingEnabled = true;
-            this.cmbState.Location = new System.Drawing.Point(165, 61);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(212, 24);
-            this.cmbState.TabIndex = 7;
+            this.cbxState.FormattingEnabled = true;
+            this.cbxState.Location = new System.Drawing.Point(213, 407);
+            this.cbxState.Name = "cbxState";
+            this.cbxState.Size = new System.Drawing.Size(121, 24);
+            this.cbxState.TabIndex = 7;
             // 
-            // cmbRegion
+            // cbxRegion
             // 
-            this.cmbRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRegion.FormattingEnabled = true;
-            this.cmbRegion.Location = new System.Drawing.Point(165, 9);
-            this.cmbRegion.Name = "cmbRegion";
-            this.cmbRegion.Size = new System.Drawing.Size(211, 24);
-            this.cmbRegion.TabIndex = 8;
-            this.cmbRegion.SelectedIndexChanged += new System.EventHandler(this.cmbRegion_SelectedIndexChanged);
+            this.cbxRegion.FormattingEnabled = true;
+            this.cbxRegion.Location = new System.Drawing.Point(213, 358);
+            this.cbxRegion.Name = "cbxRegion";
+            this.cbxRegion.Size = new System.Drawing.Size(121, 24);
+            this.cbxRegion.TabIndex = 8;
             // 
             // cbxCities
             // 
-            this.cbxCities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCities.FormattingEnabled = true;
-            this.cbxCities.Location = new System.Drawing.Point(477, 9);
+            this.cbxCities.Location = new System.Drawing.Point(484, 358);
             this.cbxCities.Name = "cbxCities";
-            this.cbxCities.Size = new System.Drawing.Size(255, 24);
+            this.cbxCities.Size = new System.Drawing.Size(121, 24);
             this.cbxCities.TabIndex = 9;
             this.cbxCities.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
@@ -203,11 +197,11 @@
             this.lblRegion.BackColor = System.Drawing.Color.Black;
             this.lblRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegion.ForeColor = System.Drawing.Color.White;
-            this.lblRegion.Location = new System.Drawing.Point(85, 12);
+            this.lblRegion.Location = new System.Drawing.Point(137, 361);
             this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(59, 17);
+            this.lblRegion.Size = new System.Drawing.Size(74, 17);
             this.lblRegion.TabIndex = 16;
-            this.lblRegion.Text = "Region";
+            this.lblRegion.Text = "1-Region";
             // 
             // lblState
             // 
@@ -215,7 +209,7 @@
             this.lblState.BackColor = System.Drawing.Color.Black;
             this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.White;
-            this.lblState.Location = new System.Drawing.Point(98, 64);
+            this.lblState.Location = new System.Drawing.Point(137, 410);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(61, 17);
             this.lblState.TabIndex = 17;
@@ -227,7 +221,7 @@
             this.lblCities.BackColor = System.Drawing.Color.Black;
             this.lblCities.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCities.ForeColor = System.Drawing.Color.White;
-            this.lblCities.Location = new System.Drawing.Point(408, 12);
+            this.lblCities.Location = new System.Drawing.Point(396, 361);
             this.lblCities.Name = "lblCities";
             this.lblCities.Size = new System.Drawing.Size(63, 17);
             this.lblCities.TabIndex = 18;
@@ -239,7 +233,7 @@
             this.lblZipCode.BackColor = System.Drawing.Color.Black;
             this.lblZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblZipCode.ForeColor = System.Drawing.Color.White;
-            this.lblZipCode.Location = new System.Drawing.Point(383, 61);
+            this.lblZipCode.Location = new System.Drawing.Point(388, 410);
             this.lblZipCode.Name = "lblZipCode";
             this.lblZipCode.Size = new System.Drawing.Size(88, 17);
             this.lblZipCode.TabIndex = 19;
@@ -289,14 +283,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.panel1.Controls.Add(this.lblRegion);
-            this.panel1.Controls.Add(this.cmbRegion);
-            this.panel1.Controls.Add(this.lblCities);
-            this.panel1.Controls.Add(this.cbxCities);
-            this.panel1.Controls.Add(this.lblState);
-            this.panel1.Controls.Add(this.lblZipCode);
-            this.panel1.Controls.Add(this.cbxZipCode);
-            this.panel1.Controls.Add(this.cmbState);
             this.panel1.Location = new System.Drawing.Point(-2, 346);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(783, 100);
@@ -313,12 +299,20 @@
             this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.btnSaveClose);
             this.Controls.Add(this.btnClearAll);
+            this.Controls.Add(this.lblZipCode);
+            this.Controls.Add(this.lblCities);
+            this.Controls.Add(this.lblState);
+            this.Controls.Add(this.lblRegion);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblSurname);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblDNI);
+            this.Controls.Add(this.cbxCities);
+            this.Controls.Add(this.cbxRegion);
+            this.Controls.Add(this.cbxState);
+            this.Controls.Add(this.cbxZipCode);
             this.Controls.Add(this.tbxPhone);
             this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.tbxAddress);
@@ -336,8 +330,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Customer";
             this.Load += new System.EventHandler(this.NuevoCliente_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,8 +344,8 @@
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.TextBox tbxPhone;
         private System.Windows.Forms.ComboBox cbxZipCode;
-        private System.Windows.Forms.ComboBox cmbState;
-        private System.Windows.Forms.ComboBox cmbRegion;
+        private System.Windows.Forms.ComboBox cbxState;
+        private System.Windows.Forms.ComboBox cbxRegion;
         private System.Windows.Forms.ComboBox cbxCities;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Label lblName;

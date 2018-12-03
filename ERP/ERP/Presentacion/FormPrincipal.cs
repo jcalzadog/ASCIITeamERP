@@ -34,15 +34,13 @@ namespace ERP
         public static String rolFilaSellecionadaUsers="";
 
       
-        private Categorias categoria; 
-        private Platform platform;
+        private Categorias categoria;
         public static String nombreviejo;
         public FormPrincipal()
         {
             usuario = new User();
             cliente = new Customer();
             //producto = new Producto();
-            platform = new Platform();
 
             InitializeComponent();
 
@@ -51,7 +49,6 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             cargarCategorias();
             cargarComponentes();
-            loadPlatforms();
             cargarTablaUsuarios("DELETED=0");
             //cargarTablaProductos("DELETED=0");
             //cargarTablaClientes("DELETED=0");
@@ -95,31 +92,6 @@ namespace ERP
 
         }
 
-
-        public void loadPlatforms()
-        {
-            dgvPlatforms.Columns.Clear();
-            platform.gestor.readPlatforms();
-            DataTable tPlatforms = platform.gestor.tabla;
-
-            dgvPlatforms.Columns.Clear();
-
-            dgvPlatforms.Columns.Add("NAME", "NAME");
-            dgvPlatforms.Columns.Add("CUENTA", "NUMBER OF PRODUCTS");
-
-
-            foreach (DataRow row in tPlatforms.Rows)
-            {
-                dgvPlatforms.Rows.Add(row["NAME"], row["CUENTA"]);
-            }
-
-
-            dgvPlatforms.RowHeadersVisible = false;
-            dgvPlatforms.AllowUserToAddRows = false;
-            dgvPlatforms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPlatforms.BackgroundColor = Color.Black;
-
-        }
 
         /**
          * Metodo para usar el "menu pestañas" .
@@ -377,9 +349,6 @@ namespace ERP
 
             dgvCategorie.Width = this.Width - 150;
             dgvCategorie.Height = this.Height - 100;
-
-            dgvPlatforms.Width = this.Width - 150;
-            dgvPlatforms.Height = this.Height - 100;
 
             //Diseño
             panel1.Width = tbcMenuPrincipal.Width;
@@ -942,11 +911,6 @@ namespace ERP
             NuevoCliente newCustomer = new NuevoCliente();
             newCustomer.ShowDialog();
             //filtroTotal();
-        }
-
-        private void btnNewPlatform_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

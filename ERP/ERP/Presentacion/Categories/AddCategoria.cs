@@ -18,7 +18,6 @@ namespace ERP.Presentacion.Categories
         {
             InitializeComponent();
             categoria = new Categorias();
-            cargarDiseño();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -44,64 +43,23 @@ namespace ERP.Presentacion.Categories
         }
 
         public void cargarDiseño() {
-            btnAceptar.BackColor = Color.Black;
-            btnAceptar.ForeColor = Color.White;
-            btnAceptar.FlatStyle = FlatStyle.Flat;
-            btnAceptar.FlatAppearance.BorderColor = Color.Black;
-            btnAceptar.FlatAppearance.BorderSize = 1;
+            btnCancelar.BackColor = Color.FromArgb(114, 47, 55);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.FlatAppearance.BorderColor = Color.Black;
+            btnCancelar.FlatAppearance.BorderSize = 1;
 
-            btnSave.BackColor = Color.Black;
+            btnSave.BackColor = Color.FromArgb(114, 47, 55);
             btnSave.ForeColor = Color.White;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.FlatAppearance.BorderColor = Color.Black;
             btnSave.FlatAppearance.BorderSize = 1;
 
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-           btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.FlatAppearance.BorderColor = Color.Black;
-            btnCancelar.FlatAppearance.BorderSize = 1;
-        }
-
-        private void btnAceptar_MouseLeave(object sender, EventArgs e)
-        {
-            btnAceptar.BackColor = Color.Black;
+            btnAceptar.BackColor = Color.FromArgb(114, 47, 55);
             btnAceptar.ForeColor = Color.White;
-        }
-
-        private void btnAceptar_MouseEnter(object sender, EventArgs e)
-        {
-            btnAceptar.BackColor = Color.White;
-            btnAceptar.ForeColor = Color.Black;
-        }
-
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.Black;
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
-        }
-
-        private void AddCategoria_Load(object sender, EventArgs e)
-        {
-
+            btnAceptar.FlatStyle = FlatStyle.Flat;
+            btnAceptar.FlatAppearance.BorderColor = Color.Black;
+            btnAceptar.FlatAppearance.BorderSize = 1;
         }
     }
 }
