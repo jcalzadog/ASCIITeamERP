@@ -35,6 +35,16 @@ namespace ERP
 
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
+
+        public static String dniFilaSeleccionadaClientes = "";
+        public static String nameFilaSellecionadaClientes = "";
+        public static String surnameFilaSeleccionadaClientes = "";
+        public static String addressFilaSellecionadaClientes = "";
+        public static String phoneFilaSeleccionadaClientes = "";
+        public static String emailFilaSellecionadaClientes = "";
+        public static String cityFilaSeleccionadaClientes = "";
+
+
         public static String nombreFilaSeleccionadaProducts = "";
         public static String catViejaFilaSellecionadaProducts = "";
         public static String platViejaFilaSellecionadaProducts = "";
@@ -1029,6 +1039,65 @@ namespace ERP
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchProd_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ckbDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            if (!dniFilaSeleccionadaClientes.Equals(""))
+            {
+                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
+                deletedUser.ShowDialog();
+                filtroTotalUsuarios();
+            }
+            else
+            {
+                String mensaje = "No se ha selecionado ninguna fila.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                //MessageBox.Show("No se ha sellecionado ninguna fila.");
+            }
+        }
+
+        private void dgvCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (dgvCustomers.Rows.Count > 0 && dgvCustomers.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
+            {
+                if (!String.IsNullOrEmpty(dgvCustomers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    // do sonmthind
+                    dniFilaSeleccionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    nameFilaSellecionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    surnameFilaSeleccionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    addressFilaSellecionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    phoneFilaSeleccionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    emailFilaSellecionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    cityFilaSeleccionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[6].Value.ToString();
+                }
+            }
         }
     }
 }

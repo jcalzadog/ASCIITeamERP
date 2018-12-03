@@ -175,5 +175,20 @@ namespace ERP.Presentacion.Clientes
                 this.Dispose();
             }
         }
+
+        private void btnSaveAnother_Click(object sender, EventArgs e)
+        {
+            Boolean creado = customer.gestorCliente.nuevoCliente(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
+            if (creado)
+            {
+                tbxDNI.Text = "";
+                tbxName.Text = "";
+                tbxSurname.Text = "";
+                tbxAddress.Text = "";
+                tbxEmail.Text = "";
+                tbxPhone.Text = "";
+                tbxZipCode.Text = "";
+            }
+        }
     }
 }

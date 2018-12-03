@@ -34,6 +34,18 @@ namespace ERP.Presentacion.Clientes
 
             cmbState.Items.Add("Ninguno");
             cmbState.SelectedIndex = 0;
+
+            btnChooseCode.BackColor = Color.Black;
+            btnChooseCode.ForeColor = Color.White;
+            btnChooseCode.FlatStyle = FlatStyle.Flat;
+            btnChooseCode.FlatAppearance.BorderColor = Color.Black;
+            btnChooseCode.FlatAppearance.BorderSize = 1;
+
+            btnClose.BackColor = Color.Black;
+            btnClose.ForeColor = Color.White;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.FlatAppearance.BorderColor = Color.Black;
+            btnClose.FlatAppearance.BorderSize = 1;
         }
 
         private void btnChooseCode_Click(object sender, EventArgs e)
@@ -170,6 +182,30 @@ namespace ERP.Presentacion.Clientes
 
                 }
             }
+        }
+
+        private void btnChooseCode_MouseEnter(object sender, EventArgs e)
+        {
+            btnChooseCode.BackColor = Color.White;
+            btnChooseCode.ForeColor = Color.Black;
+        }
+
+        private void btnChooseCode_MouseLeave(object sender, EventArgs e)
+        {
+            btnChooseCode.BackColor = Color.Black;
+            btnChooseCode.ForeColor = Color.White;
+        }
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            btnClose.BackColor = Color.White;
+            btnClose.ForeColor = Color.Black;
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            btnClose.BackColor = Color.White;
+            btnClose.ForeColor = Color.Black;
         }
     }
 }

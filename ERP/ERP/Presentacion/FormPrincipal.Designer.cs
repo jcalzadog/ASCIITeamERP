@@ -333,6 +333,7 @@
             this.btnDeleteCustomer.TabIndex = 7;
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.btnDeleteCustomer.UseVisualStyleBackColor = false;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             this.btnDeleteCustomer.MouseEnter += new System.EventHandler(this.btnDeleteCustomer_MouseEnter);
             this.btnDeleteCustomer.MouseLeave += new System.EventHandler(this.btnDeleteCustomer_MouseLeave);
             // 
@@ -388,6 +389,7 @@
             this.dgvCustomers.Size = new System.Drawing.Size(602, 325);
             this.dgvCustomers.TabIndex = 0;
             this.dgvCustomers.TabStop = false;
+            this.dgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellClick);
             // 
             // tabPage4
             // 
@@ -418,24 +420,26 @@
             this.tabPage5.Size = new System.Drawing.Size(828, 392);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
+            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             this.tabPage5.Resize += new System.EventHandler(this.tabPage5_Resize);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(482, 13);
+            this.label2.Location = new System.Drawing.Point(511, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Categories";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(638, 13);
+            this.label1.Location = new System.Drawing.Point(660, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
@@ -449,13 +453,14 @@
             this.ckbDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.ckbDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbDeleted.ForeColor = System.Drawing.Color.Black;
-            this.ckbDeleted.Location = new System.Drawing.Point(778, 12);
+            this.ckbDeleted.Location = new System.Drawing.Point(835, 15);
             this.ckbDeleted.Margin = new System.Windows.Forms.Padding(2);
             this.ckbDeleted.Name = "ckbDeleted";
             this.ckbDeleted.Size = new System.Drawing.Size(70, 17);
             this.ckbDeleted.TabIndex = 20;
             this.ckbDeleted.Text = "Deleted";
             this.ckbDeleted.UseVisualStyleBackColor = false;
+            this.ckbDeleted.CheckedChanged += new System.EventHandler(this.ckbDeleted_CheckedChanged);
             // 
             // dgvProducts
             // 
@@ -492,16 +497,16 @@
             // cmbFilPlatform
             // 
             this.cmbFilPlatform.FormattingEnabled = true;
-            this.cmbFilPlatform.Location = new System.Drawing.Point(700, 11);
+            this.cmbFilPlatform.Location = new System.Drawing.Point(724, 11);
             this.cmbFilPlatform.Name = "cmbFilPlatform";
-            this.cmbFilPlatform.Size = new System.Drawing.Size(73, 21);
+            this.cmbFilPlatform.Size = new System.Drawing.Size(106, 21);
             this.cmbFilPlatform.TabIndex = 18;
             this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
             // 
             // cmbFilCategory
             // 
             this.cmbFilCategory.FormattingEnabled = true;
-            this.cmbFilCategory.Location = new System.Drawing.Point(549, 10);
+            this.cmbFilCategory.Location = new System.Drawing.Point(583, 10);
             this.cmbFilCategory.Name = "cmbFilCategory";
             this.cmbFilCategory.Size = new System.Drawing.Size(72, 21);
             this.cmbFilCategory.TabIndex = 17;
@@ -509,11 +514,12 @@
             // 
             // txtSearchProd
             // 
-            this.txtSearchProd.Location = new System.Drawing.Point(318, 10);
+            this.txtSearchProd.Location = new System.Drawing.Point(349, 10);
             this.txtSearchProd.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchProd.Name = "txtSearchProd";
             this.txtSearchProd.Size = new System.Drawing.Size(156, 20);
             this.txtSearchProd.TabIndex = 16;
+            this.txtSearchProd.TextChanged += new System.EventHandler(this.txtSearchProd_TextChanged_1);
             this.txtSearchProd.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearchProd.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
@@ -521,10 +527,10 @@
             // 
             this.btnDeleteProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnDeleteProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProd.Location = new System.Drawing.Point(211, 8);
+            this.btnDeleteProd.Location = new System.Drawing.Point(229, 8);
             this.btnDeleteProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteProd.Name = "btnDeleteProd";
-            this.btnDeleteProd.Size = new System.Drawing.Size(100, 23);
+            this.btnDeleteProd.Size = new System.Drawing.Size(113, 23);
             this.btnDeleteProd.TabIndex = 14;
             this.btnDeleteProd.Text = "Delete Product";
             this.btnDeleteProd.UseVisualStyleBackColor = false;
@@ -536,10 +542,10 @@
             // 
             this.btnUpdateProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnUpdateProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProd.Location = new System.Drawing.Point(100, 8);
+            this.btnUpdateProd.Location = new System.Drawing.Point(116, 8);
             this.btnUpdateProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateProd.Name = "btnUpdateProd";
-            this.btnUpdateProd.Size = new System.Drawing.Size(104, 23);
+            this.btnUpdateProd.Size = new System.Drawing.Size(107, 23);
             this.btnUpdateProd.TabIndex = 13;
             this.btnUpdateProd.Text = "Update Product";
             this.btnUpdateProd.UseVisualStyleBackColor = false;
@@ -551,10 +557,10 @@
             // 
             this.btnNewProd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNewProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewProd.Location = new System.Drawing.Point(6, 8);
+            this.btnNewProd.Location = new System.Drawing.Point(16, 8);
             this.btnNewProd.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewProd.Name = "btnNewProd";
-            this.btnNewProd.Size = new System.Drawing.Size(89, 23);
+            this.btnNewProd.Size = new System.Drawing.Size(95, 23);
             this.btnNewProd.TabIndex = 12;
             this.btnNewProd.Text = "New Product";
             this.btnNewProd.UseVisualStyleBackColor = false;
@@ -596,7 +602,7 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategorie.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvCategorie.Location = new System.Drawing.Point(4, 28);
+            this.dgvCategorie.Location = new System.Drawing.Point(6, 35);
             this.dgvCategorie.Name = "dgvCategorie";
             this.dgvCategorie.ReadOnly = true;
             this.dgvCategorie.Size = new System.Drawing.Size(602, 325);
@@ -605,10 +611,10 @@
             // btnDeleteCategorie
             // 
             this.btnDeleteCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCategorie.Location = new System.Drawing.Point(194, 7);
+            this.btnDeleteCategorie.Location = new System.Drawing.Point(282, 7);
             this.btnDeleteCategorie.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteCategorie.Name = "btnDeleteCategorie";
-            this.btnDeleteCategorie.Size = new System.Drawing.Size(85, 19);
+            this.btnDeleteCategorie.Size = new System.Drawing.Size(113, 23);
             this.btnDeleteCategorie.TabIndex = 2;
             this.btnDeleteCategorie.Text = "Delete Categorie";
             this.btnDeleteCategorie.UseVisualStyleBackColor = true;
@@ -619,10 +625,10 @@
             // btnUpdateCategorie
             // 
             this.btnUpdateCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCategorie.Location = new System.Drawing.Point(99, 7);
+            this.btnUpdateCategorie.Location = new System.Drawing.Point(132, 7);
             this.btnUpdateCategorie.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateCategorie.Name = "btnUpdateCategorie";
-            this.btnUpdateCategorie.Size = new System.Drawing.Size(91, 19);
+            this.btnUpdateCategorie.Size = new System.Drawing.Size(146, 23);
             this.btnUpdateCategorie.TabIndex = 1;
             this.btnUpdateCategorie.Text = "Update Categorie";
             this.btnUpdateCategorie.UseVisualStyleBackColor = true;
@@ -636,7 +642,7 @@
             this.btnNewCategorie.Location = new System.Drawing.Point(5, 7);
             this.btnNewCategorie.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewCategorie.Name = "btnNewCategorie";
-            this.btnNewCategorie.Size = new System.Drawing.Size(89, 19);
+            this.btnNewCategorie.Size = new System.Drawing.Size(123, 23);
             this.btnNewCategorie.TabIndex = 0;
             this.btnNewCategorie.Text = "New  Categorie";
             this.btnNewCategorie.UseVisualStyleBackColor = true;
