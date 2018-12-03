@@ -40,7 +40,7 @@ namespace ERP
         {
             usuario = new User();
             cliente = new Customer();
-            //producto = new Producto();
+            producto = new Producto();
 
             InitializeComponent();
 
@@ -50,7 +50,7 @@ namespace ERP
             cargarCategorias();
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
-            //cargarTablaProductos("DELETED=0");
+            cargarTablaProductos("PR.DELETED=0");
             //cargarTablaClientes("DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
@@ -62,7 +62,7 @@ namespace ERP
 
 
             controlErrores();
-            //controlErroresProduct();
+            controlErroresProduct();
         }
 
 
@@ -356,6 +356,9 @@ namespace ERP
 
             panel3.Width = tbcMenuPrincipal.Width;
             panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
+
+            panel4.Width = tbcMenuPrincipal.Width;
+            panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
             panel2.Width = tbcMenuPrincipal.Width;
             panel2.Height = tbcMenuPrincipal.Height;
@@ -910,6 +913,11 @@ namespace ERP
             NuevoCliente newCustomer = new NuevoCliente();
             newCustomer.ShowDialog();
             //filtroTotal();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
