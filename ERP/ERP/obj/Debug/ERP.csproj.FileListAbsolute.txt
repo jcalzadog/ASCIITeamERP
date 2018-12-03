@@ -107,4 +107,9 @@ C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+<<<<<<< HEAD
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.SelectZipCode.resources
+=======
+C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
+>>>>>>> 3a429b0fc65b4efef6d8f6d4bd74ebad772a7370

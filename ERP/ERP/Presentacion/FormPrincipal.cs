@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ERP.Presentacion.Products;
 
 //using ERP.Presentacion.Categorias;
 
@@ -30,10 +31,19 @@ namespace ERP
         private User usuario;
         private Customer cliente;
         private Producto producto;
+        private Platform plataforma;
+
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
+        public static String nombreFilaSeleccionadaProducts = "";
+        public static String catViejaFilaSellecionadaProducts = "";
+        public static String platViejaFilaSellecionadaProducts = "";
+        public static String pegiFilaSellecionadaProducts = "";
+        public static String priceFilaSellecionadaProducts = "";
 
-      
+
+
+
         private Categorias categoria;
         public static String nombreviejo;
         public FormPrincipal()
@@ -41,6 +51,7 @@ namespace ERP
             usuario = new User();
             cliente = new Customer();
             producto = new Producto();
+            plataforma = new Platform();
 
             InitializeComponent();
 
@@ -331,6 +342,22 @@ namespace ERP
             cargarTablaUsuarios(condicion);
         }
 
+        public void filtrarTablaProductos(String name, bool check)
+        {
+            String condicion = "";
+
+            if (check)
+            {
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1";
+            }
+            else
+            {
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0";
+            }
+
+            cargarTablaProductos(condicion);
+        }
+
         private void FormPrincipal_SizeChanged(object sender, EventArgs e)
         {
             tbcMenuPrincipal.Width = this.Width;
@@ -413,10 +440,10 @@ namespace ERP
         {
             DeleteCategorie dc = new DeleteCategorie();
             dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
-            
+
             dc.ShowDialog();
-         
-       
+
+
             cargarCategorias();
         }
 
@@ -519,6 +546,8 @@ namespace ERP
             btnDeleteCustomer.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCustomer.FlatAppearance.BorderSize = 1;
 
+
+
             //Productos
             btnNewProd.BackColor = Color.Black;
             btnNewProd.ForeColor = Color.White;
@@ -537,6 +566,9 @@ namespace ERP
             btnDeleteProd.FlatStyle = FlatStyle.Flat;
             btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
             btnDeleteProd.FlatAppearance.BorderSize = 1;
+
+            categoria.gestor.refrescarCategorias(cmbFilCategory);
+            plataforma.gestor.refrescarPlatform(cmbFilPlatform);
 
             //Categorias
 
@@ -684,7 +716,7 @@ namespace ERP
 
         }
 
-//<<<<<<< HEAD
+
         private void tbxSearchCustomer_Enter(object sender, EventArgs e)
         {
             if (tbxSearchCustomer.Text.Equals("Search a Name..."))
@@ -702,11 +734,11 @@ namespace ERP
                 tbxSearchCustomer.Text = "Search a Name...";
             }
         }
-//=======
+
         private void txtBuscarProd_TextChanged(object sender, EventArgs e)
         {
 
-//>>>>>>> a3a8c49b150b7208ae5c3ba9ebe7b0b90e5daec2
+
         }
 
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
@@ -764,6 +796,16 @@ namespace ERP
             filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a Name...") ? "" : tbxSearchUser.Text, deleted);
         }
 
+        public void filtroTotalProd()
+        {
+            bool deleted = false;
+            if (ckbDeleted.CheckState == CheckState.Checked)
+            {
+                deleted = true;
+            }
+            filtrarTablaProductos(txtSearchProd.Text.Equals("Search a Name...") ? "" : txtSearchProd.Text, deleted);
+        }
+
         private void btnEditUser_MouseEnter(object sender, EventArgs e)
         {
             btnEditUser.BackColor = Color.White;
@@ -800,7 +842,9 @@ namespace ERP
 
         private void btnNewProd_Click(object sender, EventArgs e)
         {
-
+            AñadirProducto addProduct = new AñadirProducto();
+            addProduct.ShowDialog();
+            filtroTotalProd();//Usa cargar tabla usuarios para actualizar tabla
         }
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -825,8 +869,10 @@ namespace ERP
 
         private void btnUpdateProd_Click(object sender, EventArgs e)
         {
-
-        }
+            EditarProducto updateProduct = new EditarProducto(nombreFilaSeleccionadaProducts, catViejaFilaSellecionadaProducts, platViejaFilaSellecionadaProducts, pegiFilaSellecionadaProducts, priceFilaSellecionadaProducts);
+            updateProduct.ShowDialog();
+            filtroTotalProd();
+    }
 
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -919,6 +965,24 @@ namespace ERP
 
         }
 
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (dgvProducts.Rows.Count > 0 && dgvProducts.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
+            {
+                if (!String.IsNullOrEmpty(dgvProducts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    // do sonmthind
+                    nombreFilaSeleccionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    catViejaFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    platViejaFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    pegiFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    priceFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
+                }
+            }
         private void cbxDeleted_CheckedChanged(object sender, EventArgs e)
         {
             if (cbxUserDeleted.CheckState == CheckState.Checked)

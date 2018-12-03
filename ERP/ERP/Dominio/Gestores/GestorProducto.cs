@@ -35,18 +35,19 @@ namespace ERP.Dominio.Gestores
             tabla = data.Tables["PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM"];
         }
         
-        public Boolean nuevoProducto(String name, int idCat, int idPlat,int pegi,int price)
+        public Boolean nuevoProducto(String name, String nomCat, String nomPlat,int pegi,int price)
         {
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '"+nomCat+"'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlat + "'");
             Boolean creado = false;
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
 
             if (existe == 0)
             {
                 Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
-                Decimal idPlatfrom = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
-                Decimal idCategory = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "");
+                
 
-                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+")";
+                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+","+0+")";
                 conector.setData(sentencia);
                 
                 existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
@@ -67,37 +68,25 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        //public void modificarProducto(String nombreProducto, int idCat, int idPlat, int pegi, int price)
-        //{
-        //    //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
+        public void modificarProducto(String name, String nomCat, String nomPlat, int pegi, int price, String nomCatVieja,String nomPlatVieja)
+        {
+            Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY","CATEGORIES","NAME = '" + nomCat + "'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM","PLATFORMS","NAME = '" + nomPlat + "'");
+            Decimal idCatVieja = (Decimal)conector.DLookUp("IDCATEGORY","CATEGORIES","NAME = '"+nomCatVieja + "'");
+            Decimal idPlatVieja = (Decimal)conector.DLookUp("IDPLATFORM","PLATFORMS","NAME = '" + nomPlatVieja + "'");
+            
+            
+            String sentencia = "UPDATE PRODUCTS SET idcategory = "+idCat+", idplatform = "+idPlat+", minimumage = "+pegi+", price = "+price+" WHERE name = '"+name+"' and idcategory = "+idCatVieja+" and idplatform = "+idPlatVieja;
+            conector.setData(sentencia);
 
-        //    //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
-        //    //DELETE FROM USERS WHERE NAME = 'aaa'
 
-        //    //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
-        //    //conector.setData(sentencia1);-------
+            String mensaje = "The user has been modified correctly.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            //cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
+        }
 
-        //    Object idProducto = conector.DLookUp("IDPRODUCTO", "USERS", "NAME='" + nombreUser + "'");
-        //    Object idCat = conector.DLookUp("IDROLE", "ROLES", "NAME='" + role + "'");
 
-        //    if (pass.Equals(""))
-        //    {
-        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
-        //        conector.setData(sentencia2);
-        //    }
-        //    else
-        //    {
-        //        String sentencia1 = "UPDATE USERS SET PASSWORD ='" + pass + "' WHERE NAME = '" + nombreUser + "'";
-        //        conector.setData(sentencia1);
-
-        //        String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
-        //        conector.setData(sentencia2);
-        //    }
-
-        //    String mensaje = "The user has been modified correctly.";
-        //    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
-        //    cambio.ShowDialog();
-        //    //MessageBox.Show("El usuario se ha eliminado correctamente.");
-        //}
     }
 }

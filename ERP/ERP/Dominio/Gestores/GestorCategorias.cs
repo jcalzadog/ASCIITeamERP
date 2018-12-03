@@ -12,10 +12,12 @@ namespace ERP.Dominio.Gestores
     class GestorCategorias
     {
         ConnectOracle conector;
+        LinkedList<Object> listaCat;
         public DataTable tabla { get; set; }
         public GestorCategorias() {
             conector = new ConnectOracle();
             tabla = new DataTable();
+            listaCat = new LinkedList<object>();
         }
 
         public void readCategorias() {
@@ -79,9 +81,29 @@ namespace ERP.Dominio.Gestores
             
              conector.setData("UPDATE CATEGORIES SET DELETED=1 WHERE NAME=UPPER('"+name+"')");
         }
-     
+        public void refrescarCategorias(ComboBox cmbCategorias)
+        {
+            Decimal numCate = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
+            //int numRoles = int.Parse(numR);
 
+            listaCat = new LinkedList<Object>();
+            for (int i = 1; i <= numCate; i++)
+            {
+                listaCat.AddLast(conector.DLookUp("NAME", "CATEGORIES", " IDCATEGORY=" + i));
+            }
 
+            cmbCategorias.Items.Clear();
+            int cont = 0;
+            while (cont < listaCat.Count)
+            {
+                cmbCategorias.Items.Add(listaCat.ElementAt(cont));
+                cont++;
+            }
+            cmbCategorias.SelectedIndex = 0;
         }
+
+
+
+    }
 
 }
