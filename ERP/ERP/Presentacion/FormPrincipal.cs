@@ -413,6 +413,9 @@ namespace ERP
             dgvOrders.Width = this.Width - 150;
             dgvOrders.Height = this.Height - 100;
 
+            dgvPlatforms.Width = this.Width - 150;
+            dgvPlatforms.Height = this.Height - 100;
+
             //Diseño
             //panel1.Width = tbcMenuPrincipal.Width;
             //panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);

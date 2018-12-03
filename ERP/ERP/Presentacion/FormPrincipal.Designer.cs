@@ -824,6 +824,8 @@
             this.btnDeletePlatform.TabIndex = 2;
             this.btnDeletePlatform.Text = "Delete platform";
             this.btnDeletePlatform.UseVisualStyleBackColor = true;
+            this.btnDeletePlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnDeletePlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnUpdatePlatform
             // 
@@ -833,6 +835,8 @@
             this.btnUpdatePlatform.TabIndex = 1;
             this.btnUpdatePlatform.Text = "Update Platform";
             this.btnUpdatePlatform.UseVisualStyleBackColor = true;
+            this.btnUpdatePlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnUpdatePlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnNewPlatform
             // 
@@ -842,6 +846,8 @@
             this.btnNewPlatform.TabIndex = 0;
             this.btnNewPlatform.Text = "New Platform";
             this.btnNewPlatform.UseVisualStyleBackColor = true;
+            this.btnNewPlatform.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnNewPlatform.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // tabPage8
             // 
