@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ERP.Presentacion.Products;
+using ERP.Presentacion.Plataformas;
 
 //using ERP.Presentacion.Categorias;
 
@@ -31,8 +32,8 @@ namespace ERP
         private User usuario;
         private Customer cliente;
         private Producto producto;
-        private Platform plataforma;
-        private Platforms pt;
+        private Platforms plataforma;
+        
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -56,12 +57,13 @@ namespace ERP
 
         private Categorias categoria;
         public static String nombreviejo;
+        public static String nombreviejopf;
         public FormPrincipal()
         {
             usuario = new User();
             cliente = new Customer();
             producto = new Producto();
-            plataforma = new Platform();
+            plataforma = new Platforms();
 
             InitializeComponent();
 
@@ -115,9 +117,9 @@ namespace ERP
         public void cargarPlataformas()
         {
             dgvPlatforms.Columns.Clear();
-             pt = new Platforms();
-            pt.gestorplataforma.readPlatforms();
-            DataTable tPlatformas = pt.gestorplataforma.tabla;
+            
+            plataforma.gestorplataforma.readPlatforms();
+            DataTable tPlatformas = plataforma.gestorplataforma.tabla;
 
             dgvPlatforms.Columns.Clear();
 
@@ -614,7 +616,7 @@ namespace ERP
             btnDeleteProd.FlatAppearance.BorderSize = 1;
 
             categoria.gestor.refrescarCategorias(cmbFilCategory);
-            plataforma.gestor.refrescarPlatform(cmbFilPlatform);
+            plataforma.gestorplataforma.refrescarPlatform(cmbFilPlatform);
 
             //Platforms
             aparienciaBotones(btnUpdatePlatform);
@@ -1152,6 +1154,32 @@ namespace ERP
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUpdatePlatform_Click(object sender, EventArgs e)
+        {
+            UpdatePlataforma up = new UpdatePlataforma();
+            String name = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
+            up.txtUpdate.Text = name;
+            nombreviejopf = name;
+            up.ShowDialog();
+
+            cargarPlataformas();
+        }
+
+        private void btnNewPlatform_Click(object sender, EventArgs e)
+        {
+            AddPlataforma ap = new AddPlataforma();
+            ap.ShowDialog();
+            cargarPlataformas();
+        }
+
+        private void btnDeletePlatform_Click(object sender, EventArgs e)
+        {
+            DeletePlataforma dp = new DeletePlataforma();
+            dp.nameDelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            dp.ShowDialog();
+            cargarPlataformas();
         }
     }
 }

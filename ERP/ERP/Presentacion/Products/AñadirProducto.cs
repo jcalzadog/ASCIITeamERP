@@ -17,11 +17,11 @@ namespace ERP.Presentacion.Products
 
         Producto producto;
         Categorias categoria;
-        Platform plataforma;
+        Platforms plataforma;
         public AñadirProducto()
         {
             producto = new Producto();
-            plataforma = new Platform();
+            plataforma = new Platforms();
             categoria = new Categorias();
             InitializeComponent();
             cargarDatos();
@@ -64,7 +64,7 @@ namespace ERP.Presentacion.Products
         private void cargarDatos()
         {
             categoria.gestor.refrescarCategorias(cmbCategory);
-            plataforma.gestor.refrescarPlatform(cmbPlatform);
+            plataforma.gestorplataforma.refrescarPlatform(cmbPlatform);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
