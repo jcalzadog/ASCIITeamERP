@@ -484,7 +484,6 @@
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducts.Size = new System.Drawing.Size(803, 400);
             this.dgvProducts.TabIndex = 19;
-<<<<<<< HEAD
             // 
             // cmbFilPlatform
             // 
@@ -496,9 +495,8 @@
             this.cmbFilPlatform.TabIndex = 18;
             this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
             // 
-=======
+
             //
->>>>>>> c5b01c61c36f98247c34942450103373795915bc
             // cmbFilCategory
             //
             this.cmbFilCategory.FormattingEnabled = true;
@@ -696,7 +694,7 @@
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
-<<<<<<< HEAD
+
             // 
             // label1
             // 
@@ -719,7 +717,7 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Categories";
             // 
-=======
+
             //
             // cmbFilPlatform
             //
@@ -731,7 +729,7 @@
             this.cmbFilPlatform.TabIndex = 18;
             this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
             //
->>>>>>> c5b01c61c36f98247c34942450103373795915bc
+
             // FormPrincipal
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
