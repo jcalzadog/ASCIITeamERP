@@ -591,7 +591,6 @@
             this.tabPage6.Size = new System.Drawing.Size(646, 392);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
-            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             //
             // dgvCategorie
             //
@@ -602,8 +601,6 @@
             this.dgvCategorie.ReadOnly = true;
             this.dgvCategorie.Size = new System.Drawing.Size(602, 325);
             this.dgvCategorie.TabIndex = 3;
-            this.dgvCategorie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorie_CellContentClick);
-            this.dgvCategorie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorie_CellContentClick);
             //
             // btnDeleteCategorie
             //
