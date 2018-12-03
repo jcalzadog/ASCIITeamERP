@@ -34,10 +34,14 @@ namespace ERP
         private Platform plataforma;
 
         public static String nombreFilaSeleccionadaUsers="";
-        public static String nombreFilaSeleccionadaProducts = "";
-
         public static String rolFilaSellecionadaUsers="";
-        public static String rolFilaSellecionadaProducts = "";
+        public static String nombreFilaSeleccionadaProducts = "";
+        public static String catViejaFilaSellecionadaProducts = "";
+        public static String platViejaFilaSellecionadaProducts = "";
+        public static String pegiFilaSellecionadaProducts = "";
+        public static String priceFilaSellecionadaProducts = ""; 
+
+
 
 
         private Categorias categoria;
@@ -866,8 +870,10 @@ namespace ERP
 
         private void btnUpdateProd_Click(object sender, EventArgs e)
         {
-
-        }
+            EditarProducto updateProduct = new EditarProducto(nombreFilaSeleccionadaProducts, catViejaFilaSellecionadaProducts, platViejaFilaSellecionadaProducts, pegiFilaSellecionadaProducts, priceFilaSellecionadaProducts);
+            updateProduct.ShowDialog();
+            filtroTotalProd();
+    }
 
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -972,7 +978,10 @@ namespace ERP
                 {
                     // do sonmthind
                     nombreFilaSeleccionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    rolFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    catViejaFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    platViejaFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    pegiFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    priceFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
                 }
             }
         }

@@ -71,12 +71,12 @@ namespace ERP.Dominio.Gestores
         public void modificarProducto(String name, String nomCat, String nomPlat, int pegi, int price, String nomCatVieja,String nomPlatVieja)
         {
             Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
-            Object idCat = conector.getData("SELECT IDCATEGORY FROM CATEGORIES WHERE NAME = "+nomCat,"CATEGORIES");
-            Object idPlat = conector.getData("SELECT IDPLATFORM FROM PLATFORMS WHERE NAME = " + nomPlat, "PLATFORMS");
-            Object idCatVieja = conector.getData("SELECT IDCATEGORY FROM CATEGORIES WHERE NAME = "+nomCatVieja,"CATEGORIES");
-            Object idPlatVieja = conector.getData("SELECT IDPLATFORM FROM PLATFORMS WHERE NAME = " + nomPlatVieja, "PLATFORMS");
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY","CATEGORIES","NAME = '" + nomCat + "'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM","PLATFORMS","NAME = '" + nomPlat + "'");
+            Decimal idCatVieja = (Decimal)conector.DLookUp("IDCATEGORY","CATEGORIES","NAME = '"+nomCatVieja + "'");
+            Decimal idPlatVieja = (Decimal)conector.DLookUp("IDPLATFORM","PLATFORMS","NAME = '" + nomPlatVieja + "'");
             
-
+            
             String sentencia = "UPDATE PRODUCTS SET idcategory = "+idCat+", idplatform = "+idPlat+", minimumage = "+pegi+", price = "+price+" WHERE name = '"+name+"' and idcategory = "+idCatVieja+" and idplatform = "+idPlatVieja;
             conector.setData(sentencia);
 
