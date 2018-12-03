@@ -613,6 +613,13 @@ namespace ERP
             categoria.gestor.refrescarCategorias(cmbFilCategory);
             plataforma.gestor.refrescarPlatform(cmbFilPlatform);
 
+            //Platforms
+            aparienciaBotones(btnUpdatePlatform);
+            aparienciaBotones(btnDeletePlatform);
+            aparienciaBotones(btnNewPlatform);
+            
+
+
             //Categorias
 
             btnNewCategorie.BackColor = Color.Black;

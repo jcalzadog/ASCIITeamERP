@@ -31,12 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -57,6 +57,14 @@
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.dtpOrder = new System.Windows.Forms.DateTimePicker();
+            this.txtSearchOrder = new System.Windows.Forms.TextBox();
+            this.btnDeleteOrder = new System.Windows.Forms.Button();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
+            this.btnViewDetails = new System.Windows.Forms.Button();
+            this.btnEditOrder = new System.Windows.Forms.Button();
+            this.btnNewOrder = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,42 +82,28 @@
             this.btnUpdateCategorie = new System.Windows.Forms.Button();
             this.btnNewCategorie = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dgvPlatforms = new System.Windows.Forms.DataGridView();
+            this.btnDeletePlatform = new System.Windows.Forms.Button();
+            this.btnUpdatePlatform = new System.Windows.Forms.Button();
+            this.btnNewPlatform = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dgvPlatforms = new System.Windows.Forms.DataGridView();
-=======
-            this.btnNewOrder = new System.Windows.Forms.Button();
-            this.btnEditOrder = new System.Windows.Forms.Button();
-            this.btnViewDetails = new System.Windows.Forms.Button();
-            this.btnPrintOrder = new System.Windows.Forms.Button();
-            this.btnDeleteOrder = new System.Windows.Forms.Button();
-            this.txtSearchOrder = new System.Windows.Forms.TextBox();
-            this.dtpOrder = new System.Windows.Forms.DateTimePicker();
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
->>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).BeginInit();
             this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).BeginInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
->>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -434,6 +428,122 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
             // 
+            // dgvOrders
+            // 
+            this.dgvOrders.AllowUserToResizeColumns = false;
+            this.dgvOrders.AllowUserToResizeRows = false;
+            this.dgvOrders.BackgroundColor = System.Drawing.SystemColors.Desktop;
+            this.dgvOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvOrders.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvOrders.Location = new System.Drawing.Point(6, 35);
+            this.dgvOrders.MultiSelect = false;
+            this.dgvOrders.Name = "dgvOrders";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrders.Size = new System.Drawing.Size(602, 325);
+            this.dgvOrders.TabIndex = 20;
+            // 
+            // dtpOrder
+            // 
+            this.dtpOrder.Location = new System.Drawing.Point(662, 11);
+            this.dtpOrder.Name = "dtpOrder";
+            this.dtpOrder.Size = new System.Drawing.Size(153, 20);
+            this.dtpOrder.TabIndex = 19;
+            // 
+            // txtSearchOrder
+            // 
+            this.txtSearchOrder.Location = new System.Drawing.Point(512, 11);
+            this.txtSearchOrder.Name = "txtSearchOrder";
+            this.txtSearchOrder.Size = new System.Drawing.Size(144, 20);
+            this.txtSearchOrder.TabIndex = 18;
+            // 
+            // btnDeleteOrder
+            // 
+            this.btnDeleteOrder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteOrder.Location = new System.Drawing.Point(412, 8);
+            this.btnDeleteOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteOrder.Name = "btnDeleteOrder";
+            this.btnDeleteOrder.Size = new System.Drawing.Size(95, 23);
+            this.btnDeleteOrder.TabIndex = 17;
+            this.btnDeleteOrder.Text = "Delete";
+            this.btnDeleteOrder.UseVisualStyleBackColor = false;
+            this.btnDeleteOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnDeleteOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnPrintOrder
+            // 
+            this.btnPrintOrder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrintOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintOrder.Location = new System.Drawing.Point(313, 8);
+            this.btnPrintOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(95, 23);
+            this.btnPrintOrder.TabIndex = 16;
+            this.btnPrintOrder.Text = "Print Order";
+            this.btnPrintOrder.UseVisualStyleBackColor = false;
+            this.btnPrintOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnPrintOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDetails.Location = new System.Drawing.Point(214, 8);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.Size = new System.Drawing.Size(95, 23);
+            this.btnViewDetails.TabIndex = 15;
+            this.btnViewDetails.Text = "View Details";
+            this.btnViewDetails.UseVisualStyleBackColor = false;
+            this.btnViewDetails.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnViewDetails.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnEditOrder
+            // 
+            this.btnEditOrder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditOrder.Location = new System.Drawing.Point(115, 8);
+            this.btnEditOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditOrder.Name = "btnEditOrder";
+            this.btnEditOrder.Size = new System.Drawing.Size(95, 23);
+            this.btnEditOrder.TabIndex = 14;
+            this.btnEditOrder.Text = "Edit order";
+            this.btnEditOrder.UseVisualStyleBackColor = false;
+            this.btnEditOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnEditOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnNewOrder
+            // 
+            this.btnNewOrder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewOrder.Location = new System.Drawing.Point(16, 8);
+            this.btnNewOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.Size = new System.Drawing.Size(95, 23);
+            this.btnNewOrder.TabIndex = 13;
+            this.btnNewOrder.Text = "New Order";
+            this.btnNewOrder.UseVisualStyleBackColor = false;
+            this.btnNewOrder.Click += new System.EventHandler(this.button1_Click);
+            this.btnNewOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnNewOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.DarkOrange;
@@ -687,15 +797,51 @@
             // 
             this.tabPage7.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage7.Controls.Add(this.dgvPlatforms);
-            this.tabPage7.Controls.Add(this.button3);
-            this.tabPage7.Controls.Add(this.button2);
-            this.tabPage7.Controls.Add(this.button1);
+            this.tabPage7.Controls.Add(this.btnDeletePlatform);
+            this.tabPage7.Controls.Add(this.btnUpdatePlatform);
+            this.tabPage7.Controls.Add(this.btnNewPlatform);
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(828, 392);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
+            // 
+            // dgvPlatforms
+            // 
+            this.dgvPlatforms.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlatforms.Location = new System.Drawing.Point(6, 35);
+            this.dgvPlatforms.Name = "dgvPlatforms";
+            this.dgvPlatforms.Size = new System.Drawing.Size(602, 325);
+            this.dgvPlatforms.TabIndex = 3;
+            // 
+            // btnDeletePlatform
+            // 
+            this.btnDeletePlatform.Location = new System.Drawing.Point(221, 8);
+            this.btnDeletePlatform.Name = "btnDeletePlatform";
+            this.btnDeletePlatform.Size = new System.Drawing.Size(104, 23);
+            this.btnDeletePlatform.TabIndex = 2;
+            this.btnDeletePlatform.Text = "Delete platform";
+            this.btnDeletePlatform.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdatePlatform
+            // 
+            this.btnUpdatePlatform.Location = new System.Drawing.Point(110, 8);
+            this.btnUpdatePlatform.Name = "btnUpdatePlatform";
+            this.btnUpdatePlatform.Size = new System.Drawing.Size(105, 23);
+            this.btnUpdatePlatform.TabIndex = 1;
+            this.btnUpdatePlatform.Text = "Update Platform";
+            this.btnUpdatePlatform.UseVisualStyleBackColor = true;
+            // 
+            // btnNewPlatform
+            // 
+            this.btnNewPlatform.Location = new System.Drawing.Point(3, 8);
+            this.btnNewPlatform.Name = "btnNewPlatform";
+            this.btnNewPlatform.Size = new System.Drawing.Size(101, 23);
+            this.btnNewPlatform.TabIndex = 0;
+            this.btnNewPlatform.Text = "New Platform";
+            this.btnNewPlatform.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -747,160 +893,6 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
-<<<<<<< HEAD
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "New Platform";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(110, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Update Platform";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(221, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete platform";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dgvPlatforms
-            // 
-            this.dgvPlatforms.BackgroundColor = System.Drawing.Color.Black;
-            this.dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlatforms.Location = new System.Drawing.Point(6, 35);
-            this.dgvPlatforms.Name = "dgvPlatforms";
-            this.dgvPlatforms.Size = new System.Drawing.Size(602, 325);
-            this.dgvPlatforms.TabIndex = 3;
-=======
-            // btnNewOrder
-            // 
-            this.btnNewOrder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewOrder.Location = new System.Drawing.Point(16, 8);
-            this.btnNewOrder.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.Size = new System.Drawing.Size(95, 23);
-            this.btnNewOrder.TabIndex = 13;
-            this.btnNewOrder.Text = "New Order";
-            this.btnNewOrder.UseVisualStyleBackColor = false;
-            this.btnNewOrder.Click += new System.EventHandler(this.button1_Click);
-            this.btnNewOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnNewOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnEditOrder
-            // 
-            this.btnEditOrder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditOrder.Location = new System.Drawing.Point(115, 8);
-            this.btnEditOrder.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditOrder.Name = "btnEditOrder";
-            this.btnEditOrder.Size = new System.Drawing.Size(95, 23);
-            this.btnEditOrder.TabIndex = 14;
-            this.btnEditOrder.Text = "Edit order";
-            this.btnEditOrder.UseVisualStyleBackColor = false;
-            this.btnEditOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnEditOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnViewDetails
-            // 
-            this.btnViewDetails.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnViewDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewDetails.Location = new System.Drawing.Point(214, 8);
-            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2);
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(95, 23);
-            this.btnViewDetails.TabIndex = 15;
-            this.btnViewDetails.Text = "View Details";
-            this.btnViewDetails.UseVisualStyleBackColor = false;
-            this.btnViewDetails.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnViewDetails.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnPrintOrder
-            // 
-            this.btnPrintOrder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPrintOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintOrder.Location = new System.Drawing.Point(313, 8);
-            this.btnPrintOrder.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrintOrder.Name = "btnPrintOrder";
-            this.btnPrintOrder.Size = new System.Drawing.Size(95, 23);
-            this.btnPrintOrder.TabIndex = 16;
-            this.btnPrintOrder.Text = "Print Order";
-            this.btnPrintOrder.UseVisualStyleBackColor = false;
-            this.btnPrintOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnPrintOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnDeleteOrder
-            // 
-            this.btnDeleteOrder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteOrder.Location = new System.Drawing.Point(412, 8);
-            this.btnDeleteOrder.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteOrder.Name = "btnDeleteOrder";
-            this.btnDeleteOrder.Size = new System.Drawing.Size(95, 23);
-            this.btnDeleteOrder.TabIndex = 17;
-            this.btnDeleteOrder.Text = "Delete";
-            this.btnDeleteOrder.UseVisualStyleBackColor = false;
-            this.btnDeleteOrder.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnDeleteOrder.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // txtSearchOrder
-            // 
-            this.txtSearchOrder.Location = new System.Drawing.Point(512, 11);
-            this.txtSearchOrder.Name = "txtSearchOrder";
-            this.txtSearchOrder.Size = new System.Drawing.Size(144, 20);
-            this.txtSearchOrder.TabIndex = 18;
-            // 
-            // dtpOrder
-            // 
-            this.dtpOrder.Location = new System.Drawing.Point(662, 11);
-            this.dtpOrder.Name = "dtpOrder";
-            this.dtpOrder.Size = new System.Drawing.Size(153, 20);
-            this.dtpOrder.TabIndex = 19;
-            // 
-            // dgvOrders
-            // 
-            this.dgvOrders.AllowUserToResizeColumns = false;
-            this.dgvOrders.AllowUserToResizeRows = false;
-            this.dgvOrders.BackgroundColor = System.Drawing.SystemColors.Desktop;
-            this.dgvOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvOrders.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvOrders.Location = new System.Drawing.Point(6, 35);
-            this.dgvOrders.MultiSelect = false;
-            this.dgvOrders.Name = "dgvOrders";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrders.Size = new System.Drawing.Size(602, 325);
-            this.dgvOrders.TabIndex = 20;
->>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -924,18 +916,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).EndInit();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).EndInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
->>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
+            this.tabPage8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -983,12 +972,12 @@
         private System.Windows.Forms.ComboBox cmbFilPlatform;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
+
         private System.Windows.Forms.DataGridView dgvPlatforms;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-=======
+        private System.Windows.Forms.Button btnDeletePlatform;
+        private System.Windows.Forms.Button btnUpdatePlatform;
+        private System.Windows.Forms.Button btnNewPlatform;
+
         private System.Windows.Forms.Button btnDeleteOrder;
         private System.Windows.Forms.Button btnPrintOrder;
         private System.Windows.Forms.Button btnViewDetails;
@@ -997,6 +986,6 @@
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.DateTimePicker dtpOrder;
         private System.Windows.Forms.TextBox txtSearchOrder;
->>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
+
     }
 }
