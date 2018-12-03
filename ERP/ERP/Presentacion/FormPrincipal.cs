@@ -410,6 +410,9 @@ namespace ERP
             dgvCategorie.Width = this.Width - 150;
             dgvCategorie.Height = this.Height - 100;
 
+            dgvOrders.Width = this.Width - 150;
+            dgvOrders.Height = this.Height - 100;
+
             //Diseño
             //panel1.Width = tbcMenuPrincipal.Width;
             //panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
@@ -580,6 +583,12 @@ namespace ERP
             btnDeleteCustomer.FlatAppearance.BorderColor = Color.Black;
             btnDeleteCustomer.FlatAppearance.BorderSize = 1;
 
+            //Orders
+            aparienciaBotones(btnNewOrder);
+            aparienciaBotones(btnEditOrder);
+            aparienciaBotones(btnViewDetails);
+            aparienciaBotones(btnPrintOrder);
+            aparienciaBotones(btnDeleteOrder);
 
 
             //Productos
@@ -647,20 +656,12 @@ namespace ERP
 
         private void tbxSearchUser_Enter(object sender, EventArgs e)
         {
-            if(tbxSearchUser.Text.Equals("Search a Name..."))
-            {
-                tbxSearchUser.Text = "";
-                tbxSearchUser.ForeColor = Color.Black;
-            }
+
         }
 
         private void tbxSearchUser_Leave(object sender, EventArgs e)
         {
-            if (tbxSearchUser.Text.Equals(""))
-            {
-                tbxSearchUser.ForeColor = Color.Gray;
-                tbxSearchUser.Text = "Search a Name...";
-            }
+
         }
 
         private void btnNewUser_MouseEnter(object sender, EventArgs e)
@@ -767,12 +768,6 @@ namespace ERP
                 tbxSearchCustomer.ForeColor = Color.Gray;
                 tbxSearchCustomer.Text = "Search a Name...";
             }
-        }
-
-        private void txtBuscarProd_TextChanged(object sender, EventArgs e)
-        {
-
-
         }
 
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
@@ -882,11 +877,6 @@ namespace ERP
         }
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearchProd_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -1139,6 +1129,19 @@ namespace ERP
                 cambio.ShowDialog();
                 //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

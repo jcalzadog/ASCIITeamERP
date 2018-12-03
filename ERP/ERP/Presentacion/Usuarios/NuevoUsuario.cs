@@ -36,7 +36,9 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+            Role rol = new Role(cmbRoles.SelectedItem.ToString());
+            User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+            Boolean creado = usuario.gestorusuario.nuevoUsuario(user);
             if (creado)
             {
                 tbxUsername.Text = "";
@@ -48,7 +50,9 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-            Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+            Role rol = new Role(cmbRoles.SelectedItem.ToString());
+            User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+            Boolean creado = user.gestorusuario.nuevoUsuario(user);
             if (creado)
             {
                 this.Dispose();

@@ -14,18 +14,28 @@ namespace ERP.Presentacion.Usuarios
     public partial class EditarUsuario : Form
     {
         private Role rol;
+        private Role Totalrol;
         private User user;
         private bool cambiarPass=false;
         private String nombreRol;
         public EditarUsuario(String nameU,String nameR)
         {
-            rol = new Role();
-            user = new User();
+            Totalrol = new Role();
+            
+
             InitializeComponent();
-            cargarComponentes();
-            tbxUsername.Text = nameU;
-            rol.gestorRol.seleccionarRoles(cmbRoles, nameR);
+            Totalrol.gestorRol.refrescarRoles(cmbRoles);
+            Totalrol.gestorRol.seleccionarRoles(cmbRoles,"ADMIN");
+
             nombreRol = nameR;
+            tbxUsername.Text = nameU;
+            user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+
+            rol = new Role(cmbRoles.SelectedItem.ToString());
+            cargarComponentes();
+            rol.gestorRol.seleccionarRoles(cmbRoles, nameR);
+            
+
             panel1.BringToFront();
         }
 
@@ -132,12 +142,15 @@ namespace ERP.Presentacion.Usuarios
         {
             if(cambiarPass == true)
             {
-                user.gestorusuario.modificarUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
+
+                user.gestorusuario.modificarUsuario(user);
                 this.Dispose();
             }
             else
             {
-                user.gestorusuario.modificarUsuario(tbxUsername.Text, "", cmbRoles.SelectedItem.ToString());
+                rol = new Role(cmbRoles.SelectedItem.ToString());
+                user = new User(tbxUsername.Text, "", rol, 0);
+                user.gestorusuario.modificarUsuario(user);
                 this.Dispose();
             }
         }

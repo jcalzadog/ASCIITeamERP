@@ -111,7 +111,7 @@ namespace ERP.Dominio.Gestores
             dgvUsers.ReadOnly = true;
         }*/
 
-        public void comprobarPermisos(String name,String password,TabControl tbcMenuPrincipal)
+        public void comprobarPermisos(User U,TabControl tbcMenuPrincipal)//(String name,String password,TabControl tbcMenuPrincipal)
         {
             //SELECT R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE U.NAME='root' AND U.PASSWORD='admin1234';
             //   Object rol = conector.DLookUp("R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "U.NAME='root' AND U.PASSWORD='admin1234'");
@@ -128,7 +128,7 @@ namespace ERP.Dominio.Gestores
                 //si existe el id role con nombre de ese usuario con el permiso, le permite usarlo.
                 //problema en el rol DE ARRIBA ASIQUE TODO EN 1.
                 //tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND R.IDROLE=" + rol);
-                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.NAME = '"+ name+"' AND U.PASSWORD = '"+password+"'");
+                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.NAME = '"+ U.name+"' AND U.PASSWORD = '"+U.password+"'");
                 if (tienePermiso == 0)
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
@@ -151,33 +151,33 @@ namespace ERP.Dominio.Gestores
             //}
         }
 
-        public String loguearse(String user,String pass)
+        public String loguearse(User U)//(String user,String pass)
         {
-            String condicion = " DELETED = 0 AND NAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+            String condicion = " DELETED = 0 AND NAME = '" + U.name + "' AND PASSWORD = '" + U.password + "'";
 
             String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
 
             return passDB;
         }
 
-        public Boolean nuevoUsuario(String name,String pass,String rol)
+        public Boolean nuevoUsuario(User U)//(String name,String pass,String rol)
         {
             Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='"+name+"'");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='"+U.name+"'");
 
             if (existe == 0)
             {
                 Decimal idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
                 Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
-                Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + rol + "'");
+                Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + U.rol.nameRol + "'");
 
-                String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser + 1) + ",'" + name + "','" + pass + "',0)";
+                String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser + 1) + ",'" + U.name + "','" + U.password + "',0)";
                 conector.setData(sentencia1);
 
                 String sentencia2 = "INSERT INTO USERS_ROLES VALUES(" + (idUser_Roles + 1) + "," + (idUser + 1) + "," + idRoles + ")";
                 conector.setData(sentencia2);
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='" + name + "' AND IDUSER =" + (idUser + 1) + " AND PASSWORD ='" + pass + "'");
+                existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='" + U.name + "' AND IDUSER =" + (idUser + 1) + " AND PASSWORD ='" + U.password + "'");
 
                 if (existe > 0)
                 {
@@ -197,7 +197,7 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        public void modificarUsuario(String nombreUser,String pass,String role)
+        public void modificarUsuario(User U)//(String nombreUser,String pass,String role)
         {
             //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
 
@@ -207,16 +207,16 @@ namespace ERP.Dominio.Gestores
             //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
             //conector.setData(sentencia1);-------
 
-            Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='" + nombreUser + "'");
-            Object idRol = conector.DLookUp("IDROLE", "ROLES", "NAME='"+role+"'");
+            Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='" + U.name + "'");
+            Object idRol = conector.DLookUp("IDROLE", "ROLES", "NAME='"+U.rol+"'");
 
-            if (pass.Equals(""))
+            if (U.password.Equals(""))
             {
                 String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
                 conector.setData(sentencia2);
             } else
             {
-                String sentencia1 = "UPDATE USERS SET PASSWORD ='"+pass+"' WHERE NAME = '" + nombreUser + "'";
+                String sentencia1 = "UPDATE USERS SET PASSWORD ='"+U.password+"' WHERE NAME = '" + U.name + "'";
                 conector.setData(sentencia1);
 
                 String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;
@@ -229,12 +229,12 @@ namespace ERP.Dominio.Gestores
             //MessageBox.Show("El usuario se ha eliminado correctamente.");
         }
 
-        public void eliminarUsuario(DataGridView dgvUsersaa, String nombreFilaSeleccionada)
+        public void eliminarUsuario(DataGridView dgvUsersaa, User U)//(DataGridView dgvUsersaa, String nombreFilaSeleccionada)
         {
             //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
 
 
-            String name = nombreFilaSeleccionada;
+            String name = U.name;
 
             //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
             //DELETE FROM USERS WHERE NAME = 'aaa'

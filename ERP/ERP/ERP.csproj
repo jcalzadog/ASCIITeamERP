@@ -52,8 +52,10 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Gestores\GestorPlatform.cs" />
+    <Compile Include="Dominio\Order.cs" />
     <Compile Include="Dominio\Platform.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
@@ -280,7 +282,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

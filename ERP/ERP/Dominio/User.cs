@@ -11,16 +11,30 @@ namespace ERP.Dominio
     {
         //Atributos
 
-        private int idUser { get; set; }
-        private String name { get; set; }
-        private String password { get; set; }
-        private int deleted { get; set; }
-        private Role rol { get; set; }
+        public int idUser { get; set; }
+        public String name { get; set; }
+        public String password { get; set; }
+        public int deleted { get; set; }
+        public Role rol { get; set; }
         public GestorUsuario gestorusuario { get; set; }
 
         //Metodos
         public User()
         {
+            gestorusuario = new GestorUsuario();
+        }
+
+        public User(String nameU)
+        {
+            name = nameU;
+            gestorusuario = new GestorUsuario();
+        }
+        public User(String nameU, String passwordU, Role rol, int deletedU)
+        {
+            name = nameU;
+            password = passwordU;
+            deleted = deletedU;
+            this.rol = rol;
             gestorusuario = new GestorUsuario();
         }
 
