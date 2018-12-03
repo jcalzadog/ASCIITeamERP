@@ -409,13 +409,12 @@ namespace ERP
 
         private void btnDeleteCategorie_Click(object sender, EventArgs e)
         {
-            String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
-            if (MessageBox.Show("Do you want to delete this categorie ?", "Delete Categorie", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                categoria.gestor.deleteCategoria(name);
-
-
-            }
+            DeleteCategorie dc = new DeleteCategorie();
+            dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            
+            dc.ShowDialog();
+         
+       
             cargarCategorias();
         }
 
