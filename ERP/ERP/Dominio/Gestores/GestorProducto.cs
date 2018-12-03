@@ -69,30 +69,5 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        //public void modificarproducto(string nombreproducto, int idcat, int idplat, int pegi, int price)
-        //{
-            
-        //    object idproducto = conector.dlookup("idproduct", "products", "name='" + nombreproducto + "'");
-        //    object idcate = conector.dlookup("idcategory", "categories", "='" +  + "'");
-
-        //    if (pass.equals(""))
-        //    {
-        //        string sentencia2 = "update users_roles set idrole =" + idrol + " where iduser = " + iduser;
-        //        conector.setdata(sentencia2);
-        //    }
-        //    else
-        //    {
-        //        string sentencia1 = "update users set password ='" + pass + "' where name = '" + nombreuser + "'";
-        //        conector.setdata(sentencia1);
-
-        //        string sentencia2 = "update users_roles set idrole =" + idrol + " where iduser = " + iduser;
-        //        conector.setdata(sentencia2);
-        //    }
-
-        //    string mensaje = "the user has been modified correctly.";
-        //    ventanapersonalizada cambio = new ventanapersonalizada(mensaje);
-        //    cambio.showdialog();
-        //    //messagebox.show("el usuario se ha eliminado correctamente.");
-        //}
     }
 }
