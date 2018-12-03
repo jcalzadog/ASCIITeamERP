@@ -46,124 +46,143 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(98, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(196, 50);
+            this.txtName.Location = new System.Drawing.Point(171, 41);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(182, 22);
+            this.txtName.Size = new System.Drawing.Size(160, 20);
             this.txtName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 87);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(98, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Category";
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(196, 87);
+            this.cmbCategory.Location = new System.Drawing.Point(171, 71);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(182, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(160, 21);
             this.cmbCategory.TabIndex = 3;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // cmbPlatform
             // 
             this.cmbPlatform.FormattingEnabled = true;
-            this.cmbPlatform.Location = new System.Drawing.Point(196, 129);
+            this.cmbPlatform.Location = new System.Drawing.Point(171, 105);
+            this.cmbPlatform.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbPlatform.Name = "cmbPlatform";
-            this.cmbPlatform.Size = new System.Drawing.Size(182, 24);
+            this.cmbPlatform.Size = new System.Drawing.Size(160, 21);
             this.cmbPlatform.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 129);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(98, 105);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Platform";
             // 
             // txtPegi
             // 
-            this.txtPegi.Location = new System.Drawing.Point(196, 171);
+            this.txtPegi.Location = new System.Drawing.Point(171, 139);
+            this.txtPegi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPegi.Name = "txtPegi";
-            this.txtPegi.Size = new System.Drawing.Size(182, 22);
+            this.txtPegi.Size = new System.Drawing.Size(160, 20);
             this.txtPegi.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(112, 171);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(98, 139);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 17);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Pegi";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(196, 210);
+            this.txtPrice.Location = new System.Drawing.Point(171, 171);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(182, 22);
+            this.txtPrice.Size = new System.Drawing.Size(160, 20);
             this.txtPrice.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(112, 210);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(98, 171);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 17);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Price";
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.Location = new System.Drawing.Point(40, 291);
-            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveAnother.Location = new System.Drawing.Point(35, 236);
             this.btnSaveAnother.Name = "btnSaveAnother";
-            this.btnSaveAnother.Size = new System.Drawing.Size(165, 28);
+            this.btnSaveAnother.Size = new System.Drawing.Size(145, 23);
             this.btnSaveAnother.TabIndex = 10;
             this.btnSaveAnother.Text = "Save and Another";
             this.btnSaveAnother.UseVisualStyleBackColor = true;
             this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnhother_Click);
+            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(222, 291);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(194, 236);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(128, 28);
+            this.btnSave.Size = new System.Drawing.Size(112, 23);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save and Close";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(367, 291);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(321, 236);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(87, 23);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // AñadirProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 332);
+            this.BackColor = System.Drawing.Color.DarkOrange;
+            this.ClientSize = new System.Drawing.Size(465, 270);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveAnother);
@@ -177,6 +196,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AñadirProducto";
             this.Text = "Añadir Producto";
             this.ResumeLayout(false);
