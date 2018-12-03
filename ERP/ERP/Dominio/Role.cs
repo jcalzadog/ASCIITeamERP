@@ -9,9 +9,9 @@ namespace ERP.Dominio
 {
     class Role
     {
-        private int idRol { get; set; }
-        private String nameRol { get; set; }
-        private LinkedList<Object> listaPermits { get; set; }
+        public int idRol { get; set; }
+        public String nameRol { get; set; }
+        public LinkedList<Object> listaPermits { get; set; }
 
         public GestorRol gestorRol { get; set; }
 
@@ -20,6 +20,11 @@ namespace ERP.Dominio
             this.gestorRol = new GestorRol();
         }
 
+        public Role(String nameRol)
+        {
+            this.nameRol = nameRol;
+            this.gestorRol = new GestorRol();
+        }
         public Role(int idRol, String nameRol, LinkedList<Object> listaPermits)
         {
             this.idRol = idRol;

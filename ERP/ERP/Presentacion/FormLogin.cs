@@ -1,4 +1,5 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
 using ERP.Recursos;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,13 @@ namespace ERP
 {
     public partial class FormLogin : Form
     {
-        GestorUsuario gestorU;
+        User usuario;
         TabControl tbMenuP;
 
 
         public FormLogin(TabControl tbcMenu)
         {
-            gestorU = new GestorUsuario();
+            usuario = new User();
             this.tbMenuP = tbcMenu;
 
             InitializeComponent();
@@ -40,17 +41,17 @@ namespace ERP
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            String user = tbxUser.Text;
+            usuario.name = tbxUser.Text;
             //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
-            String pass = tbxPassword.Text;
+            usuario.password = tbxPassword.Text;
 
-            String passDB = gestorU.loguearse(user, pass);
+            String passDB = usuario.gestorusuario.loguearse(usuario);
 
             if (!passDB.Equals("-1"))
             {
                 //MessageBox.Show("Login Succesful");
                 //this.Dispose();
-                gestorU.comprobarPermisos(user, pass, this.tbMenuP);
+                usuario.gestorusuario.comprobarPermisos(usuario, this.tbMenuP);
                 this.Hide();
                 tbMenuP.SelectedIndex = 0;
             }

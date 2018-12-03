@@ -19,11 +19,12 @@ namespace ERP.Presentacion.Usuarios
         private String nombreFilaSeleccionada;
         public ConfirmarBorrarUsuario(DataGridView dgvUsers, String nombreFilaSeleccionada)
         {
-            usuario = new User();
+            
             this.dgvUsers = dgvUsers;
             this.nombreFilaSeleccionada = nombreFilaSeleccionada;
             InitializeComponent();
             cargarComponentes();
+            usuario = new User(nombreFilaSeleccionada);
         }
 
         public void cargarComponentes()
@@ -50,7 +51,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            usuario.gestorusuario.eliminarUsuario(dgvUsers, this.nombreFilaSeleccionada);
+            usuario.gestorusuario.eliminarUsuario(dgvUsers, usuario);
             this.Dispose();
         }
 
