@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Gestores\GestorPlatform.cs" />
     <Compile Include="Dominio\Platform.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Dominio\Gestores\GestorProducto.cs" />
     <Compile Include="Dominio\Gestores\GestorRol.cs" />
     <Compile Include="Dominio\Gestores\GestorUsuario.cs" />
+    <Compile Include="Dominio\Platforms.cs" />
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Role.cs" />
     <Compile Include="Dominio\User.cs" />

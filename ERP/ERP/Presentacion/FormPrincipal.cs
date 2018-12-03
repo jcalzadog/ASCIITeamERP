@@ -32,7 +32,7 @@ namespace ERP
         private Customer cliente;
         private Producto producto;
         private Platform plataforma;
-
+        private Platforms pt;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -73,7 +73,7 @@ namespace ERP
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
-
+            cargarPlataformas();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
 
@@ -112,7 +112,31 @@ namespace ERP
             dgvCategorie.BackgroundColor = Color.Black;
 
         }
+        public void cargarPlataformas()
+        {
+            dgvPlatforms.Columns.Clear();
+             pt = new Platforms();
+            pt.gestorplataforma.readPlatforms();
+            DataTable tPlatformas = pt.gestorplataforma.tabla;
 
+            dgvPlatforms.Columns.Clear();
+
+            dgvPlatforms.Columns.Add("NAME", "NAME");
+            dgvPlatforms.Columns.Add("CUENTA", "NUMBER OF PRODUCTS");
+
+
+            foreach (DataRow row in tPlatformas.Rows)
+            {
+                dgvPlatforms.Rows.Add(row["NAME"], row["CUENTA"]);
+            }
+
+
+            dgvPlatforms.RowHeadersVisible = false;
+            dgvPlatforms.AllowUserToAddRows = false;
+            dgvPlatforms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPlatforms.BackgroundColor = Color.Black;
+
+        }
 
         /**
          * Metodo para usar el "menu pestañas" .

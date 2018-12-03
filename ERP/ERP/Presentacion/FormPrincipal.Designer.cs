@@ -76,6 +76,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dgvPlatforms = new System.Windows.Forms.DataGridView();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -85,7 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).BeginInit();
+            this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -654,6 +660,10 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.DarkOrange;
+            this.tabPage7.Controls.Add(this.dgvPlatforms);
+            this.tabPage7.Controls.Add(this.button3);
+            this.tabPage7.Controls.Add(this.button2);
+            this.tabPage7.Controls.Add(this.button1);
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -711,6 +721,42 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "New Platform";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(110, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Update Platform";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(221, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(104, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Delete platform";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // dgvPlatforms
+            // 
+            this.dgvPlatforms.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlatforms.Location = new System.Drawing.Point(6, 35);
+            this.dgvPlatforms.Name = "dgvPlatforms";
+            this.dgvPlatforms.Size = new System.Drawing.Size(602, 325);
+            this.dgvPlatforms.TabIndex = 3;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -737,7 +783,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorie)).EndInit();
+            this.tabPage7.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -785,5 +833,9 @@
         private System.Windows.Forms.ComboBox cmbFilPlatform;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvPlatforms;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
