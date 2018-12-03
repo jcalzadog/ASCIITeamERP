@@ -16,8 +16,8 @@ namespace ERP.Dominio.Gestores
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
 
-            data = Search.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME"+
-                "M.PAYMENTMETHOD, O.DATETIME DATE,O.TOTAL TOTAL, O.PREPAID PREPAID "+
+            data = Search.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME, "+
+                "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DATE,O.TOTAL TOTAL, O.PREPAID PREPAID "+
                 "FROM ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER"+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M "+
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD","ORDERS");

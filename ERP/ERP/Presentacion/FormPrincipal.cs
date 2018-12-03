@@ -33,6 +33,7 @@ namespace ERP
         private Producto producto;
         private Platform plataforma;
         private Platforms pt;
+        private GestorOrder orders;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -62,7 +63,7 @@ namespace ERP
             cliente = new Customer();
             producto = new Producto();
             plataforma = new Platform();
-
+            orders = new GestorOrder();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -74,6 +75,7 @@ namespace ERP
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
+            cargarTablaOrders();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
 
@@ -261,6 +263,37 @@ namespace ERP
             dgvProducts.BackgroundColor = Color.Black;
 
             dgvProducts.ReadOnly = true;
+
+        }
+
+        private void cargarTablaOrders(String condicion)
+        {
+            dgvOrders.Columns.Clear();
+
+            orders.leerOrders();
+
+
+            DataTable tOrders = orders.tOrders;
+
+            dgvOrders.Columns.Add("ID", "ID");
+            dgvOrders.Columns.Add("SURNAME", "SURNAME");
+            dgvOrders.Columns.Add("USERNAME", "USERNAME");
+            dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
+            dgvOrders.Columns.Add("DATE", "DATE");
+            dgvOrders.Columns.Add("TOTAL", "TOTAL");
+            dgvOrders.Columns.Add("PREPAID", "PREPAID");
+
+            foreach (DataRow row in tOrders.Rows)
+            {
+                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"], row["PAYMETHOD"], row["DATE"], row["TOTAL"], row["PREPAID"]);
+            }
+
+            dgvOrders.RowHeadersVisible = false;
+            dgvOrders.AllowUserToAddRows = false;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.BackgroundColor = Color.Black;
+
+            dgvOrders.ReadOnly = true;
 
         }
 
