@@ -63,7 +63,8 @@ namespace ERP.Presentacion.Clientes
         {
             if (!cmbState.SelectedItem.Equals("Ninguno"))
             {
-                customer.gestorCliente.refrescarCities(cmbState, cmbState.SelectedItem.ToString());
+                customer.state = cmbState.SelectedItem.ToString();
+                customer.gestorCliente.refrescarCities(cmbState, customer);//(cmbState, cmbState.SelectedItem.ToString());
                 cargarTablaCities();
             }
         }
@@ -140,8 +141,9 @@ namespace ERP.Presentacion.Clientes
                 }
                 else
                 {
+                    customer.region = cmbRegion.SelectedItem.ToString();
                     cmbState.Enabled = true;
-                    customer.gestorCliente.refrescarState(cmbState, cmbRegion.SelectedItem.ToString());
+                    customer.gestorCliente.refrescarState(cmbState, customer);//(cmbState, cmbRegion.SelectedItem.ToString());
                 }
             }
 
@@ -159,7 +161,9 @@ namespace ERP.Presentacion.Clientes
                 {
                     // do sonmthind
                     codCiudadFIlaSeleccionada = dgvCities.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    customer.gestorCliente.refrescarZipCode(codCiudadFIlaSeleccionada);
+
+                    customer.city = codCiudadFIlaSeleccionada;
+                    customer.gestorCliente.refrescarZipCode(customer);
                     cargarTablaZipCodes();
                     codZipCodeFIlaSeleccionada = dgvZipCode.Rows[0].Cells[0].Value.ToString();
                 }

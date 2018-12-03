@@ -18,11 +18,13 @@ namespace ERP.Presentacion.Plataformas
         public DeletePlataforma()
         {
             InitializeComponent();
+            plataforma = new Platforms();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            plataforma.gestorplataforma.deletePlataforma(nameDelete);
+            plataforma.name = nameDelete;
+            plataforma.gestorplataforma.deletePlataforma(plataforma);
             this.Dispose();
         }
 

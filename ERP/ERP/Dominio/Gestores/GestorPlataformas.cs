@@ -27,10 +27,10 @@ namespace ERP.Dominio.Gestores
                 "PLATFORMS L LEFT OUTER JOIN PRODUCTS P ON L.IDPLATFORM=P.IDPLATFORM WHERE L.DELETED=0 GROUP BY L.NAME");
             tabla = data.Tables["PLATFORMS L LEFT OUTER JOIN PRODUCTS P ON L.IDPLATFORM=P.IDPLATFORM WHERE L.DELETED=0 GROUP BY L.NAME"];
         }
-        public void insertPlataforma(String name)
+        public void insertPlataforma(Platforms P)
         {
             Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + name + "') AND DELETED =0");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND DELETED =0");
 
             if (existe == 0)
             {
@@ -38,12 +38,12 @@ namespace ERP.Dominio.Gestores
 
 
 
-                String sentencia1 = "INSERT INTO PLATFORMS VALUES(" + (idCategoria + 1) + ",UPPER('" + name + "'),0)";
+                String sentencia1 = "INSERT INTO PLATFORMS VALUES(" + (idCategoria + 1) + ",UPPER('" + P.name + "'),0)";
                 conector.setData(sentencia1);
 
 
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + name + "') AND IDPLATFORM =" + (idCategoria + 1));
+                existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND IDPLATFORM =" + (idCategoria + 1));
 
                 if (existe > 0)
                 {
@@ -62,14 +62,14 @@ namespace ERP.Dominio.Gestores
 
         }
 
-        public void updatePlataforma(String name)
+        public void updatePlataforma(Platforms P)
         {
-            Decimal id = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + name + "') AND DELETED = 0");
+            Object id = conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND DELETED = 0");
             if (existe == 0)
             {
 
-                conector.setData("UPDATE PLATFORMS SET NAME=UPPER('" + name + "') WHERE IDPLATFORM=" + id);
+                conector.setData("UPDATE PLATFORMS SET NAME=UPPER('" + P.name + "') WHERE IDPLATFORM=" + id);
                 VentanaPersonalizada vp = new VentanaPersonalizada("Se ha actualizado correctamente");
                 vp.ShowDialog();
             }
@@ -80,10 +80,10 @@ namespace ERP.Dominio.Gestores
             }
 
         }
-        public void deletePlataforma(String name)
+        public void deletePlataforma(Platforms P)
         {
 
-            conector.setData("UPDATE PLATFORMS SET DELETED=1 WHERE NAME=UPPER('" + name + "')");
+            conector.setData("UPDATE PLATFORMS SET DELETED=1 WHERE NAME=UPPER('" + P.name + "')");
 
         }
 

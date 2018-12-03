@@ -169,7 +169,15 @@ namespace ERP.Presentacion.Clientes
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
             //Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
-            Boolean creado = customer.gestorCliente.nuevoCliente(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
+            customer.dni = tbxDNI.Text;
+            customer.name = tbxName.Text;
+            customer.surname = tbxSurname.Text;
+            customer.address = tbxAddress.Text;
+            customer.phone = Int32.Parse(tbxPhone.Text);
+            customer.email = tbxEmail.Text;
+            customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+
+            Boolean creado = customer.gestorCliente.nuevoCliente(customer);
             if (creado)
             {
                 this.Dispose();
@@ -178,7 +186,14 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            Boolean creado = customer.gestorCliente.nuevoCliente(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
+            customer.dni = tbxDNI.Text;
+            customer.name = tbxName.Text;
+            customer.surname = tbxSurname.Text;
+            customer.address = tbxAddress.Text;
+            customer.phone = Int32.Parse(tbxPhone.Text);
+            customer.email = tbxEmail.Text;
+            customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+            Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
             if (creado)
             {
                 tbxDNI.Text = "";

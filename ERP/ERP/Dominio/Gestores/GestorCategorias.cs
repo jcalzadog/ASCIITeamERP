@@ -27,9 +27,9 @@ namespace ERP.Dominio.Gestores
             tabla = data.Tables["CATEGORIES C LEFT OUTER JOIN PRODUCTS P ON C.IDCATEGORY=P.IDCATEGORY GROUP BY C.NAME"];
         }
 
-        public void insertCategorias(String name) {
+        public void insertCategorias(Categorias C) {
              Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND DELETED =0");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + C.name + "') AND DELETED =0");
 
             if (existe == 0)
             {
@@ -37,12 +37,12 @@ namespace ERP.Dominio.Gestores
                
                
 
-                String sentencia1 = "INSERT INTO CATEGORIES VALUES(" + (idCategoria + 1) + ",UPPER('" + name + "'),0)";
+                String sentencia1 = "INSERT INTO CATEGORIES VALUES(" + (idCategoria + 1) + ",UPPER('" + C.name + "'),0)";
                 conector.setData(sentencia1);
 
                 
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND IDCATEGORY =" + (idCategoria + 1) );
+                existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + C.name + "') AND IDCATEGORY =" + (idCategoria + 1) );
 
                 if (existe > 0)
                 {
@@ -61,13 +61,13 @@ namespace ERP.Dominio.Gestores
 
         }
 
-        public void updateCategorias(String name) {
+        public void updateCategorias(Categorias C) {
             Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND DELETED = 0");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + C.name + "') AND DELETED = 0");
             if (existe == 0)
             {
                
-               conector.setData("UPDATE CATEGORIES SET NAME=UPPER('" + name + "') WHERE IDCATEGORY=" + id);
+               conector.setData("UPDATE CATEGORIES SET NAME=UPPER('" + C.name + "') WHERE IDCATEGORY=" + id);
                 VentanaPersonalizada vp = new VentanaPersonalizada("Se ha actualizado correctamente");
                 vp.ShowDialog();
             }
@@ -77,9 +77,9 @@ namespace ERP.Dominio.Gestores
             }
             
         }
-        public void deleteCategoria(String name) {
+        public void deleteCategoria(Categorias C) {
             
-             conector.setData("UPDATE CATEGORIES SET DELETED=1 WHERE NAME=UPPER('"+name+"')");
+             conector.setData("UPDATE CATEGORIES SET DELETED=1 WHERE NAME=UPPER('"+ C.name + "')");
         }
         public void refrescarCategorias(ComboBox cmbCategorias)
         {

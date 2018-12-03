@@ -71,16 +71,16 @@ namespace ERP.Dominio.Gestores
             cmbRegions.SelectedIndex = 0;
         }
 
-        public void refrescarState(ComboBox cmbState,String region)
+        public void refrescarState(ComboBox cmbState,Customer C)
         {
             listaStates = new LinkedList<Object>();
-            Decimal numState = (Decimal)conector.DLookUp("MAX(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "'");
+            Decimal numState = (Decimal)conector.DLookUp("MAX(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "'");
             //int numRoles = int.Parse(numR);
             LinkedList<Object> listaI = new LinkedList<Object>();
 
             for (int i = 1; i <= numState; i++)
             {
-                listaI.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "' AND IDSTATE=" + i));
+                listaI.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "' AND IDSTATE=" + i));
             }
 
 
@@ -105,7 +105,7 @@ namespace ERP.Dominio.Gestores
             //cmbState.SelectedIndex = 0;
         }
 
-        public void refrescarCities(ComboBox cmbCities, String nameState)
+        public void refrescarCities(ComboBox cmbCities, Customer C)
         {
             //listaCities = new LinkedList<Object>();
             //Decimal numCities = (Decimal)conector.DLookUp("COUNT(C.IDCITY)", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE", "S.STATE='" + nameState + "'");
@@ -140,31 +140,31 @@ namespace ERP.Dominio.Gestores
             //cmbCities.SelectedIndex = 0;
 
             DataSet data = new DataSet();
-            data = conector.getData("SELECT DISTINCT C.CITY NAME FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE WHERE S.STATE = '" + nameState + "'", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE");
+            data = conector.getData("SELECT DISTINCT C.CITY NAME FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE WHERE S.STATE = '" + C.state + "'", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE");
             tablaCities = data.Tables["CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE"];
         }
     
 
-        public void refrescarZipCode(String city)
+        public void refrescarZipCode(Customer C)
         {
             DataSet data = new DataSet();
-            data = conector.getData("SELECT Z.ZIPCODE CODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY WHERE C.CITY = '" + city + "'", "FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY");
+            data = conector.getData("SELECT Z.ZIPCODE CODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY WHERE C.CITY = '" + C.city + "'", "FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY");
             tablaZipCode = data.Tables["FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY"];
         }
 
-        public Boolean nuevoCliente(String DNI,String name,String surname,String address,int phone,String email,String zipCode)
+        public Boolean nuevoCliente(Customer C)//(String DNI,String name,String surname,String address,int phone,String email,String zipCode)
         {
             Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(DNI)", "CUSTOMERS", "DNI='" + DNI + "'");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(DNI)", "CUSTOMERS", "DNI='" + C.dni + "'");
 
-            if (existe == 0 && validarDNI(DNI))
+            if (existe == 0 && validarDNI(C))
             {
                 Decimal idCustomer = (Decimal)conector.DLookUp("MAX(IDCUSTOMER)", "CUSTOMERS", "");
 
-                String sentencia1 = "INSERT INTO CUSTOMERS VALUES("+ (idCustomer+1)+",'" + DNI + "','" + name + "','" + surname + "','"+address+"',"+phone+",'"+email+"',"+Int32.Parse(zipCode)+",0)";
+                String sentencia1 = "INSERT INTO CUSTOMERS VALUES("+ (idCustomer+1)+",'" + C.dni + "','" + C.name + "','" + C.surname + "','"+C.address+"',"+C.phone+",'"+C.email+"',"+C.refzipcodescities+",0)";
                 conector.setData(sentencia1);
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + DNI + "'");
+                existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + C.dni + "'");
 
                 if (existe > 0)
                 {
@@ -185,22 +185,22 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        public Boolean validarDNI(String DNI)
+        public Boolean validarDNI(Customer C)
         {
 
-            if (DNI.Contains("'"))
+            if (C.dni.Contains("'"))
             {
                 return false;
             }
-            return Regex.IsMatch(DNI, "^[0-9]{8}[A-Z]");
+            return Regex.IsMatch(C.dni, "^[0-9]{8}[A-Z]");
         }
 
-        public void eliminarCliente(DataGridView dgvUsersaa, String dniFilaSeleccionada)
+        public void eliminarCliente(DataGridView dgvUsersaa, Customer C)
         {
             //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
 
 
-            String dni = dniFilaSeleccionada;
+            String dni = C.dni;
 
             //DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = 'aaa');
             //DELETE FROM USERS WHERE NAME = 'aaa'

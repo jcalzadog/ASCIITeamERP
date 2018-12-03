@@ -20,7 +20,8 @@ namespace ERP.Presentacion.Usuarios
             rol = new Role();
             InitializeComponent();
             cargarComponentes();
-            rol.gestorRol.cargarTablaPermisos(dgvPermissions,"");
+            rol.nameRol = "";
+            rol.gestorRol.cargarTablaPermisos(dgvPermissions,rol);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -126,7 +127,8 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Boolean creado= rol.gestorRol.nuevoRol(dgvPermissions, tbxNombreRol.Text);
+            rol.nameRol = tbxNombreRol.Text;
+            Boolean creado= rol.gestorRol.nuevoRol(dgvPermissions,rol);
             if (creado)
             {
                 this.Dispose();

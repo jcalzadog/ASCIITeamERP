@@ -9,6 +9,8 @@ namespace ERP.Dominio
 {
     class Categorias
     {
+        public String name { get; set; }
+
         public GestorCategorias gestor;
 
         public Categorias() {

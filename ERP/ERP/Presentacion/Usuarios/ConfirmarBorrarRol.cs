@@ -22,7 +22,7 @@ namespace ERP.Presentacion.Usuarios
             InitializeComponent();
             cargarComponentes();
             rol = new Role();
-            this.nameRol = nombreRol;
+            rol.nameRol = nombreRol;
         }
 
         public void cargarComponentes()
@@ -61,7 +61,7 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            bool borrado = rol.gestorRol.eliminarRole(this.nameRol);
+            bool borrado = rol.gestorRol.eliminarRole(rol);
             if (borrado)
             {
                 this.Dispose();

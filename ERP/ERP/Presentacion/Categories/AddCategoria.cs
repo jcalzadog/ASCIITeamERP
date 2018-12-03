@@ -28,7 +28,8 @@ namespace ERP.Presentacion.Categories
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            categoria.gestor.insertCategorias(textBox1.Text);
+            categoria.name = textBox1.Text;
+            categoria.gestor.insertCategorias(categoria);
             categoria.gestor.readCategorias();
             this.Dispose();
         }
@@ -37,7 +38,8 @@ namespace ERP.Presentacion.Categories
         //btnSaveAndAnother
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            categoria.gestor.insertCategorias(textBox1.Text);
+            categoria.name = textBox1.Text;
+            categoria.gestor.insertCategorias(categoria);
             textBox1.Text = "";
             categoria.gestor.readCategorias();
 

@@ -18,13 +18,14 @@ namespace ERP.Presentacion.Plataformas
         public UpdatePlataforma()
         {
             InitializeComponent();
+            plataforma = new Platforms();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-          
 
-            plataforma.gestorplataforma.updatePlataforma(txtUpdate.Text);
+            plataforma.name = txtUpdate.Text;
+            plataforma.gestorplataforma.updatePlataforma(plataforma);
             this.Dispose();
             plataforma.gestorplataforma.readPlatforms();
         }

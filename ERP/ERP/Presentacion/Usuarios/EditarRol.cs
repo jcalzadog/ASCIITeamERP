@@ -22,7 +22,8 @@ namespace ERP.Presentacion.Usuarios
             InitializeComponent();
             cargarComponentes();
 
-            rol.gestorRol.cargarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            rol.nameRol = cmbRoles.SelectedItem.ToString();
+            rol.gestorRol.cargarTablaPermisos(dgvPermissions, rol);
         }
 
         private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -210,7 +211,8 @@ namespace ERP.Presentacion.Usuarios
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
             //dgvPermissions = new DataGridView();
-            rol.gestorRol.refrescarTablaPermisos(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            rol.nameRol = cmbRoles.SelectedItem.ToString();
+            rol.gestorRol.refrescarTablaPermisos(dgvPermissions, rol);
         }
 
         private void btnAllow_Click_1(object sender, EventArgs e)
@@ -235,7 +237,8 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            rol.gestorRol.modificarRol(dgvPermissions, cmbRoles.SelectedItem.ToString());
+            rol.nameRol = cmbRoles.SelectedItem.ToString();
+            rol.gestorRol.modificarRol(dgvPermissions, rol);
         }
 
         private void btnDeleteRol_Click(object sender, EventArgs e)

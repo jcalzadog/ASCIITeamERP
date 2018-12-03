@@ -32,7 +32,8 @@ namespace ERP.Presentacion.Clientes
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             //usuario.gestorusuario.eliminarUsuario(dgvUsers, this.nombreFilaSeleccionada);
-            cliente.gestorCliente.eliminarCliente(dgvCustomers, dniFilaSeleccionada);
+            cliente.dni = dniFilaSeleccionada;
+            cliente.gestorCliente.eliminarCliente(dgvCustomers, cliente);
             this.Dispose();
         }
     }

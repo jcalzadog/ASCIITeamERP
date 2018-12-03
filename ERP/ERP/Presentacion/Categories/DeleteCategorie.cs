@@ -20,11 +20,12 @@ namespace ERP.Presentacion.Categories
             InitializeComponent();
             cargarComponentes();
             categoria = new Categorias();
+            categoria.name = namedelete;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            categoria.gestor.deleteCategoria(namedelete);
+            categoria.gestor.deleteCategoria(categoria);
             
             this.Dispose();
         }

@@ -23,9 +23,9 @@ namespace ERP.Presentacion.Categories
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
-        {   
-            
-            categoria.gestor.updateCategorias(textBox1.Text);
+        {
+            categoria.name = textBox1.Text;
+            categoria.gestor.updateCategorias(categoria);
             this.Dispose();
             categoria.gestor.readCategorias();
         }

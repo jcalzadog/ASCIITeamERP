@@ -41,15 +41,15 @@ namespace ERP.Dominio.Gestores
             }
         }
 
-        public void seleccionarRoles(ComboBox cmbRoles,String nameR)
+        public void seleccionarRoles(ComboBox cmbRoles, String nameRol)//(ComboBox cmbRoles,String nameR)
         {
             //Object idUser = conector.DLookUp("IDUSER", "USERS", "NAME='"+nameUser+"'");
             //Object idRol = conector.DLookUp("R.IDROLE", "ROLES R INNER JOIN USERS_ROLES U ON R.IDROLE=U.IDROLE", "U.IDUSER=" + idUser);
             //int numRoles = int.Parse(numR);
-            cmbRoles.SelectedItem = nameR;
+            cmbRoles.SelectedItem = nameRol;
         }
 
-        public void cargarTablaPermisos(DataGridView dgvPermissions, String Role)
+        public void cargarTablaPermisos(DataGridView dgvPermissions, Role R)//(DataGridView dgvPermissions, String Role)
         {
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
@@ -75,9 +75,9 @@ namespace ERP.Dominio.Gestores
                 //SI TIENE PERMISO SE PONE CHECKED
                 //SELECT COUNT(R.IDROLE) FROM ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT WHERE P.IDPERMIT=1 AND R.NAME='ADMIN';
                 Decimal tienePermiso=0;
-                if (!Role.Equals(""))
+                if (!R.nameRol.Equals(""))
                 {
-                    tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
+                    tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + R.nameRol + "'");
                 }
                 
                 if(tienePermiso == 1)
@@ -103,7 +103,7 @@ namespace ERP.Dominio.Gestores
             dgvPermissions.Columns["NAME"].ReadOnly = true;
         }
 
-        public void refrescarTablaPermisos(DataGridView dgvPermissions,String Role)
+        public void refrescarTablaPermisos(DataGridView dgvPermissions, Role R)//(DataGridView dgvPermissions,String Role)
         {
             int columnaCheck = 0;
             foreach (DataGridViewRow row in dgvPermissions.Rows)
@@ -111,9 +111,9 @@ namespace ERP.Dominio.Gestores
                 //SI TIENE PERMISO SE PONE CHECKED
                 //SELECT COUNT(R.IDROLE) FROM ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT WHERE P.IDPERMIT=1 AND R.NAME='ADMIN';
                 Decimal tienePermiso = 0;
-                if (!Role.Equals(""))
+                if (!R.nameRol.Equals(""))
                 {
-                    tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
+                    tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + R.nameRol + "'");
                 }
 
                 if (tienePermiso == 1)
@@ -129,10 +129,10 @@ namespace ERP.Dominio.Gestores
             }
         }
 
-        public Boolean nuevoRol(DataGridView dgvPermissions, String nombreRol)
+        public Boolean nuevoRol(DataGridView dgvPermissions, Role R)//(DataGridView dgvPermissions, String nombreRol)
         {
             Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='"+nombreRol.ToUpper()+"'");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='"+R.nameRol.ToUpper()+"'");
 
             if (existe == 0)
             {
@@ -141,7 +141,7 @@ namespace ERP.Dominio.Gestores
                 idRol_Permits += 1;
                 idRol += 1;
 
-                String sentencia1 = "INSERT INTO ROLES VALUES(" + (idRol) + ",'" + nombreRol.ToUpper() + "')";
+                String sentencia1 = "INSERT INTO ROLES VALUES(" + (idRol) + ",'" + R.nameRol.ToUpper() + "')";
                 conector.setData(sentencia1);
 
                 int checkedPermit = 0;
@@ -158,7 +158,7 @@ namespace ERP.Dominio.Gestores
                     checkedPermit++;
                 }
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE="+ (idRol) +" AND NAME ='" + nombreRol.ToUpper()+"'");
+                existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE="+ (idRol) +" AND NAME ='" + R.nameRol.ToUpper()+"'");
                 if(existe != 0)
                 {
                     String mensaje = "The user has been successfully deleted.";
@@ -179,10 +179,10 @@ namespace ERP.Dominio.Gestores
             return creado;
            
         }
-        public void modificarRol(DataGridView dgvPermissions, String nombreRol)
+        public void modificarRol(DataGridView dgvPermissions, Role R)//(DataGridView dgvPermissions, String nombreRol)
         {
 
-            Decimal idRol = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='"+ nombreRol+"'");
+            Decimal idRol = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='"+ R.nameRol+"'");
             Decimal idRol_Permits = (Decimal)conector.DLookUp("MAX(IDROLPERM)", "ROL_PERM", "");
             idRol_Permits += 1;
 
@@ -217,14 +217,14 @@ namespace ERP.Dominio.Gestores
                 checkedPermit++;
             }
 
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE=" + (idRol) + " AND NAME ='" + nombreRol.ToUpper() + "'");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE=" + (idRol) + " AND NAME ='" + R.nameRol.ToUpper() + "'");
                 if (existe != 0)
                 {
                     MessageBox.Show("The Role has been modified correctly.");
                 }
         }
 
-        public bool eliminarRole(String nombreRole)
+        public bool eliminarRole(Role R)//(String nombreRole)
         {
             bool result = false;
             //String name = (String)dgvUsers.SelectedRows[selectedRowCount].DataBoundItem;
@@ -236,10 +236,10 @@ namespace ERP.Dominio.Gestores
             //String sentencia1 = "DELETE FROM USERS_ROLES WHERE IDUSERROL = (SELECT IDUSER FROM USERS WHERE NAME = '"+ name+"')";-----
             //conector.setData(sentencia1);-------
 
-            String sentencia1 = "DELETE FROM ROL_PERM WHERE IDROLE = (SELECT IDROLE FROM ROLES WHERE NAME = '"+nombreRole+"')";
+            String sentencia1 = "DELETE FROM ROL_PERM WHERE IDROLE = (SELECT IDROLE FROM ROLES WHERE NAME = '"+R.nameRol+"')";
             conector.setData(sentencia1);
 
-            String sentencia2 = "DELETE FROM ROLES WHERE NAME = '" + nombreRole + "'";
+            String sentencia2 = "DELETE FROM ROLES WHERE NAME = '" + R.nameRol + "'";
             conector.setData(sentencia2);
 
 
@@ -247,7 +247,7 @@ namespace ERP.Dominio.Gestores
             VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
             cambio.ShowDialog();
             //MessageBox.Show("El usuario se ha eliminado correctamente.");
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='" + nombreRole + "'");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "NAME='" + R.nameRol + "'");
             if (existe == 0)
             {
                 result = true;

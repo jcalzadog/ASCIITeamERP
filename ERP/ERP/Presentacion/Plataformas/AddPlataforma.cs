@@ -17,6 +17,7 @@ namespace ERP.Presentacion.Plataformas
         public AddPlataforma()
         {
             InitializeComponent();
+            plataforma = new Platforms();
         }
 
         private void AddPlataforma_Load(object sender, EventArgs e)
@@ -26,15 +27,16 @@ namespace ERP.Presentacion.Plataformas
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            plataforma.gestorplataforma.insertPlataforma(textBox1.Text);
+            plataforma.name = textBox1.Text;
+            plataforma.gestorplataforma.insertPlataforma(plataforma);
             textBox1.Text = "";
             plataforma.gestorplataforma.readPlatforms();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
-            plataforma.gestorplataforma.insertPlataforma(textBox1.Text);
+            plataforma.name = textBox1.Text;
+            plataforma.gestorplataforma.insertPlataforma(plataforma);
             plataforma.gestorplataforma.readPlatforms();
             this.Dispose();
         }

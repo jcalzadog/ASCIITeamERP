@@ -8,14 +8,18 @@ namespace ERP.Dominio.Gestores
 {
     class Customer
     {
-        private int idCustomer { get; set; }
-        private String name { get; set; }
-        private String surname { get; set; }
-        private String address { get; set; }
-        private int phone { get; set; }
-        private String email { get; set; }
-        private int deleted { get; set; }
-        private int refzipcodescities { get; set; }
+        public int idCustomer { get; set; }
+        public String dni { get; set; }
+        public String name { get; set; }
+        public String surname { get; set; }
+        public String address { get; set; }
+        public int phone { get; set; }
+        public String email { get; set; }
+        public int deleted { get; set; }
+        public int refzipcodescities { get; set; }
+        public String region { get; set; }
+        public String state { get; set; }
+        public String city { get; set; }
 
         public GestorCliente gestorCliente { get; set; }
 
