@@ -57,6 +57,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.ckbDeleted = new System.Windows.Forms.CheckBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.cmbFilPlatform = new System.Windows.Forms.ComboBox();
             this.cmbFilCategory = new System.Windows.Forms.ComboBox();
             this.txtSearchProd = new System.Windows.Forms.TextBox();
             this.btnDeleteProd = new System.Windows.Forms.Button();
@@ -73,7 +74,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.cmbFilPlatform = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -106,7 +108,7 @@
             this.tbcMenuPrincipal.Multiline = true;
             this.tbcMenuPrincipal.Name = "tbcMenuPrincipal";
             this.tbcMenuPrincipal.SelectedIndex = 0;
-            this.tbcMenuPrincipal.Size = new System.Drawing.Size(1005, 492);
+            this.tbcMenuPrincipal.Size = new System.Drawing.Size(1248, 492);
             this.tbcMenuPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tbcMenuPrincipal.TabIndex = 0;
             this.tbcMenuPrincipal.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcMenuPrincipal_Selecting);
@@ -138,7 +140,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(897, 484);
+            this.tabPage2.Size = new System.Drawing.Size(1140, 484);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
@@ -302,7 +304,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(897, 484);
+            this.tabPage3.Size = new System.Drawing.Size(1140, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
             // 
@@ -401,7 +403,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(897, 484);
+            this.tabPage4.Size = new System.Drawing.Size(1140, 484);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
             // 
@@ -418,6 +420,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.DarkOrange;
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.label1);
             this.tabPage5.Controls.Add(this.ckbDeleted);
             this.tabPage5.Controls.Add(this.dgvProducts);
             this.tabPage5.Controls.Add(this.cmbFilPlatform);
@@ -430,7 +434,7 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(897, 484);
+            this.tabPage5.Size = new System.Drawing.Size(1140, 484);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
             this.tabPage5.Resize += new System.EventHandler(this.tabPage5_Resize);
@@ -441,7 +445,7 @@
             this.ckbDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.ckbDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbDeleted.ForeColor = System.Drawing.Color.Black;
-            this.ckbDeleted.Location = new System.Drawing.Point(859, 13);
+            this.ckbDeleted.Location = new System.Drawing.Point(1037, 15);
             this.ckbDeleted.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ckbDeleted.Name = "ckbDeleted";
             this.ckbDeleted.Size = new System.Drawing.Size(86, 21);
@@ -481,10 +485,20 @@
             this.dgvProducts.Size = new System.Drawing.Size(803, 400);
             this.dgvProducts.TabIndex = 19;
             // 
+            // cmbFilPlatform
+            // 
+            this.cmbFilPlatform.FormattingEnabled = true;
+            this.cmbFilPlatform.Location = new System.Drawing.Point(912, 12);
+            this.cmbFilPlatform.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbFilPlatform.Name = "cmbFilPlatform";
+            this.cmbFilPlatform.Size = new System.Drawing.Size(96, 24);
+            this.cmbFilPlatform.TabIndex = 18;
+            this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
+            // 
             // cmbFilCategory
             // 
             this.cmbFilCategory.FormattingEnabled = true;
-            this.cmbFilCategory.Location = new System.Drawing.Point(640, 10);
+            this.cmbFilCategory.Location = new System.Drawing.Point(732, 12);
             this.cmbFilCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFilCategory.Name = "cmbFilCategory";
             this.cmbFilCategory.Size = new System.Drawing.Size(95, 24);
@@ -557,7 +571,7 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage6.Size = new System.Drawing.Size(897, 484);
+            this.tabPage6.Size = new System.Drawing.Size(1140, 484);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
             // 
@@ -613,7 +627,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Size = new System.Drawing.Size(897, 484);
+            this.tabPage7.Size = new System.Drawing.Size(1140, 484);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
             // 
@@ -637,7 +651,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Size = new System.Drawing.Size(897, 484);
+            this.tabPage8.Size = new System.Drawing.Size(1140, 484);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
             // 
@@ -679,22 +693,33 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
-            // cmbFilPlatform
+            // label1
             // 
-            this.cmbFilPlatform.FormattingEnabled = true;
-            this.cmbFilPlatform.Location = new System.Drawing.Point(743, 10);
-            this.cmbFilPlatform.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbFilPlatform.Name = "cmbFilPlatform";
-            this.cmbFilPlatform.Size = new System.Drawing.Size(96, 24);
-            this.cmbFilPlatform.TabIndex = 18;
-            this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(834, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Platforms";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(642, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Categories";
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(995, 486);
+            this.ClientSize = new System.Drawing.Size(1254, 489);
             this.ControlBox = false;
             this.Controls.Add(this.tbcMenuPrincipal);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -767,5 +792,7 @@
         private System.Windows.Forms.CheckBox cbxDeleted;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cmbFilPlatform;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
