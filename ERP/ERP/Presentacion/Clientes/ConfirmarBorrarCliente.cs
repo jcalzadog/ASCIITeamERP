@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace ERP.Presentacion.Clientes
 {
     public partial class ConfirmarBorrarCliente : Form
     {
-        public ConfirmarBorrarCliente()
+        private Customer cliente;
+        private DataGridView dgvCustomers;
+        private String dniFilaSeleccionada;
+        public ConfirmarBorrarCliente(DataGridView dgvCustomers, String dniFilaSeleccionada)
         {
+            cliente = new Customer();
             InitializeComponent();
+            this.dgvCustomers = dgvCustomers;
+            this.dniFilaSeleccionada = dniFilaSeleccionada;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -25,6 +32,7 @@ namespace ERP.Presentacion.Clientes
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             //usuario.gestorusuario.eliminarUsuario(dgvUsers, this.nombreFilaSeleccionada);
+            cliente.gestorCliente.eliminarCliente(dgvCustomers, dniFilaSeleccionada);
             this.Dispose();
         }
     }

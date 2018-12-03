@@ -211,7 +211,10 @@ namespace ERP.Dominio.Gestores
             String sentencia1 = "UPDATE CUSTOMERS SET DELETED = 1 WHERE DNI = '" + dni + "'";
             conector.setData(sentencia1);
 
-            MessageBox.Show("El cliente se ha eliminado correctamente.");
+            String mensaje = "The customer has been successfully deleted.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            cambio.ShowDialog();
+            //MessageBox.Show("El cliente se ha eliminado correctamente.");
         }
 
         public void cargarTablaCustomer(DataGridView dgvCustomers)

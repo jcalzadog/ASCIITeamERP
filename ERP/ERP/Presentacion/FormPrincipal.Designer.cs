@@ -348,6 +348,7 @@
             this.btnEditCustomer.TabIndex = 6;
             this.btnEditCustomer.Text = "Edit Customer";
             this.btnEditCustomer.UseVisualStyleBackColor = false;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             this.btnEditCustomer.MouseEnter += new System.EventHandler(this.btnEditCustomer_MouseEnter);
             this.btnEditCustomer.MouseLeave += new System.EventHandler(this.btnEditCustomer_MouseLeave);
             // 

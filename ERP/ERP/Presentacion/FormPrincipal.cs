@@ -1065,9 +1065,9 @@ namespace ERP
         {
             if (!dniFilaSeleccionadaClientes.Equals(""))
             {
-                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
-                deletedUser.ShowDialog();
-                filtroTotalUsuarios();
+                ConfirmarBorrarCliente deleteCustomer = new ConfirmarBorrarCliente(dgvCustomers,dniFilaSeleccionadaClientes);
+                deleteCustomer.ShowDialog();
+                filtroTotalClientes();
             }
             else
             {
@@ -1097,6 +1097,23 @@ namespace ERP
                     emailFilaSellecionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[5].Value.ToString();
                     cityFilaSeleccionadaClientes = dgvCustomers.Rows[e.RowIndex].Cells[6].Value.ToString();
                 }
+            }
+        }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            if (!rolFilaSellecionadaUsers.Equals(""))
+            {
+                EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
+                editUser.ShowDialog();
+                filtroTotalUsuarios();//Usa cargar tabla usuariospara actualizar tabla
+            }
+            else
+            {
+                String mensaje = "No se ha selecionado ninguna fila.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                //MessageBox.Show("No se ha sellecionado ninguna fila.");
             }
         }
     }
