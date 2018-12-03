@@ -377,14 +377,14 @@ namespace ERP
             dgvCategorie.Height = this.Height - 100;
 
             //Diseño
-            panel1.Width = tbcMenuPrincipal.Width;
-            panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
+            //panel1.Width = tbcMenuPrincipal.Width;
+            //panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
 
             panel3.Width = tbcMenuPrincipal.Width;
             panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
-            panel4.Width = tbcMenuPrincipal.Width;
-            panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
+            //panel4.Width = tbcMenuPrincipal.Width;
+            //panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
             panel2.Width = tbcMenuPrincipal.Width;
             panel2.Height = tbcMenuPrincipal.Height;
