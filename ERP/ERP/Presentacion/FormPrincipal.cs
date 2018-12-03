@@ -357,6 +357,9 @@ namespace ERP
             panel3.Width = tbcMenuPrincipal.Width;
             panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
+            panel4.Width = tbcMenuPrincipal.Width;
+            panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
+
             panel2.Width = tbcMenuPrincipal.Width;
             panel2.Height = tbcMenuPrincipal.Height;
 
