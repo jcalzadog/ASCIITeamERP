@@ -22,7 +22,7 @@ namespace ERP.Presentacion.Products
 
         private void btnSaveAnhother_Click(object sender, EventArgs e)
         {
-            Boolean creado = producto.gestorProducto.nuevoProducto(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Convert.ToInt32(txtPegi.Text), Convert.ToInt32(txtPrice.Text));
+            Boolean creado = producto.gestorProducto.nuevoProducto(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),txtPegi.Text, txtPrice.Text);
             if (creado)
             {
                 txtName.Text = "";
