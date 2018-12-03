@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace ERP.Presentacion.Categories
 {
     public partial class AddCategoria : Form
     {
+        Categorias categoria;
         public AddCategoria()
         {
             InitializeComponent();
+            categoria = new Categorias();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -24,11 +27,18 @@ namespace ERP.Presentacion.Categories
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            categoria.gestor.insertCategorias(textBox1.Text);
+            categoria.gestor.readCategorias();
+            this.Dispose();
         }
 
+
+        //btnSaveAndAnother
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            categoria.gestor.insertCategorias(textBox1.Text);
+            textBox1.Text = "";
+            categoria.gestor.readCategorias();
 
         }
 

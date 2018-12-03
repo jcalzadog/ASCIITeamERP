@@ -161,12 +161,18 @@ namespace ERP.Dominio.Gestores
                 existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE="+ (idRol) +" AND NAME ='" + nombreRol.ToUpper()+"'");
                 if(existe != 0)
                 {
-                    MessageBox.Show("El Rol se ha añadido correctamente.");
+                    String mensaje = "The user has been successfully deleted.";
+                    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                    cambio.ShowDialog();
+                    //MessageBox.Show("El Rol se ha añadido correctamente.");
                     creado = true;
                 }
             } else
             {
-                MessageBox.Show("El Rol ya existe.");
+                String mensaje = "The user has been successfully deleted.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                MessageBox.Show("The Role already exists.");
             }
 
 
@@ -214,7 +220,7 @@ namespace ERP.Dominio.Gestores
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "IDROLE=" + (idRol) + " AND NAME ='" + nombreRol.ToUpper() + "'");
                 if (existe != 0)
                 {
-                    MessageBox.Show("El Rol se ha modificado correctamente.");
+                    MessageBox.Show("The Role has been modified correctly.");
                 }
         }
 
@@ -237,7 +243,7 @@ namespace ERP.Dominio.Gestores
             conector.setData(sentencia2);
 
 
-            String mensaje = "El rol se ha eliminado correctamente.";
+            String mensaje = "The role has been successfully deleted.";
             VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
             cambio.ShowDialog();
             //MessageBox.Show("El usuario se ha eliminado correctamente.");
