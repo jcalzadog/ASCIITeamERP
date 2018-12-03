@@ -374,6 +374,9 @@ namespace ERP
             panel3.Width = tbcMenuPrincipal.Width;
             panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
+            panel4.Width = tbcMenuPrincipal.Width;
+            panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
+
             panel2.Width = tbcMenuPrincipal.Width;
             panel2.Height = tbcMenuPrincipal.Height;
 
@@ -426,13 +429,12 @@ namespace ERP
 
         private void btnDeleteCategorie_Click(object sender, EventArgs e)
         {
-            String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
-            if (MessageBox.Show("Do you want to delete this categorie ?", "Delete Categorie", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                categoria.gestor.deleteCategoria(name);
-
-
-            }
+            DeleteCategorie dc = new DeleteCategorie();
+            dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            
+            dc.ShowDialog();
+         
+       
             cargarCategorias();
         }
 

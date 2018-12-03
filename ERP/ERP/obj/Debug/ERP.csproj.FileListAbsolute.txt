@@ -106,4 +106,8 @@ C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+<<<<<<< HEAD
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+=======
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+>>>>>>> 1f13829e18200d285bd8e19702df905256509848

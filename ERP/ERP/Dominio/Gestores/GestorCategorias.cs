@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Presentacion.ErroresCambios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace ERP.Dominio.Gestores
 
         public void insertCategorias(String name) {
              Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME='" + name + "' AND DELETED =0");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND DELETED =0");
 
             if (existe == 0)
             {
@@ -34,39 +35,43 @@ namespace ERP.Dominio.Gestores
                
                
 
-                String sentencia1 = "INSERT INTO CATEGORIES VALUES(" + (idCategoria + 1) + ",'" + name + "',0)";
+                String sentencia1 = "INSERT INTO CATEGORIES VALUES(" + (idCategoria + 1) + ",UPPER('" + name + "'),0)";
                 conector.setData(sentencia1);
 
                 
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME='" + name + "' AND IDCATEGORY =" + (idCategoria + 1) );
+                existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND IDCATEGORY =" + (idCategoria + 1) );
 
                 if (existe > 0)
                 {
-                    MessageBox.Show("La categoria se ha añadido correctamente.");
-                    creado = true;
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Se ha añadido correctamente");
+                    vp.ShowDialog();
                 }
             }
             else
             {
-               
-               
-                MessageBox.Show("Esa categoria ya existe");
+
+
+                VentanaPersonalizada vp = new VentanaPersonalizada("Ya existe esa categoria");
+                vp.ShowDialog();
             }
           
 
         }
 
         public void updateCategorias(String name) {
-            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME='" + FormPrincipal.nombreviejo + "'");
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME='" + name + "' AND DELETED = 0");
+            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + name + "') AND DELETED = 0");
             if (existe == 0)
             {
                
                conector.setData("UPDATE CATEGORIES SET NAME=UPPER('" + name + "') WHERE IDCATEGORY=" + id);
+                VentanaPersonalizada vp = new VentanaPersonalizada("Se ha actualizado correctamente");
+                vp.ShowDialog();
             }
             else {
-                MessageBox.Show("Esa categoria ya existe");
+                VentanaPersonalizada vp = new VentanaPersonalizada("Ya existe esa categoria");
+                vp.ShowDialog();
             }
             
         }
