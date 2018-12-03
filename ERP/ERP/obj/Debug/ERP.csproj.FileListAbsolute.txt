@@ -113,3 +113,18 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
 >>>>>>> 3a429b0fc65b4efef6d8f6d4bd74ebad772a7370
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.AddCategoria.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.UpdCategorie.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.NuevoCliente.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.SelectZipCode.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.ErroresCambios.VentanaPersonalizada.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarUsuario.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ES-ES\ERP.resources.dll
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll

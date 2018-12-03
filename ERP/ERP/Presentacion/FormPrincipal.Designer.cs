@@ -355,15 +355,15 @@
             //
             // cbxDeleted
             //
-            this.cbxDeleted.AutoSize = true;
-            this.cbxDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDeleted.Location = new System.Drawing.Point(753, 12);
-            this.cbxDeleted.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxDeleted.Name = "cbxDeleted";
-            this.cbxDeleted.Size = new System.Drawing.Size(86, 21);
-            this.cbxDeleted.TabIndex = 10;
-            this.cbxDeleted.Text = "Deleted";
-            this.cbxDeleted.UseVisualStyleBackColor = true;
+            //this.cbxDeleted.AutoSize = true;
+            //this.cbxDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.cbxDeleted.Location = new System.Drawing.Point(753, 12);
+            //this.cbxDeleted.Margin = new System.Windows.Forms.Padding(4);
+            //this.cbxDeleted.Name = "cbxDeleted";
+            //this.cbxDeleted.Size = new System.Drawing.Size(86, 21);
+            //this.cbxDeleted.TabIndex = 10;
+            //this.cbxDeleted.Text = "Deleted";
+            //this.cbxDeleted.UseVisualStyleBackColor = true;
             // cbxCustomerDeleted
             //
             this.cbxCustomerDeleted.AutoSize = true;

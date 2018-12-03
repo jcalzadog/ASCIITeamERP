@@ -983,6 +983,8 @@ namespace ERP
                     priceFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
                 }
             }
+
+        }
         private void cbxDeleted_CheckedChanged(object sender, EventArgs e)
         {
             if (cbxUserDeleted.CheckState == CheckState.Checked)
