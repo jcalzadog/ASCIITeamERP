@@ -48,7 +48,7 @@ namespace ERP.Dominio.Gestores
                 Decimal idPlatfrom = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
                 Decimal idCategory = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
 
-                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+")";
+                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "',"+idCat+","+idPlat+","+pegi+","+price+","+0+")";
                 conector.setData(sentencia);
                 
                 existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);

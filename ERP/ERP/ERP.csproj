@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorPlatform.cs" />
+    <Compile Include="Dominio\Platform.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
     <Compile Include="Dominio\Gestores\GestorProducto.cs" />
