@@ -51,7 +51,7 @@ namespace ERP
             cargarComponentes();
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos("PR.DELETED=0");
-            //cargarTablaClientes("DELETED=0");
+            cargarTablaClientes("C.DELETED=0");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -61,7 +61,7 @@ namespace ERP
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
 
 
-            controlErrores();
+            controlErroresUsuarios();
             controlErroresProduct();
         }
 
@@ -235,12 +235,11 @@ namespace ERP
             dgvCustomers.Columns.Add("ADDRESS", "ADDRESS");
             dgvCustomers.Columns.Add("PHONE", "PHONE");
             dgvCustomers.Columns.Add("EMAIL", "EMAIL");
-            dgvCustomers.Columns.Add("REGION", "REGION");
             dgvCustomers.Columns.Add("CITY", "CITY");
 
             foreach (DataRow row in tcustomers.Rows)
             {
-                dgvCustomers.Rows.Add(row["DNI"], row["NAME"], row["SURNAME"], row["ADDRESS"], row["PHONE"], row["EMAIL"], row["REGION"], row["CITY"]);
+                dgvCustomers.Rows.Add(row["DNI"], row["NAME"], row["SURNAME"], row["ADDRESS"], row["PHONE"], row["EMAIL"], row["CITY"]);
             }
             //dgvUsers.ColumnHeadersVisible = false;
             dgvCustomers.RowHeadersVisible = false;
@@ -259,7 +258,7 @@ namespace ERP
 
         }
 
-        private void controlErrores()
+        private void controlErroresUsuarios()
         {
             /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
              * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
@@ -371,7 +370,7 @@ namespace ERP
             {
                 ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
                 deletedUser.ShowDialog();
-                filtroTotal();
+                filtroTotalUsuarios();
             } else
             {
                 String mensaje = "No se ha selecionado ninguna fila.";
@@ -386,7 +385,7 @@ namespace ERP
         {
             NuevoUsuario newUser = new NuevoUsuario();
             newUser.ShowDialog();
-            filtroTotal();//Usa cargar tabla usuarios para actualizar tabla
+            filtroTotalUsuarios();//Usa cargar tabla usuarios para actualizar tabla
 
         }
 
@@ -712,7 +711,7 @@ namespace ERP
 
         private void tbxSearchUser_KeyUp(object sender, KeyEventArgs e)
         {
-            filtroTotal();
+            filtroTotalUsuarios();
         }
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -745,7 +744,7 @@ namespace ERP
             {
                 btnDeleteUser.Enabled = true;
             }
-            filtroTotal();
+            filtroTotalUsuarios();
             //String condicion = "";
 
             //else if (cbxUserDeleted.CheckState != CheckState.Checked)
@@ -755,7 +754,7 @@ namespace ERP
             //cargarTablaUsuarios(condicion);
 
         }
-        public void filtroTotal()
+        public void filtroTotalUsuarios()
         {
             bool deleted = false;
             if(cbxUserDeleted.CheckState == CheckState.Checked)
@@ -783,7 +782,7 @@ namespace ERP
             {
                 EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
                 editUser.ShowDialog();
-                filtroTotal();//Usa cargar tabla usuariospara actualizar tabla
+                filtroTotalUsuarios();//Usa cargar tabla usuariospara actualizar tabla
             }
             else
             {
@@ -912,12 +911,58 @@ namespace ERP
         {
             NuevoCliente newCustomer = new NuevoCliente();
             newCustomer.ShowDialog();
-            //filtroTotal();
+            filtroTotalClientes();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxUserDeleted.CheckState == CheckState.Checked)
+            {
+                btnDeleteUser.Enabled = false;
+
+
+            }
+            else
+            {
+                btnDeleteUser.Enabled = true;
+            }
+            filtroTotalClientes();
+        }
+
+        public void filtroTotalClientes()
+        {
+            bool deleted = false;
+            if (cbxCustomerDeleted.CheckState == CheckState.Checked)
+            {
+                deleted = true;
+            }
+            filtrarTablaCliente(tbxSearchCustomer.Text.Equals("Search a Name...") ? "" : tbxSearchCustomer.Text, deleted);
+        }
+
+        public void filtrarTablaCliente(String name, bool check)
+        {
+            String condicion = "";
+
+            if (check)
+            {
+                condicion += " C.NAME like '%" + name + "%' AND C.DELETED=1";
+            }
+            else
+            {
+                condicion += " C.NAME like '%" + name + "%' AND C.DELETED=0";
+            }
+
+            cargarTablaClientes(condicion);
+        }
+
+        private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalClientes();
         }
     }
 }

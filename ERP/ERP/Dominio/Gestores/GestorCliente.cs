@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ERP.Presentacion.ErroresCambios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,16 +14,24 @@ namespace ERP.Dominio.Gestores
     class GestorCliente
     {
         public DataTable tabla { get; set; }
+        public DataTable tablaCities { get; set; }
+        public DataTable tablaZipCode { get; set; }
         ConnectOracle conector;
         LinkedList<Object> listaRegiones;
         LinkedList<Object> listaStates;
+        LinkedList<Object> listaCities;
+        LinkedList<Object> listaZipCode;
 
         public GestorCliente()
         {
             conector = new ConnectOracle();
             tabla = new DataTable();
+            tablaCities = new DataTable();
+            tablaZipCode = new DataTable();
             listaRegiones = new LinkedList<Object>();
             listaStates = new LinkedList<Object>();
+            listaCities = new LinkedList<Object>();
+            listaZipCode = new LinkedList<Object>();
         }
 
         public void leerClientes(String condicion)
@@ -31,13 +41,13 @@ namespace ERP.Dominio.Gestores
 
             if (condicion.Equals(""))
             {
-                data = conector.getData("SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL,R.REGION,T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY", "CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY");
+                data = conector.getData("SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL, T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY", "CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY");
             }
             else
             {
-                data = conector.getData("SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL,R.REGION,T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY WHERE " + condicion, "CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY");
+                data = conector.getData("SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL, T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY WHERE " + condicion, "CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY");
             }
-            tabla = data.Tables["CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY"];
+            tabla = data.Tables["CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY"];
         }
 
         public void refrescarRegions(ComboBox cmbRegions)
@@ -63,65 +73,126 @@ namespace ERP.Dominio.Gestores
 
         public void refrescarState(ComboBox cmbState,String region)
         {
-            Decimal numState = (Decimal)conector.DLookUp("MAX(STATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "'");
+            listaStates = new LinkedList<Object>();
+            Decimal numState = (Decimal)conector.DLookUp("MAX(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "'");
             //int numRoles = int.Parse(numR);
+            LinkedList<Object> listaI = new LinkedList<Object>();
 
             for (int i = 1; i <= numState; i++)
             {
-                listaRegiones.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "' AND IDSTATE=" + i));
+                listaI.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + region + "' AND IDSTATE=" + i));
+            }
+
+
+            for (int i = 1; i < numState; i++)
+            {
+
+                if (!listaI.ElementAt(i).ToString().Equals("-1"))
+                {
+                    listaStates.AddLast(listaI.ElementAt(i));
+                }
+
             }
 
             cmbState.Items.Clear();
             int cont = 0;
             cmbState.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
+            while (cont < listaStates.Count)
             {
-                cmbState.Items.Add(listaRegiones.ElementAt(cont));
+                cmbState.Items.Add(listaStates.ElementAt(cont));
                 cont++;
             }
-            cmbState.SelectedIndex = 0;
+            //cmbState.SelectedIndex = 0;
         }
 
-        public void refrescarCities(ComboBox cmbRegions)
+        public void refrescarCities(ComboBox cmbCities, String nameState)
         {
-            Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
+            //listaCities = new LinkedList<Object>();
+            //Decimal numCities = (Decimal)conector.DLookUp("COUNT(C.IDCITY)", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE", "S.STATE='" + nameState + "'");
 
-            for (int i = 1; i <= numRegions; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
+            ////int numRoles = int.Parse(numR);
+            //LinkedList<Object> listaI = new LinkedList<Object>();
 
-            cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
-            }
-            cmbRegions.SelectedIndex = 0;
+            //for (int i = 1; i <= numCities; i++)
+            //{
+            //    listaI.AddLast(conector.DLookUp("C.CITY","CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE", "S.STATE = '" + nameState + "' AND C.IDCITY=" + i));
+            //}
+            //listaI = conector.DLookUp("C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE", "S.STATE = '" + nameState + "'"));
+
+            //for (int i = 1; i < numCities; i++)
+            //{
+
+            //    if (!listaI.ElementAt(i).ToString().Equals("-1"))
+            //    {
+            //        listaCities.AddLast(listaI.ElementAt(i));
+            //    }
+
+            //}
+
+            //cmbCities.Items.Clear();
+            //int cont = 0;
+            //cmbCities.Items.Add("Ninguno");
+            //while (cont < listaStates.Count)
+            //{
+            //    cmbCities.Items.Add(listaCities.ElementAt(cont));
+            //    cont++;
+            //}
+            //cmbCities.SelectedIndex = 0;
+
+            DataSet data = new DataSet();
+            data = conector.getData("SELECT C.CITY NAME FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE WHERE S.STATE = '" + nameState + "'", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE");
+            tablaCities = data.Tables["CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE"];
+        }
+    
+
+        public void refrescarZipCode(String city)
+        {
+            DataSet data = new DataSet();
+            data = conector.getData("SELECT Z.ZIPCODE CODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY WHERE C.CITY = '" + city + "'", "FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY");
+            tablaZipCode = data.Tables["FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES H ON Z.IDZIPCODE = H.REFZIPCODE INNER JOIN CITIES C ON H.REFCITY= C.IDCITY"];
         }
 
-        public void refrescarZipCode(ComboBox cmbRegions)
+        public Boolean nuevoCliente(String DNI,String name,String surname,String address,int phone,String email,String zipCode)
         {
-            Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
+            Boolean creado = false;
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(DNI)", "CUSTOMERS", "DNI='" + DNI + "'");
 
-            for (int i = 1; i <= numRegions; i++)
+            if (existe == 0 && validarDNI(DNI))
             {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
+                Decimal idCustomer = (Decimal)conector.DLookUp("MAX(IDCUSTOMER)", "CUSTOMERS", "");
 
-            cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
-            {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
+                String sentencia1 = "INSERT INTO CUSTOMERS VALUES("+ (idCustomer+1)+",'" + DNI + "','" + name + "','" + surname + "','"+address+"',"+phone+",'"+email+"',"+Int32.Parse(zipCode)+",0)";
+                conector.setData(sentencia1);
+
+                existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + DNI + "'");
+
+                if (existe > 0)
+                {
+                    String mensaje = "The customer has been added correctly.";
+                    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                    cambio.ShowDialog();
+                    //MessageBox.Show("El usuario se ha añadido correctamente.");
+                    creado = true;
+                }
             }
-            cmbRegions.SelectedIndex = 0;
+            else
+            {
+                String mensaje = "DNI is not valid.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+                //MessageBox.Show("El nombre de usuario no es Valido.");
+            }
+            return creado;
+        }
+
+        public Boolean validarDNI(String DNI)
+        {
+
+            if (DNI.Contains("'"))
+            {
+                return false;
+            }
+            return Regex.IsMatch(DNI, "^[0-9]{8}[A-Z]");
         }
 
         public void eliminarCliente(DataGridView dgvUsersaa, String dniFilaSeleccionada)

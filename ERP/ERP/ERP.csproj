@@ -85,6 +85,12 @@
     <Compile Include="Presentacion\Clientes\NuevoCliente.Designer.cs">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Clientes\SelectZipCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Clientes\SelectZipCode.Designer.cs">
+      <DependentUpon>SelectZipCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ErroresCambios\VentanaPersonalizada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Clientes\NuevoCliente.resx">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Clientes\SelectZipCode.resx">
+      <DependentUpon>SelectZipCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ErroresCambios\VentanaPersonalizada.resx">
       <DependentUpon>VentanaPersonalizada.cs</DependentUpon>
