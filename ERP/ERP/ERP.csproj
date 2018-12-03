@@ -54,9 +54,7 @@
     <Compile Include="Dominio\Customer.cs" />
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
-    <Compile Include="Dominio\Gestores\GestorPlatform.cs" />
     <Compile Include="Dominio\Order.cs" />
-    <Compile Include="Dominio\Platform.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
     <Compile Include="Dominio\Gestores\GestorProducto.cs" />
@@ -120,6 +118,24 @@
     </Compile>
     <Compile Include="Presentacion\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\AddPlataforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\AddPlataforma.Designer.cs">
+      <DependentUpon>AddPlataforma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\DeletePlataforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\DeletePlataforma.Designer.cs">
+      <DependentUpon>DeletePlataforma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\UpdatePlataforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Plataformas\UpdatePlataforma.Designer.cs">
+      <DependentUpon>UpdatePlataforma.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Products\AñadirProducto.cs">
       <SubType>Form</SubType>
@@ -219,6 +235,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Plataformas\AddPlataforma.resx">
+      <DependentUpon>AddPlataforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Plataformas\DeletePlataforma.resx">
+      <DependentUpon>DeletePlataforma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Plataformas\UpdatePlataforma.resx">
+      <DependentUpon>UpdatePlataforma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Products\AñadirProducto.resx">
       <DependentUpon>AñadirProducto.cs</DependentUpon>

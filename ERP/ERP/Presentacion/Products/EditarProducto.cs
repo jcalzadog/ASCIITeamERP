@@ -16,12 +16,12 @@ namespace ERP.Presentacion.Products
     {
         Producto producto;
         Categorias categoria;
-        Platform plataforma;
+        Platforms plataforma;
 
         public EditarProducto(String nombre,String catVieja, String platVieja,String pegi, String price)
         {
             producto = new Producto();
-            plataforma = new Platform();
+            plataforma = new Platforms();
             categoria = new Categorias();
             InitializeComponent();
             cargarDatos(nombre,catVieja,platVieja,pegi,price);
@@ -36,7 +36,7 @@ namespace ERP.Presentacion.Products
         {
             txtName.Text = name;
             categoria.gestor.refrescarCategorias(cmbCategory);
-            plataforma.gestor.refrescarPlatform(cmbPlatform);
+            plataforma.gestorplataforma.refrescarPlatform(cmbPlatform);
             cmbCategory.SelectedItem = catVieja;
             cmbPlatform.SelectedItem = platVieja;
             txtPegi.Text = pegi;
