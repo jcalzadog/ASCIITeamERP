@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,7 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,7 +47,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> b655e066e315af72026bc417c1332e577612326e
             this.tbcMenuPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -142,23 +139,19 @@
             //
             this.tabPage1.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage1.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage1.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             //
@@ -174,23 +167,21 @@
             this.tabPage2.Controls.Add(this.btnNewUser);
             this.tabPage2.Controls.Add(this.dgvUsers);
             this.tabPage2.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage2.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
@@ -226,19 +217,16 @@
             this.cbxUserDeleted.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             //
             // tbxSearchUser
-<<<<<<< HEAD
+
             // 
             this.tbxSearchUser.Location = new System.Drawing.Point(532, 14);
             this.tbxSearchUser.Margin = new System.Windows.Forms.Padding(4);
-=======
-            //
-<<<<<<< HEAD
+
             this.tbxSearchUser.Location = new System.Drawing.Point(532, 14);
             this.tbxSearchUser.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.tbxSearchUser.Location = new System.Drawing.Point(399, 11);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tbxSearchUser.Name = "tbxSearchUser";
             this.tbxSearchUser.Size = new System.Drawing.Size(207, 22);
             this.tbxSearchUser.TabIndex = 8;
@@ -324,17 +312,15 @@
             this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
+
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.dgvUsers.Location = new System.Drawing.Point(8, 43);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.dgvUsers.Location = new System.Drawing.Point(6, 35);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -361,23 +347,21 @@
             this.tabPage3.Controls.Add(this.btnNewCustomer);
             this.tabPage3.Controls.Add(this.dgvCustomers);
             this.tabPage3.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage3.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Customers";
             //
@@ -385,17 +369,15 @@
             //
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
-<<<<<<< HEAD
+
             this.panel3.Location = new System.Drawing.Point(0, 554);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.panel3.Location = new System.Drawing.Point(0, 554);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.panel3.Location = new System.Drawing.Point(0, 450);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1340, 606);
             this.panel3.TabIndex = 11;
@@ -404,17 +386,14 @@
             //
             this.cbxCustomerDeleted.AutoSize = true;
             this.cbxCustomerDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.cbxCustomerDeleted.Location = new System.Drawing.Point(753, 12);
             this.cbxCustomerDeleted.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.cbxCustomerDeleted.Location = new System.Drawing.Point(753, 12);
             this.cbxCustomerDeleted.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.cbxCustomerDeleted.Location = new System.Drawing.Point(565, 10);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
             this.cbxCustomerDeleted.Name = "cbxCustomerDeleted";
             this.cbxCustomerDeleted.Size = new System.Drawing.Size(86, 21);
             this.cbxCustomerDeleted.TabIndex = 10;
@@ -425,17 +404,15 @@
             // tbxSearchCustomer
             //
             this.tbxSearchCustomer.ForeColor = System.Drawing.SystemColors.GrayText;
-<<<<<<< HEAD
+
             this.tbxSearchCustomer.Location = new System.Drawing.Point(496, 11);
             this.tbxSearchCustomer.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.tbxSearchCustomer.Location = new System.Drawing.Point(496, 11);
             this.tbxSearchCustomer.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.tbxSearchCustomer.Location = new System.Drawing.Point(372, 9);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tbxSearchCustomer.Name = "tbxSearchCustomer";
             this.tbxSearchCustomer.Size = new System.Drawing.Size(249, 22);
             this.tbxSearchCustomer.TabIndex = 9;
@@ -525,23 +502,21 @@
             this.tabPage4.Controls.Add(this.btnEditOrder);
             this.tabPage4.Controls.Add(this.btnNewOrder);
             this.tabPage4.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage4.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Orders";
             //
@@ -561,17 +536,15 @@
             this.dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrders.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
+
             this.dgvOrders.Location = new System.Drawing.Point(8, 43);
             this.dgvOrders.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.dgvOrders.Location = new System.Drawing.Point(8, 43);
             this.dgvOrders.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.dgvOrders.Location = new System.Drawing.Point(6, 35);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvOrders.MultiSelect = false;
             this.dgvOrders.Name = "dgvOrders";
             dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -587,37 +560,30 @@
             this.dgvOrders.TabIndex = 20;
             //
             // dtpOrder
-<<<<<<< HEAD
+
             // 
             this.dtpOrder.Location = new System.Drawing.Point(883, 14);
             this.dtpOrder.Margin = new System.Windows.Forms.Padding(4);
-=======
-            //
-<<<<<<< HEAD
+
             this.dtpOrder.Location = new System.Drawing.Point(883, 14);
             this.dtpOrder.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.dtpOrder.Location = new System.Drawing.Point(662, 11);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
             this.dtpOrder.Name = "dtpOrder";
             this.dtpOrder.Size = new System.Drawing.Size(203, 22);
             this.dtpOrder.TabIndex = 19;
             //
             // txtSearchOrder
-<<<<<<< HEAD
+
             // 
             this.txtSearchOrder.Location = new System.Drawing.Point(683, 14);
             this.txtSearchOrder.Margin = new System.Windows.Forms.Padding(4);
-=======
-            //
-<<<<<<< HEAD
+
             this.txtSearchOrder.Location = new System.Drawing.Point(683, 14);
             this.txtSearchOrder.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.txtSearchOrder.Location = new System.Drawing.Point(512, 11);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.txtSearchOrder.Name = "txtSearchOrder";
             this.txtSearchOrder.Size = new System.Drawing.Size(191, 22);
             this.txtSearchOrder.TabIndex = 18;
@@ -703,71 +669,65 @@
             this.tabPage5.Controls.Add(this.btnUpdateProd);
             this.tabPage5.Controls.Add(this.btnNewProd);
             this.tabPage5.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage5.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Products";
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             this.tabPage5.Resize += new System.EventHandler(this.tabPage5_Resize);
             //
-<<<<<<< HEAD
-=======
+
             // label2
             //
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(681, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 17);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Categories";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            //
-            // label1
-            //
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(880, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Platforms";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            //
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
+            //this.label2.AutoSize = true;
+            //this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.label2.Location = new System.Drawing.Point(681, 18);
+            //this.label2.Name = "label2";
+            //this.label2.Size = new System.Drawing.Size(86, 17);
+            //this.label2.TabIndex = 22;
+            //this.label2.Text = "Categories";
+            //this.label2.Click += new System.EventHandler(this.label2_Click);
+            ////
+            //// label1
+            ////
+            //this.label1.AutoSize = true;
+            //this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            //this.label1.Location = new System.Drawing.Point(880, 18);
+            //this.label1.Name = "label1";
+            //this.label1.Size = new System.Drawing.Size(76, 17);
+            //this.label1.TabIndex = 21;
+            //this.label1.Text = "Platforms";
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // ckbDeleted
             //
             this.ckbDeleted.AutoSize = true;
             this.ckbDeleted.BackColor = System.Drawing.Color.DarkOrange;
             this.ckbDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbDeleted.ForeColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
+
             this.ckbDeleted.Location = new System.Drawing.Point(1113, 18);
             this.ckbDeleted.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-<<<<<<< HEAD
+
             this.ckbDeleted.Location = new System.Drawing.Point(689, 13);
             this.ckbDeleted.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
+
             this.ckbDeleted.Location = new System.Drawing.Point(835, 15);
             this.ckbDeleted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.ckbDeleted.Name = "ckbDeleted";
             this.ckbDeleted.Size = new System.Drawing.Size(86, 21);
             this.ckbDeleted.TabIndex = 20;
@@ -791,17 +751,15 @@
             this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProducts.Cursor = System.Windows.Forms.Cursors.Default;
-<<<<<<< HEAD
+
             this.dgvProducts.Location = new System.Drawing.Point(8, 43);
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.dgvProducts.Location = new System.Drawing.Point(8, 43);
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.dgvProducts.Location = new System.Drawing.Point(6, 35);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvProducts.MultiSelect = false;
             this.dgvProducts.Name = "dgvProducts";
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -817,43 +775,41 @@
             this.dgvProducts.TabIndex = 19;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             //
-<<<<<<< HEAD
+
             // txtSearchProd
             //
             this.txtSearchProd.Location = new System.Drawing.Point(465, 12);
             this.txtSearchProd.Margin = new System.Windows.Forms.Padding(5);
-=======
+
             // cmbFilPlatform
             //
-            this.cmbFilPlatform.FormattingEnabled = true;
-            this.cmbFilPlatform.Location = new System.Drawing.Point(965, 14);
-            this.cmbFilPlatform.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbFilPlatform.Name = "cmbFilPlatform";
-            this.cmbFilPlatform.Size = new System.Drawing.Size(140, 24);
-            this.cmbFilPlatform.TabIndex = 18;
-            this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
+            //this.cmbFilPlatform.FormattingEnabled = true;
+            //this.cmbFilPlatform.Location = new System.Drawing.Point(965, 14);
+            //this.cmbFilPlatform.Margin = new System.Windows.Forms.Padding(4);
+            //this.cmbFilPlatform.Name = "cmbFilPlatform";
+            //this.cmbFilPlatform.Size = new System.Drawing.Size(140, 24);
+            //this.cmbFilPlatform.TabIndex = 18;
+            //this.cmbFilPlatform.SelectedIndexChanged += new System.EventHandler(this.cmbFilPlatform_SelectedIndexChanged);
+            ////
+            //// cmbFilCategory
+            ////
+            //this.cmbFilCategory.FormattingEnabled = true;
+            //this.cmbFilCategory.Location = new System.Drawing.Point(777, 12);
+            //this.cmbFilCategory.Margin = new System.Windows.Forms.Padding(4);
+            //this.cmbFilCategory.Name = "cmbFilCategory";
+            //this.cmbFilCategory.Size = new System.Drawing.Size(95, 24);
+            //this.cmbFilCategory.TabIndex = 17;
+            //this.cmbFilCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFilCategory_SelectedIndexChanged);
             //
-            // cmbFilCategory
-            //
-            this.cmbFilCategory.FormattingEnabled = true;
-            this.cmbFilCategory.Location = new System.Drawing.Point(777, 12);
-            this.cmbFilCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbFilCategory.Name = "cmbFilCategory";
-            this.cmbFilCategory.Size = new System.Drawing.Size(95, 24);
-            this.cmbFilCategory.TabIndex = 17;
-            this.cmbFilCategory.SelectedIndexChanged += new System.EventHandler(this.cmbFilCategory_SelectedIndexChanged);
-            //
-            // txtSearchProd
-<<<<<<< HEAD
+
             // 
             this.txtSearchProd.Location = new System.Drawing.Point(465, 12);
             this.txtSearchProd.Margin = new System.Windows.Forms.Padding(5);
-=======
+
             //
             this.txtSearchProd.Location = new System.Drawing.Point(349, 10);
             this.txtSearchProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.txtSearchProd.Name = "txtSearchProd";
             this.txtSearchProd.Size = new System.Drawing.Size(207, 22);
             this.txtSearchProd.TabIndex = 16;
@@ -915,34 +871,30 @@
             this.tabPage6.Controls.Add(this.btnUpdateCategorie);
             this.tabPage6.Controls.Add(this.btnNewCategorie);
             this.tabPage6.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage6.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Categories";
             //
             // dgvCategorie
-<<<<<<< HEAD
+
             // 
             this.dgvCategorie.AllowUserToResizeColumns = false;
             this.dgvCategorie.AllowUserToResizeRows = false;
-=======
-            //
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvCategorie.BackgroundColor = System.Drawing.Color.Black;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
@@ -953,7 +905,7 @@
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCategorie.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvCategorie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
+
             dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -964,7 +916,7 @@
             this.dgvCategorie.DefaultCellStyle = dataGridViewCellStyle27;
             this.dgvCategorie.Location = new System.Drawing.Point(8, 43);
             this.dgvCategorie.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -973,14 +925,13 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategorie.DefaultCellStyle = dataGridViewCellStyle9;
-<<<<<<< HEAD
+
             this.dgvCategorie.Location = new System.Drawing.Point(8, 43);
             this.dgvCategorie.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategorie.MultiSelect = false;
-=======
+
             this.dgvCategorie.Location = new System.Drawing.Point(6, 35);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvCategorie.Name = "dgvCategorie";
             this.dgvCategorie.ReadOnly = true;
             this.dgvCategorie.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1037,34 +988,30 @@
             this.tabPage7.Controls.Add(this.btnUpdatePlatform);
             this.tabPage7.Controls.Add(this.btnNewPlatform);
             this.tabPage7.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage7.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage7.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage7.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Platforms";
             //
             // dgvPlatforms
-<<<<<<< HEAD
+
             // 
             this.dgvPlatforms.AllowUserToResizeColumns = false;
             this.dgvPlatforms.AllowUserToResizeRows = false;
-=======
-            //
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvPlatforms.BackgroundColor = System.Drawing.Color.Black;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
@@ -1075,42 +1022,37 @@
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPlatforms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
+
             this.dgvPlatforms.Location = new System.Drawing.Point(8, 43);
             this.dgvPlatforms.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPlatforms.MultiSelect = false;
-=======
-<<<<<<< HEAD
+
             this.dgvPlatforms.Location = new System.Drawing.Point(8, 43);
             this.dgvPlatforms.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.dgvPlatforms.Location = new System.Drawing.Point(6, 35);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.dgvPlatforms.Name = "dgvPlatforms";
             this.dgvPlatforms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlatforms.Size = new System.Drawing.Size(803, 400);
             this.dgvPlatforms.TabIndex = 3;
-<<<<<<< HEAD
+
             this.dgvPlatforms.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlatforms_CellClick);
             // 
-=======
-            //
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
+ 
             // btnDeletePlatform
             //
             this.btnDeletePlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.btnDeletePlatform.Location = new System.Drawing.Point(327, 9);
             this.btnDeletePlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.btnDeletePlatform.Location = new System.Drawing.Point(295, 10);
             this.btnDeletePlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.btnDeletePlatform.Location = new System.Drawing.Point(221, 8);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.btnDeletePlatform.Name = "btnDeletePlatform";
             this.btnDeletePlatform.Size = new System.Drawing.Size(139, 28);
             this.btnDeletePlatform.TabIndex = 2;
@@ -1123,17 +1065,15 @@
             // btnUpdatePlatform
             //
             this.btnUpdatePlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.btnUpdatePlatform.Location = new System.Drawing.Point(161, 10);
             this.btnUpdatePlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.btnUpdatePlatform.Location = new System.Drawing.Point(147, 10);
             this.btnUpdatePlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.btnUpdatePlatform.Location = new System.Drawing.Point(110, 8);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.btnUpdatePlatform.Name = "btnUpdatePlatform";
             this.btnUpdatePlatform.Size = new System.Drawing.Size(158, 28);
             this.btnUpdatePlatform.TabIndex = 1;
@@ -1146,17 +1086,15 @@
             // btnNewPlatform
             //
             this.btnNewPlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.btnNewPlatform.Location = new System.Drawing.Point(18, 10);
             this.btnNewPlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.btnNewPlatform.Location = new System.Drawing.Point(4, 10);
             this.btnNewPlatform.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.btnNewPlatform.Location = new System.Drawing.Point(3, 8);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.btnNewPlatform.Name = "btnNewPlatform";
             this.btnNewPlatform.Size = new System.Drawing.Size(135, 28);
             this.btnNewPlatform.TabIndex = 0;
@@ -1173,23 +1111,21 @@
             this.tabPage8.Controls.Add(this.btnLogOut);
             this.tabPage8.Controls.Add(this.btnExit);
             this.tabPage8.Location = new System.Drawing.Point(104, 4);
-<<<<<<< HEAD
+
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage8.Size = new System.Drawing.Size(1140, 484);
-=======
-<<<<<<< HEAD
+
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage8.Size = new System.Drawing.Size(1140, 484);
-=======
+
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage8.Size = new System.Drawing.Size(828, 392);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "System";
             //
@@ -1205,17 +1141,15 @@
             // btnLogOut
             //
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
+
             this.btnLogOut.Location = new System.Drawing.Point(32, 53);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.btnLogOut.Location = new System.Drawing.Point(32, 53);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-=======
+
             this.btnLogOut.Location = new System.Drawing.Point(24, 43);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(281, 28);
             this.btnLogOut.TabIndex = 1;
@@ -1241,30 +1175,24 @@
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             //
             // FormPrincipal
-<<<<<<< HEAD
+
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-=======
-            //
-<<<<<<< HEAD
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-=======
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1235, 490);
             this.ControlBox = false;
             this.Controls.Add(this.tbcMenuPrincipal);
-<<<<<<< HEAD
+
             this.Margin = new System.Windows.Forms.Padding(4);
-=======
-<<<<<<< HEAD
+
             this.Margin = new System.Windows.Forms.Padding(4);
-=======
->>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
->>>>>>> b655e066e315af72026bc417c1332e577612326e
+
             this.Name = "FormPrincipal";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
