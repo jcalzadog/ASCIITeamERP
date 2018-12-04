@@ -7,10 +7,10 @@ namespace ERP.Presentacion.Orders
     {
         decimal idCustomer;
         decimal userId;
-        public NewOrder( decimal userId)
+        public NewOrder( Object userId)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.userId = (decimal)userId;
             initPayMethods();
         }
 

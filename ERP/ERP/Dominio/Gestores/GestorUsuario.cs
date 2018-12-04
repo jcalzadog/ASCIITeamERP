@@ -160,9 +160,9 @@ namespace ERP.Dominio.Gestores
             return passDB;
         }
 
-        public Decimal extraerIdUserLogueado(String nameUser)
+        public Object extraerIdUserLogueado(String nameUser)
         {
-            return (Decimal)conector.DLookUp("IDUSER", "USERS", "NAME='" + nameUser + "'");
+            return conector.DLookUp("IDUSER", "USERS", "NAME='" + nameUser + "'");
         }
 
         public Boolean nuevoUsuario(User U)//(String name,String pass,String rol)

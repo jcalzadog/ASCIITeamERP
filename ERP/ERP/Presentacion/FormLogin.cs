@@ -17,7 +17,7 @@ namespace ERP
     public partial class FormLogin : Form
     {
         User usuario;
-        public String nombreUsuario;
+        public String nombreUsuario="";
         TabControl tbMenuP;
 
 

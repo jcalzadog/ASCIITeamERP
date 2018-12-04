@@ -30,7 +30,7 @@ namespace ERP
     public partial class FormPrincipal : Form
     {
         private String nombreUsuarioLogueado;
-        private Decimal idUsuarioLogueado;
+        private Object idUsuarioLogueado;
 
         private User usuario;
         private Customer cliente;
@@ -94,6 +94,8 @@ namespace ERP
             controlErroresUsuarios();
             controlErroresProduct();
             controlErroresPlataformas();
+            controlErroresCategorias();
+            controlErroresClientes();
         }
 
 
@@ -367,12 +369,16 @@ namespace ERP
              * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
              * fila seleccionada por defecto.*/
 
-            if (nombreFilaSeleccionadaUsers.Equals(""))
+            if (nombreFilaSeleccionadaProducts.Equals(""))
             {
                 dgvProducts.Rows[dgvProducts.Rows[0].Index].Selected = true;
                 dgvProducts.CurrentCell = dgvProducts.Rows[dgvProducts.Rows[0].Index].Cells[0];
-                nombreFilaSeleccionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
-                rolFilaSellecionadaUsers = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
+
+                nombreFilaSeleccionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
+                catViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
+                platViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[2].Value.ToString();
+                pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
+                priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
             }
         }
 
@@ -398,13 +404,36 @@ namespace ERP
              * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
              * fila seleccionada por defecto.*/
 
-            if (nombreviejoPlataformas.Equals(""))
+            if (nombreviejoCategoria.Equals(""))
             {
                 dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Selected = true;
                 dgvCategorie.CurrentCell = dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Cells[0];
-                nombreviejoPlataformas = dgvCategorie.Rows[dgvCategorie.SelectedRows[0].Index].Cells[0].Value.ToString();
+                nombreviejoCategoria = dgvCategorie.Rows[dgvCategorie.SelectedRows[0].Index].Cells[0].Value.ToString();
             }
         }
+
+        private void controlErroresClientes()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (dniFilaSeleccionadaClientes.Equals(""))
+            {
+                dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Selected = true;
+                dgvCustomers.CurrentCell = dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Cells[0];
+
+                dniFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[0].Value.ToString();
+                nameFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[1].Value.ToString();
+                surnameFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[2].Value.ToString();
+                addressFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[3].Value.ToString();
+                phoneFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[4].Value.ToString();
+                emailFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[5].Value.ToString();
+                cityFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[6].Value.ToString();
+
+            }
+}
 
         public void filtrarTablaUsuario(String name,bool check)
         {
@@ -491,8 +520,8 @@ namespace ERP
             //panel1.Width = tbcMenuPrincipal.Width;
             //panel1.Location = new Point(0, tbcMenuPrincipal.Location.Y+780);
 
-            panel3.Width = tbcMenuPrincipal.Width;
-            panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
+            //panel3.Width = tbcMenuPrincipal.Width;
+            //panel3.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
 
             //panel4.Width = tbcMenuPrincipal.Width;
             //panel4.Location = new Point(0, tbcMenuPrincipal.Location.Y + 780);
@@ -1296,6 +1325,31 @@ namespace ERP
                     nombreviejoPlataformas = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
                 }
             }
+        }
+
+        private void btnViewDetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchOrder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcMenuPrincipal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
