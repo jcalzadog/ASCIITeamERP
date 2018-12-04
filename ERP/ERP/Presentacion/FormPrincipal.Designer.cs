@@ -453,11 +453,11 @@
             // 
             // txtSearchOrder
             // 
-<<<<<<< HEAD
+
             this.txtSearchOrder.Location = new System.Drawing.Point(339, 13);
-=======
+
             this.txtSearchOrder.Location = new System.Drawing.Point(325, 9);
->>>>>>> 5fe72f9d4e47dd9167e234bd80f0834154754c5d
+
             this.txtSearchOrder.Name = "txtSearchOrder";
             this.txtSearchOrder.Size = new System.Drawing.Size(191, 20);
             this.txtSearchOrder.TabIndex = 18;
@@ -859,11 +859,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(1028, 490);
-=======
+
             this.ClientSize = new System.Drawing.Size(1235, 490);
->>>>>>> 5fe72f9d4e47dd9167e234bd80f0834154754c5d
+
             this.ControlBox = false;
             this.Controls.Add(this.tbcMenuPrincipal);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
