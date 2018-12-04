@@ -33,3 +33,4 @@ C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.Genera
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache

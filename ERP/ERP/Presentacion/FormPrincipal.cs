@@ -413,14 +413,14 @@ namespace ERP
         public void filtrarTablaProductos(String name, bool check)
         {
             String condicion = "";
-
+            
             if (check)
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1";
+                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%"+name+ "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=1";
             }
             else
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0";
+                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%" + name + "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=0";
             }
 
             cargarTablaProductos(condicion);
@@ -647,8 +647,7 @@ namespace ERP
             btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
             btnDeleteProd.FlatAppearance.BorderSize = 1;
 
-            categoria.gestor.refrescarCategorias(cmbFilCategory);
-            plataforma.gestorplataforma.refrescarPlatform(cmbFilPlatform);
+            
 
             //Platforms
             aparienciaBotones(btnUpdatePlatform);
@@ -922,7 +921,7 @@ namespace ERP
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalProd();
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -955,7 +954,7 @@ namespace ERP
 
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalProd();
         }
 
         private void tabPage5_Resize(object sender, EventArgs e)
