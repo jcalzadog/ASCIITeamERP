@@ -76,7 +76,7 @@ namespace ERP
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
-            //cargarTablaOrders();
+            cargarTablaOrders();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
 
@@ -280,13 +280,13 @@ namespace ERP
             dgvOrders.Columns.Add("SURNAME", "SURNAME");
             dgvOrders.Columns.Add("USERNAME", "USERNAME");
             dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
-            dgvOrders.Columns.Add("DATE", "DATE");
+            dgvOrders.Columns.Add("DAT", "DAT");
             dgvOrders.Columns.Add("TOTAL", "TOTAL");
             dgvOrders.Columns.Add("PREPAID", "PREPAID");
 
             foreach (DataRow row in tOrders.Rows)
             {
-                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"], row["PAYMETHOD"], row["DATE"], row["TOTAL"], row["PREPAID"]);
+                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"], row["PAYMETHOD"], row["DAT"], row["TOTAL"], row["PREPAID"]);
             }
 
             dgvOrders.RowHeadersVisible = false;
@@ -1242,6 +1242,11 @@ namespace ERP
         private void txtSearchProd_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalProd();
+        }
+
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            // ventana new order
         }
     }
 }
