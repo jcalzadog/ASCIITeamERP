@@ -17,12 +17,14 @@ namespace ERP
     public partial class FormLogin : Form
     {
         User usuario;
+        public String nombreUsuario;
         TabControl tbMenuP;
 
 
         public FormLogin(TabControl tbcMenu)
         {
             usuario = new User();
+            this.nombreUsuario = usuario.name;
             this.tbMenuP = tbcMenu;
 
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace ERP
                 usuario.gestorusuario.comprobarPermisos(usuario, this.tbMenuP);
                 this.Hide();
                 tbMenuP.SelectedIndex = 0;
+                this.nombreUsuario = usuario.name;
             }
             else
             {
