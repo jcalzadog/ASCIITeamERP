@@ -13,20 +13,20 @@ namespace ERP.Presentacion.Categories
 {
     public partial class DeleteCategorie : Form
     {
-        public String namedelete;
-        private Categorias categoria;
+        public String namedelete { get; set; }
+        private Categorias categoria { get; set; }
         public DeleteCategorie()
         {
             InitializeComponent();
             cargarComponentes();
             categoria = new Categorias();
-            categoria.name = namedelete;
+            categoria.name = this.namedelete;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            categoria.name = this.namedelete;
             categoria.gestor.deleteCategoria(categoria);
-            
             this.Dispose();
         }
 

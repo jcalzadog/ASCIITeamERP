@@ -62,7 +62,7 @@ namespace ERP.Dominio.Gestores
         }
 
         public void updateCategorias(Categorias C) {
-            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
+            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejoCategoria + "')");
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + C.name + "') AND DELETED = 0");
             if (existe == 0)
             {

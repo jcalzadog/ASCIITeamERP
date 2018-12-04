@@ -64,7 +64,7 @@ namespace ERP.Dominio.Gestores
 
         public void updatePlataforma(Platforms P)
         {
-            Object id = conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
+            Object id = conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME=UPPER('" + FormPrincipal.nombreviejoPlataformas + "')");
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND DELETED = 0");
             if (existe == 0)
             {

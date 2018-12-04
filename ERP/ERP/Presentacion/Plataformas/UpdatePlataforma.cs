@@ -18,6 +18,7 @@ namespace ERP.Presentacion.Plataformas
         public UpdatePlataforma()
         {
             InitializeComponent();
+            cargarDiseño();
             plataforma = new Platforms();
         }
 
@@ -33,6 +34,21 @@ namespace ERP.Presentacion.Plataformas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        public void cargarDiseño()
+        {
+            btnUpdate.BackColor = Color.Black;
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.FlatAppearance.BorderColor = Color.Black;
+            btnUpdate.FlatAppearance.BorderSize = 1;
+
+            btnCancelar.BackColor = Color.Black;
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.FlatAppearance.BorderColor = Color.Black;
+            btnCancelar.FlatAppearance.BorderSize = 1;
         }
 
         private void btnUpdate_MouseEnter(object sender, EventArgs e)
