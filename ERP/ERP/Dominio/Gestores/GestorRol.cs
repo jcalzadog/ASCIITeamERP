@@ -29,7 +29,10 @@ namespace ERP.Dominio.Gestores
             listaPermits = new LinkedList<Object>();
             for (int i = 1; i <= numRoles; i++)
             {
-                listaPermits.AddLast(conector.DLookUp("NAME", "ROLES", " IDROLE="+i));
+                if (!conector.DLookUp("NAME", "ROLES", " IDROLE=" + i).ToString().Equals("-1"))
+                {
+                    listaPermits.AddLast(conector.DLookUp("NAME", "ROLES", " IDROLE=" + i));
+                }
             }
 
             cmbRoles.Items.Clear();
