@@ -29,6 +29,9 @@ namespace ERP
 
     public partial class FormPrincipal : Form
     {
+        private String nombreUsuarioLogueado;
+        private Decimal idUsuarioLogueado;
+
         private User usuario;
         private Customer cliente;
         private Producto producto;
@@ -79,7 +82,8 @@ namespace ERP
             //cargarTablaOrders();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
-
+            this.nombreUsuarioLogueado = login.nombreUsuario;
+            this.idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
@@ -867,6 +871,7 @@ namespace ERP
                 deleted = true;
             }
             filtrarTablaUsuario(tbxSearchUser.Text.Equals("Search a Name...") ? "" : tbxSearchUser.Text, deleted);
+            //(tbxSearchUser.Text.Equals("Search a Name...") ? "" : tbxSearchUser.Text, deleted, combox.SelectedItem.Equals("Ninguno") ? "" :combox.SelectedItem.toString , );
         }
 
         public void filtroTotalProd()
