@@ -1238,11 +1238,14 @@ namespace ERP
 
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            if (!rolFilaSellecionadaUsers.Equals(""))
+            if (!nameFilaSellecionadaClientes.Equals(""))
             {
-                EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
-                editUser.ShowDialog();
-                filtroTotalUsuarios();//Usa cargar tabla usuariospara actualizar tabla
+                //EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
+                //editUser.ShowDialog();
+                //filtroTotalUsuarios();//Usa cargar tabla usuariospara actualizar tabla
+                EditarClientes editCli = new EditarClientes(dniFilaSeleccionadaClientes, nameFilaSellecionadaClientes,surnameFilaSeleccionadaClientes,addressFilaSellecionadaClientes,phoneFilaSeleccionadaClientes,emailFilaSellecionadaClientes,cityFilaSeleccionadaClientes);
+                editCli.ShowDialog();
+                filtroTotalClientes();
             }
             else
             {

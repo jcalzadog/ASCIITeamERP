@@ -65,6 +65,7 @@
     <Compile Include="Dominio\Role.cs" />
     <Compile Include="Dominio\User.cs" />
     <Compile Include="Dominio\Util\Encryptor.cs" />
+    <Compile Include="Dominio\Util\Validations.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
     <Compile Include="Presentacion\Categories\AddCategoria.cs">
       <SubType>Form</SubType>
@@ -89,6 +90,12 @@
     </Compile>
     <Compile Include="Presentacion\Clientes\ConfirmarBorrarCliente.Designer.cs">
       <DependentUpon>ConfirmarBorrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Clientes\EditarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Clientes\EditarClientes.Designer.cs">
+      <DependentUpon>EditarClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Clientes\NuevoCliente.cs">
       <SubType>Form</SubType>
@@ -245,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Clientes\ConfirmarBorrarCliente.resx">
       <DependentUpon>ConfirmarBorrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Clientes\EditarClientes.resx">
+      <DependentUpon>EditarClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Clientes\NuevoCliente.resx">
       <DependentUpon>NuevoCliente.cs</DependentUpon>
