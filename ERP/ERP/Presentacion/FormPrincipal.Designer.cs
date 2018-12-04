@@ -318,7 +318,7 @@
             this.cbxCustomerDeleted.TabIndex = 10;
             this.cbxCustomerDeleted.Text = "Deleted";
             this.cbxCustomerDeleted.UseVisualStyleBackColor = true;
-            this.cbxCustomerDeleted.CheckedChanged += new System.EventHandler(this.cbxDeleted_CheckedChanged);
+            this.cbxCustomerDeleted.CheckedChanged += new System.EventHandler(this.cbxCustomerDeleted_CheckedChanged);
             // 
             // tbxSearchCustomer
             // 

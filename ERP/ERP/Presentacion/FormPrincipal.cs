@@ -482,11 +482,11 @@ namespace ERP
             
             if (check)
             {
-                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%"+name+ "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=1";
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1 OR C.NAME LIKE '%" + name+ "%'OR PL.NAME LIKE '%" + name + "%'";
             }
             else
             {
-                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%" + name + "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=0";
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0 OR C.NAME LIKE '%" + name + "%' OR PL.NAME LIKE '%" + name + "%'";
             }
 
             cargarTablaProductos(condicion);
@@ -903,11 +903,13 @@ namespace ERP
             if (cbxUserDeleted.CheckState == CheckState.Checked)
             {
                 btnDeleteUser.Enabled = false;
-
-
+                btnDeleteUser.BackColor = Color.Transparent;
+                btnDeleteUser.ForeColor = Color.Black;
             } else
             {
                 btnDeleteUser.Enabled = true;
+                btnDeleteUser.BackColor = Color.Black;
+                btnDeleteUser.ForeColor = Color.White;
             }
             filtroTotalUsuarios();
             //String condicion = "";
@@ -1127,17 +1129,7 @@ namespace ERP
         }
         private void cbxDeleted_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxUserDeleted.CheckState == CheckState.Checked)
-            {
-                btnDeleteUser.Enabled = false;
-
-
-            }
-            else
-            {
-                btnDeleteUser.Enabled = true;
-            }
-            filtroTotalClientes();
+           
         }
 
         public void filtroTotalClientes()
@@ -1350,6 +1342,24 @@ namespace ERP
         private void tabPage7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxCustomerDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxCustomerDeleted.CheckState == CheckState.Checked)
+            {
+                btnDeleteCustomer.Enabled = false;
+                btnDeleteCustomer.BackColor = Color.Transparent;
+                btnDeleteCustomer.ForeColor = Color.Black;
+
+            }
+            else
+            {
+                btnDeleteCustomer.Enabled = true;
+                btnDeleteCustomer.BackColor = Color.Black;
+                btnDeleteCustomer.ForeColor = Color.White;
+            }
+            filtroTotalClientes();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ERP.Presentacion.ErroresCambios;
+﻿using ERP.Dominio.Util;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -176,13 +177,15 @@ namespace ERP.Dominio.Gestores
                 Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
                 Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + U.rol.nameRol + "'");
 
-                String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser + 1) + ",'" + U.name + "','" + U.password + "',0)";
+                String pass = Encryptor.MD5Hash(U.password);
+
+                String sentencia1 = "INSERT INTO USERS VALUES(" + (idUser + 1) + ",'" + U.name + "','" + pass + "',0)";
                 conector.setData(sentencia1);
 
                 String sentencia2 = "INSERT INTO USERS_ROLES VALUES(" + (idUser_Roles + 1) + "," + (idUser + 1) + "," + idRoles + ")";
                 conector.setData(sentencia2);
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='" + U.name + "' AND IDUSER =" + (idUser + 1) + " AND PASSWORD ='" + U.password + "'");
+                existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "NAME='" + U.name + "' AND IDUSER =" + (idUser + 1) + " AND PASSWORD ='" + pass + "'");
 
                 if (existe > 0)
                 {
@@ -221,7 +224,8 @@ namespace ERP.Dominio.Gestores
                 conector.setData(sentencia2);
             } else
             {
-                String sentencia1 = "UPDATE USERS SET PASSWORD ='"+U.password+"' WHERE NAME = '" + U.name + "'";
+                String pass = Encryptor.MD5Hash(U.password);
+                String sentencia1 = "UPDATE USERS SET PASSWORD ='"+ pass + "' WHERE NAME = '" + U.name + "'";
                 conector.setData(sentencia1);
 
                 String sentencia2 = "UPDATE USERS_ROLES SET IDROLE =" + idRol + " WHERE IDUSER = " + idUser;

@@ -29,7 +29,14 @@ namespace ERP.Presentacion.Products
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            producto.gestorProducto.modificarProducto(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text),FormPrincipal.catViejaFilaSellecionadaProducts,FormPrincipal.platViejaFilaSellecionadaProducts);
+            Producto product = new Producto();
+            product.name = txtName.Text;
+            product.nomCategory = cmbCategory.SelectedItem.ToString();
+            product.nomPlatform = cmbPlatform.SelectedItem.ToString();
+            product.miniNumage = Int32.Parse(txtPegi.Text);
+            product.prize = Int32.Parse(txtPrice.Text);
+
+            producto.gestorProducto.modificarProducto(product, FormPrincipal.catViejaFilaSellecionadaProducts, FormPrincipal.platViejaFilaSellecionadaProducts);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text),FormPrincipal.catViejaFilaSellecionadaProducts,FormPrincipal.platViejaFilaSellecionadaProducts);
             this.Dispose();
         }
         private void cargarDatos(String name,String catVieja,String platVieja,String pegi,String price)

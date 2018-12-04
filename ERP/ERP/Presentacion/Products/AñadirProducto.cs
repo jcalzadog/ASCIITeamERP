@@ -36,7 +36,13 @@ namespace ERP.Presentacion.Products
 
         private void btnSaveAnhother_Click(object sender, EventArgs e)
         {
-            Boolean creado = producto.gestorProducto.nuevoProducto(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Int32.Parse(txtPegi.Text),Int32.Parse(txtPrice.Text));
+            Producto product = new Producto();
+            product.name = txtName.Text;
+            product.nomCategory = cmbCategory.SelectedItem.ToString();
+            product.nomPlatform = cmbPlatform.SelectedItem.ToString();
+            product.miniNumage = Int32.Parse(txtPegi.Text);
+            product.prize = Int32.Parse(txtPrice.Text);
+            Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Int32.Parse(txtPegi.Text),Int32.Parse(txtPrice.Text));
             if (creado)
             {
                 txtName.Text = "";
@@ -49,7 +55,13 @@ namespace ERP.Presentacion.Products
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Boolean creado = producto.gestorProducto.nuevoProducto(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
+            Producto product = new Producto();
+            product.name = txtName.Text;
+            product.nomCategory = cmbCategory.SelectedItem.ToString();
+            product.nomPlatform = cmbPlatform.SelectedItem.ToString();
+            product.miniNumage = Int32.Parse(txtPegi.Text);
+            product.prize = Int32.Parse(txtPrice.Text);
+            Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
             if (creado)
             {
                 this.Dispose();

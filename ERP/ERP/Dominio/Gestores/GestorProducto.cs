@@ -35,22 +35,22 @@ namespace ERP.Dominio.Gestores
             tabla = data.Tables["PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM"];
         }
 
-        public Boolean nuevoProducto(String name, String nomCat, String nomPlat, int pegi, int price)
+        public Boolean nuevoProducto(Producto P)//(String name, String nomCat, String nomPlat, int pegi, int price)
         {
-            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + nomCat + "'");
-            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlat + "'");
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + P.nomCategory + "'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + P.nomPlatform + "'");
             Boolean creado = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + P.name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
 
             if (existe == 0)
             {
                 Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
 
 
-                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + name + "'," + idCat + "," + idPlat + "," + pegi + "," + price + "," + 0 + ")";
+                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + P.name + "'," + idCat + "," + idPlat + "," + P.miniNumage + "," + P.prize + "," + 0 + ")";
                 conector.setData(sentencia);
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
+                existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + P.name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
 
                 if (existe > 0)
                 {
@@ -68,16 +68,16 @@ namespace ERP.Dominio.Gestores
             return creado;
         }
 
-        public void modificarProducto(String name, String nomCat, String nomPlat, int pegi, int price, String nomCatVieja, String nomPlatVieja)
+        public void modificarProducto(Producto P,String nomCatVieja, String nomPlatVieja)//(String name, String nomCat, String nomPlat, int pegi, int price, String nomCatVieja, String nomPlatVieja)
         {
             Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
-            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + nomCat + "'");
-            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlat + "'");
+            Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + P.nomCategory + "'");
+            Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + P.nomPlatform + "'");
             Decimal idCatVieja = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + nomCatVieja + "'");
             Decimal idPlatVieja = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlatVieja + "'");
 
 
-            String sentencia = "UPDATE PRODUCTS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + pegi + ", price = " + price + " WHERE name = '" + name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
+            String sentencia = "UPDATE PRODUCTS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + P.miniNumage + ", price = " + P.prize + " WHERE name = '" + P.name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
             conector.setData(sentencia);
 
 

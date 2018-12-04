@@ -12,8 +12,8 @@ namespace ERP.Dominio
         //Atributos
         public int idProduct { get; set; }
         public String name { get; set; }
-        public int idCategory { get; set; }
-        public int idPlatform { get; set; }
+        public String nomCategory { get; set; }
+        public String nomPlatform { get; set; }
         public int miniNumage { get; set; }
         public float prize { get; set; }
         public int deleted { get; set; }
@@ -28,19 +28,19 @@ namespace ERP.Dominio
         public Producto(String nameP)
         {
             
-            name = nameP;
+            this.name = nameP;
             gestorProducto = new GestorProducto();
         }
 
-        public Producto(int idP, String nameP,int idCat, int idPlat,int pegiP,float prizeP, int deletedP)
+        public Producto(int idP, String nameP,String nomCat, String nomPlat,int pegiP,float prizeP, int deletedP)
         {
-            idProduct = idP;
-            name = nameP;
-            idCategory = idCategory;
-            idPlatform = idPlatform;
-            miniNumage = pegiP;
-            prize = prizeP;
-            deleted = deletedP; ;
+            this.idProduct = idP;
+            this.name = nameP;
+            this.nomCategory = nomCat;
+            this.nomPlatform = nomPlat;
+            this.miniNumage = pegiP;
+            this.prize = prizeP;
+            this.deleted = deletedP; ;
             
             gestorProducto = new GestorProducto();
         }

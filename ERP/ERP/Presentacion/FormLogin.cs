@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Dominio.Util;
 using ERP.Recursos;
 using System;
 using System.Collections.Generic;
@@ -44,8 +45,9 @@ namespace ERP
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             usuario.name = tbxUser.Text;
-            //String pass = Encryptor.MD5Hash(tbxContraseña.Text);
-            usuario.password = tbxPassword.Text;
+            String pass = Encryptor.MD5Hash(tbxPassword.Text);
+            //usuario.password = tbxPassword.Text;
+            usuario.password = pass;
 
             String passDB = usuario.gestorusuario.loguearse(usuario);
 
