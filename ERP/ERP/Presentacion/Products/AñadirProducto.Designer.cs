@@ -57,7 +57,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(171, 41);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(160, 20);
             this.txtName.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(171, 71);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(160, 21);
             this.cmbCategory.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             this.cmbPlatform.FormattingEnabled = true;
             this.cmbPlatform.Location = new System.Drawing.Point(171, 105);
-            this.cmbPlatform.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPlatform.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPlatform.Name = "cmbPlatform";
             this.cmbPlatform.Size = new System.Drawing.Size(160, 21);
             this.cmbPlatform.TabIndex = 5;
@@ -106,10 +106,11 @@
             // txtPegi
             // 
             this.txtPegi.Location = new System.Drawing.Point(171, 139);
-            this.txtPegi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPegi.Margin = new System.Windows.Forms.Padding(2);
             this.txtPegi.Name = "txtPegi";
             this.txtPegi.Size = new System.Drawing.Size(160, 20);
             this.txtPegi.TabIndex = 7;
+            this.txtPegi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPegi_KeyUp);
             // 
             // label4
             // 
@@ -125,10 +126,11 @@
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(171, 171);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(160, 20);
             this.txtPrice.TabIndex = 9;
+            this.txtPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPrice_KeyUp);
             // 
             // label5
             // 
@@ -197,7 +199,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AñadirProducto";
             this.Text = "Añadir Producto";
             this.ResumeLayout(false);

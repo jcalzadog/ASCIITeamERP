@@ -77,6 +77,13 @@ namespace ERP.Presentacion.Products
         {
             categoria.gestor.refrescarCategorias(cmbCategory);
             plataforma.gestorplataforma.refrescarPlatform(cmbPlatform);
+            btnSaveAnother.Enabled = false;
+            btnSave.Enabled = false;
+            btnSave.BackColor = Color.Transparent;
+            btnSave.ForeColor = Color.Black;
+
+            btnSaveAnother.BackColor = Color.Transparent;
+            btnSaveAnother.ForeColor = Color.Black;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -105,5 +112,46 @@ namespace ERP.Presentacion.Products
             ((Button)sender).ForeColor = Color.Black;
         }
 
+        private void txtPegi_KeyUp(object sender, KeyEventArgs e)
+        {
+            int i = 0;
+            bool result1 = int.TryParse(txtPrice.Text, out i);
+            bool result2 = int.TryParse(txtPegi.Text, out i);
+            cargarBotones(result1, result2);
+        }
+
+        private void txtPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            int i = 0;
+            bool result1 = int.TryParse(txtPrice.Text, out i);
+            bool result2 = int.TryParse(txtPegi.Text, out i);
+            cargarBotones(result1, result2);
+        }
+
+        private void cargarBotones(bool pegi,bool price)
+        {
+            if(pegi && price)
+            {
+                btnSave.Enabled = true;
+                btnSaveAnother.Enabled = true;
+
+                btnSave.BackColor = Color.Black;
+                btnSave.ForeColor = Color.White;
+
+                btnSaveAnother.BackColor = Color.Black;
+                btnSaveAnother.ForeColor = Color.White;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+                btnSaveAnother.Enabled = false;
+
+                btnSave.BackColor = Color.Transparent;
+                btnSave.ForeColor = Color.Black;
+
+                btnSaveAnother.BackColor = Color.Transparent;
+                btnSaveAnother.ForeColor = Color.Black;
+            }
+        }
     }
 }

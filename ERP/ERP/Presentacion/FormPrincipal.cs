@@ -77,7 +77,7 @@ namespace ERP
 
             
             cargarTablaUsuarios("DELETED=0");
-            cargarTablaProductos("PR.DELETED=0");
+            cargarTablaProductos(" PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
             cargarTablaOrders("");
@@ -482,11 +482,11 @@ namespace ERP
             
             if (check)
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1 OR C.NAME LIKE '%" + name+ "%'OR PL.NAME LIKE '%" + name + "%'";
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1 ";//OR C.NAME LIKE '%" + name+ "%'OR PL.NAME LIKE '%" + name + "%'";
             }
             else
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0 OR C.NAME LIKE '%" + name + "%' OR PL.NAME LIKE '%" + name + "%'";
+                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0 ";// OR C.NAME LIKE '%" + name + "%' OR PL.NAME LIKE '%" + name + "%'";
             }
 
             cargarTablaProductos(condicion);
@@ -658,8 +658,9 @@ namespace ERP
             btnDeleteUser.FlatAppearance.BorderColor = Color.Black;
             btnDeleteUser.FlatAppearance.BorderSize = 1;
 
-            btnLogs.BackColor = Color.Black;
-            btnLogs.ForeColor = Color.White;
+            btnLogs.Enabled = false;
+            btnLogs.BackColor = Color.Transparent;
+            btnLogs.ForeColor = Color.Black;
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
@@ -1335,6 +1336,7 @@ namespace ERP
                 string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[0].Value).ToString();
                 orders.eliminar(id);
                 MessageBox.Show("Deleted successfully");
+                cargarTablaOrders("");
             }
             else
             {

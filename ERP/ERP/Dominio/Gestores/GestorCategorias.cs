@@ -87,7 +87,7 @@ namespace ERP.Dominio.Gestores
             //int numRoles = int.Parse(numR);
 
             listaCat = new LinkedList<Object>();
-            listaCat.AddLast("-All-");
+            
             for (int i = 1; i <= numCate; i++)
             {
                 listaCat.AddLast(conector.DLookUp("NAME", "CATEGORIES", " IDCATEGORY=" + i));

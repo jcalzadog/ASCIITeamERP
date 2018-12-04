@@ -93,7 +93,7 @@ namespace ERP.Dominio.Gestores
             //int numRoles = int.Parse(numR);
 
             listaPlat = new LinkedList<Object>();
-            listaPlat.AddLast("-All-");
+            
             for (int i = 1; i <= numPlat; i++)
             {
                 listaPlat.AddLast(conector.DLookUp("NAME", "PLATFORMS", " IDPLATFORM=" + i));
