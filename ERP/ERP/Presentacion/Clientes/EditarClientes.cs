@@ -87,7 +87,16 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
+            ConnectOracle conect = new ConnectOracle();
+            Decimal id = (Decimal)conect.DLookUp("IDCUSTOMER", "CUSTOMERS", "UPPER(DNI)=UPPER('" + this.dniFilaSeleccionadaClientes + "')");
+            int id1 = (int)id;
+            int zip = Int32.Parse(this.tbxZipCode.Text);
+               
+            Customer clientemod = new Customer(id1,this.tbxName.Text, this.tbxDNI.Text, this.tbxSurname.Text,this.tbxAddress.Text,Int32.Parse(this.tbxPhone.Text),this.tbxEmail.Text,zip,c.deleted);
 
+            c.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
+           
+            this.Dispose();
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)

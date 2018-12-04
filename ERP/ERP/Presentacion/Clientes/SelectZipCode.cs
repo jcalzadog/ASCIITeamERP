@@ -50,7 +50,7 @@ namespace ERP.Presentacion.Clientes
 
         private void btnChooseCode_Click(object sender, EventArgs e)
         {
-            this.codZipCodeFIlaSeleccionada = this.codZipCodeFIlaSeleccionada;
+            this.codZipCodeFIlaSeleccionada = codZipCodeFIlaSeleccionada;
             this.Hide();
         }
 

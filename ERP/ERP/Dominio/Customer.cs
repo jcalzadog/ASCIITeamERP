@@ -28,9 +28,10 @@ namespace ERP.Dominio.Gestores
             gestorCliente = new GestorCliente();
         }
 
-        public Customer(int idC, String nameC, String surnameC, String addressC, int phoneC, String emailC, int deletedC, int refzipcodescitiesC)
+        public Customer(int idC, String nameC, String dni,String surnameC, String addressC, int phoneC, String emailC, int deletedC, int refzipcodescitiesC)
         {
             idCustomer = idC;
+            this.dni = dni;
             name = nameC;
             surname = surnameC;
             address = addressC;

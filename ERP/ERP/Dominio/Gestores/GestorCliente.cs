@@ -195,16 +195,17 @@ namespace ERP.Dominio.Gestores
 
         public void modificarCliente(Customer C, String dniViejo)
         {
-            Decimal idClient = (Decimal)conector.DLookUp("IDPRODUCT", "CUSTOMERS", "DNI='" + dniViejo + "'");
+           
 
 
-            //String sentencia = "UPDATE CUSTOMERS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + P.miniNumage + ", price = " + P.prize + " WHERE name = '" + P.name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
+            String sentencia = "UPDATE CUSTOMERS SET DNI=UPPER('"+C.dni+"'),NAME=UPPER('"+C.name+"'),SURNAME=UPPER('"+C.surname+"'),ADDRESS=UPPER('"+C.address+"'),PHONE="+C.phone+",EMAIL=UPPER('"+C.email+"'),REFZIPCODESCITIES="+C.refzipcodescities+" WHERE IDCUSTOMER="+C.idCustomer;
+            Console.WriteLine(sentencia);
             //conector.setData(sentencia);
 
 
             String mensaje = "The customer has been modified correctly.";
             VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
-            //cambio.ShowDialog();
+            cambio.ShowDialog();
             //MessageBox.Show("El usuario se ha eliminado correctamente.");
 
         }
