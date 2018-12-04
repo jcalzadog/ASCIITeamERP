@@ -626,9 +626,7 @@ namespace ERP
 
             //Orders
             aparienciaBotones(btnNewOrder);
-            aparienciaBotones(btnEditOrder);
             aparienciaBotones(btnViewDetails);
-            aparienciaBotones(btnPrintOrder);
             aparienciaBotones(btnDeleteOrder);
 
 
@@ -1251,7 +1249,8 @@ namespace ERP
 
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
-            // ventana new order
+            Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(this.idUsuarioLogueado);
+            dialogNewOrder.ShowDialog();
         }
     }
 }

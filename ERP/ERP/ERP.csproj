@@ -131,6 +131,12 @@
     <Compile Include="Presentacion\Orders\SelectCustomer.Designer.cs">
       <DependentUpon>SelectCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Orders\SelectProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Orders\SelectProduct.Designer.cs">
+      <DependentUpon>SelectProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Plataformas\AddPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Orders\SelectCustomer.resx">
       <DependentUpon>SelectCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Orders\SelectProduct.resx">
+      <DependentUpon>SelectProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Plataformas\AddPlataforma.resx">
       <DependentUpon>AddPlataforma.cs</DependentUpon>

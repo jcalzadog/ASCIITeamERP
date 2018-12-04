@@ -71,3 +71,4 @@ D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.NewOrder.resources
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.SelectCustomer.resources
+D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.SelectProduct.resources
