@@ -107,6 +107,8 @@ namespace ERP
             btnCancel.FlatAppearance.BorderColor = Color.Black;
             btnCancel.FlatAppearance.BorderSize = 1;
 
+            this.cmbLanguage.SelectedIndex = 0;
+
         }
 
         private void btnConfirm_MouseEnter(object sender, EventArgs e)

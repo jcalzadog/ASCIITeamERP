@@ -11,7 +11,7 @@ namespace ERP.Dominio.Gestores
             tOrders = new DataTable();
         }
 
-        public void leerOrders()
+        public void leerOrders(string condicion)
         {
             DataSet data = new DataSet();
             ConnectOracle Search = new ConnectOracle();
@@ -20,7 +20,7 @@ namespace ERP.Dominio.Gestores
                 "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DAT,O.TOTAL TOTAL, O.PREPAID PREPAID "+
                 "FROM ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER "+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M "+
-                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER "+
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD where ( UPPER(c.name) LIKE UPPER ('%" + condicion + "%') OR UPPER(c.surname) LIKE UPPER ('%" + condicion + "%') OR  UPPER(U.NAME) LIKE UPPER ('%" + condicion + "%') OR O.DATETIME LIKE '%" + condicion + "%' OR UPPER(M.PAYMENTMETHOD) LIKE UPPER ('%" + condicion + "%') OR O.TOTAL LIKE '%" + condicion + "%' OR O.PREPAID LIKE '%" + condicion + "%') and o.deleted=0", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER "+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD");
 
@@ -29,14 +29,9 @@ namespace ERP.Dominio.Gestores
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD"];
         }
 
-        public void filter(string filter)
+        public void eliminar (string idOrder)
         {
-            DataSet data = new DataSet();
-            ConnectOracle Search = new ConnectOracle();
-
-            data = Search.getData("Select O.IDORDER, C.NAME AS CLIENTNAME, U.NAME AS USERNAME, O.DATETIME, P.PAYMENTMETHOD AS PAYMENTMETHOD, O.TOTAL, O.PREPAID FROM E_ORDERS O, E_CUSTOMERS C, E_USERS U, E_PAYMENTMETHODS P WHERE P.IDPAYMENTMETHOD=O.REFPAYMENTMETHOD AND  U.IDUSER=O.REFUSER  AND C.IDCUSTOMER=O.REFCUSTOMER AND  ( UPPER(c.name) LIKE UPPER ('%" + filter + "%') OR  UPPER(U.NAME) LIKE UPPER ('%" + filter + "%') OR O.DATETIME LIKE '%" + filter + "%' OR UPPER(P.PAYMENTMETHOD) LIKE UPPER ('%" + filter + "%') OR O.TOTAL LIKE '%" + filter + "%' OR O.PREPAID LIKE '%" + filter + "%') and o.deleted=0", "ORDERS");
-
-            tOrders = data.Tables["ORDERS"];
+            new ConnectOracle().setData("UPDATE ORDERS SET DELETED=1 WHERE IDORDER='" + idOrder + "'");
         }
 
     }

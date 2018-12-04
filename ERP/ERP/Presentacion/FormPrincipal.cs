@@ -80,7 +80,7 @@ namespace ERP
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
-            cargarTablaOrders();
+            cargarTablaOrders("");
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -276,11 +276,11 @@ namespace ERP
 
         }
 
-        private void cargarTablaOrders()
+        private void cargarTablaOrders(string condicion)
         {
             dgvOrders.Columns.Clear();
 
-            orders.leerOrders();
+            orders.leerOrders(condicion);
 
 
             DataTable tOrders = orders.tOrders;
@@ -1329,7 +1329,18 @@ namespace ERP
 
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
-
+            if (filaOrders >= 0)
+            {
+                
+                string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[0].Value).ToString();
+                orders.eliminar(id);
+                MessageBox.Show("Deleted successfully");
+            }
+            else
+            {
+                MessageBox.Show("You haven't choose a order, or it can't be deleted");
+            }
+            
         }
 
         private void txtSearchOrder_TextChanged(object sender, EventArgs e)
@@ -1363,6 +1374,16 @@ namespace ERP
                 btnDeleteCustomer.ForeColor = Color.White;
             }
             filtroTotalClientes();
+        }
+
+        private void txtSearchOrder_KeyUp(object sender, KeyEventArgs e)
+        {
+            cargarTablaOrders(txtSearchOrder.Text.ToUpper());
+        }
+        int filaOrders=-1;
+        private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            filaOrders = e.RowIndex;
         }
     }
 }
