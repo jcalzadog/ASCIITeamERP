@@ -39,24 +39,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 69);
+            this.label1.Location = new System.Drawing.Point(16, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(119, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Platform Name:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 62);
+            this.textBox1.Location = new System.Drawing.Point(152, 76);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
+            this.textBox1.Size = new System.Drawing.Size(216, 22);
             this.textBox1.TabIndex = 1;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(292, 131);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(389, 161);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -66,9 +70,11 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(211, 131);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(281, 161);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -78,9 +84,11 @@
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.Location = new System.Drawing.Point(95, 131);
+            this.btnSaveAnother.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAnother.Location = new System.Drawing.Point(111, 161);
+            this.btnSaveAnother.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveAnother.Name = "btnSaveAnother";
-            this.btnSaveAnother.Size = new System.Drawing.Size(110, 23);
+            this.btnSaveAnother.Size = new System.Drawing.Size(163, 28);
             this.btnSaveAnother.TabIndex = 4;
             this.btnSaveAnother.Text = "Save and Another";
             this.btnSaveAnother.UseVisualStyleBackColor = true;
@@ -90,17 +98,26 @@
             // 
             // AddPlataforma
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(379, 166);
+            this.ClientSize = new System.Drawing.Size(505, 204);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSaveAnother);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(523, 251);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(523, 251);
             this.Name = "AddPlataforma";
-            this.Text = "AddPlataforma";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Add Platform";
             this.Load += new System.EventHandler(this.AddPlataforma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -62,7 +62,7 @@ namespace ERP.Dominio.Gestores
         }
 
         public void updateCategorias(Categorias C) {
-            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejo + "')");
+            Decimal id = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME=UPPER('" + FormPrincipal.nombreviejoCategoria + "')");
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "NAME=UPPER('" + C.name + "') AND DELETED = 0");
             if (existe == 0)
             {
@@ -87,6 +87,7 @@ namespace ERP.Dominio.Gestores
             //int numRoles = int.Parse(numR);
 
             listaCat = new LinkedList<Object>();
+            listaCat.AddLast("-All-");
             for (int i = 1; i <= numCate; i++)
             {
                 listaCat.AddLast(conector.DLookUp("NAME", "CATEGORIES", " IDCATEGORY=" + i));

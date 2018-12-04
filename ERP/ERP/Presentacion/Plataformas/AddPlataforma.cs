@@ -17,6 +17,7 @@ namespace ERP.Presentacion.Plataformas
         public AddPlataforma()
         {
             InitializeComponent();
+            cargarDiseño();
             plataforma = new Platforms();
         }
 

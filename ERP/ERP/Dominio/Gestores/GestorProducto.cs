@@ -99,5 +99,12 @@ namespace ERP.Dominio.Gestores
         VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
         cambio.ShowDialog();
         }
-}
+
+        public Decimal obtenerCmb(String select,String tabla,String cmb)
+        {
+            Decimal id = (Decimal)conector.DLookUp(select,tabla, "NAME='" + cmb + "'");
+            return id;
+        }
+    }
+        
 }

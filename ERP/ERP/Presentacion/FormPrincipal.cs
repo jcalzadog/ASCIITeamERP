@@ -55,12 +55,11 @@ namespace ERP
         public static String pegiFilaSellecionadaProducts = "";
         public static String priceFilaSellecionadaProducts = "";
 
-
-
-
         private Categorias categoria;
-        public static String nombreviejo;
-        public static String nombreviejopf;
+        public static String nombreviejoCategoria="";
+
+
+        public static String nombreviejoPlataformas="";
         public FormPrincipal()
         {
             usuario = new User();
@@ -75,11 +74,14 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             cargarCategorias();
             cargarComponentes();
+
+            
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos("PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
             cargarTablaOrders();
+
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             this.nombreUsuarioLogueado = login.nombreUsuario;
@@ -91,6 +93,7 @@ namespace ERP
 
             controlErroresUsuarios();
             controlErroresProduct();
+            controlErroresPlataformas();
         }
 
 
@@ -373,6 +376,36 @@ namespace ERP
             }
         }
 
+        private void controlErroresPlataformas()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (nombreviejoPlataformas.Equals(""))
+            {
+                dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Selected = true;
+                dgvPlatforms.CurrentCell = dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Cells[0];
+                nombreviejoPlataformas = dgvPlatforms.Rows[dgvPlatforms.SelectedRows[0].Index].Cells[0].Value.ToString();
+            }
+        }
+
+        private void controlErroresCategorias()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (nombreviejoPlataformas.Equals(""))
+            {
+                dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Selected = true;
+                dgvCategorie.CurrentCell = dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Cells[0];
+                nombreviejoPlataformas = dgvCategorie.Rows[dgvCategorie.SelectedRows[0].Index].Cells[0].Value.ToString();
+            }
+        }
+
         public void filtrarTablaUsuario(String name,bool check)
         {
             String condicion="";
@@ -417,14 +450,14 @@ namespace ERP
         public void filtrarTablaProductos(String name, bool check)
         {
             String condicion = "";
-
+            
             if (check)
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1";
+                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%"+name+ "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=1";
             }
             else
             {
-                condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=0";
+                condicion += " PR.NAME like '%" + name + "%'OR C.NAME LIKE '%" + name + "%'OR PL.NAME LIKE '%" + name + "%' AND PR.DELETED=0";
             }
 
             cargarTablaProductos(condicion);
@@ -508,7 +541,7 @@ namespace ERP
             UpdCategorie ucategorie = new UpdCategorie();
             String name = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
             ucategorie.textBox1.Text = name;
-            nombreviejo = name;
+            nombreviejoCategoria = name;
             ucategorie.ShowDialog();
 
             cargarCategorias();
@@ -518,10 +551,7 @@ namespace ERP
         {
             DeleteCategorie dc = new DeleteCategorie();
             dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
-
             dc.ShowDialog();
-
-
             cargarCategorias();
         }
 
@@ -649,8 +679,7 @@ namespace ERP
             btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
             btnDeleteProd.FlatAppearance.BorderSize = 1;
 
-            categoria.gestor.refrescarCategorias(cmbFilCategory);
-            plataforma.gestorplataforma.refrescarPlatform(cmbFilPlatform);
+            
 
             //Platforms
             aparienciaBotones(btnUpdatePlatform);
@@ -925,7 +954,7 @@ namespace ERP
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalProd();
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -958,7 +987,7 @@ namespace ERP
 
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalProd();
         }
 
         private void tabPage5_Resize(object sender, EventArgs e)
@@ -1221,7 +1250,7 @@ namespace ERP
             UpdatePlataforma up = new UpdatePlataforma();
             String name = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
             up.txtUpdate.Text = name;
-            nombreviejopf = name;
+            nombreviejoPlataformas = name;
             up.ShowDialog();
 
             cargarPlataformas();
@@ -1237,7 +1266,7 @@ namespace ERP
         private void btnDeletePlatform_Click(object sender, EventArgs e)
         {
             DeletePlataforma dp = new DeletePlataforma();
-            dp.nameDelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+            dp.nameDelete = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
             dp.ShowDialog();
             cargarPlataformas();
         }
@@ -1251,6 +1280,22 @@ namespace ERP
         {
             Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(this.idUsuarioLogueado);
             dialogNewOrder.ShowDialog();
+        }
+
+        private void dgvPlatforms_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (dgvPlatforms.Rows.Count > 0 && dgvPlatforms.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
+            {
+                if (!String.IsNullOrEmpty(dgvPlatforms.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+                {
+                    // do sonmthind
+                    nombreviejoPlataformas = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
+                }
+            }
         }
     }
 }
