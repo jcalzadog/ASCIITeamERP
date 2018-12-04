@@ -34,6 +34,14 @@ namespace ERP.Dominio.Gestores
             listaZipCode = new LinkedList<Object>();
         }
 
+        public Object sacarZipCode(String dni)
+        {
+            //SELECT Z.ZIPCODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES T ON Z.IDZIPCODE=T.REFZIPCODE INNER JOIN CITIES C ON T.REFCITY=C.IDCITY WHERE C.CITY ='';
+            //SELECT REFZIPCODECITIES FROM CUSTOMERS WHERE DNI=
+            object zipC = conector.DLookUp("REFZIPCODESCITIES ", "CUSTOMERS", " DNI='" + dni + "'");
+            return zipC;
+        }
+
         public void leerClientes(String condicion)
         {
             //SELECT C.DNI,C.NAME,C.SURNAME,C.ADDRESS,C.PHONE,C.EMAIL,R.REGION,T.CITY FROM CUSTOMERS C INNER JOIN ZIPCODESCITIES Z ON C.REFZIPCODESCITIES=Z.IDZIPCODESCITIES INNER JOIN REGIONS R ON Z.REFSTATE=R.IDREGION INNER JOIN CITIES T ON Z.REFCITY=T.IDCITY
@@ -183,6 +191,22 @@ namespace ERP.Dominio.Gestores
                 //MessageBox.Show("El nombre de usuario no es Valido.");
             }
             return creado;
+        }
+
+        public void modificarCliente(Customer C, String dniViejo)
+        {
+            Decimal idClient = (Decimal)conector.DLookUp("IDPRODUCT", "CUSTOMERS", "DNI='" + dniViejo + "'");
+
+
+            //String sentencia = "UPDATE CUSTOMERS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + P.miniNumage + ", price = " + P.prize + " WHERE name = '" + P.name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
+            //conector.setData(sentencia);
+
+
+            String mensaje = "The customer has been modified correctly.";
+            VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+            //cambio.ShowDialog();
+            //MessageBox.Show("El usuario se ha eliminado correctamente.");
+
         }
 
         public Boolean validarDNI(Customer C)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,10 @@ namespace ERP.Presentacion.Clientes
         public String addressFilaSellecionadaClientes = "";
         public String phoneFilaSeleccionadaClientes = "";
         public String emailFilaSellecionadaClientes = "";
-        public String cityFilaSeleccionadaClientes = "";
+        public Object cityFilaSeleccionadaClientes = "";
+
+        private Customer c;
+
         public EditarClientes(String dni,String name, String surname, String address, String phone, String email, String city)
         {
             InitializeComponent();
@@ -29,8 +33,10 @@ namespace ERP.Presentacion.Clientes
             addressFilaSellecionadaClientes = address;
             phoneFilaSeleccionadaClientes = phone;
             emailFilaSellecionadaClientes = email;
-            cityFilaSeleccionadaClientes = city;
 
+            c = new Customer();
+
+            cityFilaSeleccionadaClientes = c.gestorCliente.sacarZipCode(dni);
             cargarComponentes();
         }
 
@@ -66,7 +72,7 @@ namespace ERP.Presentacion.Clientes
             tbxAddress.Text = this.addressFilaSellecionadaClientes;
             tbxPhone.Text = this.phoneFilaSeleccionadaClientes;
             tbxEmail.Text = this.emailFilaSellecionadaClientes;
-            tbxZipCode.Text = this.cityFilaSeleccionadaClientes;
+            tbxZipCode.Text = this.cityFilaSeleccionadaClientes.ToString();
         }
 
         private void EditarClientes_Load(object sender, EventArgs e)
