@@ -33,6 +33,9 @@ C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.Genera
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+<<<<<<< HEAD
+C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+=======
 D:\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
@@ -71,6 +74,7 @@ D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.NewOrder.resources
 D:\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.SelectCustomer.resources
+<<<<<<< HEAD
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
@@ -109,3 +113,6 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.Stri
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
+=======
+>>>>>>> f11293deeee5604b0f77ca868d56f58171e42e45
+>>>>>>> b655e066e315af72026bc417c1332e577612326e
