@@ -27,6 +27,7 @@ namespace ERP.Presentacion.Clientes
         public EditarClientes(String dni,String name, String surname, String address, String phone, String email, String city)
         {
             InitializeComponent();
+            c = new Customer();
             dniFilaSeleccionadaClientes = dni;
             nameFilaSellecionadaClientes = name;
             surnameFilaSeleccionadaClientes = surname;
@@ -34,9 +35,9 @@ namespace ERP.Presentacion.Clientes
             phoneFilaSeleccionadaClientes = phone;
             emailFilaSellecionadaClientes = email;
 
-            c = new Customer();
 
-            cityFilaSeleccionadaClientes = c.gestorCliente.sacarZipCode(dni);
+
+            cityFilaSeleccionadaClientes = c.gestorCliente.sacarZipCode(dniFilaSeleccionadaClientes);
             cargarComponentes();
         }
 

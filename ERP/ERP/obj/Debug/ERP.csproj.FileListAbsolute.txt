@@ -152,3 +152,4 @@ C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.Genera
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Orders.DeleteOrder.resources
