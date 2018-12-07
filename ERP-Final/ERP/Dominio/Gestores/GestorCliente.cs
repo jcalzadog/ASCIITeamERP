@@ -17,10 +17,6 @@ namespace ERP.Dominio.Gestores
         public DataTable tablaCities { get; set; }
         public DataTable tablaZipCode { get; set; }
         ConnectOracle conector;
-        LinkedList<Object> listaRegiones;
-        LinkedList<Object> listaStates;
-        LinkedList<Object> listaCities;
-        LinkedList<Object> listaZipCode;
 
         public GestorCliente()
         {
@@ -28,17 +24,13 @@ namespace ERP.Dominio.Gestores
             tabla = new DataTable();
             tablaCities = new DataTable();
             tablaZipCode = new DataTable();
-            listaRegiones = new LinkedList<Object>();
-            listaStates = new LinkedList<Object>();
-            listaCities = new LinkedList<Object>();
-            listaZipCode = new LinkedList<Object>();
         }
 
         public Object sacarZipCode(String dni)
         {
             //SELECT Z.ZIPCODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES T ON Z.IDZIPCODE=T.REFZIPCODE INNER JOIN CITIES C ON T.REFCITY=C.IDCITY WHERE C.CITY ='';
             //SELECT REFZIPCODECITIES FROM CUSTOMERS WHERE DNI=
-            object zipC = conector.DLookUp("REFZIPCODESCITIES ", "CUSTOMERS", " DNI='" + dni + "'");
+            object zipC = conector.DLookUp("REFZIPCODESCITIES", "CUSTOMERS", "DNI='" + dni + "'");
             return zipC;
         }
 
@@ -61,97 +53,106 @@ namespace ERP.Dominio.Gestores
         public void refrescarRegions(ComboBox cmbRegions)
         {
             Decimal numRegions = (Decimal)conector.DLookUp("MAX(IDREGION)", "REGIONS", "");
-            //int numRoles = int.Parse(numR);
+            ////int numRoles = int.Parse(numR);
 
-            for (int i = 1; i <= numRegions; i++)
-            {
-                listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
-            }
+            //for (int i = 1; i <= numRegions; i++)
+            //{
+            //    listaRegiones.AddLast(conector.DLookUp("REGION", "REGIONS", " IDREGION=" + i));
+            //}
 
+            //cmbRegions.Items.Clear();
+            //int cont = 0;
+            //cmbRegions.Items.Add("Ninguno");
+            //while (cont < listaRegiones.Count)
+            //{
+            //    cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
+            //    cont++;
+            //}
+            //cmbRegions.SelectedIndex = 0;
             cmbRegions.Items.Clear();
-            int cont = 0;
-            cmbRegions.Items.Add("Ninguno");
-            while (cont < listaRegiones.Count)
+            DataSet regiones = conector.getData("SELECT DISTINCT * FROM REGIONS ORDER BY REGION", "REGIONS");
+
+            cmbRegions.Items.Add("Nothing");
+            for (int i = 0; i < numRegions; i++)
             {
-                cmbRegions.Items.Add(listaRegiones.ElementAt(cont));
-                cont++;
+                cmbRegions.Items.Add(regiones.Tables[0].Rows[i][1].ToString());
             }
             cmbRegions.SelectedIndex = 0;
         }
 
         public void refrescarState(ComboBox cmbState,Customer C)
         {
-            listaStates = new LinkedList<Object>();
-            Decimal numState = (Decimal)conector.DLookUp("MAX(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "'");
-            //int numRoles = int.Parse(numR);
-            LinkedList<Object> listaI = new LinkedList<Object>();
-
-            for (int i = 1; i <= numState; i++)
-            {
-                listaI.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "' AND IDSTATE=" + i));
-            }
-
-
-            for (int i = 1; i < numState; i++)
-            {
-
-                if (!listaI.ElementAt(i).ToString().Equals("-1"))
-                {
-                    listaStates.AddLast(listaI.ElementAt(i));
-                }
-
-            }
-
-            cmbState.Items.Clear();
-            int cont = 0;
-            cmbState.Items.Add("Ninguno");
-            while (cont < listaStates.Count)
-            {
-                cmbState.Items.Add(listaStates.ElementAt(cont));
-                cont++;
-            }
-            //cmbState.SelectedIndex = 0;
-        }
-
-        public void refrescarCities(ComboBox cmbCities, Customer C)
-        {
-            //listaCities = new LinkedList<Object>();
-            //Decimal numCities = (Decimal)conector.DLookUp("COUNT(C.IDCITY)", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE", "S.STATE='" + nameState + "'");
-
+            Decimal numState = (Decimal)conector.DLookUp("COUNT(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "'");
             ////int numRoles = int.Parse(numR);
             //LinkedList<Object> listaI = new LinkedList<Object>();
 
-            //for (int i = 1; i <= numCities; i++)
+            //for (int i = 1; i <= numState; i++)
             //{
-            //    listaI.AddLast(conector.DLookUp("C.CITY","CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE", "S.STATE = '" + nameState + "' AND C.IDCITY=" + i));
+            //    listaI.AddLast(conector.DLookUp("STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "' AND IDSTATE=" + i));
             //}
-            //listaI = conector.DLookUp("C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE", "S.STATE = '" + nameState + "'"));
 
-            //for (int i = 1; i < numCities; i++)
+
+            //for (int i = 1; i < numState; i++)
             //{
 
             //    if (!listaI.ElementAt(i).ToString().Equals("-1"))
             //    {
-            //        listaCities.AddLast(listaI.ElementAt(i));
+            //        listaStates.AddLast(listaI.ElementAt(i));
             //    }
 
             //}
 
-            //cmbCities.Items.Clear();
+            //cmbState.Items.Clear();
             //int cont = 0;
-            //cmbCities.Items.Add("Ninguno");
+            //cmbState.Items.Add("Ninguno");
             //while (cont < listaStates.Count)
             //{
-            //    cmbCities.Items.Add(listaCities.ElementAt(cont));
+            //    cmbState.Items.Add(listaStates.ElementAt(cont));
             //    cont++;
             //}
-            //cmbCities.SelectedIndex = 0;
+            ////cmbState.SelectedIndex = 0;
+            cmbState.Items.Clear();
+            DataSet states = conector.getData("SELECT DISTINCT * FROM STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION WHERE R.REGION='" + C.region + "' ORDER BY S.STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION");
 
-            DataSet data = new DataSet();
-            data = conector.getData("SELECT DISTINCT C.CITY NAME FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE WHERE S.STATE = '" + C.state + "'", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE");
-            tablaCities = data.Tables["CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY = Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE = S.IDSTATE"];
+            cmbState.Items.Add("Nothing");
+            for (int i = 0; i < numState; i++)
+            {
+                cmbState.Items.Add(states.Tables[0].Rows[i][1].ToString());
+            }
+            cmbState.SelectedIndex = 0;
         }
-    
+
+        public void refrescarCities(ComboBox cmbCitys, Customer C)
+        {
+            //SELECT * FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE=''
+            Decimal numCities = (Decimal)conector.DLookUp("COUNT(C.IDCITY)", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE", "S.STATE='" + C.state + "'");
+
+            cmbCitys.Items.Clear();
+            DataSet citys = conector.getData("SELECT DISTINCT * FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE='" + C.state + "' ORDER BY C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE");
+
+            cmbCitys.Items.Add("Nothing");
+            for (int i = 0; i < numCities; i++)
+            {
+                cmbCitys.Items.Add(citys.Tables[0].Rows[i][1].ToString());
+            }
+            cmbCitys.SelectedIndex = 0;
+        }
+
+        public void refrescarZipCode(ComboBox cmbZipCode, Customer C)
+        {
+            //SELECT COUNT(C.IDCITY) FROM ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY WHERE C.CITY='Ciudad Real'
+            Decimal numZipCode = (Decimal)conector.DLookUp("COUNT(ZI.IDZIPCODE)", "ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY", "C.CITY='" + C.city + "'");
+
+            cmbZipCode.Items.Clear();
+            DataSet ZipCodes = conector.getData("SELECT DISTINCT * FROM ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY WHERE C.CITY='" + C.city + "'", "ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY");
+
+            cmbZipCode.Items.Add("Nothing");
+            for (int i = 0; i < numZipCode; i++)
+            {
+                cmbZipCode.Items.Add(ZipCodes.Tables[0].Rows[i][1].ToString());
+            }
+            cmbZipCode.SelectedIndex = 0;
+        }
 
         public void refrescarZipCode(Customer C)
         {

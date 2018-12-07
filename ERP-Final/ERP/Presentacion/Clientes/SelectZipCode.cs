@@ -30,10 +30,10 @@ namespace ERP.Presentacion.Clientes
         private void cargarDatos()
         {
             cmbState.Enabled = false;
+            cmbCities.Enabled = false;
+            cmbZipCode.Enabled = false;
             customer.gestorCliente.refrescarRegions(cmbRegion);
 
-            cmbState.Items.Add("Ninguno");
-            cmbState.SelectedIndex = 0;
 
             btnChooseCode.BackColor = Color.Black;
             btnChooseCode.ForeColor = Color.White;
@@ -46,11 +46,15 @@ namespace ERP.Presentacion.Clientes
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.FlatAppearance.BorderColor = Color.Black;
             btnClose.FlatAppearance.BorderSize = 1;
+
+            btnChooseCode.Enabled = false;
+            btnChooseCode.BackColor = Color.Transparent;
+            btnChooseCode.ForeColor = Color.Black;
         }
 
         private void btnChooseCode_Click(object sender, EventArgs e)
         {
-            this.codZipCodeFIlaSeleccionada = codZipCodeFIlaSeleccionada;
+            this.codZipCodeFIlaSeleccionada = cmbZipCode.SelectedItem.ToString();
             this.Hide();
         }
 
@@ -61,15 +65,18 @@ namespace ERP.Presentacion.Clientes
 
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!cmbState.SelectedItem.Equals("Ninguno"))
+            if (cmbState.SelectedItem.Equals("Nothing"))
+            {
+                cmbCities.Enabled = false;
+            } else
             {
                 customer.state = cmbState.SelectedItem.ToString();
-                customer.gestorCliente.refrescarCities(cmbState, customer);//(cmbState, cmbState.SelectedItem.ToString());
-                cargarTablaCities();
+                cmbCities.Enabled = true;
+                customer.gestorCliente.refrescarCities(cmbCities, customer);
             }
         }
 
-        public void cargarTablaCities()
+        /*public void cargarTablaCities()
         {
             dgvCities.Columns.Clear();
 
@@ -129,13 +136,13 @@ namespace ERP.Presentacion.Clientes
             //codCiudadFIlaSeleccionada = dgvCities.Rows[dgvCities.SelectedRows[0].Index].Cells[1].Value.ToString();
             //codCiudadFIlaSeleccionada = dgvCities.Rows[dgvCities.SelectedRows[0].Index].Cells[0].Value.ToString();
             //codZipCodeFIlaSeleccionada = dgvZipCode.Rows[dgvZipCode.SelectedRows[0].Index].Cells[1].Value.ToString();
-        }
+        }*/
 
         private void cmbRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbState.SelectedItem != null)
-            {
-                if (cmbRegion.SelectedItem.Equals("Ninguno"))
+            //if(cmbState.SelectedItem != null)
+            //{
+                if (cmbRegion.SelectedItem.Equals("Nothing"))
                 {
                     cmbState.Enabled = false;
                 }
@@ -145,47 +152,8 @@ namespace ERP.Presentacion.Clientes
                     cmbState.Enabled = true;
                     customer.gestorCliente.refrescarState(cmbState, customer);//(cmbState, cmbRegion.SelectedItem.ToString());
                 }
-            }
+            //}
 
-        }
-
-        private void dgvCities_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-            if (dgvCities.Rows.Count > 0 && dgvCities.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
-            {
-                if (!String.IsNullOrEmpty(dgvCities.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
-                {
-                    // do sonmthind
-                    codCiudadFIlaSeleccionada = dgvCities.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-                    customer.city = codCiudadFIlaSeleccionada;
-                    customer.gestorCliente.refrescarZipCode(customer);
-                    cargarTablaZipCodes();
-                    codZipCodeFIlaSeleccionada = dgvZipCode.Rows[0].Cells[0].Value.ToString();
-                }
-            }
-        }
-
-        private void dgvZipCode_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-            if (dgvZipCode.Rows.Count > 0 && dgvZipCode.Rows[e.RowIndex].Cells[e.ColumnIndex] != null)
-            {
-                if (!String.IsNullOrEmpty(dgvZipCode.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
-                {
-                    // do sonmthind
-
-                    codZipCodeFIlaSeleccionada = dgvZipCode.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-                }
-            }
         }
 
         private void btnChooseCode_MouseEnter(object sender, EventArgs e)
@@ -208,8 +176,38 @@ namespace ERP.Presentacion.Clientes
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.BackColor = Color.White;
-            btnClose.ForeColor = Color.Black;
+            btnClose.BackColor = Color.Black;
+            btnClose.ForeColor = Color.White;
+        }
+
+        private void cmbCities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCities.SelectedItem.Equals("Nothing"))
+            {
+                cmbZipCode.Enabled = false;
+            }
+            else
+            {
+                customer.city = cmbCities.SelectedItem.ToString();
+                cmbZipCode.Enabled = true;
+                customer.gestorCliente.refrescarZipCode(cmbZipCode, customer);//(cmbState, cmbRegion.SelectedItem.ToString());
+            }
+        }
+
+        private void cmbZipCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbZipCode.SelectedItem.Equals("Nothing"))
+            {
+                btnChooseCode.Enabled = false;
+                btnChooseCode.BackColor = Color.Transparent;
+                btnChooseCode.ForeColor = Color.Black;
+            }
+            else
+            {
+                btnChooseCode.Enabled = true;
+                btnChooseCode.BackColor = Color.Black;
+                btnChooseCode.ForeColor = Color.White;
+            }
         }
     }
 }
