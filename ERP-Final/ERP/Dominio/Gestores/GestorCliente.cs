@@ -70,19 +70,22 @@ namespace ERP.Dominio.Gestores
             //}
             //cmbRegions.SelectedIndex = 0;
             cmbRegions.Items.Clear();
-            DataSet regiones = conector.getData("SELECT DISTINCT * FROM REGIONS ORDER BY REGION", "REGIONS");
+            DataSet regiones = conector.getData("SELECT DISTINCT REGION FROM REGIONS ORDER BY REGION", "REGIONS");
 
             cmbRegions.Items.Add("Nothing");
             for (int i = 0; i < numRegions; i++)
             {
-                cmbRegions.Items.Add(regiones.Tables[0].Rows[i][1].ToString());
+                cmbRegions.Items.Add(regiones.Tables[0].Rows[i][0].ToString());
             }
             cmbRegions.SelectedIndex = 0;
         }
 
         public void refrescarState(ComboBox cmbState,Customer C)
         {
-            Decimal numState = (Decimal)conector.DLookUp("COUNT(IDSTATE)", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION", "R.REGION='" + C.region + "'");
+            DataSet numStates = conector.getData("SELECT COUNT(DISTINCT S.IDSTATE) FROM STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION WHERE R.REGION='" + C.region + "' ORDER BY S.STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION");
+            String num = numStates.Tables[0].Rows[0][0].ToString();
+            int numState = int.Parse(num);
+
             ////int numRoles = int.Parse(numR);
             //LinkedList<Object> listaI = new LinkedList<Object>();
 
@@ -112,12 +115,12 @@ namespace ERP.Dominio.Gestores
             //}
             ////cmbState.SelectedIndex = 0;
             cmbState.Items.Clear();
-            DataSet states = conector.getData("SELECT DISTINCT * FROM STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION WHERE R.REGION='" + C.region + "' ORDER BY S.STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION");
+            DataSet states = conector.getData("SELECT DISTINCT S.STATE FROM STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION WHERE R.REGION='" + C.region + "' ORDER BY S.STATE", "STATES S INNER JOIN REGIONS R ON S.REFREGION=R.IDREGION");
 
             cmbState.Items.Add("Nothing");
             for (int i = 0; i < numState; i++)
             {
-                cmbState.Items.Add(states.Tables[0].Rows[i][1].ToString());
+                cmbState.Items.Add(states.Tables[0].Rows[i][0].ToString());
             }
             cmbState.SelectedIndex = 0;
         }
@@ -125,15 +128,18 @@ namespace ERP.Dominio.Gestores
         public void refrescarCities(ComboBox cmbCitys, Customer C)
         {
             //SELECT * FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE=''
-            Decimal numCities = (Decimal)conector.DLookUp("COUNT(C.IDCITY)", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE", "S.STATE='" + C.state + "'");
+            DataSet numCities = conector.getData("SELECT COUNT(DISTINCT C.IDCITY) FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE='" + C.state + "' ORDER BY C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE");
+            String num = numCities.Tables[0].Rows[0][0].ToString();
+            int numCitie = int.Parse(num);
+
 
             cmbCitys.Items.Clear();
-            DataSet citys = conector.getData("SELECT DISTINCT * FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE='" + C.state + "' ORDER BY C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE");
+            DataSet citys = conector.getData("SELECT DISTINCT C.CITY FROM CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE WHERE S.STATE='" + C.state + "' ORDER BY C.CITY", "CITIES C INNER JOIN ZIPCODESCITIES Z ON C.IDCITY=Z.REFCITY INNER JOIN STATES S ON Z.REFSTATE=S.IDSTATE");
 
             cmbCitys.Items.Add("Nothing");
-            for (int i = 0; i < numCities; i++)
+            for (int i = 0; i < numCitie; i++)
             {
-                cmbCitys.Items.Add(citys.Tables[0].Rows[i][1].ToString());
+                cmbCitys.Items.Add(citys.Tables[0].Rows[i][0].ToString());
             }
             cmbCitys.SelectedIndex = 0;
         }
@@ -141,7 +147,9 @@ namespace ERP.Dominio.Gestores
         public void refrescarZipCode(ComboBox cmbZipCode, Customer C)
         {
             //SELECT COUNT(C.IDCITY) FROM ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY WHERE C.CITY='Ciudad Real'
-            Decimal numZipCode = (Decimal)conector.DLookUp("COUNT(ZI.IDZIPCODE)", "ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY", "C.CITY='" + C.city + "'");
+            DataSet numZipCodes = conector.getData("SELECT COUNT(DISTINCT ZI.IDZIPCODE) FROM ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY WHERE C.CITY='" + C.city + "'", "ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY");
+            String num = numZipCodes.Tables[0].Rows[0][0].ToString();
+            int numZipCode = int.Parse(num);
 
             cmbZipCode.Items.Clear();
             DataSet ZipCodes = conector.getData("SELECT DISTINCT * FROM ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY WHERE C.CITY='" + C.city + "'", "ZIPCODES ZI INNER JOIN ZIPCODESCITIES Z ON ZI.IDZIPCODE=Z.REFZIPCODE INNER JOIN CITIES C ON Z.REFCITY=C.IDCITY");
