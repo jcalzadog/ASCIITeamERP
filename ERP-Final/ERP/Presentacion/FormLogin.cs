@@ -1,6 +1,7 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
 using ERP.Dominio.Util;
+using ERP.Presentacion.ErroresCambios;
 using ERP.Recursos;
 using System;
 using System.Collections.Generic;
@@ -62,7 +63,8 @@ namespace ERP
             }
             else
             {
-                MessageBox.Show("ERROR");
+                VentanaPersonalizada vp = new VentanaPersonalizada("Error, user or password not valid");
+                vp.ShowDialog();
             }
             //----------------------------
 

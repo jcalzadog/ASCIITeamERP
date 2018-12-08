@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,20 +29,38 @@ namespace ERP.Presentacion.Categories
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            categoria.name = textBox1.Text;
-            categoria.gestor.insertCategorias(categoria);
-            categoria.gestor.readCategorias();
-            this.Dispose();
+            if (Dominio.Util.Validations.validatePlatforms(textBox1.Text))
+            {
+                categoria.name = textBox1.Text;
+                categoria.gestor.insertCategorias(categoria);
+                categoria.gestor.readCategorias();
+                this.Dispose();
+            }
+            else {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
+                vp.ShowDialog();
+            }
+            
+            
         }
 
 
         //btnSaveAndAnother
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            categoria.name = textBox1.Text;
-            categoria.gestor.insertCategorias(categoria);
-            textBox1.Text = "";
-            categoria.gestor.readCategorias();
+            if (Dominio.Util.Validations.validateCategorie(textBox1.Text))
+            {
+                categoria.name = textBox1.Text;
+                categoria.gestor.insertCategorias(categoria);
+                textBox1.Text = "";
+                categoria.gestor.readCategorias();
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
+                vp.ShowDialog();
+            }
+
 
         }
 
@@ -102,6 +121,11 @@ namespace ERP.Presentacion.Categories
         }
 
         private void AddCategoria_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

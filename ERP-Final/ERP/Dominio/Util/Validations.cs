@@ -36,5 +36,14 @@ namespace ERP.Dominio.Util
             Regex regex = new Regex("^[0-9]+([.][0-9]+)?$");
             return regex.IsMatch(number);
         }
+        public static bool validateCategorie(String categorie) {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(categorie);
+        }
+        public static bool validatePlatforms(String platform)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(platform);
+        }
     }
 }

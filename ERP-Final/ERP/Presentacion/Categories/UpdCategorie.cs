@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +25,17 @@ namespace ERP.Presentacion.Categories
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            categoria.name = textBox1.Text;
-            categoria.gestor.updateCategorias(categoria);
-            this.Dispose();
+            if (Dominio.Util.Validations.validateCategorie(textBox1.Text))
+            {
+                categoria.name = textBox1.Text;
+                categoria.gestor.updateCategorias(categoria);
+                this.Dispose();
+            }
+            else {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres no validos");
+                vp.ShowDialog();
+            }
+            
             categoria.gestor.readCategorias();
         }
     

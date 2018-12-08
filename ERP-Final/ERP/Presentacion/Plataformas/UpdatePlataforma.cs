@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,11 +25,19 @@ namespace ERP.Presentacion.Plataformas
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (Dominio.Util.Validations.validatePlatforms(txtUpdate.Text)) {
 
             plataforma.name = txtUpdate.Text;
             plataforma.gestorplataforma.updatePlataforma(plataforma);
             this.Dispose();
             plataforma.gestorplataforma.readPlatforms();
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
+                vp.ShowDialog();
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
