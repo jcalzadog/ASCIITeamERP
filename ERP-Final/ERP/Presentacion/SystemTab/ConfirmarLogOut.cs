@@ -12,6 +12,7 @@ namespace ERP.Presentacion.SystemTab
 {
     public partial class ConfirmarLogOut : Form
     {
+        String[] paginas = {"Start","Users","Customers","Orders","Products","Categories","Platforms","System"};
         private TabControl tbcMenuPrincipal;
         public ConfirmarLogOut(TabControl tbcMenuPrincipal)
         {
@@ -44,6 +45,13 @@ namespace ERP.Presentacion.SystemTab
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            
+            for(int i = 0; i < 8;i++)
+            {
+                TabPage tp = tbcMenuPrincipal.TabPages[i];
+                tp.Text = paginas[i];
+            }
+            
             FormLogin login = new FormLogin(this.tbcMenuPrincipal);
             this.Dispose();
             this.tbcMenuPrincipal.Hide();
