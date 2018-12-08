@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,9 +143,18 @@ namespace ERP.Presentacion.Usuarios
         {
             if(cambiarPass == true)
             {
-                user.password = tbxPassword.Text;
-                user.gestorusuario.modificarUsuario(user);
-                this.Dispose();
+                if (Dominio.Util.Validations.validateUser(tbxPassword.Text))
+                {
+                    user.password = tbxPassword.Text;
+                    user.gestorusuario.modificarUsuario(user);
+                    this.Dispose();
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en la password");
+                    vp.ShowDialog();
+                }
+                
             }
             else
             {

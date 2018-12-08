@@ -208,8 +208,8 @@ namespace ERP.Dominio.Gestores
 
 
             String sentencia = "UPDATE CUSTOMERS SET DNI=UPPER('"+C.dni+"'),NAME=UPPER('"+C.name+"'),SURNAME=UPPER('"+C.surname+"'),ADDRESS=UPPER('"+C.address+"'),PHONE="+C.phone+",EMAIL=UPPER('"+C.email+"'),REFZIPCODESCITIES="+C.refzipcodescities+" WHERE IDCUSTOMER="+C.idCustomer;
-            Console.WriteLine(sentencia);
-            //conector.setData(sentencia);
+            //Console.WriteLine(sentencia);
+            conector.setData(sentencia);
 
 
             String mensaje = "The customer has been modified correctly.";

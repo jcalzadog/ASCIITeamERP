@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -169,40 +170,122 @@ namespace ERP.Presentacion.Clientes
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
             //Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
-            customer.dni = tbxDNI.Text;
-            customer.name = tbxName.Text;
-            customer.surname = tbxSurname.Text;
-            customer.address = tbxAddress.Text;
-            customer.phone = Int32.Parse(tbxPhone.Text);
-            customer.email = tbxEmail.Text;
-            customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
-
-            Boolean creado = customer.gestorCliente.nuevoCliente(customer);
-            if (creado)
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
             {
-                this.Dispose();
+                if (Dominio.Util.Validations.validateName(tbxName.Text))
+                {
+                    if (Dominio.Util.Validations.validateName(tbxSurname.Text))
+                    {
+                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        {
+                            if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
+                            {
+
+                                customer.dni = tbxDNI.Text;
+                                customer.name = tbxName.Text;
+                                customer.surname = tbxSurname.Text;
+                                customer.address = tbxAddress.Text;
+                                customer.phone = Int32.Parse(tbxPhone.Text);
+                                customer.email = tbxEmail.Text;
+                                customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+
+                                Boolean creado = customer.gestorCliente.nuevoCliente(customer);
+                                if (creado)
+                                {
+                                    this.Dispose();
+                                }
+                            }
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Email");
+                                vp.ShowDialog();
+                            }
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Phone");
+                            vp.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Surname");
+                        vp.ShowDialog();
+                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Name");
+                    vp.ShowDialog();
+                }
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el DNI");
+                vp.ShowDialog();
             }
         }
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            customer.dni = tbxDNI.Text;
-            customer.name = tbxName.Text;
-            customer.surname = tbxSurname.Text;
-            customer.address = tbxAddress.Text;
-            customer.phone = Int32.Parse(tbxPhone.Text);
-            customer.email = tbxEmail.Text;
-            customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
-            Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
-            if (creado)
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
             {
-                tbxDNI.Text = "";
-                tbxName.Text = "";
-                tbxSurname.Text = "";
-                tbxAddress.Text = "";
-                tbxEmail.Text = "";
-                tbxPhone.Text = "";
-                tbxZipCode.Text = "";
+                if (Dominio.Util.Validations.validateName(tbxName.Text))
+                {
+                    if (Dominio.Util.Validations.validateName(tbxSurname.Text))
+                    {
+                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        {
+                            if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
+                            {
+
+                                customer.dni = tbxDNI.Text;
+                                customer.name = tbxName.Text;
+                                customer.surname = tbxSurname.Text;
+                                customer.address = tbxAddress.Text;
+                                customer.phone = Int32.Parse(tbxPhone.Text);
+                                customer.email = tbxEmail.Text;
+                                customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+                                Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
+                                if (creado)
+                                {
+                                    tbxDNI.Text = "";
+                                    tbxName.Text = "";
+                                    tbxSurname.Text = "";
+                                    tbxAddress.Text = "";
+                                    tbxEmail.Text = "";
+                                    tbxPhone.Text = "";
+                                    tbxZipCode.Text = "";
+                                }
+                            }
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Email");
+                                vp.ShowDialog();
+                            }
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Phone");
+                            vp.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Surname");
+                        vp.ShowDialog();
+                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Name");
+                    vp.ShowDialog();
+                }
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el DNI");
+                vp.ShowDialog();
             }
         }
     }

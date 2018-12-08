@@ -46,6 +46,7 @@
             this.tbxSurname = new System.Windows.Forms.TextBox();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxDNI = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSelectZipCode
@@ -92,9 +93,9 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(127, 339);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Zip Code";
+            this.label2.Text = "Zip Code*";
             // 
             // btnConfirm
             // 
@@ -130,9 +131,9 @@
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(147, 289);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(47, 17);
+            this.lblEmail.Size = new System.Drawing.Size(53, 17);
             this.lblEmail.TabIndex = 38;
-            this.lblEmail.Text = "Email";
+            this.lblEmail.Text = "Email*";
             // 
             // lblPhone
             // 
@@ -140,9 +141,9 @@
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(147, 242);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(54, 17);
+            this.lblPhone.Size = new System.Drawing.Size(60, 17);
             this.lblPhone.TabIndex = 37;
-            this.lblPhone.Text = "Phone";
+            this.lblPhone.Text = "Phone*";
             // 
             // lblAddress
             // 
@@ -150,9 +151,9 @@
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.Location = new System.Drawing.Point(133, 191);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(67, 17);
+            this.lblAddress.Size = new System.Drawing.Size(73, 17);
             this.lblAddress.TabIndex = 36;
-            this.lblAddress.Text = "Address";
+            this.lblAddress.Text = "Address*";
             // 
             // lblSurname
             // 
@@ -160,9 +161,9 @@
             this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurname.Location = new System.Drawing.Point(127, 142);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(72, 17);
+            this.lblSurname.Size = new System.Drawing.Size(78, 17);
             this.lblSurname.TabIndex = 35;
-            this.lblSurname.Text = "Surname";
+            this.lblSurname.Text = "Surname*";
             // 
             // lblName
             // 
@@ -170,9 +171,9 @@
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(147, 93);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(49, 17);
+            this.lblName.Size = new System.Drawing.Size(55, 17);
             this.lblName.TabIndex = 34;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Name*";
             // 
             // lblDNI
             // 
@@ -180,9 +181,9 @@
             this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDNI.Location = new System.Drawing.Point(137, 50);
             this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(62, 17);
+            this.lblDNI.Size = new System.Drawing.Size(68, 17);
             this.lblDNI.TabIndex = 33;
-            this.lblDNI.Text = "CIF/DNI";
+            this.lblDNI.Text = "CIF/DNI*";
             // 
             // tbxPhone
             // 
@@ -232,6 +233,16 @@
             this.tbxDNI.Size = new System.Drawing.Size(125, 22);
             this.tbxDNI.TabIndex = 24;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(447, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 17);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Campos Obligatorios *";
+            // 
             // EditarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,6 +250,7 @@
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(640, 466);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSelectZipCode);
             this.Controls.Add(this.tbxZipCode);
             this.Controls.Add(this.btnCancel);
@@ -292,5 +304,6 @@
         private System.Windows.Forms.TextBox tbxSurname;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.TextBox tbxDNI;
+        private System.Windows.Forms.Label label1;
     }
 }

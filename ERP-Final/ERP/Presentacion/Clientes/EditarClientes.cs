@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,16 +89,57 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-            ConnectOracle conect = new ConnectOracle();
-            Decimal id = (Decimal)conect.DLookUp("IDCUSTOMER", "CUSTOMERS", "UPPER(DNI)=UPPER('" + this.dniFilaSeleccionadaClientes + "')");
-            int id1 = (int)id;
-            int zip = Int32.Parse(this.tbxZipCode.Text);
-               
-            Customer clientemod = new Customer(id1,this.tbxName.Text, this.tbxDNI.Text, this.tbxSurname.Text,this.tbxAddress.Text,Int32.Parse(this.tbxPhone.Text),this.tbxEmail.Text,zip,c.deleted);
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
+            {
+                if (Dominio.Util.Validations.validateName(tbxName.Text))
+                {
+                    if (Dominio.Util.Validations.validateName(tbxSurname.Text))
+                    {
+                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        {
+                            if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
+                            {
 
-            c.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
-           
-            this.Dispose();
+                                ConnectOracle conect = new ConnectOracle();
+                                Decimal id = (Decimal)conect.DLookUp("IDCUSTOMER", "CUSTOMERS", "UPPER(DNI)=UPPER('" + this.dniFilaSeleccionadaClientes + "')");
+                                int id1 = (int)id;
+                                int zip = Int32.Parse(tbxZipCode.Text);
+
+                                Customer clientemod = new Customer(id1, this.tbxName.Text, this.tbxDNI.Text, this.tbxSurname.Text, this.tbxAddress.Text, Int32.Parse(this.tbxPhone.Text), this.tbxEmail.Text, c.deleted, zip);
+
+                                clientemod.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
+
+                                this.Dispose();
+                            }
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Email");
+                                vp.ShowDialog();
+                            }
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Phone");
+                            vp.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Surname");
+                        vp.ShowDialog();
+                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Name");
+                    vp.ShowDialog();
+                }
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el DNI");
+                vp.ShowDialog();
+            }
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
