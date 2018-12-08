@@ -132,6 +132,20 @@ namespace ERP.Dominio.Gestores
             }
         }
 
+        public bool comprobarRolUtilizado(String rol)
+        {
+            //Devuelve true si algun usuario usa el rol.
+            bool eliminado = false;
+            Decimal idRol = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + rol + "'");
+            Decimal usersConRol = (Decimal)conector.DLookUp("COUNT(IDUSERROL)", "USERS_ROLES", "IDROLE=" + idRol);
+            if (usersConRol > 0)
+            {
+                eliminado = true;
+            }
+
+            return eliminado;
+        }
+
         public Boolean nuevoRol(DataGridView dgvPermissions, Role R)//(DataGridView dgvPermissions, String nombreRol)
         {
             Boolean creado = false;

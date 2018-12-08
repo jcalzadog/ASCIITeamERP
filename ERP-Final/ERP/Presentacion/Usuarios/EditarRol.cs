@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -244,10 +245,20 @@ namespace ERP.Presentacion.Usuarios
         private void btnDeleteRol_Click(object sender, EventArgs e)
         {
             String nameRol = cmbRoles.SelectedItem.ToString();
-            ConfirmarBorrarRol confirmDeletedRole = new ConfirmarBorrarRol(nameRol);
-            confirmDeletedRole.ShowDialog();
-            rol.gestorRol.refrescarRoles(cmbRoles);
-            cmbRoles.SelectedIndex = 0;
+            bool existeUserConRol = rol.gestorRol.comprobarRolUtilizado(nameRol);
+            if (existeUserConRol)
+            {
+                String mensaje = "The role has been used with a User.";
+                VentanaPersonalizada aviso = new VentanaPersonalizada(mensaje);
+                aviso.ShowDialog();
+            } else
+            {
+                ConfirmarBorrarRol confirmDeletedRole = new ConfirmarBorrarRol(nameRol);
+                confirmDeletedRole.ShowDialog();
+                rol.gestorRol.refrescarRoles(cmbRoles);
+                cmbRoles.SelectedIndex = 0;
+            }
+            
         }
 
         private void btnDeleteRol_MouseEnter(object sender, EventArgs e)
