@@ -85,7 +85,7 @@ namespace ERP
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             this.nombreUsuarioLogueado = login.nombreUsuario;
-            this.idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
+            idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
@@ -691,25 +691,12 @@ namespace ERP
 
 
             //Productos
-            btnNewProd.BackColor = Color.Black;
-            btnNewProd.ForeColor = Color.White;
-            btnNewProd.FlatStyle = FlatStyle.Flat;
-            btnNewProd.FlatAppearance.BorderColor = Color.Black;
-            btnNewProd.FlatAppearance.BorderSize = 1;
-
-            btnUpdateProd.BackColor = Color.Black;
-            btnUpdateProd.ForeColor = Color.White;
-            btnUpdateProd.FlatStyle = FlatStyle.Flat;
-            btnUpdateProd.FlatAppearance.BorderColor = Color.Black;
-            btnUpdateProd.FlatAppearance.BorderSize = 1;
-
-            btnDeleteProd.BackColor = Color.Black;
-            btnDeleteProd.ForeColor = Color.White;
-            btnDeleteProd.FlatStyle = FlatStyle.Flat;
-            btnDeleteProd.FlatAppearance.BorderColor = Color.Black;
-            btnDeleteProd.FlatAppearance.BorderSize = 1;
-
             
+            aparienciaBotones(btnNewProd);
+            aparienciaBotones(btnUpdateProd);
+            aparienciaBotones(btnDeleteProd);
+
+
 
             //Platforms
             aparienciaBotones(btnUpdatePlatform);
@@ -1303,7 +1290,7 @@ namespace ERP
 
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
-            Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(this.idUsuarioLogueado);
+            Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(idUsuarioLogueado);
             dialogNewOrder.ShowDialog();
         }
 
