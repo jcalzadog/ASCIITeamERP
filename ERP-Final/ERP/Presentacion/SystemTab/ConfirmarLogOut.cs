@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,8 @@ namespace ERP.Presentacion.SystemTab
             login.ShowDialog();
             if (!login.IsDisposed)
             {
+                User usuario = new User();
+                ERP.Persistencia.Logs.idUser = usuario.gestorusuario.extraerIdUserLogueado(login.nombreUsuario);
                 this.tbcMenuPrincipal.Visible = true;
             }
 

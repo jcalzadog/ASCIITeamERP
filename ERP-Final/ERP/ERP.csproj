@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorLogs.cs" />
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Order.cs" />
@@ -224,6 +225,12 @@
     <Compile Include="Presentacion\Usuarios\EditarUsuario.Designer.cs">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Usuarios\Logs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Usuarios\Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Usuarios\NuevoRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\EditarUsuario.resx">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Usuarios\Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\NuevoRol.resx">
       <DependentUpon>NuevoRol.cs</DependentUpon>

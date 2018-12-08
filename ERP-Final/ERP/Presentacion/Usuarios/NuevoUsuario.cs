@@ -77,6 +77,7 @@ namespace ERP.Presentacion.Usuarios
                     Boolean creado = user.gestorusuario.nuevoUsuario(user);
                     if (creado)
                     {
+                        ERP.Persistencia.Logs.write("Usuario " + tbxUsername.Text + " creado");
                         this.Dispose();
                     }
                 }

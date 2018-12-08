@@ -30,7 +30,7 @@ namespace ERP
     public partial class FormPrincipal : Form
     {
         private String nombreUsuarioLogueado;
-        public static Object idUsuarioLogueado;
+        public Object idUsuarioLogueado;
 
         private User usuario;
         private Customer cliente;
@@ -86,6 +86,7 @@ namespace ERP
             login.ShowDialog();
             this.nombreUsuarioLogueado = login.nombreUsuario;
             this.idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
+            ERP.Persistencia.Logs.idUser = this.idUsuarioLogueado;
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
@@ -658,9 +659,8 @@ namespace ERP
             btnDeleteUser.FlatAppearance.BorderColor = Color.Black;
             btnDeleteUser.FlatAppearance.BorderSize = 1;
 
-            btnLogs.Enabled = false;
-            btnLogs.BackColor = Color.Transparent;
-            btnLogs.ForeColor = Color.Black;
+            btnLogs.BackColor = Color.Black;
+            btnLogs.ForeColor = Color.White;
             btnLogs.FlatStyle = FlatStyle.Flat;
             btnLogs.FlatAppearance.BorderColor = Color.Black;
             btnLogs.FlatAppearance.BorderSize = 1;
@@ -974,7 +974,8 @@ namespace ERP
 
         private void btnLogs_Click(object sender, EventArgs e)
         {
-
+            Logs logs = new Logs();
+            logs.ShowDialog();
         }
 
         private void btnNewProd_Click(object sender, EventArgs e)

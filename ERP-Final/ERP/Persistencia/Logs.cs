@@ -9,6 +9,7 @@ namespace ERP.Persistencia
     class Logs
     {
         static readonly String ruta = "log.txt";
+        public static Object idUser { get; set; }
         public static void write(String desc)
         {
             //bloque que coresponde a log en fichero
@@ -19,8 +20,7 @@ namespace ERP.Persistencia
             //bloque que corresponde a log en bbdd
             ConnectOracle connect = new ConnectOracle();
             //int idUser = Convert.ToInt32(connect.DLookUp("COUNT(*)", "users", "name = '" + Dominio.Permissions.usuario + "' "));
-            int idUser = (int)FormPrincipal.idUsuarioLogueado;
-            String sql = "INSERT INTO logs" +
+            String sql = "INSERT INTO LOGS" +
                 " VALUES (SYSDATE," + idUser + ",'" + desc.Replace("'", "") + "')";
             connect.setData(sql);
         }
