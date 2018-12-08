@@ -30,7 +30,7 @@ namespace ERP
     public partial class FormPrincipal : Form
     {
         private String nombreUsuarioLogueado;
-        private Object idUsuarioLogueado;
+        public static Object idUsuarioLogueado;
 
         private User usuario;
         private Customer cliente;

@@ -83,5 +83,10 @@ namespace ERP.Presentacion.Plataformas
             btnCancelar.BackColor = Color.Black;
             btnCancelar.ForeColor = Color.White;
         }
+
+        private void UpdatePlataforma_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

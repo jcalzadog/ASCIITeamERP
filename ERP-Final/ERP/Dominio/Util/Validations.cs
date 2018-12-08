@@ -45,5 +45,16 @@ namespace ERP.Dominio.Util
             Regex regex = new Regex("^[a-zA-Z0-9]+$");
             return regex.IsMatch(platform);
         }
+
+        public static bool validateUser(String cadena)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(cadena);
+        }
+        public static bool validateRol(String rol)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(rol);
+        }
     }
 }

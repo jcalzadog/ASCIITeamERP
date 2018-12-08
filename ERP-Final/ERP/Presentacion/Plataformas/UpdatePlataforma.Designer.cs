@@ -37,7 +37,7 @@
             // txtUpdate
             // 
             this.txtUpdate.Location = new System.Drawing.Point(141, 80);
-            this.txtUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtUpdate.Name = "txtUpdate";
             this.txtUpdate.Size = new System.Drawing.Size(216, 22);
             this.txtUpdate.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(389, 161);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(281, 161);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(523, 251);
             this.MinimizeBox = false;
@@ -102,6 +102,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update Platform";
+            this.Load += new System.EventHandler(this.UpdatePlataforma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -67,6 +67,7 @@
     <Compile Include="Dominio\Util\Encryptor.cs" />
     <Compile Include="Dominio\Util\Validations.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
+    <Compile Include="Persistencia\Logs.cs" />
     <Compile Include="Presentacion\Categories\AddCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
