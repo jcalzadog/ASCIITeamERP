@@ -245,3 +245,4 @@ C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ES-ES\ERP.r
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.exe
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.pdb
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Presentacion.Usuarios.Logs.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Presentacion.FormCargaInicial.resources
