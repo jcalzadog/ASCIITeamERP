@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Gestores\GestorLogs.cs" />
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Order.cs" />
@@ -115,6 +116,12 @@
     </Compile>
     <Compile Include="Presentacion\ErroresCambios\VentanaPersonalizada.Designer.cs">
       <DependentUpon>VentanaPersonalizada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FormCargaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FormCargaInicial.Designer.cs">
+      <DependentUpon>FormCargaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FormLogin.cs">
       <SubType>Form</SubType>
@@ -224,6 +231,12 @@
     <Compile Include="Presentacion\Usuarios\EditarUsuario.Designer.cs">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Usuarios\Logs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Usuarios\Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Usuarios\NuevoRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ErroresCambios\VentanaPersonalizada.resx">
       <DependentUpon>VentanaPersonalizada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FormCargaInicial.resx">
+      <DependentUpon>FormCargaInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -325,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\EditarUsuario.resx">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Usuarios\Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Usuarios\NuevoRol.resx">
       <DependentUpon>NuevoRol.cs</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
 using ERP.Dominio.Util;
+using ERP.Presentacion;
 using ERP.Presentacion.ErroresCambios;
 using ERP.Recursos;
 using System;
@@ -31,6 +32,9 @@ namespace ERP
 
             InitializeComponent();
             cargarComponentes();
+
+            FormCargaInicial cargaInicial = new FormCargaInicial();
+            cargaInicial.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
