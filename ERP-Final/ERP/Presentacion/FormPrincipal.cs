@@ -85,12 +85,12 @@ namespace ERP
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             this.nombreUsuarioLogueado = login.nombreUsuario;
-<<<<<<< HEAD
-            idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
-=======
+
+            
+
             this.idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
             ERP.Persistencia.Logs.idUser = this.idUsuarioLogueado;
->>>>>>> 4c96745130c2c4de6136d11b07564df0522353c3
+
             /* activar o desactivar pestañas  ((Control)tabPage1).Enabled = true;    y  tbcMenuPrincipal.SelectedIndex = 1;*/
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
