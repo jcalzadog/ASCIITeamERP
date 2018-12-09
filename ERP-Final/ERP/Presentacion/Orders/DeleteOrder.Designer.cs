@@ -37,43 +37,53 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Location = new System.Drawing.Point(25, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 24);
+            this.label1.Size = new System.Drawing.Size(395, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "Are you sure to delete the order?";
             // 
             // btnConfirmar
             // 
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(205, 72);
+            this.btnConfirmar.Location = new System.Drawing.Point(273, 89);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(87, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(116, 28);
             this.btnConfirmar.TabIndex = 14;
             this.btnConfirmar.Text = "Confirm";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnConfirmar.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(35, 72);
+            this.btnCancelar.Location = new System.Drawing.Point(47, 89);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(87, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(116, 28);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // DeleteOrder
             // 
             this.AcceptButton = this.btnConfirmar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(351, 117);
+            this.ClientSize = new System.Drawing.Size(468, 144);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DeleteOrder";

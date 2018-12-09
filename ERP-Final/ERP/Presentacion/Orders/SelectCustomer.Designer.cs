@@ -40,38 +40,46 @@
             this.dgvSelectCustomer.AllowUserToDeleteRows = false;
             this.dgvSelectCustomer.AllowUserToResizeRows = false;
             this.dgvSelectCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSelectCustomer.Location = new System.Drawing.Point(12, 42);
+            this.dgvSelectCustomer.Location = new System.Drawing.Point(18, 55);
+            this.dgvSelectCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvSelectCustomer.Name = "dgvSelectCustomer";
-            this.dgvSelectCustomer.Size = new System.Drawing.Size(487, 241);
+            this.dgvSelectCustomer.Size = new System.Drawing.Size(730, 316);
             this.dgvSelectCustomer.TabIndex = 0;
             this.dgvSelectCustomer.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectCustomer_CellDoubleClick);
             // 
             // txtSearchCustomer
             // 
-            this.txtSearchCustomer.Location = new System.Drawing.Point(12, 13);
+            this.txtSearchCustomer.Location = new System.Drawing.Point(18, 17);
+            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearchCustomer.Name = "txtSearchCustomer";
-            this.txtSearchCustomer.Size = new System.Drawing.Size(284, 20);
+            this.txtSearchCustomer.Size = new System.Drawing.Size(424, 23);
             this.txtSearchCustomer.TabIndex = 1;
             this.txtSearchCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchCustomer_KeyUp);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(424, 13);
+            this.btnCancel.Location = new System.Drawing.Point(636, 17);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(112, 30);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // SelectCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 295);
+            this.BackColor = System.Drawing.Color.DarkOrange;
+            this.ClientSize = new System.Drawing.Size(766, 386);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.dgvSelectCustomer);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SelectCustomer";
             this.Text = "Select Customer";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectCustomer)).EndInit();

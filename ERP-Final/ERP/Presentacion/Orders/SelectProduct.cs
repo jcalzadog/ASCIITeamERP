@@ -23,9 +23,19 @@ namespace ERP.Presentacion.Orders
         public SelectProduct()
         {
             InitializeComponent();
+            aparienciaBotones(btnCancel);
             Acepta = false;
             gestor = new GestorProducto();
             cargarTablaProductos("");
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
         }
 
         public bool Acepta
@@ -151,6 +161,18 @@ namespace ERP.Presentacion.Orders
         {
             string condicion = " UPPER(PR.NAME) like '%" + textBox1.Text.ToUpper() + "%' AND PR.DELETED=0 ";
             cargarTablaProductos(condicion);
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
         }
     }
 }

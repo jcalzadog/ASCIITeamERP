@@ -20,9 +20,20 @@ namespace ERP.Presentacion.Orders
         public SelectCustomer(TextBox txtNombre)
         {
             InitializeComponent();
+            aparienciaBotones(btnCancel);
             cliente = new Customer();
             this.txtNombre = txtNombre;
             cargarTablaClientes("DELETED=0");
+            
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
         }
 
         private void cargarTablaClientes(String condicion)
@@ -77,6 +88,18 @@ namespace ERP.Presentacion.Orders
             txtNombre.Text = (string)dgvSelectCustomer.Rows[e.RowIndex].Cells[1].Value;
             this.Dispose();
             
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
         }
     }
 }

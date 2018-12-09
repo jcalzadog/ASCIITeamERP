@@ -3,6 +3,7 @@ using ERP.Dominio.Gestores;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Orders
@@ -32,6 +33,11 @@ namespace ERP.Presentacion.Orders
         public NewOrder( Object userId)
         {
             InitializeComponent();
+            aparienciaBotones(btnAddProduct);
+            aparienciaBotones(btnCancel);
+            aparienciaBotones(btnRemoveProduct);
+            aparienciaBotones(btnSave);
+            aparienciaBotones(btnSelectCustomer);
             this.userId = (decimal)userId;
             initPayMethods();
             date = DateTime.UtcNow.Date;
@@ -115,6 +121,32 @@ namespace ERP.Presentacion.Orders
                     details.RemoveAt(dgvCart.SelectedRows[i].Index);
                 }
             }
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+
+        private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
