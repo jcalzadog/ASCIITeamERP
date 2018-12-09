@@ -21,6 +21,17 @@ namespace ERP.Dominio.Gestores
             listaPlat = new LinkedList<object>();
         }
 
+        public bool plataformaEstaProducto(String name)
+        {
+            bool tiene = false;
+            Decimal contar = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS P INNER JOIN PLATFORMS PL ON P.IDPLATFORM=PL.IDPLATFORM", "P.DELETED=0 AND PL.NAME='" + name + "'");
+            if (contar > 0)
+            {
+                tiene = true;
+            }
+            return tiene;
+        }
+
         public Decimal contarPlataformas()
         {
             Decimal cuentaPlat = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "");

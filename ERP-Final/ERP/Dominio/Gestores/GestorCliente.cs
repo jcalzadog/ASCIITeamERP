@@ -26,6 +26,17 @@ namespace ERP.Dominio.Gestores
             tablaZipCode = new DataTable();
         }
 
+        public bool clienteTienePedidos(String dni)
+        {
+            bool tiene = false;
+            Decimal cuentaPedidos = (Decimal)conector.DLookUp("COUNT(IDORDER)", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER", "C.DNI='" + dni + "'");
+            if(cuentaPedidos > 0)
+            {
+                tiene = true;
+            }
+            return tiene;
+        }
+
         public Decimal contarClientes()
         {
             Decimal cuentaClientes = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "");

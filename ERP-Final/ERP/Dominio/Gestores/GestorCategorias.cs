@@ -20,6 +20,17 @@ namespace ERP.Dominio.Gestores
             listaCat = new LinkedList<object>();
         }
 
+        public bool categoriaEstaProducto(String name)
+        {
+            bool tiene = false;
+            Decimal contar = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS P INNER JOIN CATEGORIES C ON P.IDCATEGORY=C.IDCATEGORY", "P.DELETED=0 AND C.NAME='" + name + "'");
+            if (contar > 0)
+            {
+                tiene = true;
+            }
+            return tiene;
+        }
+
         public Decimal contarCategorias()
         {
             Decimal cuentaCate = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "");

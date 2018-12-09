@@ -607,10 +607,19 @@ namespace ERP
 
         private void btnDeleteCategorie_Click(object sender, EventArgs e)
         {
-            DeleteCategorie dc = new DeleteCategorie();
-            dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
-            dc.ShowDialog();
-            cargarCategorias();
+            if (!categoria.gestor.categoriaEstaProducto(dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString()))
+            {
+                DeleteCategorie dc = new DeleteCategorie();
+                dc.namedelete = dgvCategorie.Rows[dgvCategorie.CurrentRow.Index].Cells[0].Value.ToString();
+                dc.ShowDialog();
+                cargarCategorias();
+            }
+            else
+            {
+                String mensaje = "Any product have this Categorie";
+                VentanaPersonalizada vp = new VentanaPersonalizada(mensaje);
+                vp.ShowDialog();
+            }
         }
 
         private void btnRoles_Click(object sender, EventArgs e)
@@ -1222,9 +1231,17 @@ namespace ERP
         {
             if (!dniFilaSeleccionadaClientes.Equals(""))
             {
-                ConfirmarBorrarCliente deleteCustomer = new ConfirmarBorrarCliente(dgvCustomers,dniFilaSeleccionadaClientes);
-                deleteCustomer.ShowDialog();
-                filtroTotalClientes();
+                if (!cliente.gestorCliente.clienteTienePedidos(dniFilaSeleccionadaClientes))
+                {
+                    ConfirmarBorrarCliente deleteCustomer = new ConfirmarBorrarCliente(dgvCustomers, dniFilaSeleccionadaClientes);
+                    deleteCustomer.ShowDialog();
+                    filtroTotalClientes();
+                } else
+                {
+                    String mensaje = "The customer have Orders.";
+                    VentanaPersonalizada vp = new VentanaPersonalizada(mensaje);
+                    vp.ShowDialog();
+                }
             }
             else
             {
@@ -1310,10 +1327,19 @@ namespace ERP
 
         private void btnDeletePlatform_Click(object sender, EventArgs e)
         {
-            DeletePlataforma dp = new DeletePlataforma();
-            dp.nameDelete = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
-            dp.ShowDialog();
-            cargarPlataformas();
+            if (!plataforma.gestorplataforma.plataformaEstaProducto(dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString()))
+            {
+                DeletePlataforma dp = new DeletePlataforma();
+                dp.nameDelete = dgvPlatforms.Rows[dgvPlatforms.CurrentRow.Index].Cells[0].Value.ToString();
+                dp.ShowDialog();
+                cargarPlataformas();
+            }
+            else
+            {
+                String mensaje = "Any product have this Platform";
+                VentanaPersonalizada vp = new VentanaPersonalizada(mensaje);
+                vp.ShowDialog();
+            }
         }
 
         private void txtSearchProd_KeyUp(object sender, KeyEventArgs e)

@@ -20,6 +20,7 @@ namespace ERP.Presentacion.Clientes
         {
             cliente = new Customer();
             InitializeComponent();
+            cargaInicio();
             this.dgvCustomers = dgvCustomers;
             this.dniFilaSeleccionada = dniFilaSeleccionada;
         }
@@ -36,5 +37,45 @@ namespace ERP.Presentacion.Clientes
             cliente.gestorCliente.eliminarCliente(dgvCustomers, cliente);
             this.Dispose();
         }
+        
+        private void cargaInicio()
+        {
+            btnCancelar.BackColor = Color.Black;
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.FlatAppearance.BorderColor = Color.Black;
+            btnCancelar.FlatAppearance.BorderSize = 1;
+
+            btnConfirmar.BackColor = Color.Black;
+            btnConfirmar.ForeColor = Color.White;
+            btnConfirmar.FlatStyle = FlatStyle.Flat;
+            btnConfirmar.FlatAppearance.BorderColor = Color.Black;
+            btnConfirmar.FlatAppearance.BorderSize = 1;
+        }
+
+        private void btnConfirmar_MouseEnter(object sender, EventArgs e)
+        {
+            btnConfirmar.BackColor = Color.White;
+            btnConfirmar.ForeColor = Color.Black;
+        }
+
+        private void btnConfirmar_MouseLeave(object sender, EventArgs e)
+        {
+            btnConfirmar.BackColor = Color.Black;
+            btnConfirmar.ForeColor = Color.White;
+        }
+
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.Black;
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.Black;
+            btnCancelar.ForeColor = Color.White;
+        }
     }
-}
+ }
+
