@@ -1,22 +1,23 @@
 ﻿using System.Data;
+using System.Diagnostics;
 
 namespace ERP.Dominio.Gestores
 {
     class GestorOrder
     {
         public DataTable tOrders { get; set; }
-
+        ConnectOracle conector;
         public GestorOrder()
         {
             tOrders = new DataTable();
+            conector = new ConnectOracle();
         }
 
         public void leerOrders(string condicion)
         {
             DataSet data = new DataSet();
-            ConnectOracle Search = new ConnectOracle();
 
-            data = Search.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME, "+
+            data = conector.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME, "+
                 "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DAT,O.TOTAL TOTAL, O.PREPAID PREPAID "+
                 "FROM ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER "+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M "+
@@ -29,9 +30,32 @@ namespace ERP.Dominio.Gestores
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD"];
         }
 
+        public DataTable getOrderCart (decimal idOrder)
+        {
+            DataTable cart = new DataTable();
+            DataSet data = new DataSet();
+            data = conector.getData("SELECT P.NAME, O.AMOUNT, O.PRICESALE FROM ORDERSPRODUCTS O INNER JOIN PRODUCTS P ON O.REFPRODUCT=P.IDPRODUCT WHERE O.REFORDER='"+idOrder.ToString()+"'", "ORDERSPRODUCTS O INNER JOIN PRODUCTS P ON O.REFPRODUCT=P.IDPRODUCT");
+            cart = data.Tables["ORDERSPRODUCTS O INNER JOIN PRODUCTS P ON O.REFPRODUCT=P.IDPRODUCT"];
+            return cart;
+        }
+
         public void eliminar (string idOrder)
         {
-            new ConnectOracle().setData("UPDATE ORDERS SET DELETED=1 WHERE IDORDER='" + idOrder + "'");
+            conector.setData("UPDATE ORDERS SET DELETED=1 WHERE IDORDER='" + idOrder + "'");
+        }
+
+        public decimal insertOrder (Order o)
+        {
+            decimal idOrder = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "")+1;
+            conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+o.prepaid+"', '0')");
+            // se podria usar la fecha del objeto pero suponemos que en la insercion es la fecha del pedido por el momento, en futuras versiones quizas permita cambiar fecha
+            return idOrder;
+        }
+
+        public void insertDetail (DetailOrder d, decimal idOrder)
+        {
+            decimal idDetail = (decimal)conector.DLookUp("MAX(IDORDERPRODUCT)", "ORDERSPRODUCTS", "")+1;
+            conector.setData("INSERT INTO ORDERSPRODUCTS VALUES ('" + idDetail + "', '" +idOrder + "', '" + d.RefProduct + "', '"+d.Amount + "', '" + d.Pricesale + "')");
         }
 
     }

@@ -52,7 +52,7 @@
             this.btnConfirmar.TabIndex = 14;
             this.btnConfirmar.Text = "Confirm";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -66,14 +66,18 @@
             // 
             // DeleteOrder
             // 
+            this.AcceptButton = this.btnConfirmar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(351, 117);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnCancelar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DeleteOrder";
-            this.Text = "DeleteOrder";
+            this.Text = "Delete Order";
             this.ResumeLayout(false);
             this.PerformLayout();
 

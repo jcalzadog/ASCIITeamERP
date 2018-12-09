@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Orders
@@ -7,11 +11,32 @@ namespace ERP.Presentacion.Orders
     {
         decimal idCustomer;
         decimal userId;
+        decimal idPayMethod;
+        DateTime date;
+        Order order;
+        List<DetailOrder> details;
+
+        internal Order Order
+        {
+            get
+            {
+                return order;
+            }
+
+            set
+            {
+                order = value;
+            }
+        }
+
         public NewOrder( Object userId)
         {
             InitializeComponent();
             this.userId = (decimal)userId;
             initPayMethods();
+            date = DateTime.UtcNow.Date;
+            lblDate.Text = date.ToString("dd/MM/yyyy");
+            details = new List<DetailOrder>();
         }
 
         private void btnSelectCustomer_Click(object sender, EventArgs e)
@@ -35,6 +60,61 @@ namespace ERP.Presentacion.Orders
                 cboPayMethods.Items.Add(new ConnectOracle().DLookUp("PAYMENTMETHOD", "PAYMENTMETHODS", "IDPAYMENTMETHOD='" + (i + 1) + "'"));
             }
             cboPayMethods.SelectedIndex = 0;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+            if (idCustomer==0)
+            {
+                MessageBox.Show("Customer can't be empty");
+            } else if (details.Count == 0)
+            {
+                MessageBox.Show("The order list can't be empty");
+            }
+            else 
+            {
+                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), 0, 0);
+                GestorOrder gestor = new GestorOrder();
+                decimal id = gestor.insertOrder(order);
+                foreach (DetailOrder d in details)
+                {
+                    gestor.insertDetail(d, id);
+                }
+                MessageBox.Show("Order saved");
+                this.Dispose();
+            }
+
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            SelectProduct selector = new SelectProduct();
+            selector.ShowDialog();
+            if (selector.Acepta)
+            {
+                details.Add(new DetailOrder(0, selector.IdProd, selector.Cantidad, selector.Price));
+                object[] row = new object[4]; 
+                row[0] = selector.NameProd;
+                row[1] = selector.Cantidad;
+                row[2] = selector.Price;
+                row[3] = selector.Cantidad * selector.Price;
+                dgvCart.Rows.Add(row);
+                lblTotal.Text = (Convert.ToDecimal(lblTotal.Text) + (selector.Cantidad * selector.Price)).ToString();
+            }
+        }
+
+        private void btnRemoveProduct_Click(object sender, EventArgs e)
+        {
+            if (dgvCart.SelectedRows.Count > 0)
+            {
+               for (int i = 0; i < dgvCart.SelectedRows.Count;i++)
+                {
+                    lblTotal.Text = (Convert.ToDecimal(lblTotal.Text) - Convert.ToDecimal(dgvCart.SelectedRows[i].Cells[3].Value)).ToString();
+                    dgvCart.Rows.Remove(dgvCart.SelectedRows[i]);
+                    details.RemoveAt(dgvCart.SelectedRows[i].Index);
+                }
+            }
         }
     }
 }

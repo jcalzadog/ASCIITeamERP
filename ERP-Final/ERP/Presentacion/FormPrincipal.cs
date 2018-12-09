@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ERP.Presentacion.Products;
 using ERP.Presentacion.Plataformas;
+using ERP.Presentacion.Orders;
 
 //using ERP.Presentacion.Categorias;
 
@@ -81,7 +82,7 @@ namespace ERP
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
             cargarTablaOrders("");
-
+            
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             this.nombreUsuarioLogueado = login.nombreUsuario;
@@ -1305,6 +1306,8 @@ namespace ERP
         {
             Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(this.idUsuarioLogueado);
             dialogNewOrder.ShowDialog();
+            txtSearchOrder.Text = "";
+            cargarTablaOrders("");
         }
 
         private void dgvPlatforms_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1325,7 +1328,11 @@ namespace ERP
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
-
+            if (dgvOrders.SelectedRows.Count == 1)
+            {
+                ViewOrder viewer = new ViewOrder(dgvOrders.SelectedRows[0].Cells[0].Value.ToString());
+                viewer.ShowDialog();
+            }
         }
 
         private void btnDeleteOrder_Click(object sender, EventArgs e)
@@ -1334,9 +1341,15 @@ namespace ERP
             {
                 
                 string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[0].Value).ToString();
-                orders.eliminar(id);
-                MessageBox.Show("Deleted successfully");
-                cargarTablaOrders("");
+                DeleteOrder dlg = new DeleteOrder();
+                dlg.ShowDialog();
+                if (dlg.Acept)
+                {
+                    orders.eliminar(id);
+                    MessageBox.Show("Deleted successfully");
+                    cargarTablaOrders("");
+                }
+                
             }
             else
             {
@@ -1380,7 +1393,7 @@ namespace ERP
 
         private void txtSearchOrder_KeyUp(object sender, KeyEventArgs e)
         {
-            cargarTablaOrders(txtSearchOrder.Text.ToUpper());
+            cargarTablaOrders(txtSearchOrder.Text.ToUpper().Replace("'",""));
         }
         int filaOrders=-1;
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)

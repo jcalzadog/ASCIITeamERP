@@ -36,6 +36,9 @@
             // 
             // dgvSelectCustomer
             // 
+            this.dgvSelectCustomer.AllowUserToAddRows = false;
+            this.dgvSelectCustomer.AllowUserToDeleteRows = false;
+            this.dgvSelectCustomer.AllowUserToResizeRows = false;
             this.dgvSelectCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSelectCustomer.Location = new System.Drawing.Point(12, 42);
             this.dgvSelectCustomer.Name = "dgvSelectCustomer";
@@ -70,7 +73,7 @@
             this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.dgvSelectCustomer);
             this.Name = "SelectCustomer";
-            this.Text = "SelectCustomer";
+            this.Text = "Select Customer";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

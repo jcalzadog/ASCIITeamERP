@@ -10,14 +10,14 @@ namespace ERP.Dominio
     {
 
         public int id { get; set; }
-        public int refCustomer { get; set; }
-        public int refUser { get; set; }
+        public decimal refCustomer { get; set; }
+        public decimal refUser { get; set; }
         public DateTime date { get; set; }
-        public int refPayMethod { get; set; }
-        public float total { get; set; }
-        public int prepaid { get; set; }
+        public decimal refPayMethod { get; set; }
+        public decimal total { get; set; }
+        public decimal prepaid { get; set; }
         public int deleted { get; set; }
-        public Order(int iD, int refCustomer, int refUser, DateTime datet, int refPaymentMethod, float total, int prepaid, int deleted)
+        public Order(int iD, decimal refCustomer, decimal refUser, DateTime datet, int refPaymentMethod, decimal total, int prepaid, int deleted)
         {
             id = iD;
             this.refCustomer = refCustomer;

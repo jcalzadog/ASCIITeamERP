@@ -1,0 +1,129 @@
+﻿namespace ERP.Presentacion.Orders
+{
+    partial class ViewOrder
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvDetails
+            // 
+            this.dgvDetails.AllowUserToAddRows = false;
+            this.dgvDetails.AllowUserToDeleteRows = false;
+            this.dgvDetails.AllowUserToResizeRows = false;
+            this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDetails.Location = new System.Drawing.Point(12, 47);
+            this.dgvDetails.MultiSelect = false;
+            this.dgvDetails.Name = "dgvDetails";
+            this.dgvDetails.ReadOnly = true;
+            this.dgvDetails.RowHeadersVisible = false;
+            this.dgvDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetails.ShowEditingIcon = false;
+            this.dgvDetails.Size = new System.Drawing.Size(538, 309);
+            this.dgvDetails.TabIndex = 0;
+            this.dgvDetails.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Date";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(54, 13);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(89, 13);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "DD/MM/YYYY";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(431, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Total";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(474, 13);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(32, 13);
+            this.lblTotal.TabIndex = 4;
+            this.lblTotal.Text = "0.00";
+            // 
+            // ViewOrder
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(562, 368);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvDetails);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(578, 407);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(578, 407);
+            this.Name = "ViewOrder";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Order Details";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dgvDetails;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotal;
+    }
+}
