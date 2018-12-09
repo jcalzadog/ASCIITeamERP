@@ -33,6 +33,8 @@ namespace ERP.Presentacion.Orders
         public NewOrder( Object userId)
         {
             InitializeComponent();
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
             aparienciaBotones(btnAddProduct);
             aparienciaBotones(btnCancel);
             aparienciaBotones(btnRemoveProduct);

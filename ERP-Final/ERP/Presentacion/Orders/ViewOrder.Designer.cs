@@ -33,6 +33,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDetails.Location = new System.Drawing.Point(18, 62);
-            this.dgvDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDetails.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetails.MultiSelect = false;
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
@@ -99,23 +100,35 @@
             this.lblTotal.TabIndex = 4;
             this.lblTotal.Text = "0.00";
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(740, 491);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(85, 30);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.button1_Click);
+            this.btnClose.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
             // ViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(840, 471);
+            this.ClientSize = new System.Drawing.Size(840, 543);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDetails);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(858, 518);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(858, 518);
             this.Name = "ViewOrder";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -133,5 +146,6 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnClose;
     }
 }

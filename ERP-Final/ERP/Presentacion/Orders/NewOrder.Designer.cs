@@ -34,16 +34,16 @@
             this.cboPayMethods = new System.Windows.Forms.ComboBox();
             this.btnSelectCustomer = new System.Windows.Forms.Button();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.lbltextototal = new System.Windows.Forms.Label();
             this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             // 
             // txtNameCustomer
             // 
+            this.txtNameCustomer.Enabled = false;
             this.txtNameCustomer.Location = new System.Drawing.Point(78, 55);
             this.txtNameCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameCustomer.Name = "txtNameCustomer";
@@ -126,6 +127,38 @@
             this.dgvCart.Size = new System.Drawing.Size(604, 317);
             this.dgvCart.TabIndex = 5;
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
+            // 
+            // productName
+            // 
+            this.productName.Frozen = true;
+            this.productName.HeaderText = "Product Name";
+            this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
+            this.productName.Width = 151;
+            // 
+            // amount
+            // 
+            this.amount.Frozen = true;
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.Width = 151;
+            // 
+            // salePrice
+            // 
+            this.salePrice.Frozen = true;
+            this.salePrice.HeaderText = "Sale Price";
+            this.salePrice.Name = "salePrice";
+            this.salePrice.ReadOnly = true;
+            this.salePrice.Width = 151;
+            // 
+            // total
+            // 
+            this.total.Frozen = true;
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 151;
             // 
             // btnAddProduct
             // 
@@ -197,38 +230,6 @@
             this.lblTotal.TabIndex = 11;
             this.lblTotal.Text = "0.00";
             // 
-            // productName
-            // 
-            this.productName.Frozen = true;
-            this.productName.HeaderText = "Product Name";
-            this.productName.Name = "productName";
-            this.productName.ReadOnly = true;
-            this.productName.Width = 151;
-            // 
-            // amount
-            // 
-            this.amount.Frozen = true;
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            this.amount.Width = 151;
-            // 
-            // salePrice
-            // 
-            this.salePrice.Frozen = true;
-            this.salePrice.HeaderText = "Sale Price";
-            this.salePrice.Name = "salePrice";
-            this.salePrice.ReadOnly = true;
-            this.salePrice.Width = 151;
-            // 
-            // total
-            // 
-            this.total.Frozen = true;
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 151;
-            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -236,6 +237,7 @@
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(752, 585);
+            this.ControlBox = false;
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label1);

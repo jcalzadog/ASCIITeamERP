@@ -24,6 +24,8 @@ namespace ERP.Presentacion.Products
             plataforma = new Platforms();
             categoria = new Categorias();
             InitializeComponent();
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
             cargarDatos(nombre,catVieja,platVieja,pegi,price);
             aparienciaBotones(btnSave);
             aparienciaBotones(btnCancel);
