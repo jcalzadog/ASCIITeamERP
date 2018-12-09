@@ -377,14 +377,18 @@ namespace ERP
 
             if (nombreFilaSeleccionadaProducts.Equals(""))
             {
-                dgvProducts.Rows[dgvProducts.Rows[0].Index].Selected = true;
-                dgvProducts.CurrentCell = dgvProducts.Rows[dgvProducts.Rows[0].Index].Cells[0];
-
-                nombreFilaSeleccionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
-                catViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
-                platViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[2].Value.ToString();
-                pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
-                priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
+                if (producto.gestorProducto.contarProductos() > 0)
+                {
+                    dgvProducts.Rows[dgvProducts.Rows[0].Index].Selected = true;
+                    dgvProducts.CurrentCell = dgvProducts.Rows[dgvProducts.Rows[0].Index].Cells[0];
+                    nombreFilaSeleccionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    catViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[1].Value.ToString();
+                    platViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[2].Value.ToString();
+                    pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
+                    priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
+                }
+                
+                
             }
         }
 

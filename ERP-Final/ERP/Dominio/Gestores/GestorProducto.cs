@@ -40,12 +40,19 @@ namespace ERP.Dominio.Gestores
             Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + P.nomCategory + "'");
             Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + P.nomPlatform + "'");
             Boolean creado = false;
+            Decimal hayProductos = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "");
             Decimal existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + P.name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);
-
+            Decimal idProduct = 0;
             if (existe == 0)
             {
-                Decimal idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
-
+                if (hayProductos == 0)
+                {
+                    idProduct = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "");
+                }
+                else
+                {
+                    idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
+                }
 
                 String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + P.name + "'," + idCat + "," + idPlat + "," + P.miniNumage + "," + P.prize + "," + 0 + ")";
                 conector.setData(sentencia);
@@ -105,6 +112,14 @@ namespace ERP.Dominio.Gestores
             Decimal id = (Decimal)conector.DLookUp(select,tabla, "NAME='" + cmb + "'");
             return id;
         }
+
+        public Decimal contarProductos()
+        {
+            Decimal cuentaProductos = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "");
+
+            return cuentaProductos;
+        }
     }
+        
         
 }
