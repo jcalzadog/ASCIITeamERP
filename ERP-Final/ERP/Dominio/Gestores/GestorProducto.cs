@@ -20,6 +20,17 @@ namespace ERP.Dominio.Gestores
             tabla = new DataTable();
         }
 
+        //public bool productoEstaPedido(String name)
+        //{
+        //    bool tiene = false;
+        //    Decimal contar = (Decimal)conector.DLookUp("COUNT(IDORDERPRODUCT)", "ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT=P.IDPRODUCT", "P.NAME='" + name + "'");
+        //    if (contar > 0)
+        //    {
+        //        tiene = true;
+        //    }
+        //    return tiene;
+        //}
+
         public void leerProductos(String condicion)
         {
             DataSet data = new DataSet();

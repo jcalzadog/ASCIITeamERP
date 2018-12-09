@@ -1464,5 +1464,10 @@ namespace ERP
                 txtSearchOrder.Text = "Search...";
             }
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
