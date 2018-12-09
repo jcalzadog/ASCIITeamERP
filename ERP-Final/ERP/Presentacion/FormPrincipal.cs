@@ -972,9 +972,11 @@ namespace ERP
 
         private void btnNewProd_Click(object sender, EventArgs e)
         {
-            AñadirProducto addProduct = new AñadirProducto();
+            AñadirProducto addProduct = new AñadirProducto(dgvCategorie,dgvPlatforms);
             addProduct.ShowDialog();
             filtroTotalProd();//Usa cargar tabla usuarios para actualizar tabla
+            cargarCategorias();
+            cargarPlataformas();
         }
 
         private void cmbFilCategory_SelectedIndexChanged(object sender, EventArgs e)

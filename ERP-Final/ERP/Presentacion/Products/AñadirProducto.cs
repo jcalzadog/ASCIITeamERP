@@ -18,7 +18,7 @@ namespace ERP.Presentacion.Products
         Producto producto;
         Categorias categoria;
         Platforms plataforma;
-        public AñadirProducto()
+        public AñadirProducto(DataGridView cat, DataGridView plat)
         {
             producto = new Producto();
             plataforma = new Platforms();
@@ -55,6 +55,7 @@ namespace ERP.Presentacion.Products
                 txtPegi.Text = "";
                 txtPrice.Text = "";
             }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
