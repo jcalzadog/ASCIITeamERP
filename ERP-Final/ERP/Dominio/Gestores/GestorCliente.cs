@@ -26,6 +26,28 @@ namespace ERP.Dominio.Gestores
             tablaZipCode = new DataTable();
         }
 
+        public bool validarDNIrepetidoNuevoUser(String DNI)
+        {
+            bool repetido = false;
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='"+DNI+"'");
+            if (existe == 1)
+            {
+                repetido = true;
+            }
+            return repetido;
+        }
+
+        public bool validarDNIrepetidoEditUser(String DNI)
+        {
+            bool repetido = false;
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + DNI + "'");
+            if (existe > 1)
+            {
+                repetido = true;
+            }
+            return repetido;
+        }
+
         public Object sacarZipCode(String dni)
         {
             //SELECT Z.ZIPCODE FROM ZIPCODES Z INNER JOIN ZIPCODESCITIES T ON Z.IDZIPCODE=T.REFZIPCODE INNER JOIN CITIES C ON T.REFCITY=C.IDCITY WHERE C.CITY ='';

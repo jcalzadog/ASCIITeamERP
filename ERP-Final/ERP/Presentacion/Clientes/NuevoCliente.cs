@@ -170,7 +170,7 @@ namespace ERP.Presentacion.Clientes
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
             //Boolean creado = usuario.gestorusuario.nuevoUsuario(tbxUsername.Text, tbxPassword.Text, cmbRoles.SelectedItem.ToString());
-            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text) && customer.gestorCliente.validarDNIrepetidoNuevoUser(tbxDNI.Text))
             {
                 if (Dominio.Util.Validations.validateName(tbxName.Text))
                 {
@@ -228,7 +228,7 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text) && customer.gestorCliente.validarDNIrepetidoNuevoUser(tbxDNI.Text))
             {
                 if (Dominio.Util.Validations.validateName(tbxName.Text))
                 {

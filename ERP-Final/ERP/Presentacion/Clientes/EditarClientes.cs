@@ -89,7 +89,7 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text))
+            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text) && c.gestorCliente.validarDNIrepetidoEditUser(tbxDNI.Text))
             {
                 if (Dominio.Util.Validations.validateName(tbxName.Text))
                 {
