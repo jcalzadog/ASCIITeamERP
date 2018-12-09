@@ -156,7 +156,15 @@ namespace ERP.Dominio.Gestores
         {
             String condicion = " DELETED = 0 AND NAME = '" + U.name + "' AND PASSWORD = '" + U.password + "'";
 
-            String passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "DELETED = 0 AND NAME = '" + U.name + "' AND PASSWORD = '" + U.password + "'");
+            String passDB = "";
+            if (existe == 0)
+            {
+                passDB = "-1";
+            } else
+            {
+                passDB = Convert.ToString(conector.DLookUp("IDUSER", "USERS", condicion));
+            }
 
             return passDB;
         }

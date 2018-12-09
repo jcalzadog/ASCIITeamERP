@@ -95,21 +95,26 @@ namespace ERP.Presentacion.Clientes
                 {
                     if (Dominio.Util.Validations.validateName(tbxSurname.Text))
                     {
-                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        if (Dominio.Util.Validations.validatePhoneorZipcode(tbxPhone.Text))
                         {
                             if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
                             {
+                                if (Dominio.Util.Validations.validatePhoneorZipcode(tbxZipCode.Text))
+                                {
+                               
+                                        int zip = Int32.Parse(tbxZipCode.Text);
 
-                                ConnectOracle conect = new ConnectOracle();
-                                Decimal id = (Decimal)conect.DLookUp("IDCUSTOMER", "CUSTOMERS", "UPPER(DNI)=UPPER('" + this.dniFilaSeleccionadaClientes + "')");
-                                int id1 = (int)id;
-                                int zip = Int32.Parse(tbxZipCode.Text);
+                                        Customer clientemod = new Customer(0, this.tbxName.Text, this.tbxDNI.Text, this.tbxSurname.Text, this.tbxAddress.Text, Int32.Parse(this.tbxPhone.Text), this.tbxEmail.Text, c.deleted, zip);
 
-                                Customer clientemod = new Customer(id1, this.tbxName.Text, this.tbxDNI.Text, this.tbxSurname.Text, this.tbxAddress.Text, Int32.Parse(this.tbxPhone.Text), this.tbxEmail.Text, c.deleted, zip);
+                                        clientemod.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
 
-                                clientemod.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
-
-                                this.Dispose();
+                                        this.Dispose();
+                                }
+                                else
+                                {
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Phone");
+                                    vp.ShowDialog();
+                                }
                             }
                             else
                             {

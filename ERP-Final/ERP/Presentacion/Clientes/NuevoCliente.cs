@@ -176,23 +176,30 @@ namespace ERP.Presentacion.Clientes
                 {
                     if (Dominio.Util.Validations.validateName(tbxSurname.Text))
                     {
-                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        if (Dominio.Util.Validations.validatePhoneorZipcode(tbxPhone.Text))
                         {
                             if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
                             {
-
-                                customer.dni = tbxDNI.Text;
-                                customer.name = tbxName.Text;
-                                customer.surname = tbxSurname.Text;
-                                customer.address = tbxAddress.Text;
-                                customer.phone = Int32.Parse(tbxPhone.Text);
-                                customer.email = tbxEmail.Text;
-                                customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
-
-                                Boolean creado = customer.gestorCliente.nuevoCliente(customer);
-                                if (creado)
+                                if (Dominio.Util.Validations.validatePhoneorZipcode(tbxZipCode.Text))
                                 {
-                                    this.Dispose();
+                                        customer.dni = tbxDNI.Text;
+                                        customer.name = tbxName.Text;
+                                        customer.surname = tbxSurname.Text;
+                                        customer.address = tbxAddress.Text;
+                                        customer.phone = Int32.Parse(tbxPhone.Text);
+                                        customer.email = tbxEmail.Text;
+                                        customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+
+                                        Boolean creado = customer.gestorCliente.nuevoCliente(customer);
+                                        if (creado)
+                                        {
+                                            this.Dispose();
+                                        }
+                                }
+                                else
+                                {
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el ZipCode");
+                                    vp.ShowDialog();
                                 }
                             }
                             else
@@ -234,28 +241,37 @@ namespace ERP.Presentacion.Clientes
                 {
                     if (Dominio.Util.Validations.validateName(tbxSurname.Text))
                     {
-                        if (Dominio.Util.Validations.validatePhone(tbxPhone.Text))
+                        if (Dominio.Util.Validations.validatePhoneorZipcode(tbxPhone.Text))
                         {
                             if (Dominio.Util.Validations.validateEmail(tbxEmail.Text))
                             {
-
-                                customer.dni = tbxDNI.Text;
-                                customer.name = tbxName.Text;
-                                customer.surname = tbxSurname.Text;
-                                customer.address = tbxAddress.Text;
-                                customer.phone = Int32.Parse(tbxPhone.Text);
-                                customer.email = tbxEmail.Text;
-                                customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
-                                Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
-                                if (creado)
+                                if (Dominio.Util.Validations.validatePhoneorZipcode(tbxZipCode.Text))
                                 {
-                                    tbxDNI.Text = "";
-                                    tbxName.Text = "";
-                                    tbxSurname.Text = "";
-                                    tbxAddress.Text = "";
-                                    tbxEmail.Text = "";
-                                    tbxPhone.Text = "";
-                                    tbxZipCode.Text = "";
+                       
+
+                                        customer.dni = tbxDNI.Text;
+                                        customer.name = tbxName.Text;
+                                        customer.surname = tbxSurname.Text;
+                                        customer.address = tbxAddress.Text;
+                                        customer.phone = Int32.Parse(tbxPhone.Text);
+                                        customer.email = tbxEmail.Text;
+                                        customer.refzipcodescities = Int32.Parse(tbxZipCode.Text);
+                                        Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
+                                    if (creado)
+                                    {
+                                        tbxDNI.Text = "";
+                                        tbxName.Text = "";
+                                        tbxSurname.Text = "";
+                                        tbxAddress.Text = "";
+                                        tbxEmail.Text = "";
+                                        tbxPhone.Text = "";
+                                        tbxZipCode.Text = "";
+                                    }
+                                }
+                                else
+                                {
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Phone");
+                                    vp.ShowDialog();
                                 }
                             }
                             else

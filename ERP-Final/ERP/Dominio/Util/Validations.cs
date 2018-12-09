@@ -61,7 +61,7 @@ namespace ERP.Dominio.Util
             Regex regex = new Regex("^[a-zA-Z]+$");
             return regex.IsMatch(cadena);
         }
-        public static bool validatePhone(String phone)
+        public static bool validatePhoneorZipcode(String phone)
         {
             Regex regex = new Regex("^[0-9]+$");
             return regex.IsMatch(phone);

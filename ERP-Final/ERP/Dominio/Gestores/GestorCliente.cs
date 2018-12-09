@@ -226,8 +226,9 @@ namespace ERP.Dominio.Gestores
 
         public void modificarCliente(Customer C, String dniViejo)
         {
-           
-
+            Decimal id = (Decimal)conector.DLookUp("IDCUSTOMER", "CUSTOMERS", "UPPER(DNI)=UPPER('" + dniViejo + "')");
+            int id1 = (int)id;
+            C.idCustomer = id1;
 
             String sentencia = "UPDATE CUSTOMERS SET DNI=UPPER('"+C.dni+"'),NAME=UPPER('"+C.name+"'),SURNAME=UPPER('"+C.surname+"'),ADDRESS=UPPER('"+C.address+"'),PHONE="+C.phone+",EMAIL=UPPER('"+C.email+"'),REFZIPCODESCITIES="+C.refzipcodescities+" WHERE IDCUSTOMER="+C.idCustomer;
             //Console.WriteLine(sentencia);
