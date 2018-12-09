@@ -65,6 +65,7 @@
             // 
             // tbxZipCode
             // 
+            this.tbxZipCode.Enabled = false;
             this.tbxZipCode.Location = new System.Drawing.Point(223, 339);
             this.tbxZipCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxZipCode.Name = "tbxZipCode";
@@ -227,6 +228,7 @@
             // 
             // tbxDNI
             // 
+            this.tbxDNI.Enabled = false;
             this.tbxDNI.Location = new System.Drawing.Point(223, 47);
             this.tbxDNI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxDNI.Name = "tbxDNI";

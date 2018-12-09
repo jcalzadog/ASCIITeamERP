@@ -89,8 +89,6 @@ namespace ERP.Presentacion.Clientes
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
-            if (Dominio.Util.Validations.validateDNI(tbxDNI.Text) && c.gestorCliente.validarDNIrepetidoEditUser(tbxDNI.Text))
-            {
                 if (Dominio.Util.Validations.validateName(tbxName.Text))
                 {
                     if (Dominio.Util.Validations.validateName(tbxSurname.Text))
@@ -139,17 +137,10 @@ namespace ERP.Presentacion.Clientes
                     VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Name");
                     vp.ShowDialog();
                 }
-            }
-            else
-            {
-                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el DNI");
-                vp.ShowDialog();
-            }
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
-            tbxDNI.Text = "";
             tbxName.Text = "";
             tbxSurname.Text = "";
             tbxAddress.Text = "";

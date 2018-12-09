@@ -37,16 +37,16 @@ namespace ERP.Dominio.Gestores
             return repetido;
         }
 
-        public bool validarDNIrepetidoEditUser(String DNI)
-        {
-            bool repetido = false;
-            Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + DNI + "'");
-            if (existe > 1)
-            {
-                repetido = true;
-            }
-            return repetido;
-        }
+        //public bool validarDNIrepetidoEditUser(String DNI)
+        //{
+        //    bool repetido = false;
+        //    Decimal existe = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "DNI='" + DNI + "'");
+        //    if (existe > 1)
+        //    {
+        //        repetido = true;
+        //    }
+        //    return repetido;
+        //}
 
         public Object sacarZipCode(String dni)
         {
