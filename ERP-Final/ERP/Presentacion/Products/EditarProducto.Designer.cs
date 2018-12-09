@@ -44,21 +44,23 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(127, 284);
+            this.btnSave.Location = new System.Drawing.Point(143, 302);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(103, 28);
+            this.btnSave.Size = new System.Drawing.Size(116, 30);
             this.btnSave.TabIndex = 25;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(268, 284);
+            this.btnCancel.Location = new System.Drawing.Point(302, 302);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(112, 30);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -66,92 +68,95 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(199, 203);
+            this.txtPrice.Location = new System.Drawing.Point(224, 216);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(182, 22);
+            this.txtPrice.Size = new System.Drawing.Size(204, 23);
             this.txtPrice.TabIndex = 22;
+            this.txtPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPrice_KeyUp);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(115, 203);
+            this.label5.Location = new System.Drawing.Point(129, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 17);
+            this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 21;
             this.label5.Text = "Price";
             // 
             // txtPegi
             // 
-            this.txtPegi.Location = new System.Drawing.Point(199, 164);
+            this.txtPegi.Location = new System.Drawing.Point(224, 174);
             this.txtPegi.Name = "txtPegi";
-            this.txtPegi.Size = new System.Drawing.Size(182, 22);
+            this.txtPegi.Size = new System.Drawing.Size(204, 23);
             this.txtPegi.TabIndex = 20;
+            this.txtPegi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPegi_KeyUp);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 164);
+            this.label4.Location = new System.Drawing.Point(129, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 17);
+            this.label4.Size = new System.Drawing.Size(40, 17);
             this.label4.TabIndex = 19;
             this.label4.Text = "Pegi";
             // 
             // cmbPlatform
             // 
             this.cmbPlatform.FormattingEnabled = true;
-            this.cmbPlatform.Location = new System.Drawing.Point(199, 122);
+            this.cmbPlatform.Location = new System.Drawing.Point(224, 130);
             this.cmbPlatform.Name = "cmbPlatform";
-            this.cmbPlatform.Size = new System.Drawing.Size(182, 24);
+            this.cmbPlatform.Size = new System.Drawing.Size(204, 25);
             this.cmbPlatform.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(115, 122);
+            this.label3.Location = new System.Drawing.Point(129, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 17;
             this.label3.Text = "Platform";
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(199, 80);
+            this.cmbCategory.Location = new System.Drawing.Point(224, 85);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(182, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(204, 25);
             this.cmbCategory.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(115, 80);
+            this.label2.Location = new System.Drawing.Point(129, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 15;
             this.label2.Text = "Category";
             // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(199, 43);
+            this.txtName.Location = new System.Drawing.Point(224, 46);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(182, 22);
+            this.txtName.Size = new System.Drawing.Size(204, 23);
             this.txtName.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 43);
+            this.label1.Location = new System.Drawing.Point(129, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Name";
             // 
             // EditarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 338);
+            this.BackColor = System.Drawing.Color.DarkOrange;
+            this.ClientSize = new System.Drawing.Size(586, 359);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPrice);
@@ -164,6 +169,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.Name = "EditarProducto";
             this.Text = "EditarProducto";
             this.ResumeLayout(false);

@@ -1,6 +1,8 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
 using ERP.Dominio.Util;
+using ERP.Presentacion;
+using ERP.Presentacion.ErroresCambios;
 using ERP.Recursos;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,9 @@ namespace ERP
 
             InitializeComponent();
             cargarComponentes();
+
+            FormCargaInicial cargaInicial = new FormCargaInicial();
+            cargaInicial.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -62,7 +67,8 @@ namespace ERP
             }
             else
             {
-                MessageBox.Show("ERROR");
+                VentanaPersonalizada vp = new VentanaPersonalizada("Error, user or password not valid");
+                vp.ShowDialog();
             }
             //----------------------------
 

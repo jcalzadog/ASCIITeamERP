@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,26 +38,61 @@ namespace ERP.Presentacion.Usuarios
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
             Role rol = new Role(cmbRoles.SelectedItem.ToString());
-            User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
-            Boolean creado = usuario.gestorusuario.nuevoUsuario(user);
-            if (creado)
+            if (Dominio.Util.Validations.validateUser(tbxUsername.Text))
             {
-                tbxUsername.Text = "";
-                tbxPassword.Text = "";
-                cmbRoles.SelectedIndex = 0;
+                if (Dominio.Util.Validations.validateUser(tbxPassword.Text))
+                {
+
+                    User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+                    Boolean creado = user.gestorusuario.nuevoUsuario(user);
+                    if (creado)
+                    {
+                        tbxUsername.Text = "";
+                        tbxPassword.Text = "";
+                        cmbRoles.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en la password");
+                    vp.ShowDialog();
+                }
             }
-            
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el user");
+                vp.ShowDialog();
+            }
         }
 
         private void btnSaveClose_Click(object sender, EventArgs e)
         {
             Role rol = new Role(cmbRoles.SelectedItem.ToString());
-            User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
-            Boolean creado = user.gestorusuario.nuevoUsuario(user);
-            if (creado)
+            if (Dominio.Util.Validations.validateUser(tbxUsername.Text))
             {
-                this.Dispose();
+                if (Dominio.Util.Validations.validateUser(tbxPassword.Text))
+                {
+
+                    User user = new User(tbxUsername.Text, tbxPassword.Text, rol, 0);
+                    Boolean creado = user.gestorusuario.nuevoUsuario(user);
+                    if (creado)
+                    {
+                        ERP.Persistencia.Logs.write("Usuario " + tbxUsername.Text + " creado");
+                        this.Dispose();
+                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en la password");
+                    vp.ShowDialog();
+                }
             }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el user");
+                vp.ShowDialog();
+            }
+
             
         }
 

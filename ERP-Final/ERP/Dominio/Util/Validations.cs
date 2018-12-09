@@ -36,5 +36,35 @@ namespace ERP.Dominio.Util
             Regex regex = new Regex("^[0-9]+([.][0-9]+)?$");
             return regex.IsMatch(number);
         }
+        public static bool validateCategorie(String categorie) {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(categorie);
+        }
+        public static bool validatePlatforms(String platform)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(platform);
+        }
+
+        public static bool validateUser(String cadena)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(cadena);
+        }
+        public static bool validateRol(String rol)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(rol);
+        }
+        public static bool validateName(String cadena)
+        {
+            Regex regex = new Regex("^[a-zA-Z]+$");
+            return regex.IsMatch(cadena);
+        }
+        public static bool validatePhone(String phone)
+        {
+            Regex regex = new Regex("^[0-9]+$");
+            return regex.IsMatch(phone);
+        }
     }
 }

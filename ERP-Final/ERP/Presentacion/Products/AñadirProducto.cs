@@ -27,7 +27,11 @@ namespace ERP.Presentacion.Products
             cargarDatos();
             aparienciaBotones(btnSave);
             aparienciaBotones(btnSaveAnother);
-            aparienciaBotones(btnCancel);
+            btnCancel.BackColor = Color.Black;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.FlatAppearance.BorderColor = Color.Black;
+            btnCancel.FlatAppearance.BorderSize = 1;
 
 
 
@@ -79,11 +83,7 @@ namespace ERP.Presentacion.Products
             plataforma.gestorplataforma.refrescarPlatform(cmbPlatform);
             btnSaveAnother.Enabled = false;
             btnSave.Enabled = false;
-            btnSave.BackColor = Color.Transparent;
-            btnSave.ForeColor = Color.Black;
-
-            btnSaveAnother.BackColor = Color.Transparent;
-            btnSaveAnother.ForeColor = Color.Black;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -93,12 +93,13 @@ namespace ERP.Presentacion.Products
 
         public void aparienciaBotones(Button btn)
         {
-            btn.BackColor = Color.Black;
-            btn.ForeColor = Color.White;
+            btn.BackColor = Color.Transparent;
+            btn.ForeColor = Color.Black;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderColor = Color.Black;
             btn.FlatAppearance.BorderSize = 1;
         }
+
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {

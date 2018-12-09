@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,12 +128,22 @@ namespace ERP.Presentacion.Usuarios
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            rol.nameRol = tbxNombreRol.Text;
-            Boolean creado= rol.gestorRol.nuevoRol(dgvPermissions,rol);
-            if (creado)
+            if (Dominio.Util.Validations.validateUser(tbxNombreRol.Text))
             {
-                this.Dispose();
+
+                rol.nameRol = tbxNombreRol.Text;
+                Boolean creado = rol.gestorRol.nuevoRol(dgvPermissions, rol);
+                if (creado)
+                {
+                    this.Dispose();
+                }
             }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos en el Rol");
+                vp.ShowDialog();
+            }
+
         }
     }
 }

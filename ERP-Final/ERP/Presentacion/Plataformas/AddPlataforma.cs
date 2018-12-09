@@ -1,4 +1,5 @@
 ﻿using ERP.Dominio;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,18 +29,35 @@ namespace ERP.Presentacion.Plataformas
 
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
-            plataforma.name = textBox1.Text;
-            plataforma.gestorplataforma.insertPlataforma(plataforma);
-            textBox1.Text = "";
-            plataforma.gestorplataforma.readPlatforms();
+            if (Dominio.Util.Validations.validatePlatforms(textBox1.Text))
+            {
+                plataforma.name = textBox1.Text;
+                plataforma.gestorplataforma.insertPlataforma(plataforma);
+                textBox1.Text = "";
+                plataforma.gestorplataforma.readPlatforms();
+            }
+            else {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
+                vp.ShowDialog();
+            }
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            plataforma.name = textBox1.Text;
-            plataforma.gestorplataforma.insertPlataforma(plataforma);
-            plataforma.gestorplataforma.readPlatforms();
-            this.Dispose();
+            if (Dominio.Util.Validations.validatePlatforms(textBox1.Text))
+            {
+                plataforma.name = textBox1.Text;
+                plataforma.gestorplataforma.insertPlataforma(plataforma);
+                plataforma.gestorplataforma.readPlatforms();
+                this.Dispose();
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
+                vp.ShowDialog();
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
