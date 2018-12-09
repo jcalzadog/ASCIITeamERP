@@ -22,6 +22,13 @@ namespace ERP.Dominio.Gestores
             tabla = new DataTable();
         }
 
+        public Decimal contarUsuarios()
+        {
+            Decimal cuentaUsuarios = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "");
+
+            return cuentaUsuarios;
+        }
+
         public void leerUsuarios(String condicion)
         {
             DataSet data = new DataSet();

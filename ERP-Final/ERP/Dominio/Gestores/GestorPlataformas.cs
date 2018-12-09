@@ -20,6 +20,13 @@ namespace ERP.Dominio.Gestores
             conector = new ConnectOracle();
             listaPlat = new LinkedList<object>();
         }
+
+        public Decimal contarPlataformas()
+        {
+            Decimal cuentaPlat = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "");
+
+            return cuentaPlat;
+        }
         public void readPlatforms()
         {
             DataSet data = new DataSet();
@@ -34,16 +41,25 @@ namespace ERP.Dominio.Gestores
 
             if (existe == 0)
             {
-                Decimal idCategoria = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
+                Decimal numPlata = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "");
+                Decimal idPlata;
+                if (numPlata == 0)
+                {
+                    idPlata = 0;
+
+                }
+                else
+                {
+                    idPlata = (Decimal)conector.DLookUp("MAX(IDPLATFORM)", "PLATFORMS", "");
+                }
 
 
-
-                String sentencia1 = "INSERT INTO PLATFORMS VALUES(" + (idCategoria + 1) + ",UPPER('" + P.name + "'),0)";
+                    String sentencia1 = "INSERT INTO PLATFORMS VALUES(" + (idPlata + 1) + ",UPPER('" + P.name + "'),0)";
                 conector.setData(sentencia1);
 
 
 
-                existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND IDPLATFORM =" + (idCategoria + 1));
+                existe = (Decimal)conector.DLookUp("COUNT(IDPLATFORM)", "PLATFORMS", "NAME=UPPER('" + P.name + "') AND IDPLATFORM =" + (idPlata + 1));
 
                 if (existe > 0)
                 {

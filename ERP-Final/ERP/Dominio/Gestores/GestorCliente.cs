@@ -26,6 +26,13 @@ namespace ERP.Dominio.Gestores
             tablaZipCode = new DataTable();
         }
 
+        public Decimal contarClientes()
+        {
+            Decimal cuentaClientes = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "");
+
+            return cuentaClientes;
+        }
+
         public bool validarDNIrepetidoNuevoUser(String DNI)
         {
             bool repetido = false;
@@ -198,7 +205,17 @@ namespace ERP.Dominio.Gestores
 
             if (existe == 0 && validarDNI(C))
             {
-                Decimal idCustomer = (Decimal)conector.DLookUp("MAX(IDCUSTOMER)", "CUSTOMERS", "");
+                Decimal numCustomer = (Decimal)conector.DLookUp("COUNT(IDCUSTOMER)", "CUSTOMERS", "");
+                Decimal idCustomer;
+                if (numCustomer == 0)
+                {
+                    idCustomer = 0;
+
+                }
+                else
+                {
+                    idCustomer = (Decimal)conector.DLookUp("MAX(IDCUSTOMER)", "CUSTOMERS", "");
+                }
 
                 String sentencia1 = "INSERT INTO CUSTOMERS VALUES("+ (idCustomer+1)+",'" + C.dni + "','" + C.name + "','" + C.surname + "','"+C.address+"',"+C.phone+",'"+C.email+"',"+C.refzipcodescities+",0)";
                 conector.setData(sentencia1);
@@ -230,7 +247,7 @@ namespace ERP.Dominio.Gestores
             int id1 = (int)id;
             C.idCustomer = id1;
 
-            String sentencia = "UPDATE CUSTOMERS SET DNI=UPPER('"+C.dni+"'),NAME=UPPER('"+C.name+"'),SURNAME=UPPER('"+C.surname+"'),ADDRESS=UPPER('"+C.address+"'),PHONE="+C.phone+",EMAIL=UPPER('"+C.email+"'),REFZIPCODESCITIES="+C.refzipcodescities+" WHERE IDCUSTOMER="+C.idCustomer;
+            String sentencia = "UPDATE CUSTOMERS SET DNI='"+C.dni+"',NAME='"+C.name+"',SURNAME='"+C.surname+"',ADDRESS='"+C.address+"',PHONE="+C.phone+",EMAIL='"+C.email+"',REFZIPCODESCITIES="+C.refzipcodescities+" WHERE IDCUSTOMER="+C.idCustomer;
             //Console.WriteLine(sentencia);
             conector.setData(sentencia);
 

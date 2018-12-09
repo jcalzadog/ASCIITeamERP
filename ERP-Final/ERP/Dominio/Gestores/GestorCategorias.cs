@@ -20,6 +20,13 @@ namespace ERP.Dominio.Gestores
             listaCat = new LinkedList<object>();
         }
 
+        public Decimal contarCategorias()
+        {
+            Decimal cuentaCate = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "");
+
+            return cuentaCate;
+        }
+
         public void readCategorias() {
             DataSet data = new DataSet();
             // data = conector.getData("SELECT * FROM CATEGORIES WHERE DELETED = 0 ORDER BY IDCATEGORY", "CATEGORIES");
@@ -33,9 +40,18 @@ namespace ERP.Dominio.Gestores
 
             if (existe == 0)
             {
-                Decimal idCategoria = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
-               
-               
+                Decimal numCate = (Decimal)conector.DLookUp("COUNT(IDCATEGORY)", "CATEGORIES", "");
+                Decimal idCategoria;
+                if (numCate == 0)
+                {
+                    idCategoria = 0;
+
+                }
+                else
+                {
+                    idCategoria = (Decimal)conector.DLookUp("MAX(IDCATEGORY)", "CATEGORIES", "");
+                }
+
 
                 String sentencia1 = "INSERT INTO CATEGORIES VALUES(" + (idCategoria + 1) + ",UPPER('" + C.name + "'),0)";
                 conector.setData(sentencia1);

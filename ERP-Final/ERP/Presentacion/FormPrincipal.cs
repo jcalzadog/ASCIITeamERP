@@ -361,10 +361,13 @@ namespace ERP
 
             if (nombreFilaSeleccionadaUsers.Equals(""))
             {
-                dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
-                dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
-                nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
-                rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
+                if (usuario.gestorusuario.contarUsuarios() > 0)
+                {
+                    dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
+                    dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
+                    nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
+                }
             }
         }
 
@@ -401,9 +404,12 @@ namespace ERP
 
             if (nombreviejoPlataformas.Equals(""))
             {
-                dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Selected = true;
-                dgvPlatforms.CurrentCell = dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Cells[0];
-                nombreviejoPlataformas = dgvPlatforms.Rows[dgvPlatforms.SelectedRows[0].Index].Cells[0].Value.ToString();
+                if (plataforma.gestorplataforma.contarPlataformas() > 0)
+                {
+                    dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Selected = true;
+                    dgvPlatforms.CurrentCell = dgvPlatforms.Rows[dgvPlatforms.Rows[0].Index].Cells[0];
+                    nombreviejoPlataformas = dgvPlatforms.Rows[dgvPlatforms.SelectedRows[0].Index].Cells[0].Value.ToString();
+                }
             }
         }
 
@@ -416,9 +422,12 @@ namespace ERP
 
             if (nombreviejoCategoria.Equals(""))
             {
-                dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Selected = true;
-                dgvCategorie.CurrentCell = dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Cells[0];
-                nombreviejoCategoria = dgvCategorie.Rows[dgvCategorie.SelectedRows[0].Index].Cells[0].Value.ToString();
+                if (categoria.gestor.contarCategorias() > 0)
+                {
+                    dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Selected = true;
+                    dgvCategorie.CurrentCell = dgvCategorie.Rows[dgvCategorie.Rows[0].Index].Cells[0];
+                    nombreviejoCategoria = dgvCategorie.Rows[dgvCategorie.SelectedRows[0].Index].Cells[0].Value.ToString();
+                }
             }
         }
 
@@ -431,17 +440,19 @@ namespace ERP
 
             if (dniFilaSeleccionadaClientes.Equals(""))
             {
-                dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Selected = true;
-                dgvCustomers.CurrentCell = dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Cells[0];
+                if (cliente.gestorCliente.contarClientes() > 0)
+                {
+                    dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Selected = true;
+                    dgvCustomers.CurrentCell = dgvCustomers.Rows[dgvCustomers.Rows[0].Index].Cells[0];
 
-                dniFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[0].Value.ToString();
-                nameFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[1].Value.ToString();
-                surnameFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[2].Value.ToString();
-                addressFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[3].Value.ToString();
-                phoneFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[4].Value.ToString();
-                emailFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[5].Value.ToString();
-                cityFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[6].Value.ToString();
-
+                    dniFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[0].Value.ToString();
+                    nameFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[1].Value.ToString();
+                    surnameFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[2].Value.ToString();
+                    addressFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[3].Value.ToString();
+                    phoneFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[4].Value.ToString();
+                    emailFilaSellecionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[5].Value.ToString();
+                    cityFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[6].Value.ToString();
+                }
             }
 }
 
@@ -651,6 +662,8 @@ namespace ERP
             txtSearchProd.ForeColor = Color.Gray;
             txtSearchProd.Text = "Search a Name...";
 
+            txtSearchOrder.ForeColor = Color.Gray;
+            txtSearchOrder.Text = "Search...";
             //Usuarios
             btnNewUser.BackColor = Color.Black;
             btnNewUser.ForeColor = Color.White;
@@ -1405,6 +1418,24 @@ namespace ERP
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaOrders = e.RowIndex;
+        }
+
+        private void txtSearchOrder_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchOrder.Text.Equals("Search..."))
+            {
+                txtSearchOrder.Text = "";
+                txtSearchOrder.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearchOrder_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchOrder.Text.Equals(""))
+            {
+                txtSearchOrder.ForeColor = Color.Gray;
+                txtSearchOrder.Text = "Search...";
+            }
         }
     }
 }

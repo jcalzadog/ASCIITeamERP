@@ -41,7 +41,7 @@
             this.dgvSelectCustomer.AllowUserToResizeRows = false;
             this.dgvSelectCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSelectCustomer.Location = new System.Drawing.Point(18, 55);
-            this.dgvSelectCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSelectCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSelectCustomer.Name = "dgvSelectCustomer";
             this.dgvSelectCustomer.Size = new System.Drawing.Size(730, 316);
             this.dgvSelectCustomer.TabIndex = 0;
@@ -50,7 +50,7 @@
             // txtSearchCustomer
             // 
             this.txtSearchCustomer.Location = new System.Drawing.Point(18, 17);
-            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchCustomer.Name = "txtSearchCustomer";
             this.txtSearchCustomer.Size = new System.Drawing.Size(424, 23);
             this.txtSearchCustomer.TabIndex = 1;
@@ -59,7 +59,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(636, 17);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 30);
             this.btnCancel.TabIndex = 2;
@@ -75,12 +75,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(766, 386);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.dgvSelectCustomer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(784, 433);
+            this.MinimumSize = new System.Drawing.Size(784, 433);
             this.Name = "SelectCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select Customer";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectCustomer)).EndInit();
             this.ResumeLayout(false);
