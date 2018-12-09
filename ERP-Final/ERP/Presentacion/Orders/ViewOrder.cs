@@ -21,6 +21,7 @@ namespace ERP.Presentacion.Orders
             lblDate.Text = d.ToString("dd/MM/yyyy");
             decimal t = (decimal)new ConnectOracle().DLookUp("TOTAL", "ORDERS", "IDORDER='" + id + "'");
             lblTotal.Text = t.ToString();
+            dgvDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
