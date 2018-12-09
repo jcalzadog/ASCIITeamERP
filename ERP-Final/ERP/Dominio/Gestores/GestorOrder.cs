@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Diagnostics;
 
 namespace ERP.Dominio.Gestores
@@ -46,7 +47,17 @@ namespace ERP.Dominio.Gestores
 
         public decimal insertOrder (Order o)
         {
-            decimal idOrder = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "")+1;
+            decimal numPedidos = (decimal)conector.DLookUp("COUNT(IDORDER)", "ORDERS", "");
+            decimal idOrder;
+            if (numPedidos == 0)
+            {
+                idOrder = 1;
+
+            } else
+            {
+                idOrder = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "");
+                idOrder++;
+            }
             conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+o.prepaid+"', '0')");
             // se podria usar la fecha del objeto pero suponemos que en la insercion es la fecha del pedido por el momento, en futuras versiones quizas permita cambiar fecha
             return idOrder;
@@ -54,7 +65,19 @@ namespace ERP.Dominio.Gestores
 
         public void insertDetail (DetailOrder d, decimal idOrder)
         {
-            decimal idDetail = (decimal)conector.DLookUp("MAX(IDORDERPRODUCT)", "ORDERSPRODUCTS", "")+1;
+
+            decimal numDetail = (decimal)conector.DLookUp("COUNT(IDORDERPRODUCT)", "ORDERSPRODUCTS", "");
+            decimal idDetail;
+            if (numDetail == 0)
+            {
+                idDetail = 1;
+
+            }
+            else
+            {
+                idDetail = (decimal)conector.DLookUp("MAX(IDORDERPRODUCT)", "ORDERSPRODUCTS", "");
+                idDetail++;
+            }
             conector.setData("INSERT INTO ORDERSPRODUCTS VALUES ('" + idDetail + "', '" +idOrder + "', '" + d.RefProduct + "', '"+d.Amount + "', '" + d.Pricesale + "')");
         }
 
