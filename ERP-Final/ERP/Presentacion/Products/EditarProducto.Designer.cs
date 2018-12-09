@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -79,9 +80,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(129, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Price";
+            this.label5.Text = "Price*";
             // 
             // txtPegi
             // 
@@ -96,9 +97,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(129, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Pegi";
+            this.label4.Text = "Pegi*";
             // 
             // cmbPlatform
             // 
@@ -113,9 +114,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(129, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Platform";
+            this.label3.Text = "Platform*";
             // 
             // cmbCategory
             // 
@@ -130,9 +131,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(129, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Category";
+            this.label2.Text = "Category*";
             // 
             // txtName
             // 
@@ -147,16 +148,26 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(129, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Name";
+            this.label1.Text = "Name*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(490, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 17);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "*Campos obligatorios";
             // 
             // EditarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(586, 359);
+            this.ClientSize = new System.Drawing.Size(693, 359);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPrice);
@@ -191,5 +202,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
     }
 }

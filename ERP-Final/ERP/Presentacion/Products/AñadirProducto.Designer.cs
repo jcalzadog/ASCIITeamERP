@@ -41,18 +41,19 @@
             this.btnSaveAnother = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(120, 41);
+            this.label1.Location = new System.Drawing.Point(105, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Name*";
             // 
             // txtName
             // 
@@ -66,12 +67,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(120, 71);
+            this.label2.Location = new System.Drawing.Point(105, 71);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Category";
+            this.label2.Text = "Category*";
             // 
             // cmbCategory
             // 
@@ -96,12 +97,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(120, 105);
+            this.label3.Location = new System.Drawing.Point(105, 105);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Platform";
+            this.label3.Text = "Platform*";
             // 
             // txtPegi
             // 
@@ -116,12 +117,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(120, 139);
+            this.label4.Location = new System.Drawing.Point(105, 139);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
+            this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Pegi";
+            this.label4.Text = "Pegi*";
             // 
             // txtPrice
             // 
@@ -136,12 +137,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 171);
+            this.label5.Location = new System.Drawing.Point(105, 171);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.Size = new System.Drawing.Size(51, 17);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Price";
+            this.label5.Text = "Price*";
             // 
             // btnSaveAnother
             // 
@@ -179,12 +180,22 @@
             this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(394, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "*Campos obligatorios";
+            // 
             // AñadirProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(465, 270);
+            this.ClientSize = new System.Drawing.Size(568, 270);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveAnother);
@@ -222,5 +233,6 @@
         private System.Windows.Forms.Button btnSaveAnother;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label6;
     }
 }
