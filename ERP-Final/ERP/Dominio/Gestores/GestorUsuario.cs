@@ -181,9 +181,41 @@ namespace ERP.Dominio.Gestores
 
             if (existe == 0)
             {
-                Decimal idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
-                Decimal idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
-                Decimal idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + U.rol.nameRol + "'");
+                Decimal numUser = (Decimal)conector.DLookUp("COUNT(IDUSER)", "USERS", "");
+                Decimal idUser;
+                if (numUser == 0)
+                {
+                    idUser = 1;
+
+                }
+                else
+                {
+                    idUser = (Decimal)conector.DLookUp("MAX(IDUSER)", "USERS", "");
+                }
+
+                Decimal numidUser_Roles = (Decimal)conector.DLookUp("COUNT(IDUSERROL)", "USERS_ROLES", "");
+                Decimal idUser_Roles;
+                if (numidUser_Roles == 0)
+                {
+                    idUser_Roles = 1;
+
+                }
+                else
+                {
+                    idUser_Roles = (Decimal)conector.DLookUp("MAX(IDUSERROL)", "USERS_ROLES", "");
+                }
+
+                Decimal numidRoles = (Decimal)conector.DLookUp("COUNT(IDROLE)", "ROLES", "");
+                Decimal idRoles;
+                if (numidRoles == 0)
+                {
+                    idRoles = 1;
+
+                }
+                else
+                {
+                    idRoles = (Decimal)conector.DLookUp("IDROLE", "ROLES", "NAME='" + U.rol.nameRol + "'");
+                }
 
                 String pass = Encryptor.MD5Hash(U.password);
 

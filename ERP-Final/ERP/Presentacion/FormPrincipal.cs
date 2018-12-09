@@ -30,7 +30,7 @@ namespace ERP
 
     public partial class FormPrincipal : Form
     {
-        private String nombreUsuarioLogueado;
+        public static String nombreUsuarioLogueado { get; set; }
         public Object idUsuarioLogueado;
 
         private User usuario;
@@ -85,7 +85,7 @@ namespace ERP
             
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
-            this.nombreUsuarioLogueado = login.nombreUsuario;
+            nombreUsuarioLogueado = login.nombreUsuario;
 
             
 
@@ -541,9 +541,17 @@ namespace ERP
         {
             if (!nombreFilaSeleccionadaUsers.Equals(""))
             {
-                ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
-                deletedUser.ShowDialog();
-                filtroTotalUsuarios();
+                if (nombreFilaSeleccionadaUsers.Equals(nombreUsuarioLogueado))
+                {
+                    String mensaje = "Estas logueado con este user.";
+                    VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                    cambio.ShowDialog();
+                } else
+                {
+                    ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
+                    deletedUser.ShowDialog();
+                    filtroTotalUsuarios();
+                }
             } else
             {
                 String mensaje = "No se ha selecionado ninguna fila.";

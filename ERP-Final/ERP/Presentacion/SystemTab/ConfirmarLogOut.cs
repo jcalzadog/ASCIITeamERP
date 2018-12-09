@@ -60,6 +60,7 @@ namespace ERP.Presentacion.SystemTab
             if (!login.IsDisposed)
             {
                 User usuario = new User();
+                ERP.FormPrincipal.nombreUsuarioLogueado = login.nombreUsuario;
                 ERP.Persistencia.Logs.idUser = usuario.gestorusuario.extraerIdUserLogueado(login.nombreUsuario);
                 this.tbcMenuPrincipal.Visible = true;
             }
