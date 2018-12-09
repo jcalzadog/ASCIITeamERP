@@ -64,6 +64,7 @@ namespace ERP.Presentacion.Usuarios
             bool borrado = rol.gestorRol.eliminarRole(rol);
             if (borrado)
             {
+                ERP.Persistencia.Logs.write("Role " + rol.nameRol + " deleted");
                 this.Dispose();
             }
         }

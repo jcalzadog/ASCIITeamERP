@@ -27,10 +27,11 @@ namespace ERP.Presentacion.Plataformas
         {
             if (Dominio.Util.Validations.validatePlatforms(txtUpdate.Text)) {
 
-            plataforma.name = txtUpdate.Text;
-            plataforma.gestorplataforma.updatePlataforma(plataforma);
-            this.Dispose();
-            plataforma.gestorplataforma.readPlatforms();
+                plataforma.name = txtUpdate.Text;
+                plataforma.gestorplataforma.updatePlataforma(plataforma);
+                ERP.Persistencia.Logs.write("Platform " + txtUpdate.Text + " updated");
+                this.Dispose();
+                plataforma.gestorplataforma.readPlatforms();
             }
             else
             {

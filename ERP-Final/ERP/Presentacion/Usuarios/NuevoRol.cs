@@ -135,6 +135,7 @@ namespace ERP.Presentacion.Usuarios
                 Boolean creado = rol.gestorRol.nuevoRol(dgvPermissions, rol);
                 if (creado)
                 {
+                    ERP.Persistencia.Logs.write("Role " + tbxNombreRol.Text + " created");
                     this.Dispose();
                 }
             }

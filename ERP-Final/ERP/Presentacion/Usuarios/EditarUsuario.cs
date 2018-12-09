@@ -147,6 +147,7 @@ namespace ERP.Presentacion.Usuarios
                 {
                     user.password = tbxPassword.Text;
                     user.gestorusuario.modificarUsuario(user);
+                    ERP.Persistencia.Logs.write("User " + tbxUsername.Text + " updated");
                     this.Dispose();
                 }
                 else

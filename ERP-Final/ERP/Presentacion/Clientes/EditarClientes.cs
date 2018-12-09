@@ -106,6 +106,7 @@ namespace ERP.Presentacion.Clientes
 
                                         clientemod.gestorCliente.modificarCliente(clientemod, this.dniFilaSeleccionadaClientes);
 
+                                        ERP.Persistencia.Logs.write("Customer " + tbxDNI.Text + " updated");
                                         this.Dispose();
                                 }
                                 else

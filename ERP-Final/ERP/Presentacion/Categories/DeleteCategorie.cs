@@ -27,6 +27,7 @@ namespace ERP.Presentacion.Categories
         {
             categoria.name = this.namedelete;
             categoria.gestor.deleteCategoria(categoria);
+            ERP.Persistencia.Logs.write("Categorie " + categoria.name + " deleted");
             this.Dispose();
         }
 

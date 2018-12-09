@@ -35,6 +35,7 @@ namespace ERP.Presentacion.Clientes
             //usuario.gestorusuario.eliminarUsuario(dgvUsers, this.nombreFilaSeleccionada);
             cliente.dni = dniFilaSeleccionada;
             cliente.gestorCliente.eliminarCliente(dgvCustomers, cliente);
+            ERP.Persistencia.Logs.write("Customer " + cliente.name + " deleted");
             this.Dispose();
         }
         

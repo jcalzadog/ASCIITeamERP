@@ -51,6 +51,7 @@ namespace ERP.Presentacion.Products
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             producto.gestorProducto.eliminarProducto(dgvProducts, producto);
+            ERP.Persistencia.Logs.write("Product " + producto.name + " deleted");
             this.Dispose();
         }
 

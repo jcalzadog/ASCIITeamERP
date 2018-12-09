@@ -35,6 +35,7 @@ namespace ERP.Presentacion.Plataformas
                 plataforma.gestorplataforma.insertPlataforma(plataforma);
                 textBox1.Text = "";
                 plataforma.gestorplataforma.readPlatforms();
+                ERP.Persistencia.Logs.write("Platform " + textBox1.Text + " created");
             }
             else {
                 VentanaPersonalizada vp = new VentanaPersonalizada("Has introducido caracteres invalidos");
@@ -50,6 +51,7 @@ namespace ERP.Presentacion.Plataformas
                 plataforma.name = textBox1.Text;
                 plataforma.gestorplataforma.insertPlataforma(plataforma);
                 plataforma.gestorplataforma.readPlatforms();
+                ERP.Persistencia.Logs.write("Platform " + textBox1.Text + " created");
                 this.Dispose();
             }
             else

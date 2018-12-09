@@ -51,6 +51,7 @@ namespace ERP.Presentacion.Products
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Int32.Parse(txtPegi.Text),Int32.Parse(txtPrice.Text));
             if (creado)
             {
+                ERP.Persistencia.Logs.write("Product " + txtName.Text + " created");
                 txtName.Text = "";
                 cmbCategory.SelectedIndex = 0;
                 cmbPlatform.SelectedIndex = 0;
@@ -71,6 +72,7 @@ namespace ERP.Presentacion.Products
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
             if (creado)
             {
+                ERP.Persistencia.Logs.write("Product " + txtName.Text + " created");
                 this.Dispose();
             }
         }

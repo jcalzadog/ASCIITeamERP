@@ -64,6 +64,7 @@ namespace ERP.Presentacion.Products
             product.prize = Int32.Parse(txtPrice.Text);
 
             producto.gestorProducto.modificarProducto(product, FormPrincipal.catViejaFilaSellecionadaProducts, FormPrincipal.platViejaFilaSellecionadaProducts);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text),FormPrincipal.catViejaFilaSellecionadaProducts,FormPrincipal.platViejaFilaSellecionadaProducts);
+            ERP.Persistencia.Logs.write("Product " + txtName.Text + " updated");
             this.Dispose();
         }
         private void cargarDatos(String name,String catVieja,String platVieja,String pegi,String price)

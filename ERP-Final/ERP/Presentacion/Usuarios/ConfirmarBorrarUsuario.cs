@@ -52,6 +52,7 @@ namespace ERP.Presentacion.Usuarios
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             usuario.gestorusuario.eliminarUsuario(dgvUsers, usuario);
+            ERP.Persistencia.Logs.write("User " + usuario.name + " deleted");
             this.Dispose();
         }
 

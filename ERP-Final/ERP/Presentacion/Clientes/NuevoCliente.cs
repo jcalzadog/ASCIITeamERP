@@ -193,6 +193,7 @@ namespace ERP.Presentacion.Clientes
                                         Boolean creado = customer.gestorCliente.nuevoCliente(customer);
                                         if (creado)
                                         {
+                                            ERP.Persistencia.Logs.write("Customer " + tbxDNI.Text + " created");
                                             this.Dispose();
                                         }
                                 }
@@ -259,6 +260,7 @@ namespace ERP.Presentacion.Clientes
                                         Boolean creado = customer.gestorCliente.nuevoCliente(customer);//(tbxDNI.Text, tbxName.Text, tbxSurname.Text, tbxAddress.Text, Int32.Parse(tbxPhone.Text), tbxEmail.Text, tbxZipCode.Text);
                                     if (creado)
                                     {
+                                        ERP.Persistencia.Logs.write("Customer " + tbxDNI.Text + " created");
                                         tbxDNI.Text = "";
                                         tbxName.Text = "";
                                         tbxSurname.Text = "";

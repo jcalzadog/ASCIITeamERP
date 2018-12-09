@@ -47,6 +47,7 @@ namespace ERP.Presentacion.Usuarios
                     Boolean creado = user.gestorusuario.nuevoUsuario(user);
                     if (creado)
                     {
+                        ERP.Persistencia.Logs.write("User " + tbxUsername.Text + " created");
                         tbxUsername.Text = "";
                         tbxPassword.Text = "";
                         cmbRoles.SelectedIndex = 0;
@@ -77,7 +78,7 @@ namespace ERP.Presentacion.Usuarios
                     Boolean creado = user.gestorusuario.nuevoUsuario(user);
                     if (creado)
                     {
-                        ERP.Persistencia.Logs.write("Usuario " + tbxUsername.Text + " creado");
+                        ERP.Persistencia.Logs.write("User " + tbxUsername.Text + " created");
                         this.Dispose();
                     }
                 }

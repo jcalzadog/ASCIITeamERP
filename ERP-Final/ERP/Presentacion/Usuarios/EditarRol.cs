@@ -240,6 +240,7 @@ namespace ERP.Presentacion.Usuarios
         {
             rol.nameRol = cmbRoles.SelectedItem.ToString();
             rol.gestorRol.modificarRol(dgvPermissions, rol);
+            ERP.Persistencia.Logs.write("Role " + cmbRoles.SelectedItem.ToString() + " updated");
         }
 
         private void btnDeleteRol_Click(object sender, EventArgs e)

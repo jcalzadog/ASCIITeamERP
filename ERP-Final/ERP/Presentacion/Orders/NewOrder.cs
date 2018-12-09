@@ -90,6 +90,7 @@ namespace ERP.Presentacion.Orders
                     gestor.insertDetail(d, id);
                 }
                 MessageBox.Show("Order saved");
+                ERP.Persistencia.Logs.write("Order " + id + " created");
                 this.Dispose();
             }
 

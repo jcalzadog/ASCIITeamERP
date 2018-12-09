@@ -29,6 +29,7 @@ namespace ERP.Presentacion.Categories
             {
                 categoria.name = textBox1.Text;
                 categoria.gestor.updateCategorias(categoria);
+                ERP.Persistencia.Logs.write("Categorie " + textBox1.Text + " updated");
                 this.Dispose();
             }
             else {

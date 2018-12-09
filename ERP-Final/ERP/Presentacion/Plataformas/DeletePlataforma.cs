@@ -26,6 +26,7 @@ namespace ERP.Presentacion.Plataformas
         {
             plataforma.name = this.nameDelete;
             plataforma.gestorplataforma.deletePlataforma(plataforma);
+            ERP.Persistencia.Logs.write("Platform " + plataforma.name + " deleted");
             this.Dispose();
         }
 

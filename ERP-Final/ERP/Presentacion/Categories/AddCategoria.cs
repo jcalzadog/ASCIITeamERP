@@ -34,6 +34,7 @@ namespace ERP.Presentacion.Categories
                 categoria.name = textBox1.Text;
                 categoria.gestor.insertCategorias(categoria);
                 categoria.gestor.readCategorias();
+                ERP.Persistencia.Logs.write("Categorie " + textBox1.Text + " created");
                 this.Dispose();
             }
             else {
@@ -54,6 +55,7 @@ namespace ERP.Presentacion.Categories
                 categoria.gestor.insertCategorias(categoria);
                 textBox1.Text = "";
                 categoria.gestor.readCategorias();
+                ERP.Persistencia.Logs.write("Categorie " + textBox1.Text + " created");
             }
             else
             {

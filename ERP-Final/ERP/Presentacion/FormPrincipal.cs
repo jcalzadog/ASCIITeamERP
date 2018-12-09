@@ -1393,6 +1393,7 @@ namespace ERP
                     orders.eliminar(id);
                     MessageBox.Show("Deleted successfully");
                     cargarTablaOrders("");
+                    ERP.Persistencia.Logs.write("Order " + id + " deleted");
                 }
                 
             }
