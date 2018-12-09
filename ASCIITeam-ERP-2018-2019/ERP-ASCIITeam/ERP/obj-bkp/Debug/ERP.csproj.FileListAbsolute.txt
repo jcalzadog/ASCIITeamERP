@@ -1,0 +1,99 @@
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\ES-ES\ERP.resources.dll
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\bin\Debug\Oracle.DataAccess.dll
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.AddCategoria.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.UpdCategorie.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.NuevoCliente.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.SelectZipCode.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.ErroresCambios.VentanaPersonalizada.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarExit.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarLogOut.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarUsuario.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoRol.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoUsuario.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.ConfirmarBorrarCliente.resources
+<<<<<<< HEAD
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ES-ES\ERP.resources.dll
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\Oracle.DataAccess.dll
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.AddCategoria.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.UpdCategorie.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.ConfirmarBorrarCliente.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.NuevoCliente.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.SelectZipCode.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.ErroresCambios.VentanaPersonalizada.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarExit.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarLogOut.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarUsuario.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoRol.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoUsuario.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
+C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+=======
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe.config
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.exe
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.pdb
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.exe
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ERP.pdb
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\ES-ES\ERP.resources.dll
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\bin\Debug\Oracle.DataAccess.dll
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csprojResolveAssemblyReference.cache
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.AddCategoria.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.DeleteCategorie.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Categories.UpdCategorie.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.ConfirmarBorrarCliente.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.NuevoCliente.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Clientes.SelectZipCode.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.ErroresCambios.VentanaPersonalizada.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormLogin.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.FormPrincipal.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.AñadirProducto.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Products.EditarProducto.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarExit.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.SystemTab.ConfirmarLogOut.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarRol.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.ConfirmarBorrarUsuario.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarRol.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.EditarUsuario.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoRol.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Presentacion.Usuarios.NuevoUsuario.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Properties.Resources.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.Recursos.StringResources.ES-ES.resources
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
+C:\Users\b14-01m\Documents\GitHub\ASCIITeamERP\ERP\ERP\obj\Debug\ES-ES\ERP.resources.dll
+>>>>>>> 1ed4e2418ff76d6a8024b41a61fd6dfdd0f782d0
