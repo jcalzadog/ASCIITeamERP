@@ -251,3 +251,6 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Present
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Presentacion.FormCargaInicial.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Presentacion.Orders.ViewOrder.resources
 C:\Users\pedro\Documents\GitHub\ASCIITeamERP\ERP-Final\ERP\obj\Debug\ERP.Presentacion.Usuarios.Logs.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\bin\Debug\ERP.exe.config
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.exe
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.pdb
