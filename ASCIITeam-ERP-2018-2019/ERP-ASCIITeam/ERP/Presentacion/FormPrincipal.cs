@@ -517,6 +517,14 @@ namespace ERP
         {
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
+
+            tbcInterCashBook.Width = tbcMenuPrincipal.Width;
+            tbcInterCashBook.Height = tbcMenuPrincipal.Height-250;
+
+            tbxInCash.Location = new Point(200, 650);
+            tbxChecks.Location = new Point(200, 700);
+            tbxReceipts.Location = new Point(200, 750);
+            tbxTotal.Location = new Point(450, 750);
         }
 
         private void tabPage2_Resize(object sender, EventArgs e)
