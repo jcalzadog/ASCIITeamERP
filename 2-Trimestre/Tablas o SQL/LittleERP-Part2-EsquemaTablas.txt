@@ -1,0 +1,19 @@
+INCOMES--> ID,DATE,REF_USER,REF_EMTRADA(OTRA TABLA(SOURCE) CON TEXTOS YA ESCRITOS),REF_TIPO,TEXT,AMOUNT, REF_ACTION(---> 0 EN INCOMES Y 1 EN EXPENSES )
+
+	SOURCE_INCOME(SOURCE) ---->ID,TEXT
+	TYPES(ESTA ES LA DE TIPOS) --> ID, TEXT (CHECKE...)
+
+.............................................................................
+PPAYMENT--> ID,DATE,REFUSER,REFPPAYMENT,TETX,AMOUNT,PAID(DELETED)(O FALSE AND 1 TRUE) 
+
+	TYPES_PPAYMENT(TIPOS)--> ID, TEXT -->(OTROS, AGENCIAS....)
+
+
+.............................................................................
+DEBTS--> ID,DATE,REF_USER,TEXT,AMOUNT,PAID(DELETED)(O FALSE AND 1 TRUE) 
+
+.............................................................................
+	VALIDATIONS-->ID,DATE,REF_USER, A_INCASH,A_RECEIPT,A_CHECK,TOTAL
+
+
+ - 7 TABLAS EN TOTAL
