@@ -521,10 +521,21 @@ namespace ERP
             tbcInterCashBook.Width = tbcMenuPrincipal.Width;
             tbcInterCashBook.Height = tbcMenuPrincipal.Height-250;
 
+            lblInCash.Location = new Point(130, 653);
             tbxInCash.Location = new Point(200, 650);
+            lbleuro1.Location = new Point(330, 653);
+
+            lblChecks.Location = new Point(130, 703);
             tbxChecks.Location = new Point(200, 700);
+            lbleuro2.Location = new Point(330, 703);
+
+            lblReceipts.Location = new Point(130, 753);
             tbxReceipts.Location = new Point(200, 750);
+            lbleuro3.Location = new Point(330, 753);
+
+            lblTotal.Location = new Point(390, 753);
             tbxTotal.Location = new Point(450, 750);
+            lbleuro4.Location = new Point(590, 753);
         }
 
         private void tabPage2_Resize(object sender, EventArgs e)
