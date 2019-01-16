@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using ERP.Presentacion.Products;
 using ERP.Presentacion.Plataformas;
 using ERP.Presentacion.Orders;
+using ERP.Presentacion.CashBook.Incomes;
 
 //using ERP.Presentacion.Categorias;
 
@@ -38,7 +39,6 @@ namespace ERP
         private Producto producto;
         private Platforms plataforma;
         private GestorOrder orders;
-        private GestorIncomes incomes;
         public static String nombreFilaSeleccionadaUsers="";
         public static String rolFilaSellecionadaUsers="";
 
@@ -69,7 +69,6 @@ namespace ERP
             producto = new Producto();
             plataforma = new Platforms();
             orders = new GestorOrder();
-            incomes = new GestorIncomes();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -77,7 +76,7 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             cargarCategorias();
             cargarComponentes();
-            cargarIncomes();
+
             
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos(" PR.DELETED=0");
@@ -106,15 +105,6 @@ namespace ERP
             controlErroresClientes();
         }
 
-
-        public void cargarIncomes()
-        {
-            dgvIncomes.DataSource = incomes.tIncomes;
-            dgvIncomes.RowHeadersVisible = false;
-            dgvIncomes.AllowUserToAddRows = false;
-            dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvIncomes.BackgroundColor = Color.Black;
-        }
 
 
         public void cargarCategorias() {
@@ -1587,6 +1577,12 @@ namespace ERP
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNewIncome_Click(object sender, EventArgs e)
+        {
+            NewIncome newIncome = new NewIncome();
+            newIncome.ShowDialog();
         }
     }
 }
