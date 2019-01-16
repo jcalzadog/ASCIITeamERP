@@ -17,8 +17,8 @@ using System.Windows.Forms;
 using ERP.Presentacion.Products;
 using ERP.Presentacion.Plataformas;
 using ERP.Presentacion.Orders;
+using ERP.Presentacion.Orders;
 using ERP.Presentacion.CashBook.Incomes;
-
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -39,8 +39,9 @@ namespace ERP
         private Producto producto;
         private Platforms plataforma;
         private GestorOrder orders;
-        public static String nombreFilaSeleccionadaUsers="";
-        public static String rolFilaSellecionadaUsers="";
+        private GestorIncomes incomes;
+        public static String nombreFilaSeleccionadaUsers = "";
+        public static String rolFilaSellecionadaUsers = "";
 
         public static String dniFilaSeleccionadaClientes = "";
         public static String nameFilaSellecionadaClientes = "";
@@ -58,10 +59,10 @@ namespace ERP
         public static String priceFilaSellecionadaProducts = "";
 
         private Categorias categoria;
-        public static String nombreviejoCategoria="";
+        public static String nombreviejoCategoria = "";
 
 
-        public static String nombreviejoPlataformas="";
+        public static String nombreviejoPlataformas = "";
         public FormPrincipal()
         {
             usuario = new User();
@@ -69,6 +70,7 @@ namespace ERP
             producto = new Producto();
             plataforma = new Platforms();
             orders = new GestorOrder();
+            incomes = new GestorIncomes();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -76,19 +78,19 @@ namespace ERP
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             cargarCategorias();
             cargarComponentes();
+            cargarIncomes();
 
-            
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos(" PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
             cargarPlataformas();
             cargarTablaOrders("");
-            
+
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             nombreUsuarioLogueado = login.nombreUsuario;
 
-            
+
 
             this.idUsuarioLogueado = usuario.gestorusuario.extraerIdUserLogueado(nombreUsuarioLogueado);
             ERP.Persistencia.Logs.idUser = this.idUsuarioLogueado;
@@ -106,8 +108,18 @@ namespace ERP
         }
 
 
+        public void cargarIncomes()
+        {
+            dgvIncomes.DataSource = incomes.tIncomes;
+            dgvIncomes.RowHeadersVisible = false;
+            dgvIncomes.AllowUserToAddRows = false;
+            dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvIncomes.BackgroundColor = Color.Black;
+        }
 
-        public void cargarCategorias() {
+
+        public void cargarCategorias()
+        {
             dgvCategorie.Columns.Clear();
             categoria = new Categorias();
             categoria.gestor.readCategorias();
@@ -121,7 +133,7 @@ namespace ERP
 
             foreach (DataRow row in tcategorias.Rows)
             {
-                dgvCategorie.Rows.Add(row["NAME"],row["CUENTA"]);
+                dgvCategorie.Rows.Add(row["NAME"], row["CUENTA"]);
             }
 
 
@@ -134,7 +146,7 @@ namespace ERP
         public void cargarPlataformas()
         {
             dgvPlatforms.Columns.Clear();
-            
+
             plataforma.gestorplataforma.readPlatforms();
             DataTable tPlatformas = plataforma.gestorplataforma.tabla;
 
@@ -391,8 +403,8 @@ namespace ERP
                     pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
                     priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
                 }
-                
-                
+
+
             }
         }
 
@@ -455,11 +467,11 @@ namespace ERP
                     cityFilaSeleccionadaClientes = dgvCustomers.Rows[dgvCustomers.SelectedRows[0].Index].Cells[6].Value.ToString();
                 }
             }
-}
+        }
 
-        public void filtrarTablaUsuario(String name,bool check)
+        public void filtrarTablaUsuario(String name, bool check)
         {
-            String condicion="";
+            String condicion = "";
 
             if (check)
             {
@@ -501,7 +513,7 @@ namespace ERP
         public void filtrarTablaProductos(String name, bool check)
         {
             String condicion = "";
-            
+
             if (check)
             {
                 condicion += " PR.NAME like '%" + name + "%' AND PR.DELETED=1 ";//OR C.NAME LIKE '%" + name+ "%'OR PL.NAME LIKE '%" + name + "%'";
@@ -520,7 +532,7 @@ namespace ERP
             tbcMenuPrincipal.Height = this.Height;
 
             tbcInterCashBook.Width = tbcMenuPrincipal.Width;
-            tbcInterCashBook.Height = tbcMenuPrincipal.Height-250;
+            tbcInterCashBook.Height = tbcMenuPrincipal.Height - 250;
 
             dgvIncomes.Width = tbcInterCashBook.Width - 130;
             dgvIncomes.Height = tbcInterCashBook.Height - 80;
@@ -537,7 +549,7 @@ namespace ERP
             //lblInCash.Location = new Point(130, 653);
             //tbxInCash.Location = new Point(200, 650);
             //lbleuro1.Location = new Point(330, 653);
-            lblInCash.Location = new Point(tbcInterCashBook.Width-1420, tbcInterCashBook.Height+63);
+            lblInCash.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 63);
             tbxInCash.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 60);
             lbleuro1.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 63);
 
@@ -566,8 +578,8 @@ namespace ERP
         private void tabPage2_Resize(object sender, EventArgs e)
         {
 
-            dgvUsers.Width = this.Width-150;
-            dgvUsers.Height = this.Height-100;
+            dgvUsers.Width = this.Width - 150;
+            dgvUsers.Height = this.Height - 100;
 
             dgvCustomers.Width = this.Width - 150;
             dgvCustomers.Height = this.Height - 100;
@@ -605,13 +617,15 @@ namespace ERP
                     String mensaje = "Estas logueado con este user.";
                     VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
                     cambio.ShowDialog();
-                } else
+                }
+                else
                 {
                     ConfirmarBorrarUsuario deletedUser = new ConfirmarBorrarUsuario(dgvUsers, nombreFilaSeleccionadaUsers);
                     deletedUser.ShowDialog();
                     filtroTotalUsuarios();
                 }
-            } else
+            }
+            else
             {
                 String mensaje = "No se ha selecionado ninguna fila.";
                 VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
@@ -774,7 +788,7 @@ namespace ERP
 
 
             //Productos
-            
+
             aparienciaBotones(btnNewProd);
             aparienciaBotones(btnUpdateProd);
             aparienciaBotones(btnDeleteProd);
@@ -785,7 +799,7 @@ namespace ERP
             aparienciaBotones(btnUpdatePlatform);
             aparienciaBotones(btnDeletePlatform);
             aparienciaBotones(btnNewPlatform);
-            
+
 
 
             //Categorias
@@ -976,7 +990,8 @@ namespace ERP
                 btnDeleteUser.Enabled = false;
                 btnDeleteUser.BackColor = Color.Transparent;
                 btnDeleteUser.ForeColor = Color.Black;
-            } else
+            }
+            else
             {
                 btnDeleteUser.Enabled = true;
                 btnDeleteUser.BackColor = Color.Black;
@@ -995,7 +1010,7 @@ namespace ERP
         public void filtroTotalUsuarios()
         {
             bool deleted = false;
-            if(cbxUserDeleted.CheckState == CheckState.Checked)
+            if (cbxUserDeleted.CheckState == CheckState.Checked)
             {
                 deleted = true;
             }
@@ -1050,7 +1065,7 @@ namespace ERP
 
         private void btnNewProd_Click(object sender, EventArgs e)
         {
-            AñadirProducto addProduct = new AñadirProducto(dgvCategorie,dgvPlatforms);
+            AñadirProducto addProduct = new AñadirProducto(dgvCategorie, dgvPlatforms);
             addProduct.ShowDialog();
             filtroTotalProd();//Usa cargar tabla usuarios para actualizar tabla
             cargarCategorias();
@@ -1088,7 +1103,7 @@ namespace ERP
             EditarProducto updateProduct = new EditarProducto(nombreFilaSeleccionadaProducts, catViejaFilaSellecionadaProducts, platViejaFilaSellecionadaProducts, pegiFilaSellecionadaProducts, priceFilaSellecionadaProducts);
             updateProduct.ShowDialog();
             filtroTotalProd();
-    }
+        }
 
         private void cmbFilPlatform_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1203,7 +1218,7 @@ namespace ERP
         }
         private void cbxDeleted_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         public void filtroTotalClientes()
@@ -1280,7 +1295,8 @@ namespace ERP
                     ConfirmarBorrarCliente deleteCustomer = new ConfirmarBorrarCliente(dgvCustomers, dniFilaSeleccionadaClientes);
                     deleteCustomer.ShowDialog();
                     filtroTotalClientes();
-                } else
+                }
+                else
                 {
                     String mensaje = "The customer have Orders.";
                     VentanaPersonalizada vp = new VentanaPersonalizada(mensaje);
@@ -1325,7 +1341,7 @@ namespace ERP
                 //EditarUsuario editUser = new EditarUsuario(nombreFilaSeleccionadaUsers, rolFilaSellecionadaUsers);
                 //editUser.ShowDialog();
                 //filtroTotalUsuarios();//Usa cargar tabla usuariospara actualizar tabla
-                EditarClientes editCli = new EditarClientes(dniFilaSeleccionadaClientes, nameFilaSellecionadaClientes,surnameFilaSeleccionadaClientes,addressFilaSellecionadaClientes,phoneFilaSeleccionadaClientes,emailFilaSellecionadaClientes,cityFilaSeleccionadaClientes);
+                EditarClientes editCli = new EditarClientes(dniFilaSeleccionadaClientes, nameFilaSellecionadaClientes, surnameFilaSeleccionadaClientes, addressFilaSellecionadaClientes, phoneFilaSeleccionadaClientes, emailFilaSellecionadaClientes, cityFilaSeleccionadaClientes);
                 editCli.ShowDialog();
                 filtroTotalClientes();
             }
@@ -1428,7 +1444,7 @@ namespace ERP
         {
             if (filaOrders >= 0)
             {
-                
+
                 string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[0].Value).ToString();
                 DeleteOrder dlg = new DeleteOrder();
                 dlg.ShowDialog();
@@ -1439,13 +1455,13 @@ namespace ERP
                     cargarTablaOrders("");
                     ERP.Persistencia.Logs.write("Order " + id + " deleted");
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("You haven't choose a order, or it can't be deleted");
             }
-            
+
         }
 
         private void txtSearchOrder_TextChanged(object sender, EventArgs e)
@@ -1483,9 +1499,9 @@ namespace ERP
 
         private void txtSearchOrder_KeyUp(object sender, KeyEventArgs e)
         {
-            cargarTablaOrders(txtSearchOrder.Text.ToUpper().Replace("'",""));
+            cargarTablaOrders(txtSearchOrder.Text.ToUpper().Replace("'", ""));
         }
-        int filaOrders=-1;
+        int filaOrders = -1;
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaOrders = e.RowIndex;
@@ -1578,6 +1594,7 @@ namespace ERP
         {
 
         }
+
 
         private void btnNewIncome_Click(object sender, EventArgs e)
         {
