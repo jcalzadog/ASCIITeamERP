@@ -533,21 +533,33 @@ namespace ERP
             dgvDebts.Width = tbcInterCashBook.Width - 130;
             dgvDebts.Height = tbcInterCashBook.Height - 80;
 
-            lblInCash.Location = new Point(130, 653);
-            tbxInCash.Location = new Point(200, 650);
-            lbleuro1.Location = new Point(330, 653);
+            //lblInCash.Location = new Point(130, 653);
+            //tbxInCash.Location = new Point(200, 650);
+            //lbleuro1.Location = new Point(330, 653);
+            lblInCash.Location = new Point(tbcInterCashBook.Width-1420, tbcInterCashBook.Height+63);
+            tbxInCash.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 60);
+            lbleuro1.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 63);
 
-            lblChecks.Location = new Point(130, 703);
-            tbxChecks.Location = new Point(200, 700);
-            lbleuro2.Location = new Point(330, 703);
+            //lblChecks.Location = new Point(130, 703);
+            //tbxChecks.Location = new Point(200, 700);
+            //lbleuro2.Location = new Point(330, 703);
+            lblChecks.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 113);
+            tbxChecks.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 110);
+            lbleuro2.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 113);
 
-            lblReceipts.Location = new Point(130, 753);
-            tbxReceipts.Location = new Point(200, 750);
-            lbleuro3.Location = new Point(330, 753);
+            //lblReceipts.Location = new Point(130, 753);
+            //tbxReceipts.Location = new Point(200, 750);
+            //lbleuro3.Location = new Point(330, 753);
+            lblReceipts.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 163);
+            tbxReceipts.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 160);
+            lbleuro3.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 163);
 
-            lblTotal.Location = new Point(390, 753);
-            tbxTotal.Location = new Point(450, 750);
-            lbleuro4.Location = new Point(590, 753);
+            //lblTotal.Location = new Point(390, 753);
+            //tbxTotal.Location = new Point(450, 750);
+            //lbleuro4.Location = new Point(590, 753);
+            lblTotal.Location = new Point(tbcInterCashBook.Width - 1160, tbcInterCashBook.Height + 163);
+            tbxTotal.Location = new Point(tbcInterCashBook.Width - 1100, tbcInterCashBook.Height + 160);
+            lbleuro4.Location = new Point(tbcInterCashBook.Width - 960, tbcInterCashBook.Height + 163);
         }
 
         private void tabPage2_Resize(object sender, EventArgs e)
