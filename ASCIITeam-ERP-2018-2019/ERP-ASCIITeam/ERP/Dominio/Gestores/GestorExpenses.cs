@@ -8,5 +8,6 @@ namespace ERP.Dominio.Gestores
 {
     class GestorExpenses
     {
+
     }
 }
