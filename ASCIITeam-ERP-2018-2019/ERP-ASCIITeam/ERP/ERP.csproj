@@ -53,9 +53,13 @@
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
     <Compile Include="Dominio\DetailOrder.cs" />
+    <Compile Include="Dominio\Expense.cs" />
+    <Compile Include="Dominio\Gestores\GestorExpenses.cs" />
+    <Compile Include="Dominio\Gestores\GestorIncomes.cs" />
     <Compile Include="Dominio\Gestores\GestorLogs.cs" />
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
+    <Compile Include="Dominio\Income.cs" />
     <Compile Include="Dominio\Order.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
