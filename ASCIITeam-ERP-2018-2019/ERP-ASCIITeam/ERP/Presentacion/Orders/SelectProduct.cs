@@ -1,4 +1,5 @@
-﻿using ERP.Dominio.Gestores;
+﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +20,13 @@ namespace ERP.Presentacion.Orders
         decimal idProd;
         decimal price;
         string nameProd;
-        GestorProducto gestor;
+        Producto producto;
         public SelectProduct()
         {
             InitializeComponent();
             aparienciaBotones(btnCancel);
             Acepta = false;
-            gestor = new GestorProducto();
+            producto = new Producto();
             cargarTablaProductos("");
         }
 
@@ -128,10 +129,10 @@ namespace ERP.Presentacion.Orders
         {
             dgvProducts.Columns.Clear();
 
-            gestor.leerProductos(condicion);
+            producto.gestorProducto.leerProductos(condicion);
 
 
-            DataTable tproduct = gestor.tabla;
+            DataTable tproduct = producto.gestorProducto.tabla;
             dgvProducts.Columns.Clear();
             dgvProducts.Columns.Add("IDPRODUCT", "IDPRODUCT");
             dgvProducts.Columns.Add("NAME", "NAME");

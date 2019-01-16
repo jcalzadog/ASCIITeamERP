@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,25 @@ namespace ERP.Dominio
         public decimal total { get; set; }
         public decimal prepaid { get; set; }
         public int deleted { get; set; }
+        public GestorOrder gestorOrder { get; set; }
+
+
+        public Order()
+        {
+            this.gestorOrder = new GestorOrder();
+        }
+
         public Order(int iD, decimal refCustomer, decimal refUser, DateTime datet, int refPaymentMethod, decimal total, int prepaid, int deleted)
         {
-            id = iD;
+            this.id = iD;
             this.refCustomer = refCustomer;
             this.refUser = refUser;
-            date = datet;
-            refPayMethod = refPaymentMethod;
+            this.date = datet;
+            this.refPayMethod = refPaymentMethod;
             this.total = total;
             this.prepaid = prepaid;
             this.deleted = deleted;
+            this.gestorOrder = new GestorOrder();
         }
 
         
