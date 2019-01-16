@@ -383,3 +383,4 @@ D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.csproj.G
 D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ES-ES\ERP.resources.dll
 D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.exe
 D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Incomes.NewIncome.resources
