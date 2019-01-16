@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using ERP.Presentacion.Products;
 using ERP.Presentacion.Plataformas;
 using ERP.Presentacion.Orders;
+using ERP.Presentacion.CashBook.Incomes;
 
 //using ERP.Presentacion.Categorias;
 
@@ -1576,6 +1577,12 @@ namespace ERP
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNewIncome_Click(object sender, EventArgs e)
+        {
+            NewIncome newIncome = new NewIncome();
+            newIncome.ShowDialog();
         }
     }
 }
