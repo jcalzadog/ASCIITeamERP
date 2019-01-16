@@ -521,6 +521,18 @@ namespace ERP
             tbcInterCashBook.Width = tbcMenuPrincipal.Width;
             tbcInterCashBook.Height = tbcMenuPrincipal.Height-250;
 
+            dgvIncomes.Width = tbcInterCashBook.Width - 130;
+            dgvIncomes.Height = tbcInterCashBook.Height - 80;
+
+            dgvExpenses.Width = tbcInterCashBook.Width - 130;
+            dgvExpenses.Height = tbcInterCashBook.Height - 80;
+
+            dgvPendingPayment.Width = tbcInterCashBook.Width - 130;
+            dgvPendingPayment.Height = tbcInterCashBook.Height - 80;
+
+            dgvDebts.Width = tbcInterCashBook.Width - 130;
+            dgvDebts.Height = tbcInterCashBook.Height - 80;
+
             lblInCash.Location = new Point(130, 653);
             tbxInCash.Location = new Point(200, 650);
             lbleuro1.Location = new Point(330, 653);
@@ -1485,6 +1497,71 @@ namespace ERP
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcInterCashBook_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

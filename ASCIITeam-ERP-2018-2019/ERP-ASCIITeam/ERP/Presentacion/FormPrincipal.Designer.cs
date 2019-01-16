@@ -106,6 +106,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.dgvIncomes = new System.Windows.Forms.DataGridView();
+            this.dgvExpenses = new System.Windows.Forms.DataGridView();
+            this.dgvPendingPayment = new System.Windows.Forms.DataGridView();
+            this.dgvDebts = new System.Windows.Forms.DataGridView();
+            this.btnNewIncome = new System.Windows.Forms.Button();
+            this.btnRevokeIncome = new System.Windows.Forms.Button();
+            this.dtpRangoInicialI = new System.Windows.Forms.DateTimePicker();
+            this.dtpRangoFinalI = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbFilterTypeI = new System.Windows.Forms.ComboBox();
+            this.cmbFilterSource = new System.Windows.Forms.ComboBox();
+            this.tbxFilterConceptI = new System.Windows.Forms.TextBox();
+            this.tbxFilterAmountI = new System.Windows.Forms.TextBox();
+            this.cmbFilterAmountSimbolI = new System.Windows.Forms.ComboBox();
+            this.cmbFilterAmountSimbolE = new System.Windows.Forms.ComboBox();
+            this.tbxFilterAmountE = new System.Windows.Forms.TextBox();
+            this.tbxFilterConceptE = new System.Windows.Forms.TextBox();
+            this.cmbFilterTarget = new System.Windows.Forms.ComboBox();
+            this.cmbFilterTypeE = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpRangoFinalE = new System.Windows.Forms.DateTimePicker();
+            this.dtpRangoInicialE = new System.Windows.Forms.DateTimePicker();
+            this.btnRevokeExpense = new System.Windows.Forms.Button();
+            this.btnNewExpense = new System.Windows.Forms.Button();
             this.tbcMenuPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -122,8 +148,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatforms)).BeginInit();
             this.tabCashBook.SuspendLayout();
             this.tbcInterCashBook.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            this.tabPage12.SuspendLayout();
+            this.tabPage13.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncomes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDebts)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcMenuPrincipal
@@ -990,9 +1024,23 @@
             this.tbcInterCashBook.SelectedIndex = 0;
             this.tbcInterCashBook.Size = new System.Drawing.Size(1239, 382);
             this.tbcInterCashBook.TabIndex = 0;
+            this.tbcInterCashBook.SelectedIndexChanged += new System.EventHandler(this.tbcInterCashBook_SelectedIndexChanged);
             // 
             // tabPage10
             // 
+            this.tabPage10.BackColor = System.Drawing.Color.White;
+            this.tabPage10.Controls.Add(this.cmbFilterAmountSimbolI);
+            this.tabPage10.Controls.Add(this.tbxFilterAmountI);
+            this.tabPage10.Controls.Add(this.tbxFilterConceptI);
+            this.tabPage10.Controls.Add(this.cmbFilterSource);
+            this.tabPage10.Controls.Add(this.cmbFilterTypeI);
+            this.tabPage10.Controls.Add(this.label6);
+            this.tabPage10.Controls.Add(this.label5);
+            this.tabPage10.Controls.Add(this.dtpRangoFinalI);
+            this.tabPage10.Controls.Add(this.dtpRangoInicialI);
+            this.tabPage10.Controls.Add(this.btnRevokeIncome);
+            this.tabPage10.Controls.Add(this.btnNewIncome);
+            this.tabPage10.Controls.Add(this.dgvIncomes);
             this.tabPage10.Location = new System.Drawing.Point(4, 26);
             this.tabPage10.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage10.Name = "tabPage10";
@@ -1000,10 +1048,21 @@
             this.tabPage10.Size = new System.Drawing.Size(1231, 352);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "Incomes";
-            this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.cmbFilterAmountSimbolE);
+            this.tabPage11.Controls.Add(this.tbxFilterAmountE);
+            this.tabPage11.Controls.Add(this.tbxFilterConceptE);
+            this.tabPage11.Controls.Add(this.cmbFilterTarget);
+            this.tabPage11.Controls.Add(this.cmbFilterTypeE);
+            this.tabPage11.Controls.Add(this.label7);
+            this.tabPage11.Controls.Add(this.label8);
+            this.tabPage11.Controls.Add(this.dtpRangoFinalE);
+            this.tabPage11.Controls.Add(this.dtpRangoInicialE);
+            this.tabPage11.Controls.Add(this.btnRevokeExpense);
+            this.tabPage11.Controls.Add(this.btnNewExpense);
+            this.tabPage11.Controls.Add(this.dgvExpenses);
             this.tabPage11.Location = new System.Drawing.Point(4, 26);
             this.tabPage11.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage11.Name = "tabPage11";
@@ -1015,6 +1074,7 @@
             // 
             // tabPage12
             // 
+            this.tabPage12.Controls.Add(this.dgvPendingPayment);
             this.tabPage12.Location = new System.Drawing.Point(4, 26);
             this.tabPage12.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage12.Name = "tabPage12";
@@ -1026,6 +1086,7 @@
             // 
             // tabPage13
             // 
+            this.tabPage13.Controls.Add(this.dgvDebts);
             this.tabPage13.Location = new System.Drawing.Point(4, 26);
             this.tabPage13.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage13.Name = "tabPage13";
@@ -1132,6 +1193,235 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // dgvIncomes
+            // 
+            this.dgvIncomes.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvIncomes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncomes.Location = new System.Drawing.Point(7, 67);
+            this.dgvIncomes.Name = "dgvIncomes";
+            this.dgvIncomes.RowTemplate.Height = 24;
+            this.dgvIncomes.Size = new System.Drawing.Size(1217, 278);
+            this.dgvIncomes.TabIndex = 11;
+            // 
+            // dgvExpenses
+            // 
+            this.dgvExpenses.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExpenses.Location = new System.Drawing.Point(7, 67);
+            this.dgvExpenses.Name = "dgvExpenses";
+            this.dgvExpenses.RowTemplate.Height = 24;
+            this.dgvExpenses.Size = new System.Drawing.Size(1217, 291);
+            this.dgvExpenses.TabIndex = 12;
+            // 
+            // dgvPendingPayment
+            // 
+            this.dgvPendingPayment.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvPendingPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPendingPayment.Location = new System.Drawing.Point(7, 67);
+            this.dgvPendingPayment.Name = "dgvPendingPayment";
+            this.dgvPendingPayment.RowTemplate.Height = 24;
+            this.dgvPendingPayment.Size = new System.Drawing.Size(1217, 291);
+            this.dgvPendingPayment.TabIndex = 13;
+            // 
+            // dgvDebts
+            // 
+            this.dgvDebts.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvDebts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDebts.Location = new System.Drawing.Point(7, 67);
+            this.dgvDebts.Name = "dgvDebts";
+            this.dgvDebts.RowTemplate.Height = 24;
+            this.dgvDebts.Size = new System.Drawing.Size(1217, 291);
+            this.dgvDebts.TabIndex = 14;
+            // 
+            // btnNewIncome
+            // 
+            this.btnNewIncome.Location = new System.Drawing.Point(26, 18);
+            this.btnNewIncome.Name = "btnNewIncome";
+            this.btnNewIncome.Size = new System.Drawing.Size(117, 30);
+            this.btnNewIncome.TabIndex = 12;
+            this.btnNewIncome.Text = "New Income";
+            this.btnNewIncome.UseVisualStyleBackColor = true;
+            // 
+            // btnRevokeIncome
+            // 
+            this.btnRevokeIncome.Location = new System.Drawing.Point(159, 18);
+            this.btnRevokeIncome.Name = "btnRevokeIncome";
+            this.btnRevokeIncome.Size = new System.Drawing.Size(111, 30);
+            this.btnRevokeIncome.TabIndex = 13;
+            this.btnRevokeIncome.Text = "Revoke";
+            this.btnRevokeIncome.UseVisualStyleBackColor = true;
+            // 
+            // dtpRangoInicialI
+            // 
+            this.dtpRangoInicialI.Location = new System.Drawing.Point(1112, 7);
+            this.dtpRangoInicialI.Name = "dtpRangoInicialI";
+            this.dtpRangoInicialI.Size = new System.Drawing.Size(374, 23);
+            this.dtpRangoInicialI.TabIndex = 14;
+            // 
+            // dtpRangoFinalI
+            // 
+            this.dtpRangoFinalI.Location = new System.Drawing.Point(1112, 36);
+            this.dtpRangoFinalI.Name = "dtpRangoFinalI";
+            this.dtpRangoFinalI.Size = new System.Drawing.Size(374, 23);
+            this.dtpRangoFinalI.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1004, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 17);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Rango Inicial";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1011, 41);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Rango Final";
+            // 
+            // cmbFilterTypeI
+            // 
+            this.cmbFilterTypeI.FormattingEnabled = true;
+            this.cmbFilterTypeI.Location = new System.Drawing.Point(701, 22);
+            this.cmbFilterTypeI.Name = "cmbFilterTypeI";
+            this.cmbFilterTypeI.Size = new System.Drawing.Size(121, 25);
+            this.cmbFilterTypeI.TabIndex = 18;
+            // 
+            // cmbFilterSource
+            // 
+            this.cmbFilterSource.FormattingEnabled = true;
+            this.cmbFilterSource.Location = new System.Drawing.Point(840, 22);
+            this.cmbFilterSource.Name = "cmbFilterSource";
+            this.cmbFilterSource.Size = new System.Drawing.Size(121, 25);
+            this.cmbFilterSource.TabIndex = 19;
+            // 
+            // tbxFilterConceptI
+            // 
+            this.tbxFilterConceptI.Location = new System.Drawing.Point(293, 22);
+            this.tbxFilterConceptI.Name = "tbxFilterConceptI";
+            this.tbxFilterConceptI.Size = new System.Drawing.Size(140, 23);
+            this.tbxFilterConceptI.TabIndex = 20;
+            // 
+            // tbxFilterAmountI
+            // 
+            this.tbxFilterAmountI.Location = new System.Drawing.Point(461, 22);
+            this.tbxFilterAmountI.Name = "tbxFilterAmountI";
+            this.tbxFilterAmountI.Size = new System.Drawing.Size(140, 23);
+            this.tbxFilterAmountI.TabIndex = 21;
+            // 
+            // cmbFilterAmountSimbolI
+            // 
+            this.cmbFilterAmountSimbolI.FormattingEnabled = true;
+            this.cmbFilterAmountSimbolI.Location = new System.Drawing.Point(607, 22);
+            this.cmbFilterAmountSimbolI.Name = "cmbFilterAmountSimbolI";
+            this.cmbFilterAmountSimbolI.Size = new System.Drawing.Size(46, 25);
+            this.cmbFilterAmountSimbolI.TabIndex = 22;
+            // 
+            // cmbFilterAmountSimbolE
+            // 
+            this.cmbFilterAmountSimbolE.FormattingEnabled = true;
+            this.cmbFilterAmountSimbolE.Location = new System.Drawing.Point(607, 22);
+            this.cmbFilterAmountSimbolE.Name = "cmbFilterAmountSimbolE";
+            this.cmbFilterAmountSimbolE.Size = new System.Drawing.Size(46, 25);
+            this.cmbFilterAmountSimbolE.TabIndex = 33;
+            this.cmbFilterAmountSimbolE.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // tbxFilterAmountE
+            // 
+            this.tbxFilterAmountE.Location = new System.Drawing.Point(461, 22);
+            this.tbxFilterAmountE.Name = "tbxFilterAmountE";
+            this.tbxFilterAmountE.Size = new System.Drawing.Size(140, 23);
+            this.tbxFilterAmountE.TabIndex = 32;
+            this.tbxFilterAmountE.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // tbxFilterConceptE
+            // 
+            this.tbxFilterConceptE.Location = new System.Drawing.Point(293, 22);
+            this.tbxFilterConceptE.Name = "tbxFilterConceptE";
+            this.tbxFilterConceptE.Size = new System.Drawing.Size(140, 23);
+            this.tbxFilterConceptE.TabIndex = 31;
+            this.tbxFilterConceptE.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // cmbFilterTarget
+            // 
+            this.cmbFilterTarget.FormattingEnabled = true;
+            this.cmbFilterTarget.Location = new System.Drawing.Point(840, 22);
+            this.cmbFilterTarget.Name = "cmbFilterTarget";
+            this.cmbFilterTarget.Size = new System.Drawing.Size(121, 25);
+            this.cmbFilterTarget.TabIndex = 30;
+            this.cmbFilterTarget.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // cmbFilterTypeE
+            // 
+            this.cmbFilterTypeE.FormattingEnabled = true;
+            this.cmbFilterTypeE.Location = new System.Drawing.Point(701, 22);
+            this.cmbFilterTypeE.Name = "cmbFilterTypeE";
+            this.cmbFilterTypeE.Size = new System.Drawing.Size(121, 25);
+            this.cmbFilterTypeE.TabIndex = 29;
+            this.cmbFilterTypeE.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1011, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 17);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Rango Final";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1004, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 17);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Rango Inicial";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // dtpRangoFinalE
+            // 
+            this.dtpRangoFinalE.Location = new System.Drawing.Point(1112, 36);
+            this.dtpRangoFinalE.Name = "dtpRangoFinalE";
+            this.dtpRangoFinalE.Size = new System.Drawing.Size(374, 23);
+            this.dtpRangoFinalE.TabIndex = 26;
+            this.dtpRangoFinalE.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dtpRangoInicialE
+            // 
+            this.dtpRangoInicialE.Location = new System.Drawing.Point(1112, 7);
+            this.dtpRangoInicialE.Name = "dtpRangoInicialE";
+            this.dtpRangoInicialE.Size = new System.Drawing.Size(374, 23);
+            this.dtpRangoInicialE.TabIndex = 25;
+            this.dtpRangoInicialE.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // btnRevokeExpense
+            // 
+            this.btnRevokeExpense.Location = new System.Drawing.Point(159, 18);
+            this.btnRevokeExpense.Name = "btnRevokeExpense";
+            this.btnRevokeExpense.Size = new System.Drawing.Size(111, 30);
+            this.btnRevokeExpense.TabIndex = 24;
+            this.btnRevokeExpense.Text = "Revoke";
+            this.btnRevokeExpense.UseVisualStyleBackColor = true;
+            this.btnRevokeExpense.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnNewExpense
+            // 
+            this.btnNewExpense.Location = new System.Drawing.Point(26, 18);
+            this.btnNewExpense.Name = "btnNewExpense";
+            this.btnNewExpense.Size = new System.Drawing.Size(127, 30);
+            this.btnNewExpense.TabIndex = 23;
+            this.btnNewExpense.Text = "New Expense";
+            this.btnNewExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnNewExpense.UseVisualStyleBackColor = true;
+            this.btnNewExpense.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1170,9 +1460,19 @@
             this.tabCashBook.ResumeLayout(false);
             this.tabCashBook.PerformLayout();
             this.tbcInterCashBook.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage13.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncomes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDebts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1249,5 +1549,31 @@
         private System.Windows.Forms.Label lbleuro1;
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.DataGridView dgvIncomes;
+        private System.Windows.Forms.DataGridView dgvExpenses;
+        private System.Windows.Forms.DataGridView dgvPendingPayment;
+        private System.Windows.Forms.DataGridView dgvDebts;
+        private System.Windows.Forms.DateTimePicker dtpRangoInicialI;
+        private System.Windows.Forms.Button btnRevokeIncome;
+        private System.Windows.Forms.Button btnNewIncome;
+        private System.Windows.Forms.ComboBox cmbFilterAmountSimbolI;
+        private System.Windows.Forms.TextBox tbxFilterAmountI;
+        private System.Windows.Forms.TextBox tbxFilterConceptI;
+        private System.Windows.Forms.ComboBox cmbFilterSource;
+        private System.Windows.Forms.ComboBox cmbFilterTypeI;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpRangoFinalI;
+        private System.Windows.Forms.ComboBox cmbFilterAmountSimbolE;
+        private System.Windows.Forms.TextBox tbxFilterAmountE;
+        private System.Windows.Forms.TextBox tbxFilterConceptE;
+        private System.Windows.Forms.ComboBox cmbFilterTarget;
+        private System.Windows.Forms.ComboBox cmbFilterTypeE;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dtpRangoFinalE;
+        private System.Windows.Forms.DateTimePicker dtpRangoInicialE;
+        private System.Windows.Forms.Button btnRevokeExpense;
+        private System.Windows.Forms.Button btnNewExpense;
     }
 }
