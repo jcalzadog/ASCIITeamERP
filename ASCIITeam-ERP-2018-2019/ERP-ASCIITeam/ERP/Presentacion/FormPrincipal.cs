@@ -132,6 +132,26 @@ namespace ERP
             cmbFilterAmountSimbolI.Items.Add(">");
             cmbFilterAmountSimbolI.Items.Add("=");
             cmbFilterAmountSimbolI.SelectedItem = 0;
+
+            string[] sourceIncomes = incomes.gestorIncome.getSources();
+            cmbFilterSource.Items.Clear();
+            cmbFilterSource.Items.Add("Filter by Source");
+            for (int i = 0; i < sourceIncomes.Length; i++)
+            {
+                cmbFilterSource.Items.Add(sourceIncomes[i]);
+            }
+            cmbFilterSource.SelectedItem = "Filter by Source";
+
+            string[] typesIncomes = incomes.gestorIncome.getTypes();
+            cmbFilterTypeI.Items.Clear();
+            cmbFilterTypeI.Items.Add("Filter by Type");
+            for (int i = 0; i < typesIncomes.Length; i++)
+            {
+                cmbFilterTypeI.Items.Add(typesIncomes[i]);
+            }
+            cmbFilterTypeI.SelectedItem = "Filter by Type";
+
+
         }
 
       
@@ -1266,6 +1286,21 @@ namespace ERP
             cargarTablaClientes(condicion);
         }
 
+        public void filtroTotalIncomes()
+        {
+            string fechaInicial = dtpRangoInicialI.Value.ToString();
+            string fechaFinal = dtpRangoFinalI.Value.ToString();
+            Decimal sourceNumber = cmbFilterSource.SelectedIndex - 1;
+            Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
+            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, cmbFilterAmountSimbolI.SelectedText, tbxFilterAmountI.Text.Equals("Amount...") ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountI.Text), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+        }
+
+        public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
+        {
+
+            incomes.gestorIncome.readIncomes(concept, oper, amount, start, end, source, type);
+        }
+
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
@@ -1661,6 +1696,41 @@ namespace ERP
                 ((TextBox)sender).ForeColor = Color.Gray;
                 ((TextBox)sender).Text = "Amount...";
             }
+        }
+
+        private void tbxFilterConceptI_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void tbxFilterAmountI_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void cmbFilterTypeI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void cmbFilterAmountSimbolI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void cmbFilterSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void dtpRangoInicialI_ValueChanged(object sender, EventArgs e)
+        {
+            filtroTotalIncomes();
+        }
+
+        private void dtpRangoFinalI_ValueChanged(object sender, EventArgs e)
+        {
+            filtroTotalIncomes();
         }
     }
 }

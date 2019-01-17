@@ -21,13 +21,20 @@ namespace ERP.Dominio.Gestores
 
         public string[] getSources()
         {
-            String query = "select description from sources_incomes where id < 1000";
-            DataSet data = conector.getData(query, "sources_incomes");
+            String query = "select description from SOURCES_TARGETS where id < 1000";
+            DataSet data = conector.getData(query, "SOURCES_TARGETS");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
+
+        public string[] getTypes()
+        {
+            String query = "select description from TYPES_INCOME";
+            DataSet data = conector.getData(query, "TYPES_INCOME");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
 
-        public void readIncomes(String concept, String oper, Decimal amount, Object start, Object end, Decimal source, Decimal type)
+        public void readIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
         {
             StringBuilder query = new StringBuilder("Select i.id, i.ie_date, u.name, s.description, t.description, i.description, i.amount from incomes_expenses i inner join users u " +
                "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_income t on i.reftype=t.id where refaction='0'");
@@ -50,11 +57,11 @@ namespace ERP.Dominio.Gestores
             }
             if (start != null)
             {
-                query.Append(" and i.ie_date>='" + (DateTime)start + "'");
+                query.Append(" and i.ie_date>='" + start + "'");
             }
             if (end != null)
             {
-                query.Append(" and i.ie_date<='" + (DateTime)end + "'");
+                query.Append(" and i.ie_date<='" + end + "'");
             }
             if (source >= 0)
             {
