@@ -1,5 +1,4 @@
 ﻿using ERP.Dominio;
-using ERP.Dominio.Gestores;
 using ERP.Presentacion.Clientes;
 using ERP.Presentacion.Categories;
 using ERP.Presentacion.ErroresCambios;
@@ -17,8 +16,8 @@ using System.Windows.Forms;
 using ERP.Presentacion.Products;
 using ERP.Presentacion.Plataformas;
 using ERP.Presentacion.Orders;
-using ERP.Presentacion.Orders;
 using ERP.Presentacion.CashBook.Incomes;
+using ERP.Dominio.Gestores;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -38,8 +37,10 @@ namespace ERP
         private Customer cliente;
         private Producto producto;
         private Platforms plataforma;
-        private GestorOrder orders;
-        private GestorIncomes incomes;
+        private Order orders;
+        private Income incomes;
+
+
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
 
@@ -69,8 +70,8 @@ namespace ERP
             cliente = new Customer();
             producto = new Producto();
             plataforma = new Platforms();
-            orders = new GestorOrder();
-            incomes = new GestorIncomes();
+            orders = new Order();
+            incomes = new Income();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -110,7 +111,7 @@ namespace ERP
 
         public void cargarIncomes()
         {
-            dgvIncomes.DataSource = incomes.tIncomes;
+            dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
             dgvIncomes.RowHeadersVisible = false;
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -299,10 +300,10 @@ namespace ERP
         {
             dgvOrders.Columns.Clear();
 
-            orders.leerOrders(condicion);
+            orders.gestorOrder.leerOrders(condicion);
 
 
-            DataTable tOrders = orders.tOrders;
+            DataTable tOrders = orders.gestorOrder.tOrders;
 
             dgvOrders.Columns.Add("ID", "ID");
             dgvOrders.Columns.Add("SURNAME", "SURNAME");
@@ -1450,7 +1451,7 @@ namespace ERP
                 dlg.ShowDialog();
                 if (dlg.Acept)
                 {
-                    orders.eliminar(id);
+                    orders.gestorOrder.eliminar(id);
                     MessageBox.Show("Deleted successfully");
                     cargarTablaOrders("");
                     ERP.Persistencia.Logs.write("Order " + id + " deleted");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Dominio.Gestores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace ERP.Dominio
         Decimal refType;
         String description;
         Decimal amount;
+        public GestorIncomes gestorIncome { get; set; }
 
         public decimal Id
         {
@@ -107,6 +109,11 @@ namespace ERP.Dominio
             }
         }
 
+        public Income()
+        {
+            this.gestorIncome = new GestorIncomes();
+        }
+
         public Income(decimal id, DateTime income_date, decimal refUser, decimal refSt, decimal refType, string description, decimal amount)
         {
             this.Id = id;
@@ -116,6 +123,7 @@ namespace ERP.Dominio
             this.RefType = refType;
             this.Description = description;
             this.Amount = amount;
+            this.gestorIncome = new GestorIncomes();
         }
     }
 }

@@ -83,11 +83,11 @@ namespace ERP.Presentacion.Orders
             else 
             {
                 order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), 0, 0);
-                GestorOrder gestor = new GestorOrder();
-                decimal id = gestor.insertOrder(order);
+                //GestorOrder gestor = new GestorOrder();
+                decimal id = order.gestorOrder.insertOrder(order);
                 foreach (DetailOrder d in details)
                 {
-                    gestor.insertDetail(d, id);
+                    order.gestorOrder.insertDetail(d, id);
                 }
                 MessageBox.Show("Order saved");
                 ERP.Persistencia.Logs.write("Order " + id + " created");
