@@ -39,7 +39,7 @@ namespace ERP
         private Platforms plataforma;
         private Order orders;
         private Income incomes;
-
+        private Expense expense;
 
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
@@ -72,6 +72,7 @@ namespace ERP
             plataforma = new Platforms();
             orders = new Order();
             incomes = new Income();
+            expense = new Expense();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -80,7 +81,7 @@ namespace ERP
             cargarCategorias();
             cargarComponentes();
             cargarIncomes();
-
+            cargarExpenses();
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos(" PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
@@ -116,45 +117,7 @@ namespace ERP
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvIncomes.BackgroundColor = Color.Black;
-
-            //Filtros Incomes
-            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
-            dtpRangoFinalI.Value = DateTime.Now;
-
-            tbxFilterConceptI.ForeColor = Color.Gray;
-            tbxFilterConceptI.Text = "Concept...";
-
-            tbxFilterAmountI.ForeColor = Color.Gray;
-            tbxFilterAmountI.Text = "Amount...";
-
-            cmbFilterAmountSimbolI.Items.Add("");
-            cmbFilterAmountSimbolI.Items.Add("<");
-            cmbFilterAmountSimbolI.Items.Add(">");
-            cmbFilterAmountSimbolI.Items.Add("=");
-            cmbFilterAmountSimbolI.SelectedItem = 0;
-
-            string[] sourceIncomes = incomes.gestorIncome.getSources();
-            cmbFilterSource.Items.Clear();
-            cmbFilterSource.Items.Add("Filter by Source");
-            for (int i = 0; i < sourceIncomes.Length; i++)
-            {
-                cmbFilterSource.Items.Add(sourceIncomes[i]);
-            }
-            cmbFilterSource.SelectedItem = "Filter by Source";
-
-            string[] typesIncomes = incomes.gestorIncome.getTypes();
-            cmbFilterTypeI.Items.Clear();
-            cmbFilterTypeI.Items.Add("Filter by Type");
-            for (int i = 0; i < typesIncomes.Length; i++)
-            {
-                cmbFilterTypeI.Items.Add(typesIncomes[i]);
-            }
-            cmbFilterTypeI.SelectedItem = "Filter by Type";
-
-
         }
-
-      
 
 
         public void cargarCategorias()
@@ -874,6 +837,11 @@ namespace ERP
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
             btnLogOut.FlatAppearance.BorderSize = 1;
+
+            //cargarExpenses
+            expense.gestorExpense.refrescarTargets(cmbFilterTarget);
+            expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
+            cmbFilterAmountSimbolE.SelectedIndex=0;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -1286,21 +1254,6 @@ namespace ERP
             cargarTablaClientes(condicion);
         }
 
-        public void filtroTotalIncomes()
-        {
-            string fechaInicial = dtpRangoInicialI.Value.ToString();
-            string fechaFinal = dtpRangoFinalI.Value.ToString();
-            Decimal sourceNumber = cmbFilterSource.SelectedIndex - 1;
-            Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
-            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, cmbFilterAmountSimbolI.SelectedText, tbxFilterAmountI.Text.Equals("Amount...") ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountI.Text), fechaInicial, fechaFinal, sourceNumber, typeNumber);
-        }
-
-        public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
-        {
-
-            incomes.gestorIncome.readIncomes(concept, oper, amount, start, end, source, type);
-        }
-
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
@@ -1626,7 +1579,7 @@ namespace ERP
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -1652,85 +1605,23 @@ namespace ERP
 
         private void btnNewIncome_Click(object sender, EventArgs e)
         {
-            NewIncome newIncome = new NewIncome(idUsuarioLogueado);
+            NewIncome newIncome = new NewIncome();
             newIncome.ShowDialog();
         }
 
-        private void btnClearDate_Click(object sender, EventArgs e)
+        private void dgvExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
-            dtpRangoFinalI.Value = DateTime.Now;
+
         }
 
-        private void tbxFilterConceptI_Enter(object sender, EventArgs e)
+        //EXPENSES--------------------------------------/
+        public void cargarExpenses()
         {
-            if (((TextBox)sender).Text.Equals("Concept..."))
-            {
-                ((TextBox)sender).Text = "";
-                ((TextBox)sender).ForeColor = Color.Black;
-            }
-        }
-
-        private void tbxFilterConceptI_Leave(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text.Trim().Equals(""))
-            {
-                ((TextBox)sender).ForeColor = Color.Gray;
-                ((TextBox)sender).Text = "Concept...";
-            }
-        }
-
-        private void tbxFilterAmountI_Enter(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text.Equals("Amount..."))
-            {
-                ((TextBox)sender).Text = "";
-                ((TextBox)sender).ForeColor = Color.Black;
-            }
-        }
-
-        private void tbxFilterAmountI_Leave(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text.Trim().Equals(""))
-            {
-                ((TextBox)sender).ForeColor = Color.Gray;
-                ((TextBox)sender).Text = "Amount...";
-            }
-        }
-
-        private void tbxFilterConceptI_KeyUp(object sender, KeyEventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void tbxFilterAmountI_KeyUp(object sender, KeyEventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void cmbFilterTypeI_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void cmbFilterAmountSimbolI_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void cmbFilterSource_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void dtpRangoInicialI_ValueChanged(object sender, EventArgs e)
-        {
-            filtroTotalIncomes();
-        }
-
-        private void dtpRangoFinalI_ValueChanged(object sender, EventArgs e)
-        {
-            filtroTotalIncomes();
+            dgvExpenses.DataSource = expense.gestorExpense.tExpenses;
+            dgvExpenses.RowHeadersVisible = false;
+            dgvExpenses.AllowUserToAddRows = false;
+            dgvExpenses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvExpenses.BackgroundColor = Color.Black;
         }
     }
 }
