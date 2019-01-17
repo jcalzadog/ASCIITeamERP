@@ -19,6 +19,13 @@ namespace ERP.Dominio.Gestores
             readIncomes("", "", 0, null, null, -1, -1);
         }
 
+        public string[] getSources()
+        {
+            String query = "select description from sources_incomes where id < 1000";
+            DataSet data = conector.getData(query, "sources_incomes");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
+
 
         public void readIncomes(String concept, String oper, Decimal amount, Object start, Object end, Decimal source, Decimal type)
         {
@@ -66,6 +73,35 @@ namespace ERP.Dominio.Gestores
             tIncomes.Columns[4].ColumnName = "TYPE";
             tIncomes.Columns[5].ColumnName = "DESCRIPTION";
             tIncomes.Columns[6].ColumnName = "AMOUNT";
+        }
+
+        public void newIncome (Income i)
+        {
+            decimal cantIncomes = (decimal)conector.DLookUp("COUNT(id)", "incomes_expenses", "");
+            decimal idIncome;
+            if (cantIncomes == 0)
+            {
+                idIncome = 1;
+
+            }
+            else
+            {
+                idIncome = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "");
+                idIncome++;
+            }
+            conector.setData("INSERT INTO incomes_expenses VALUES ('" + idIncome + "', '" + i.Income_date + "', '" + "','"+i.RefUser+"','" + i.RefSt + "', '" + i.RefType + "', '"+i.Description+"', '" + i.Amount + "', '0')");
+        }
+
+        
+
+        public void deleteIncome (Decimal id)
+        {
+            decimal amount = (decimal)conector.DLookUp("amount", "incomes_expenses", "where id='" + id + "'");
+            string description = (string)conector.DLookUp("description", "incomes_expenses", "where id='" + id + "'");
+
+            amount = -amount;
+
+            conector.setData("update incomes_expenses set amount='" + amount + "', description='" + description + " REVOKED' WHERE ID='" + id + "'");
         }
     }
 }
