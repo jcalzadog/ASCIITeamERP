@@ -116,7 +116,25 @@ namespace ERP
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvIncomes.BackgroundColor = Color.Black;
+
+            //Filtros Incomes
+            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
+            dtpRangoFinalI.Value = DateTime.Now;
+
+            tbxFilterConceptI.ForeColor = Color.Gray;
+            tbxFilterConceptI.Text = "Concept...";
+
+            tbxFilterAmountI.ForeColor = Color.Gray;
+            tbxFilterAmountI.Text = "Amount...";
+
+            cmbFilterAmountSimbolI.Items.Add("");
+            cmbFilterAmountSimbolI.Items.Add("<");
+            cmbFilterAmountSimbolI.Items.Add(">");
+            cmbFilterAmountSimbolI.Items.Add("=");
+            cmbFilterAmountSimbolI.SelectedItem = 0;
         }
+
+      
 
 
         public void cargarCategorias()
@@ -1601,6 +1619,48 @@ namespace ERP
         {
             NewIncome newIncome = new NewIncome();
             newIncome.ShowDialog();
+        }
+
+        private void btnClearDate_Click(object sender, EventArgs e)
+        {
+            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
+            dtpRangoFinalI.Value = DateTime.Now;
+        }
+
+        private void tbxFilterConceptI_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Concept..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxFilterConceptI_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Concept...";
+            }
+        }
+
+        private void tbxFilterAmountI_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Amount..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxFilterAmountI_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Amount...";
+            }
         }
     }
 }
