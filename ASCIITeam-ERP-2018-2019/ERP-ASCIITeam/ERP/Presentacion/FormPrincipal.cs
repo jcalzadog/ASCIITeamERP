@@ -1292,13 +1292,14 @@ namespace ERP
             string fechaFinal = dtpRangoFinalI.Value.ToString();
             Decimal sourceNumber = cmbFilterSource.SelectedIndex - 1;
             Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
-            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, cmbFilterAmountSimbolI.SelectedText, tbxFilterAmountI.Text.Equals("Amount...") ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountI.Text), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, cmbFilterAmountSimbolI.SelectedText, (tbxFilterAmountI.Text.Equals("Amount...")|| tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountI.Text), fechaInicial, fechaFinal, sourceNumber, typeNumber);
         }
 
         public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
         {
 
             incomes.gestorIncome.readIncomes(concept, oper, amount, start, end, source, type);
+            dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
         }
 
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)

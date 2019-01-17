@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,11 +58,11 @@ namespace ERP.Dominio.Gestores
             }
             if (start != null)
             {
-                query.Append(" and i.ie_date>='" + start + "'");
+                query.Append(" and i.ie_date>='" + start.Substring(0,10) + "'");
             }
             if (end != null)
             {
-                query.Append(" and i.ie_date<='" + end + "'");
+                query.Append(" and i.ie_date<='" + end.Substring(0,10) + "'");
             }
             if (source >= 0)
             {
@@ -71,6 +72,7 @@ namespace ERP.Dominio.Gestores
             {
                 query.Append(" and i.reftype='" + type + "'");
             }
+            Debug.WriteLine("-------------------------------------------------"+query.ToString());
             DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_income t on i.reftype=t.id");
             tIncomes = data.Tables[0];
             tIncomes.Columns[0].ColumnName = "ID";
