@@ -1617,7 +1617,7 @@ namespace ERP
 
         private void btnNewIncome_Click(object sender, EventArgs e)
         {
-            NewIncome newIncome = new NewIncome();
+            NewIncome newIncome = new NewIncome(idUsuarioLogueado);
             newIncome.ShowDialog();
         }
 

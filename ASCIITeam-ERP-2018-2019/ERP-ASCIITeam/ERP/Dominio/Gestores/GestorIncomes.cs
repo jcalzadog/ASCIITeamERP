@@ -21,8 +21,15 @@ namespace ERP.Dominio.Gestores
 
         public string[] getSources()
         {
-            String query = "select description from sources_incomes where id < 1000";
-            DataSet data = conector.getData(query, "sources_incomes");
+            String query = "select description from sources_targets where id < 1000";
+            DataSet data = conector.getData(query, "sources_targets");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
+
+        public string[] getTypes()
+        {
+            String query = "select description from types_income where id < 1000";
+            DataSet data = conector.getData(query, "types_income");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
