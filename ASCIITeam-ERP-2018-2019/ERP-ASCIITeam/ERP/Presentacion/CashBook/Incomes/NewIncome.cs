@@ -12,7 +12,7 @@ namespace ERP.Presentacion.CashBook.Incomes
 {
     public partial class NewIncome : Form
     {
-        public NewIncome()
+        public NewIncome(Object usuarioLogeado)
         {
             InitializeComponent();
         }
