@@ -39,7 +39,7 @@ namespace ERP
         private Platforms plataforma;
         private Order orders;
         private Income incomes;
-
+        private Expense expense;
 
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
@@ -72,6 +72,7 @@ namespace ERP
             plataforma = new Platforms();
             orders = new Order();
             incomes = new Income();
+            expense = new Expense();
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
@@ -80,7 +81,7 @@ namespace ERP
             cargarCategorias();
             cargarComponentes();
             cargarIncomes();
-
+            cargarExpenses();
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos(" PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
@@ -874,6 +875,11 @@ namespace ERP
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
             btnLogOut.FlatAppearance.BorderSize = 1;
+
+            //cargarExpenses
+            expense.gestorExpense.refrescarTargets(cmbFilterTarget);
+            expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
+            cmbFilterAmountSimbolE.SelectedIndex=0;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -1657,7 +1663,7 @@ namespace ERP
             newIncome.ShowDialog();
         }
 
-        private void btnClearDate_Click(object sender, EventArgs e)
+        private void dgvExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
             dtpRangoFinalI.Value = DateTime.Now;
@@ -1671,7 +1677,15 @@ namespace ERP
                 ((TextBox)sender).ForeColor = Color.Black;
             }
         }
-
+        public void cargarExpenses()
+        {
+            dgvExpenses.DataSource = expense.gestorExpense.tExpenses;
+            dgvExpenses.RowHeadersVisible = false;
+            dgvExpenses.AllowUserToAddRows = false;
+            dgvExpenses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvExpenses.BackgroundColor = Color.Black;
+        }
+        //EXPENSES--------------------------------------/
         private void tbxFilterConceptI_Leave(object sender, EventArgs e)
         {
             if (((TextBox)sender).Text.Trim().Equals(""))
