@@ -41,20 +41,20 @@ namespace ERP.Dominio.Gestores
                "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_income t on i.reftype=t.id where refaction='0'");
             if (!concept.ToString().Equals(""))
             {
-                query.Append(" and upper(i.description) like %'" + concept.ToUpper() + "%'");
+                query.Append(" and upper(i.description) like '%" + concept.ToUpper() + "%'");
             }
 
             if (oper.Equals(">"))
             {
-                query.Append(" and i.amount>'" + amount + "'");
+                query.Append(" and i.amount>" + amount);
             }
             if (oper.Equals("<"))
             {
-                query.Append(" and i.amount<'" + amount + "'");
+                query.Append(" and i.amount<" + amount);
             }
             if (oper.Equals("="))
             {
-                query.Append(" and i.amount='" + amount + "'");
+                query.Append(" and i.amount=" + amount);
             }
             if (start != null)
             {
