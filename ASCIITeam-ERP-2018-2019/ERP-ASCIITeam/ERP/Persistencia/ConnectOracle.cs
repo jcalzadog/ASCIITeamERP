@@ -71,6 +71,7 @@ namespace ERP
          
         public Object DLookUp(String columna, String tabla, String condicion)
         {
+            String SQLErrores = "";
             OracleConnection objConexion;
             OracleDataAdapter objComando;
             DataSet requestQuery = new DataSet();
@@ -82,10 +83,12 @@ namespace ERP
             if (condicion.Equals(""))
             {
                 objComando = new OracleDataAdapter("Select " + columna + " from " + tabla, objConexion);
+                SQLErrores = "Select " + columna + " from " + tabla;
             }
             else
             {
                 objComando = new OracleDataAdapter("Select " + columna + " from " + tabla + " where " + condicion, objConexion);
+                SQLErrores = "Select " + columna + " from " + tabla +" where " + condicion;
             }
 
             objComando.Fill(requestQuery);
@@ -96,7 +99,7 @@ namespace ERP
             }
             catch (Exception a)
             {
-                //MessageBox.Show(a.ToString());
+                //MessageBox.Show(a.ToString() + " ^^^^" + SQLErrores);
                 resultado = -1;
             }
             objConexion.Close();

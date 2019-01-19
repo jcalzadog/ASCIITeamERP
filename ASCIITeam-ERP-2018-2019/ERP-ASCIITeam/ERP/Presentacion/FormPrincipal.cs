@@ -418,6 +418,7 @@ namespace ERP
                 {
                     dgvUsers.Rows[dgvUsers.Rows[0].Index].Selected = true;
                     dgvUsers.CurrentCell = dgvUsers.Rows[dgvUsers.Rows[0].Index].Cells[0];
+
                     nombreFilaSeleccionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[0].Value.ToString();
                     rolFilaSellecionadaUsers = dgvUsers.Rows[dgvUsers.SelectedRows[0].Index].Cells[1].Value.ToString();
                 }
@@ -1298,7 +1299,8 @@ namespace ERP
             string fechaFinal = dtpRangoFinalI.Value.ToString();
             Decimal sourceNumber = cmbFilterSource.SelectedIndex - 1;
             Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
-            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, cmbFilterAmountSimbolI.SelectedText, (tbxFilterAmountI.Text.Equals("Amount...")|| tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountI.Text), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            string operador = Convert.ToString(cmbFilterAmountSimbolI.SelectedItem);
+            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, operador, (tbxFilterAmountI.Text.Equals("Amount...") || tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToInt32(tbxFilterAmountI.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
         }
 
         public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
