@@ -111,5 +111,29 @@ namespace ERP.Dominio.Gestores
 
             cmbTypes.SelectedIndex = 0;
         }
+
+
+        public decimal getTotal()
+        {
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1'"); 
+        }
+        public decimal getTotalChecks()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Check'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+            
+            
+        }
+        public decimal getTotalCash()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Cash'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+
+        }
+        public decimal getTotalReceipts()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Receipt'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+        }
     }
 }

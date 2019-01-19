@@ -1301,6 +1301,7 @@ namespace ERP
             Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
             string operador = Convert.ToString(cmbFilterAmountSimbolI.SelectedItem);
             filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, operador, (tbxFilterAmountI.Text.Equals("Amount...") || tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToInt32(tbxFilterAmountI.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            cargarTotales();
         }
 
         public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
@@ -1664,6 +1665,7 @@ namespace ERP
             NewIncome newIncome = new NewIncome(idUsuarioLogueado);
             newIncome.ShowDialog();
             filtroTotalIncomes();
+            cargarTotales();
         }
 
         private void dgvExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1749,6 +1751,15 @@ namespace ERP
         private void dtpRangoFinalI_ValueChanged(object sender, EventArgs e)
         {
             filtroTotalIncomes();
+        }
+
+
+        private void cargarTotales()
+        {
+            tbxChecks.Text = (incomes.gestorIncome.getTotalChecks() - expense.gestorExpense.getTotalChecks()).ToString();
+            tbxInCash.Text = (incomes.gestorIncome.getTotalCash() - expense.gestorExpense.getTotalCash()).ToString();
+            tbxReceipts.Text = (incomes.gestorIncome.getTotalReceipts() - expense.gestorExpense.getTotalReceipts()).ToString();
+            tbxTotal.Text = (incomes.gestorIncome.getTotal() - expense.gestorExpense.getTotal()).ToString();
         }
     }
 }

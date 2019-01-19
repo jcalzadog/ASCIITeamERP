@@ -102,12 +102,30 @@ namespace ERP.Dominio.Gestores
             conector.setData("INSERT INTO incomes_expenses VALUES ('" + idIncome + "', '" + i.Income_date.ToString().Substring(0,10) + "','"+i.RefUser+"','" + i.RefSt + "', '" + i.RefType + "', '"+i.Description.Replace('\'',' ').PadRight(60,' ').Substring(0,60)+"', '" + i.Amount + "', '0')");
         }
 
-        
+        public decimal getTotal()
+        {
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0'"); 
+        }
+        public decimal getTotalChecks()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Check'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'");             
+        }
+        public decimal getTotalCash()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Cash'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'"); 
+        }
+        public decimal getTotalReceipts()
+        {
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Receipt'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'");
+        }
 
         public void deleteIncome (Decimal id)
         {
             decimal amount = (decimal)conector.DLookUp("amount", "incomes_expenses", "where id='" + id + "'");
-            string description = (string)conector.DLookUp("description", "incomes_expenses", "where id='" + id + "'");
+            string description = (string)conector.DLookUp("description", "incomes_expenses", "id='" + id + "'");
 
             amount = -amount;
 
