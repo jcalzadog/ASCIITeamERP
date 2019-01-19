@@ -72,7 +72,8 @@ namespace ERP.Dominio.Gestores
             {
                 query.Append(" and i.reftype='" + type + "'");
             }
-            Debug.WriteLine("-------------------------------------------------"+query.ToString());
+            query.Append(" order by id desc");
+            //Debug.WriteLine("-------------------------------------------------"+query.ToString());
             DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_income t on i.reftype=t.id");
             tIncomes = data.Tables[0];
             tIncomes.Columns[0].ColumnName = "ID";
@@ -95,10 +96,10 @@ namespace ERP.Dominio.Gestores
             }
             else
             {
-                idIncome = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "");
+                idIncome = (decimal)conector.DLookUp("MAX(id)", "incomes_expenses", "");
                 idIncome++;
             }
-            conector.setData("INSERT INTO incomes_expenses VALUES ('" + idIncome + "', '" + i.Income_date + "', '" + "','"+i.RefUser+"','" + i.RefSt + "', '" + i.RefType + "', '"+i.Description+"', '" + i.Amount + "', '0')");
+            conector.setData("INSERT INTO incomes_expenses VALUES ('" + idIncome + "', '" + i.Income_date.ToString().Substring(0,10) + "','"+i.RefUser+"','" + i.RefSt + "', '" + i.RefType + "', '"+i.Description.Replace('\'',' ').PadRight(60,' ').Substring(0,60)+"', '" + i.Amount + "', '0')");
         }
 
         

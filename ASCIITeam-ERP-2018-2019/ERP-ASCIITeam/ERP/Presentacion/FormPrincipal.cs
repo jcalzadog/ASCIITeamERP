@@ -1661,6 +1661,7 @@ namespace ERP
         {
             NewIncome newIncome = new NewIncome(idUsuarioLogueado);
             newIncome.ShowDialog();
+            filtroTotalIncomes();
         }
 
         private void dgvExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
