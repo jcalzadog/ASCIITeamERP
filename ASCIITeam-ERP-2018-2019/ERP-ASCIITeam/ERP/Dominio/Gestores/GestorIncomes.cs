@@ -23,7 +23,8 @@ namespace ERP.Dominio.Gestores
 
         public string[] getSources()
         {
-            String query = "select description from SOURCES_TARGETS where id < 1000";
+            Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID < 1000");
+            String query = "select description from SOURCES_TARGETS where id < "+ numSources;
             DataSet data = conector.getData(query, "SOURCES_TARGETS");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }

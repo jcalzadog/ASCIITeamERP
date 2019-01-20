@@ -68,12 +68,12 @@ namespace ERP.Dominio.Gestores
 
         public void refrescarTargets(ComboBox cmbTargets)
         {
-            Decimal numTargets = (Decimal)conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "");
+            Decimal numTargets = (Decimal)conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
             //int numRoles = int.Parse(numR);
 
             LinkedList<Object> listaTarget = new LinkedList<Object>();
             
-            for (int i = 0; i < numTargets; i++)
+            for (int i = 1000; i < (1000+numTargets); i++)
             {
                 listaTarget.AddLast(conector.DLookUp("DESCRIPTION", "SOURCES_TARGETS", " ID=" + i));
             }
