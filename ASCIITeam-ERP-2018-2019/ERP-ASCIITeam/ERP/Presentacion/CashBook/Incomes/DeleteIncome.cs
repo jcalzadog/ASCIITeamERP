@@ -16,18 +16,20 @@ namespace ERP.Presentacion.CashBook.Incomes
     {
         decimal id;
         GestorIncomes gestor;
-        public DeleteIncome(Income i, decimal id)
+        decimal user;
+        public DeleteIncome(Income i, decimal id,decimal user)
         {
             InitializeComponent();
             cargarComponentes();
             this.id = id;
             this.gestor = i.gestorIncome;
+            this.user = user;
         }
 
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            gestor.deleteIncome(id);
+            gestor.deleteIncome(id,user);
             this.Dispose();
         }
 

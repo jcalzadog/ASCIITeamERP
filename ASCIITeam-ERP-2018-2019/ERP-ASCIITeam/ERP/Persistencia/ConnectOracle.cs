@@ -37,6 +37,7 @@ namespace ERP
 
             objConexion = new OracleConnection(driver);
             objConexion.Open();
+            //MessageBox.Show(query);
             objComando = new OracleDataAdapter(query, objConexion);
             objComando.Fill(requestQuery, table);
             objConexion.Close();
@@ -57,7 +58,7 @@ namespace ERP
             objConexion = new OracleConnection(driver);
             objConexion.Open();
             objComando = new OracleCommand(sentencia, objConexion);
-
+            //MessageBox.Show(sentencia);
             objComando.ExecuteNonQuery();
             objComando.Connection.Close();
         }
@@ -89,8 +90,8 @@ namespace ERP
             {
                 objComando = new OracleDataAdapter("Select " + columna + " from " + tabla + " where " + condicion, objConexion);
                 SQLErrores = "Select " + columna + " from " + tabla +" where " + condicion;
+                //MessageBox.Show(SQLErrores);
             }
-
             objComando.Fill(requestQuery);
 
             try

@@ -117,7 +117,6 @@ namespace ERP
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvIncomes.BackgroundColor = Color.Black;
-
             //Filtros Incomes
             dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
             dtpRangoFinalI.Value = DateTime.Now;
@@ -1300,8 +1299,9 @@ namespace ERP
             Decimal sourceNumber = cmbFilterSource.SelectedIndex - 1;
             Decimal typeNumber = cmbFilterTypeI.SelectedIndex - 1;
             string operador = Convert.ToString(cmbFilterAmountSimbolI.SelectedItem);
-            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, operador, (tbxFilterAmountI.Text.Equals("Amount...") || tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToInt32(tbxFilterAmountI.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            filtrarTablaIncomes(tbxFilterConceptI.Text.Equals("Concept...") ? "" : tbxFilterConceptI.Text, operador, (tbxFilterAmountI.Text.Equals("Amount...") || tbxFilterAmountI.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToDecimal(tbxFilterAmountI.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
             cargarTotales();
+
         }
 
         public void filtrarTablaIncomes(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
@@ -1766,9 +1766,38 @@ namespace ERP
             decimal idSelecc =(decimal) dgvIncomes.SelectedRows[0].Cells[0].Value;
             if (idSelecc > 0)
             {
-                new DeleteIncome(incomes, idSelecc).ShowDialog();
+                new DeleteIncome(incomes, idSelecc,(Decimal)idUsuarioLogueado).ShowDialog();
             }
             filtroTotalIncomes();
+        }
+
+        private void tbxFilterConceptI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            e.Handled = e.KeyChar=='\'';
+        }
+
+        private void tbxFilterAmountI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!tbxFilterAmountI.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
         }
     }
 }
