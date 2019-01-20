@@ -1665,7 +1665,6 @@ namespace ERP
             NewIncome newIncome = new NewIncome(idUsuarioLogueado);
             newIncome.ShowDialog();
             filtroTotalIncomes();
-            cargarTotales();
         }
 
         private void dgvExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1760,6 +1759,16 @@ namespace ERP
             tbxInCash.Text = (incomes.gestorIncome.getTotalCash() - expense.gestorExpense.getTotalCash()).ToString();
             tbxReceipts.Text = (incomes.gestorIncome.getTotalReceipts() - expense.gestorExpense.getTotalReceipts()).ToString();
             tbxTotal.Text = (incomes.gestorIncome.getTotal() - expense.gestorExpense.getTotal()).ToString();
+        }
+
+        private void btnRevokeIncome_Click(object sender, EventArgs e)
+        {
+            decimal idSelecc =(decimal) dgvIncomes.SelectedRows[0].Cells[0].Value;
+            if (idSelecc > 0)
+            {
+                new DeleteIncome(incomes, idSelecc).ShowDialog();
+            }
+            filtroTotalIncomes();
         }
     }
 }
