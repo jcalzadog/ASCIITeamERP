@@ -1799,5 +1799,11 @@ namespace ERP
             }
             e.Handled = !valido;
         }
+
+        private void btnClearDates_Click(object sender, EventArgs e)
+        {
+            dtpRangoInicialI.Value = new DateTime(1970, 01, 01);
+            dtpRangoFinalI.Value = DateTime.Today;
+        }
     }
 }
