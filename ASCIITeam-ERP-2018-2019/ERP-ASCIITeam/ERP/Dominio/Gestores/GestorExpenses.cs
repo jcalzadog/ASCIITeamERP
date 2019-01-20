@@ -18,10 +18,10 @@ namespace ERP.Dominio.Gestores
             this.conector = new ConnectOracle();
             readExpenses("", "", 0, null, null, -1, -1);
     }
-        public void readExpenses(String concept, String oper, Decimal amount, Object start, Object end, Decimal source, Decimal type)
+        public void readExpenses(String concept, String oper, Decimal amount, String start, String end, Decimal source, Decimal type)
         {
             StringBuilder query = new StringBuilder("Select i.id, i.ie_date, u.name, s.description, t.description, i.description, i.amount from incomes_expenses i inner join users u " +
-               "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_income t on i.reftype=t.id where refaction='1'");
+               "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_ppayment t on i.reftype=t.id where refaction='1'");
             if (!concept.ToString().Equals(""))
             {
                 query.Append(" and upper(i.description) like %'" + concept.ToUpper() + "%'");
@@ -41,11 +41,11 @@ namespace ERP.Dominio.Gestores
             }
             if (start != null)
             {
-                query.Append(" and i.ie_date>='" + (DateTime)start + "'");
+                query.Append(" and i.ie_date>='" + start.Substring(0, 10) + "'");
             }
             if (end != null)
             {
-                query.Append(" and i.ie_date<='" + (DateTime)end + "'");
+                query.Append(" and i.ie_date<='" + end.Substring(0, 10) + "'");
             }
             if (source >= 0)
             {
@@ -55,7 +55,7 @@ namespace ERP.Dominio.Gestores
             {
                 query.Append(" and i.reftype='" + type + "'");
             }
-            DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_income t on i.reftype=t.id");
+            DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_ppayment t on i.reftype=t.id");
             tExpenses = data.Tables[0];
             tExpenses.Columns[0].ColumnName = "ID";
             tExpenses.Columns[1].ColumnName = "DATE";
@@ -135,5 +135,39 @@ namespace ERP.Dominio.Gestores
             decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Receipt'");
             return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
         }
+        public string[] getSources()
+        {
+            Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID < 1000");
+            String query = "select description from SOURCES_TARGETS where id < " + numSources;
+            DataSet data = conector.getData(query, "SOURCES_TARGETS");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
+
+        public string[] getTypes()
+        {
+            String query = "select description from TYPES_INCOME";
+            DataSet data = conector.getData(query, "TYPES_INCOME");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
+        public void newExpense(Expense e)
+        {
+            decimal cantExpense = (decimal)conector.DLookUp("COUNT(id)", "incomes_expenses", "");
+            decimal idExpense;
+            if (cantExpense == 0)
+            {
+                idExpense = 1;
+
+            }
+            else
+            {
+                idExpense = (decimal)conector.DLookUp("MAX(id)", "incomes_expenses", "");
+                idExpense++;
+            }
+            conector.setData("INSERT INTO incomes_expenses VALUES (" + idExpense + ", '" + e.Expense_Date.ToString().Substring(0, 10)
+                + "','" + e.RefUser + "','" + e.RefSt + "', '" + e.RefType + "', '"
+                + e.Description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
+                + e.Amount + "', '1','0')");
+        }
+
     }
 }

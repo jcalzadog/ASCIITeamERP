@@ -18,6 +18,7 @@ using ERP.Presentacion.Plataformas;
 using ERP.Presentacion.Orders;
 using ERP.Presentacion.CashBook.Incomes;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.CashBook.Expenses;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -1330,6 +1331,12 @@ namespace ERP
             dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
         }
 
+        public void filtrarTablaExpense(string concept, string oper, decimal amount,String start, String end, decimal source, decimal type)
+        {
+
+            expense.gestorExpense.readExpenses(concept, oper, amount, start, end, source, type);
+            dgvExpenses.DataSource = expense.gestorExpense.tExpenses;  
+        }
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
@@ -1625,9 +1632,21 @@ namespace ERP
 
         private void button2_Click(object sender, EventArgs e)
         {
+            NewExpense expense = new NewExpense(idUsuarioLogueado);
+            expense.ShowDialog();
+            filtroTotalExpense();
+        }
+        public void filtroTotalExpense()
+        {
+            string fechaInicial = dtpRangoInicialE.Value.ToString();
+            string fechaFinal = dtpRangoFinalE.Value.ToString();
+            Decimal sourceNumber = cmbFilterTarget.SelectedIndex - 1;
+            Decimal typeNumber = cmbFilterTypeE.SelectedIndex - 1;
+            string operador = Convert.ToString(cmbFilterAmountSimbolE.SelectedItem);
+            filtrarTablaExpense(tbxFilterConceptE.Text.Equals("Concept...") ? "" : tbxFilterConceptE.Text, operador, (tbxFilterAmountE.Text.Equals("Amount...") || tbxFilterAmountE.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToDecimal(tbxFilterAmountE.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            cargarTotales();
 
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
 
