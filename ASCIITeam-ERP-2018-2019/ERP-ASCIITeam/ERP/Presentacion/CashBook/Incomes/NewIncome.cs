@@ -19,6 +19,8 @@ namespace ERP.Presentacion.CashBook.Incomes
         public NewIncome(Object usuarioLogeado)
         {
             InitializeComponent();
+            cargarComponentes();
+
             this.usuarioLogeado = usuarioLogeado;
             dtpDate.MaxDate = DateTime.Today;
             dtpDate.Value = DateTime.Today;
@@ -26,6 +28,21 @@ namespace ERP.Presentacion.CashBook.Incomes
             gestor = new Income().gestorIncome;
             cmbSource.DataSource = gestor.getSources();
             cmbType.DataSource = gestor.getTypes();
+        }
+
+        private void cargarComponentes()
+        {
+            btnSave.BackColor = Color.Black;
+            btnSave.ForeColor = Color.White;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.FlatAppearance.BorderColor = Color.Black;
+            btnSave.FlatAppearance.BorderSize = 1;
+
+            btnCancel.BackColor = Color.Black;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.FlatAppearance.BorderColor = Color.Black;
+            btnCancel.FlatAppearance.BorderSize = 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,6 +85,30 @@ namespace ERP.Presentacion.CashBook.Incomes
                 this.Dispose();
             }
             
+        }
+
+        private void btnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.White;
+            btnSave.ForeColor = Color.Black;
+        }
+
+        private void btnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.BackColor = Color.Black;
+            btnSave.ForeColor = Color.White;
+        }
+
+        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.White;
+            btnCancel.ForeColor = Color.Black;
+        }
+
+        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancel.BackColor = Color.Black;
+            btnCancel.ForeColor = Color.White;
         }
     }
 }

@@ -876,6 +876,25 @@ namespace ERP
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
             btnLogOut.FlatAppearance.BorderSize = 1;
 
+            //Incomes
+            btnNewIncome.BackColor = Color.Black;
+            btnNewIncome.ForeColor = Color.White;
+            btnNewIncome.FlatStyle = FlatStyle.Flat;
+            btnNewIncome.FlatAppearance.BorderColor = Color.Black;
+            btnNewIncome.FlatAppearance.BorderSize = 1;
+
+            btnRevokeIncome.BackColor = Color.Black;
+            btnRevokeIncome.ForeColor = Color.White;
+            btnRevokeIncome.FlatStyle = FlatStyle.Flat;
+            btnRevokeIncome.FlatAppearance.BorderColor = Color.Black;
+            btnRevokeIncome.FlatAppearance.BorderSize = 1;
+
+            btnClearDatesI.BackColor = Color.Black;
+            btnClearDatesI.ForeColor = Color.White;
+            btnClearDatesI.FlatStyle = FlatStyle.Flat;
+            btnClearDatesI.FlatAppearance.BorderColor = Color.Black;
+            btnClearDatesI.FlatAppearance.BorderSize = 1;
+
             //cargarExpenses
             expense.gestorExpense.refrescarTargets(cmbFilterTarget);
             expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
@@ -1804,6 +1823,42 @@ namespace ERP
         {
             dtpRangoInicialI.Value = new DateTime(1970, 01, 01);
             dtpRangoFinalI.Value = DateTime.Today;
+        }
+
+        private void btnNewIncome_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewIncome.BackColor = Color.White;
+            btnNewIncome.ForeColor = Color.Black;
+        }
+
+        private void btnNewIncome_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewIncome.BackColor = Color.Black;
+            btnNewIncome.ForeColor = Color.White;
+        }
+
+        private void btnRevokeIncome_MouseEnter(object sender, EventArgs e)
+        {
+            btnRevokeIncome.BackColor = Color.White;
+            btnRevokeIncome.ForeColor = Color.Black;
+        }
+
+        private void btnRevokeIncome_MouseLeave(object sender, EventArgs e)
+        {
+            btnRevokeIncome.BackColor = Color.Black;
+            btnRevokeIncome.ForeColor = Color.White;
+        }
+
+        private void btnClearDatesI_MouseEnter(object sender, EventArgs e)
+        {
+            btnClearDatesI.BackColor = Color.White;
+            btnClearDatesI.ForeColor = Color.Black;
+        }
+
+        private void btnClearDatesI_MouseLeave(object sender, EventArgs e)
+        {
+            btnClearDatesI.BackColor = Color.Black;
+            btnClearDatesI.ForeColor = Color.White;
         }
     }
 }
