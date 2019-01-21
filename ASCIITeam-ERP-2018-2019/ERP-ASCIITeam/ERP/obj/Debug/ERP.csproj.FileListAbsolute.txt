@@ -483,3 +483,8 @@ C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCII
 C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.exe
 C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.pdb
 C:\Users\B14-05M\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Expenses.RevokeExpense.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Expenses.NewExpense.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Expenses.RevokeExpense.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Incomes.DeleteIncome.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Incomes.NewIncome.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Validations.ValidateHistory.resources

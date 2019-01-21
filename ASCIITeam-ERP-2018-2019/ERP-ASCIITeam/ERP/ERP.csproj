@@ -63,6 +63,7 @@
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
     <Compile Include="Dominio\Gestores\GestorPendingPayments.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
+    <Compile Include="Dominio\Gestores\GestorValidation.cs" />
     <Compile Include="Dominio\Income.cs" />
     <Compile Include="Dominio\Order.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Dominio\User.cs" />
     <Compile Include="Dominio\Util\Encryptor.cs" />
     <Compile Include="Dominio\Util\Validations.cs" />
+    <Compile Include="Dominio\Validation.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
     <Compile Include="Persistencia\Logs.cs" />
     <Compile Include="Presentacion\CashBook\Expenses\NewExpense.cs">

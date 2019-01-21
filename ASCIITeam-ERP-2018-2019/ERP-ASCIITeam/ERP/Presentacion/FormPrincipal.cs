@@ -129,6 +129,8 @@ namespace ERP
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvIncomes.BackgroundColor = Color.Black;
+            dgvIncomes.Columns[0].Visible = false;
+
         }
 
         public void cargarPendingPayments()
@@ -138,9 +140,11 @@ namespace ERP
             dgvPendingPayment.AllowUserToAddRows = false;
             dgvPendingPayment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPendingPayment.BackgroundColor = Color.Black;
+            dgvPendingPayment.Columns[0].Visible = false;
+
         }
 
-        
+
         public void cargarDebts()
         {
             dgvDebts.DataSource = debts.gestorDebts.tDebts;
@@ -148,6 +152,7 @@ namespace ERP
             dgvDebts.AllowUserToAddRows = false;
             dgvDebts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDebts.BackgroundColor = Color.Black;
+            dgvDebts.Columns[0].Visible = false;
         }
 
         public void cargarCategorias()
@@ -911,8 +916,6 @@ namespace ERP
                 cmbFilterTypeI.Items.Add(typesIncomes[i]);
             }
             cmbFilterTypeI.SelectedItem = "Filter by Type";
-
-            dgvIncomes.Columns[0].Visible = false;
 
             btnNewIncome.BackColor = Color.Black;
             btnNewIncome.ForeColor = Color.White;
@@ -1801,6 +1804,8 @@ namespace ERP
             dgvExpenses.AllowUserToAddRows = false;
             dgvExpenses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvExpenses.BackgroundColor = Color.Black;
+            dgvExpenses.Columns[0].Visible = false;
+
         }
         //EXPENSES--------------------------------------/
         private void tbxFilterConceptI_Leave(object sender, EventArgs e)
