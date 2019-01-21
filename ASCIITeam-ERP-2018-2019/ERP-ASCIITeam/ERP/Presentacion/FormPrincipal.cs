@@ -882,6 +882,12 @@ namespace ERP
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
             btnLogOut.FlatAppearance.BorderSize = 1;
 
+            btnMultiInsert.BackColor = Color.Black;
+            btnMultiInsert.ForeColor = Color.White;
+            btnMultiInsert.FlatStyle = FlatStyle.Flat;
+            btnMultiInsert.FlatAppearance.BorderColor = Color.Black;
+            btnMultiInsert.FlatAppearance.BorderSize = 1;
+
             //Incomes (Filtros y Botones)
 
             dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
@@ -1984,6 +1990,31 @@ namespace ERP
         {
             ValidateHistory validateH = new ValidateHistory((Decimal)idUsuarioLogueado, Convert.ToDecimal(tbxInCash.Text), Convert.ToDecimal(tbxReceipts.Text), Convert.ToDecimal(tbxChecks.Text), Convert.ToDecimal(tbxTotal.Text));
             validateH.ShowDialog();
+        }
+
+        private void btnMultiInsert_Click(object sender, EventArgs e)
+        {
+            //Random random = new Random();
+            //for (int i = 9; i < 10000; i++)
+            //{
+
+            //    int randomSource = random.Next(0, 3);
+            //    int randomType = random.Next(0, 3);
+            //    incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, randomSource, randomType, "multiple insert " + i, decimal.Parse("10")));
+            //}
+            
+        }
+
+        private void btnMultiInsert_MouseEnter(object sender, EventArgs e)
+        {
+            btnMultiInsert.BackColor = Color.White;
+            btnMultiInsert.ForeColor = Color.Black;
+        }
+
+        private void btnMultiInsert_MouseLeave(object sender, EventArgs e)
+        {
+            btnMultiInsert.BackColor = Color.Black;
+            btnMultiInsert.ForeColor = Color.White;
         }
     }
 }

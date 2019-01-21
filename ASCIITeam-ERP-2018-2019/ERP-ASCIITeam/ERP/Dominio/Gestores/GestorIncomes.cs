@@ -74,7 +74,7 @@ namespace ERP.Dominio.Gestores
             tIncomes.Columns[0].ColumnName = "ID";
             tIncomes.Columns[1].ColumnName = "DATE";
             tIncomes.Columns[2].ColumnName = "USER";
-            tIncomes.Columns[3].ColumnName = "TARGET";
+            tIncomes.Columns[3].ColumnName = "SOURCE";
             tIncomes.Columns[4].ColumnName = "TYPE";
             tIncomes.Columns[5].ColumnName = "DESCRIPTION";
             tIncomes.Columns[6].ColumnName = "AMOUNT";
