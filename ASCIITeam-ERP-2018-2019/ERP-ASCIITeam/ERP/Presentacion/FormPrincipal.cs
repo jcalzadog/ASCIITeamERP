@@ -579,36 +579,40 @@ namespace ERP
             dgvDebts.Width = tbcInterCashBook.Width - 130;
             dgvDebts.Height = tbcInterCashBook.Height - 80;
 
+
+            //Cashbook
             int pantallaX = this.Location.X;
             int pantallaY = this.Location.Y;
 
             //lblInCash.Location = new Point(130, 653);
             //tbxInCash.Location = new Point(200, 650);
             //lbleuro1.Location = new Point(330, 653);
-            lblInCash.Location = new Point(pantallaX + 250, pantallaY + 600);
-            tbxInCash.Location = new Point(pantallaX - 1355, pantallaY + 60);
-            lbleuro1.Location = new Point(pantallaX - 1220, pantallaY + 63);
+            lblInCash.Location = new Point(pantallaX + 180, pantallaY + 563);
+            tbxInCash.Location = new Point(pantallaX + 240, pantallaY + 560);
+            lbleuro1.Location = new Point(pantallaX + 370, pantallaY + 563);
 
             //lblChecks.Location = new Point(130, 703);
             //tbxChecks.Location = new Point(200, 700);
             //lbleuro2.Location = new Point(330, 703);
-            lblChecks.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 113);
-            tbxChecks.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 110);
-            lbleuro2.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 113);
+            lblChecks.Location = new Point(pantallaX + 180, pantallaY + 613);
+            tbxChecks.Location = new Point(pantallaX + 240, pantallaY + 610);
+            lbleuro2.Location = new Point(pantallaX + 370, pantallaY + 613);
 
             //lblReceipts.Location = new Point(130, 753);
             //tbxReceipts.Location = new Point(200, 750);
             //lbleuro3.Location = new Point(330, 753);
-            lblReceipts.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 163);
-            tbxReceipts.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 160);
-            lbleuro3.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 163);
+            lblReceipts.Location = new Point(pantallaX + 180, pantallaY + 663);
+            tbxReceipts.Location = new Point(pantallaX + 240, pantallaY + 660);
+            lbleuro3.Location = new Point(pantallaX + 370, pantallaY + 663);
 
             //lblTotal.Location = new Point(390, 753);
             //tbxTotal.Location = new Point(450, 750);
             //lbleuro4.Location = new Point(590, 753);
-            lblTotal.Location = new Point(tbcInterCashBook.Width - 1160, tbcInterCashBook.Height + 163);
-            tbxTotal.Location = new Point(tbcInterCashBook.Width - 1100, tbcInterCashBook.Height + 160);
-            lbleuro4.Location = new Point(tbcInterCashBook.Width - 960, tbcInterCashBook.Height + 163);
+            lblTotal.Location = new Point(pantallaX + 400, pantallaY + 663);
+            tbxTotal.Location = new Point(pantallaX + 460, pantallaY + 660);
+            lbleuro4.Location = new Point(pantallaX + 600, pantallaY + 663);
+
+            btnValidateHistory.Location = new Point(pantallaX + 800, pantallaY + 600);
         }
 
         private void tabPage2_Resize(object sender, EventArgs e)
@@ -924,6 +928,12 @@ namespace ERP
             btnClearDatesI.FlatStyle = FlatStyle.Flat;
             btnClearDatesI.FlatAppearance.BorderColor = Color.Black;
             btnClearDatesI.FlatAppearance.BorderSize = 1;
+
+            btnValidateHistory.BackColor = Color.Black;
+            btnValidateHistory.ForeColor = Color.White;
+            btnValidateHistory.FlatStyle = FlatStyle.Flat;
+            btnValidateHistory.FlatAppearance.BorderColor = Color.Black;
+            btnValidateHistory.FlatAppearance.BorderSize = 1;
 
             //Expenses(Filtros y botones)
             string[] targetsExpenses = expense.gestorExpense.refrescarTargets();
@@ -1941,6 +1951,18 @@ namespace ERP
         {
             btnClearDatesI.BackColor = Color.Black;
             btnClearDatesI.ForeColor = Color.White;
+        }
+
+        private void btnValidateHistory_MouseEnter(object sender, EventArgs e)
+        {
+            btnValidateHistory.BackColor = Color.White;
+            btnValidateHistory.ForeColor = Color.Black;
+        }
+
+        private void btnValidateHistory_MouseLeave(object sender, EventArgs e)
+        {
+            btnValidateHistory.BackColor = Color.Black;
+            btnValidateHistory.ForeColor = Color.White;
         }
     }
 }
