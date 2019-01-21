@@ -1982,7 +1982,7 @@ namespace ERP
 
         private void btnValidateHistory_Click(object sender, EventArgs e)
         {
-            ValidateHistory validateH = new ValidateHistory();
+            ValidateHistory validateH = new ValidateHistory((Decimal)idUsuarioLogueado, Convert.ToDecimal(tbxInCash.Text), Convert.ToDecimal(tbxReceipts.Text), Convert.ToDecimal(tbxChecks.Text), Convert.ToDecimal(tbxTotal.Text));
             validateH.ShowDialog();
         }
     }

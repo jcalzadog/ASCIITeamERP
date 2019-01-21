@@ -11,25 +11,43 @@ namespace ERP.Dominio.Gestores
     {
         ConnectOracle conector;
        
-        public DataTable tabla { get; set; }
+        public DataTable tValidation { get; set; }
         public GestorValidation() {
             this.conector = new ConnectOracle();
-            tabla = new DataTable();
+            tValidation = new DataTable();
+            readValidation();
         }
 
-        public void cargarValidation() {
+        public void readValidation() {
             
-            DataSet data = conector.getData("SELECT v.id,v.validation_date, u.user,  from validations v inner join users u on v.refuser=u.iduser ", "");
-            tabla = data.Tables[0];
-            tabla.Columns[0].ColumnName = "ID";
-            tabla.Columns[1].ColumnName = "VALIDATION DATE";
-            tabla.Columns[2].ColumnName = "USER";
-            tabla.Columns[3].ColumnName = "IN CASH";
-            tabla.Columns[4].ColumnName = "RECEIPT";
-            tabla.Columns[5].ColumnName = "CHECK";
-            tabla.Columns[6].ColumnName = "TOTAL";
+            DataSet data = conector.getData("SELECT v.id,v.validation_date, u.name, v.a_incash, v.a_receipt, v.a_check, v.total from validations v inner join users u on v.refuser=u.iduser", "validations v inner join users u on v.refuser=u.iduser");
+            tValidation = data.Tables[0];
+            tValidation.Columns[0].ColumnName = "ID";
+            tValidation.Columns[1].ColumnName = "VALIDATION DATE";
+            tValidation.Columns[2].ColumnName = "USER";
+            tValidation.Columns[3].ColumnName = "IN CASH";
+            tValidation.Columns[4].ColumnName = "RECEIPT";
+            tValidation.Columns[5].ColumnName = "CHECK";
+            tValidation.Columns[6].ColumnName = "TOTAL";
         }
 
+        public void newValidation(Validation v)
+        {
+            decimal cantVali = (decimal)conector.DLookUp("COUNT(id)", "validations", "");
+            decimal idV;
+            if (cantVali == 0)
+            {
+                idV = 1;
+
+            }
+            else
+            {
+                idV = (decimal)conector.DLookUp("MAX(id)", "validations", "");
+                idV++;
+            }
+            conector.setData("INSERT INTO validations VALUES ('" + idV + "', '" + v.validation_date.ToString().Substring(0, 10)
+                + "','" + v.refUser + "','" + v.a_incash + "', '" + v.a_receipt + "', '"+ v.a_check + "', '" + v.total+ "')");
+        }
 
     }
 }
