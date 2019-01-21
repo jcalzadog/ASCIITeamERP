@@ -560,6 +560,7 @@ namespace ERP
 
         private void FormPrincipal_SizeChanged(object sender, EventArgs e)
         {
+
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
 
@@ -578,12 +579,15 @@ namespace ERP
             dgvDebts.Width = tbcInterCashBook.Width - 130;
             dgvDebts.Height = tbcInterCashBook.Height - 80;
 
+            int pantallaX = this.Location.X;
+            int pantallaY = this.Location.Y;
+
             //lblInCash.Location = new Point(130, 653);
             //tbxInCash.Location = new Point(200, 650);
             //lbleuro1.Location = new Point(330, 653);
-            lblInCash.Location = new Point(tbcInterCashBook.Width - 1420, tbcInterCashBook.Height + 63);
-            tbxInCash.Location = new Point(tbcInterCashBook.Width - 1355, tbcInterCashBook.Height + 60);
-            lbleuro1.Location = new Point(tbcInterCashBook.Width - 1220, tbcInterCashBook.Height + 63);
+            lblInCash.Location = new Point(pantallaX + 250, pantallaY + 600);
+            tbxInCash.Location = new Point(pantallaX - 1355, pantallaY + 60);
+            lbleuro1.Location = new Point(pantallaX - 1220, pantallaY + 63);
 
             //lblChecks.Location = new Point(130, 703);
             //tbxChecks.Location = new Point(200, 700);
@@ -869,6 +873,7 @@ namespace ERP
             btnLogOut.FlatAppearance.BorderSize = 1;
 
             //Incomes (Filtros y Botones)
+
             dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
             dtpRangoFinalI.Value = DateTime.Now;
 
@@ -1691,7 +1696,7 @@ namespace ERP
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (dgvIncomes.SelectedRows.Count == 0)
+            if (dgvExpenses.SelectedRows.Count == 0)
             {
                 VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
                 vp.ShowDialog();
