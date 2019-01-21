@@ -66,50 +66,58 @@ namespace ERP.Dominio.Gestores
             tExpenses.Columns[6].ColumnName = "AMOUNT";
         }
 
-        public void refrescarTargets(ComboBox cmbTargets)
+        public string[] refrescarTargets()//ComboBox cmbTargets)
         {
-            Decimal numTargets = (Decimal)conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
-            //int numRoles = int.Parse(numR);
+            //Decimal numTargets = (Decimal)conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
+            ////int numRoles = int.Parse(numR);
 
-            LinkedList<Object> listaTarget = new LinkedList<Object>();
+            //LinkedList<Object> listaTarget = new LinkedList<Object>();
             
-            for (int i = 1000; i < (1000+numTargets); i++)
-            {
-                listaTarget.AddLast(conector.DLookUp("DESCRIPTION", "SOURCES_TARGETS", " ID=" + i));
-            }
+            //for (int i = 1000; i < (1000+numTargets); i++)
+            //{
+            //    listaTarget.AddLast(conector.DLookUp("DESCRIPTION", "SOURCES_TARGETS", " ID=" + i));
+            //}
 
-            cmbTargets.Items.Clear();
-            cmbTargets.Items.Add("-TARGETS-");
-            for (int i = 0; i < listaTarget.Count; i++)
-            {
-                cmbTargets.Items.Add(listaTarget.ElementAt(i));
-            }
+            //cmbTargets.Items.Clear();
+            //cmbTargets.Items.Add("-TARGETS-");
+            //for (int i = 0; i < listaTarget.Count; i++)
+            //{
+            //    cmbTargets.Items.Add(listaTarget.ElementAt(i));
+            //}
                 
             
-            cmbTargets.SelectedIndex = 0;
+            //cmbTargets.SelectedIndex = 0;
+
+            Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
+            String query = "select description from SOURCES_TARGETS where id >= " + numSources;
+            DataSet data = conector.getData(query, "SOURCES_TARGETS");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
-        public void refrescarTypes(ComboBox cmbTypes)
+        public string[] refrescarTypes()//ComboBox cmbTypes)
         {
-            Decimal numTypes = (Decimal)conector.DLookUp("COUNT(ID)", "TYPES_PPAYMENT", "");
-            //int numRoles = int.Parse(numR);
+            //Decimal numTypes = (Decimal)conector.DLookUp("COUNT(ID)", "TYPES_PPAYMENT", "");
+            ////int numRoles = int.Parse(numR);
 
-            LinkedList<Object> listaTypes = new LinkedList<Object>();
+            //LinkedList<Object> listaTypes = new LinkedList<Object>();
 
-            for (int i = 0; i < numTypes; i++)
-            {
-                listaTypes.AddLast(conector.DLookUp("DESCRIPTION", "TYPES_PPAYMENT", " ID=" + i));
-            }
+            //for (int i = 0; i < numTypes; i++)
+            //{
+            //    listaTypes.AddLast(conector.DLookUp("DESCRIPTION", "TYPES_PPAYMENT", " ID=" + i));
+            //}
 
-            cmbTypes.Items.Clear();
-            cmbTypes.Items.Add("-TYPES-");
-            for (int i = 0; i < listaTypes.Count; i++)
-            {
-                cmbTypes.Items.Add(listaTypes.ElementAt(i));
-            }
+            //cmbTypes.Items.Clear();
+            //cmbTypes.Items.Add("-TYPES-");
+            //for (int i = 0; i < listaTypes.Count; i++)
+            //{
+            //    cmbTypes.Items.Add(listaTypes.ElementAt(i));
+            //}
 
 
-            cmbTypes.SelectedIndex = 0;
+            //cmbTypes.SelectedIndex = 0;
+            String query = "select description from TYPES_PPAYMENT";
+            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
 

@@ -53,12 +53,15 @@
   <ItemGroup>
     <Compile Include="Dominio\Categorias.cs" />
     <Compile Include="Dominio\Customer.cs" />
+    <Compile Include="Dominio\Debts.cs" />
     <Compile Include="Dominio\DetailOrder.cs" />
     <Compile Include="Dominio\Expense.cs" />
+    <Compile Include="Dominio\Gestores\GestorDebts.cs" />
     <Compile Include="Dominio\Gestores\GestorExpenses.cs" />
     <Compile Include="Dominio\Gestores\GestorIncomes.cs" />
     <Compile Include="Dominio\Gestores\GestorLogs.cs" />
     <Compile Include="Dominio\Gestores\GestorOrder.cs" />
+    <Compile Include="Dominio\Gestores\GestorPendingPayments.cs" />
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Income.cs" />
     <Compile Include="Dominio\Order.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Dominio\Gestores\GestorProducto.cs" />
     <Compile Include="Dominio\Gestores\GestorRol.cs" />
     <Compile Include="Dominio\Gestores\GestorUsuario.cs" />
+    <Compile Include="Dominio\PendingPayments.cs" />
     <Compile Include="Dominio\Platforms.cs" />
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Role.cs" />

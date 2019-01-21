@@ -41,6 +41,8 @@ namespace ERP
         private Order orders;
         private Income incomes;
         private Expense expense;
+        private PendingPayments pendingPayments;
+        private Debts debts;
 
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
@@ -74,20 +76,28 @@ namespace ERP
             orders = new Order();
             incomes = new Income();
             expense = new Expense();
+            pendingPayments = new PendingPayments();
+            debts = new Debts();
+
             InitializeComponent();
 
             tbcMenuPrincipal.Width = this.Width;
             tbcMenuPrincipal.Height = this.Height;
             tbcMenuPrincipal.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
-            cargarCategorias();
+            
             cargarComponentes();
-            cargarIncomes();
-            cargarExpenses();
+
+            //Cargar Tablas
             cargarTablaUsuarios("DELETED=0");
             cargarTablaProductos(" PR.DELETED=0");
             cargarTablaClientes("C.DELETED=0");
+            cargarCategorias();
             cargarPlataformas();
             cargarTablaOrders("");
+            cargarIncomes();
+            cargarExpenses();
+            cargarPendingPayments();
+            cargarDebts();
 
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
@@ -102,7 +112,7 @@ namespace ERP
 
             // coger columnas o filas seleccionadas https://docs.microsoft.com/es-es/dotnet/framework/winforms/controls/selected-cells-rows-and-columns-datagridview
 
-
+            //Por si errores al Cargar Tablas
             controlErroresUsuarios();
             controlErroresProduct();
             controlErroresPlataformas();
@@ -118,45 +128,26 @@ namespace ERP
             dgvIncomes.AllowUserToAddRows = false;
             dgvIncomes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvIncomes.BackgroundColor = Color.Black;
-            //Filtros Incomes
-            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
-            dtpRangoFinalI.Value = DateTime.Now;
-
-            tbxFilterConceptI.ForeColor = Color.Gray;
-            tbxFilterConceptI.Text = "Concept...";
-
-            tbxFilterAmountI.ForeColor = Color.Gray;
-            tbxFilterAmountI.Text = "Amount...";
-
-            cmbFilterAmountSimbolI.Items.Add("");
-            cmbFilterAmountSimbolI.Items.Add("<");
-            cmbFilterAmountSimbolI.Items.Add(">");
-            cmbFilterAmountSimbolI.Items.Add("=");
-            cmbFilterAmountSimbolI.SelectedItem = 0;
-
-            string[] sourceIncomes = incomes.gestorIncome.getSources();
-            cmbFilterSource.Items.Clear();
-            cmbFilterSource.Items.Add("Filter by Source");
-            for (int i = 0; i < sourceIncomes.Length; i++)
-            {
-                cmbFilterSource.Items.Add(sourceIncomes[i]);
-            }
-            cmbFilterSource.SelectedItem = "Filter by Source";
-
-            string[] typesIncomes = incomes.gestorIncome.getTypes();
-            cmbFilterTypeI.Items.Clear();
-            cmbFilterTypeI.Items.Add("Filter by Type");
-            for (int i = 0; i < typesIncomes.Length; i++)
-            {
-                cmbFilterTypeI.Items.Add(typesIncomes[i]);
-            }
-            cmbFilterTypeI.SelectedItem = "Filter by Type";
-
-
         }
 
-      
+        public void cargarPendingPayments()
+        {
+            dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+            dgvPendingPayment.RowHeadersVisible = false;
+            dgvPendingPayment.AllowUserToAddRows = false;
+            dgvPendingPayment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPendingPayment.BackgroundColor = Color.Black;
+        }
 
+        
+        public void cargarDebts()
+        {
+            dgvDebts.DataSource = debts.gestorDebts.tDebts;
+            dgvDebts.RowHeadersVisible = false;
+            dgvDebts.AllowUserToAddRows = false;
+            dgvDebts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDebts.BackgroundColor = Color.Black;
+        }
 
         public void cargarCategorias()
         {
@@ -877,7 +868,40 @@ namespace ERP
             btnLogOut.FlatAppearance.BorderColor = Color.Black;
             btnLogOut.FlatAppearance.BorderSize = 1;
 
-            //Incomes
+            //Incomes (Filtros y Botones)
+            dtpRangoInicialI.Value = new DateTime(1970, 1, 1);
+            dtpRangoFinalI.Value = DateTime.Now;
+
+            tbxFilterConceptI.ForeColor = Color.Gray;
+            tbxFilterConceptI.Text = "Concept...";
+
+            tbxFilterAmountI.ForeColor = Color.Gray;
+            tbxFilterAmountI.Text = "Amount...";
+
+            cmbFilterAmountSimbolI.Items.Add("");
+            cmbFilterAmountSimbolI.Items.Add("<");
+            cmbFilterAmountSimbolI.Items.Add(">");
+            cmbFilterAmountSimbolI.Items.Add("=");
+            cmbFilterAmountSimbolI.SelectedItem = 0;
+
+            string[] sourceIncomes = incomes.gestorIncome.getSources();
+            cmbFilterSource.Items.Clear();
+            cmbFilterSource.Items.Add("Filter by Source");
+            for (int i = 0; i < sourceIncomes.Length; i++)
+            {
+                cmbFilterSource.Items.Add(sourceIncomes[i]);
+            }
+            cmbFilterSource.SelectedItem = "Filter by Source";
+
+            string[] typesIncomes = incomes.gestorIncome.getTypes();
+            cmbFilterTypeI.Items.Clear();
+            cmbFilterTypeI.Items.Add("Filter by Type");
+            for (int i = 0; i < typesIncomes.Length; i++)
+            {
+                cmbFilterTypeI.Items.Add(typesIncomes[i]);
+            }
+            cmbFilterTypeI.SelectedItem = "Filter by Type";
+
             btnNewIncome.BackColor = Color.Black;
             btnNewIncome.ForeColor = Color.White;
             btnNewIncome.FlatStyle = FlatStyle.Flat;
@@ -896,9 +920,27 @@ namespace ERP
             btnClearDatesI.FlatAppearance.BorderColor = Color.Black;
             btnClearDatesI.FlatAppearance.BorderSize = 1;
 
-            //cargarExpenses
-            expense.gestorExpense.refrescarTargets(cmbFilterTarget);
-            expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
+            //Expenses(Filtros y botones)
+            string[] targetsExpenses = expense.gestorExpense.refrescarTargets();
+            cmbFilterTarget.Items.Clear();
+            cmbFilterTarget.Items.Add("-TARGETS-");
+            for (int i = 0; i < targetsExpenses.Length; i++)
+            {
+                cmbFilterTarget.Items.Add(targetsExpenses[i]);
+            }
+            cmbFilterTarget.SelectedItem = "-TARGETS-";
+
+            string[] tiposExpenses = expense.gestorExpense.refrescarTypes();
+            cmbFilterTypeE.Items.Clear();
+            cmbFilterTypeE.Items.Add("-TYPES-");
+            for (int i = 0; i < tiposExpenses.Length; i++)
+            {
+                cmbFilterTypeE.Items.Add(tiposExpenses[i]);
+            }
+            cmbFilterTypeE.SelectedItem = "-TYPES-";
+
+            //expense.gestorExpense.refrescarTargets(cmbFilterTarget);
+            //expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
             cmbFilterAmountSimbolE.SelectedIndex=0;
         }
 
@@ -1649,7 +1691,15 @@ namespace ERP
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            if (dgvIncomes.SelectedRows.Count == 0)
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
+                vp.ShowDialog();
+            }
+            else
+            {
+               //hacer el revoked
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -1801,12 +1851,20 @@ namespace ERP
 
         private void btnRevokeIncome_Click(object sender, EventArgs e)
         {
-            decimal idSelecc =(decimal) dgvIncomes.SelectedRows[0].Cells[0].Value;
-            if (idSelecc > 0)
+            if(dgvIncomes.SelectedRows.Count == 0)
             {
-                new DeleteIncome(incomes, idSelecc,(Decimal)idUsuarioLogueado).ShowDialog();
+                VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
+                vp.ShowDialog();
+            } else
+            {
+                decimal idSelecc = (decimal)dgvIncomes.SelectedRows[0].Cells[0].Value;
+                if (idSelecc > 0)
+                {
+                    new DeleteIncome(incomes, idSelecc, (Decimal)idUsuarioLogueado).ShowDialog();
+                }
+                filtroTotalIncomes();
             }
-            filtroTotalIncomes();
+            
         }
 
         private void tbxFilterConceptI_KeyPress(object sender, KeyPressEventArgs e)
