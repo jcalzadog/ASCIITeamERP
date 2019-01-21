@@ -103,6 +103,12 @@
     <Compile Include="Presentacion\CashBook\Incomes\NewIncome.Designer.cs">
       <DependentUpon>NewIncome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\CashBook\Validations\ValidateHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\Validations\ValidateHistory.Designer.cs">
+      <DependentUpon>ValidateHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Categories\AddCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CashBook\Incomes\NewIncome.resx">
       <DependentUpon>NewIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CashBook\Validations\ValidateHistory.resx">
+      <DependentUpon>ValidateHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Categories\AddCategoria.resx">
       <DependentUpon>AddCategoria.cs</DependentUpon>

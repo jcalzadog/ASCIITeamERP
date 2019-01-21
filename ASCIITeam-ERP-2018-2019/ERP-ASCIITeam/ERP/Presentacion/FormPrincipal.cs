@@ -19,6 +19,7 @@ using ERP.Presentacion.Orders;
 using ERP.Presentacion.CashBook.Incomes;
 using ERP.Dominio.Gestores;
 using ERP.Presentacion.CashBook.Expenses;
+using ERP.Presentacion.CashBook.Validations;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -910,6 +911,8 @@ namespace ERP
                 cmbFilterTypeI.Items.Add(typesIncomes[i]);
             }
             cmbFilterTypeI.SelectedItem = "Filter by Type";
+
+            dgvIncomes.Columns[0].Visible = false;
 
             btnNewIncome.BackColor = Color.Black;
             btnNewIncome.ForeColor = Color.White;
@@ -1970,6 +1973,12 @@ namespace ERP
         {
             btnValidateHistory.BackColor = Color.Black;
             btnValidateHistory.ForeColor = Color.White;
+        }
+
+        private void btnValidateHistory_Click(object sender, EventArgs e)
+        {
+            ValidateHistory validateH = new ValidateHistory();
+            validateH.ShowDialog();
         }
     }
 }
