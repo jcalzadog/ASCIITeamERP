@@ -116,5 +116,10 @@ namespace ERP.Presentacion.CashBook.Expenses
             btnCancel.BackColor = Color.Black;
             btnCancel.ForeColor = Color.White;
         }
+
+        private void NewExpense_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

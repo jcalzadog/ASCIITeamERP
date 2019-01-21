@@ -24,7 +24,7 @@ namespace ERP.Dominio.Gestores
                "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_ppayment t on i.reftype=t.id where refaction='1'");
             if (!concept.ToString().Equals(""))
             {
-                query.Append(" and upper(i.description) like %'" + concept.ToUpper() + "%'");
+                query.Append(" and upper(i.description) like '%" + concept.ToUpper() + "%'");
             }
 
             if (oper.Equals(">"))
@@ -115,8 +115,8 @@ namespace ERP.Dominio.Gestores
 
 
             //cmbTypes.SelectedIndex = 0;
-            String query = "select description from TYPES_INCOME ";
-            DataSet data = conector.getData(query, "TYPES_INCOME");
+            String query = "select description from TYPES_PPAYMENT ";
+            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
@@ -153,8 +153,8 @@ namespace ERP.Dominio.Gestores
 
         public string[] getTypes()
         {
-            String query = "select description from TYPES_INCOME";
-            DataSet data = conector.getData(query, "TYPES_INCOME");
+            String query = "select description from TYPES_PPAYMENT";
+            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
         public void newExpense(Expense e)

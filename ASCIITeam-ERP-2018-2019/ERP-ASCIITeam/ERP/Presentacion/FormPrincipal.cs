@@ -963,17 +963,22 @@ namespace ERP
             //expense.gestorExpense.refrescarTargets(cmbFilterTarget);
             //expense.gestorExpense.refrescarTypes(cmbFilterTypeE);
             cmbFilterAmountSimbolE.SelectedIndex=0;
+
+            aparienciaBotones(btnNewExpense);
+            aparienciaBotones(btnRevokeExpense);
+            aparienciaBotones(btnCleanDatesE);
+            tbxFilterConceptE.ForeColor = Color.Gray;
+            tbxFilterConceptE.Text = "Concept...";
+            tbxFilterAmountE.ForeColor = Color.Gray;
+            tbxFilterAmountE.Text = "Amount...";
+            dtpRangoInicialE.Value = new DateTime(1970, 1, 1);
+            dtpRangoFinalE.Value = DateTime.Now;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             ConfirmarExit cExit = new ConfirmarExit();
             cExit.ShowDialog();
-        }
-
-        private void tbxSearchUser_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void tbxSearchUser_Leave(object sender, EventArgs e)
@@ -1705,10 +1710,10 @@ namespace ERP
         {
             string fechaInicial = dtpRangoInicialE.Value.ToString();
             string fechaFinal = dtpRangoFinalE.Value.ToString();
-            Decimal sourceNumber = cmbFilterTarget.SelectedIndex - 1;
+            Decimal targetNumber = cmbFilterTarget.SelectedIndex - 1;
             Decimal typeNumber = cmbFilterTypeE.SelectedIndex - 1;
             string operador = Convert.ToString(cmbFilterAmountSimbolE.SelectedItem);
-            filtrarTablaExpense(tbxFilterConceptE.Text.Equals("Concept...") ? "" : tbxFilterConceptE.Text, operador, (tbxFilterAmountE.Text.Equals("Amount...") || tbxFilterAmountE.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToDecimal(tbxFilterAmountE.Text)), fechaInicial, fechaFinal, sourceNumber, typeNumber);
+            filtrarTablaExpense(tbxFilterConceptE.Text.Equals("Concept...") ? "" : tbxFilterConceptE.Text, operador, (tbxFilterAmountE.Text.Equals("Amount...") || tbxFilterAmountE.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(Convert.ToDecimal(tbxFilterAmountE.Text)), fechaInicial, fechaFinal, targetNumber, typeNumber);
             cargarTotales();
 
         }
@@ -1742,17 +1747,17 @@ namespace ERP
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalExpense();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalExpense();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            filtroTotalExpense();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -1767,12 +1772,12 @@ namespace ERP
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-
+            filtroTotalExpense();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            filtroTotalExpense();
         }
 
 
@@ -1984,6 +1989,26 @@ namespace ERP
         {
             ValidateHistory validateH = new ValidateHistory();
             validateH.ShowDialog();
+        }
+
+        private void tbxFilterConceptE_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalExpense();
+        }
+
+        private void tbxFilterAmountE_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalExpense();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxFilterConceptE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == '\'';
         }
     }
 }

@@ -80,5 +80,16 @@ namespace ERP.Presentacion.CashBook.Expenses
             btnCancelar.FlatAppearance.BorderSize = 1;
 
         }
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
+        }
     }
 }
