@@ -57,10 +57,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 23);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(920, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(937, 244);
             this.dataGridView1.TabIndex = 2;
             // 
             // ValidateHistory
@@ -73,8 +74,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(977, 358);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(977, 358);
             this.Name = "ValidateHistory";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
