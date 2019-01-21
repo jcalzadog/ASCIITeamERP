@@ -1994,15 +1994,29 @@ namespace ERP
 
         private void btnMultiInsert_Click(object sender, EventArgs e)
         {
+            //ConnectOracle conector = new ConnectOracle();
+            //decimal cantIncomes = (decimal)conector.DLookUp("COUNT(id)", "incomes_expenses", "");
+            //decimal idIncome;
+            //if (cantIncomes == 0)
+            //{
+            //    idIncome = 1;
+
+            //}
+            //else
+            //{
+            //    idIncome = (decimal)conector.DLookUp("MAX(id)", "incomes_expenses", "");
+            //    idIncome++;
+            //}
+
             //Random random = new Random();
-            //for (int i = 9; i < 10000; i++)
+            //for (; idIncome < 10000; idIncome++)
             //{
 
             //    int randomSource = random.Next(0, 3);
             //    int randomType = random.Next(0, 3);
-            //    incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, randomSource, randomType, "multiple insert " + i, decimal.Parse("10")));
+            //    incomes.gestorIncome.newIncome(new Dominio.Income(idIncome, DateTime.Today, (decimal)idUsuarioLogueado, randomSource, randomType, "multiple insert " + idIncome, decimal.Parse("10")));
             //}
-            
+
         }
 
         private void btnMultiInsert_MouseEnter(object sender, EventArgs e)
