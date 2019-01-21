@@ -174,9 +174,9 @@
             this.lblSource.Location = new System.Drawing.Point(11, 39);
             this.lblSource.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSource.Name = "lblSource";
-            this.lblSource.Size = new System.Drawing.Size(47, 13);
+            this.lblSource.Size = new System.Drawing.Size(50, 13);
             this.lblSource.TabIndex = 13;
-            this.lblSource.Text = "Source";
+            this.lblSource.Text = "Targets";
             // 
             // NewExpense
             // 
