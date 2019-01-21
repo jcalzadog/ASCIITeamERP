@@ -85,6 +85,12 @@
     <Compile Include="Presentacion\CashBook\Expenses\NewExpense.Designer.cs">
       <DependentUpon>NewExpense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\CashBook\Expenses\RevokeExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\Expenses\RevokeExpense.Designer.cs">
+      <DependentUpon>RevokeExpense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\CashBook\Incomes\DeleteIncome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </Compile>
     <EmbeddedResource Include="Presentacion\CashBook\Expenses\NewExpense.resx">
       <DependentUpon>NewExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CashBook\Expenses\RevokeExpense.resx">
+      <DependentUpon>RevokeExpense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CashBook\Incomes\DeleteIncome.resx">
       <DependentUpon>DeleteIncome.cs</DependentUpon>

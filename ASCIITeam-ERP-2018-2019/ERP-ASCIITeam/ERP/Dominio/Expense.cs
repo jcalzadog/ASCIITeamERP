@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Dominio
 {
-    class Expense
+    public class Expense
     {
         Decimal id;
         DateTime expense_date;

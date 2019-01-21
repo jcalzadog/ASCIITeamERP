@@ -1674,9 +1674,11 @@ namespace ERP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NewExpense expense = new NewExpense(idUsuarioLogueado);
-            expense.ShowDialog();
+            NewExpense expensev = new NewExpense(idUsuarioLogueado);
+            expensev.ShowDialog();
+           
             filtroTotalExpense();
+           
         }
         public void filtroTotalExpense()
         {
@@ -1691,14 +1693,19 @@ namespace ERP
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (dgvIncomes.SelectedRows.Count == 0)
+            if (dgvExpenses.SelectedRows.Count == 0)
             {
                 VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
                 vp.ShowDialog();
             }
             else
             {
-               //hacer el revoked
+                decimal idSelecc = (decimal)dgvExpenses.SelectedRows[0].Cells[0].Value;
+                if (idSelecc > 0)
+                {
+                    new RevokeExpense(expense, idSelecc, (Decimal)idUsuarioLogueado).ShowDialog();
+                }
+                filtroTotalExpense();
             }
         }
 

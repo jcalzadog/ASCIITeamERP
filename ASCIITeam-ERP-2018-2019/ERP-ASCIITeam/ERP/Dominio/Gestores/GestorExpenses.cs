@@ -8,16 +8,16 @@ using System.Windows.Forms;
 
 namespace ERP.Dominio.Gestores
 {
-    class GestorExpenses
+   public class GestorExpenses
     {
         public DataTable tExpenses { get; set; }
         ConnectOracle conector;
         public GestorExpenses()
-            {
+        {
             this.tExpenses = new DataTable();
             this.conector = new ConnectOracle();
             readExpenses("", "", 0, null, null, -1, -1);
-    }
+        }
         public void readExpenses(String concept, String oper, Decimal amount, String start, String end, Decimal source, Decimal type)
         {
             StringBuilder query = new StringBuilder("Select i.id, i.ie_date, u.name, s.description, t.description, i.description, i.amount from incomes_expenses i inner join users u " +
@@ -72,7 +72,7 @@ namespace ERP.Dominio.Gestores
             ////int numRoles = int.Parse(numR);
 
             //LinkedList<Object> listaTarget = new LinkedList<Object>();
-            
+
             //for (int i = 1000; i < (1000+numTargets); i++)
             //{
             //    listaTarget.AddLast(conector.DLookUp("DESCRIPTION", "SOURCES_TARGETS", " ID=" + i));
@@ -84,8 +84,8 @@ namespace ERP.Dominio.Gestores
             //{
             //    cmbTargets.Items.Add(listaTarget.ElementAt(i));
             //}
-                
-            
+
+
             //cmbTargets.SelectedIndex = 0;
 
             Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
@@ -115,22 +115,22 @@ namespace ERP.Dominio.Gestores
 
 
             //cmbTypes.SelectedIndex = 0;
-            String query = "select description from TYPES_PPAYMENT";
-            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
+            String query = "select description from TYPES_INCOME ";
+            DataSet data = conector.getData(query, "TYPES_INCOME");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
 
         public decimal getTotal()
         {
-            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1'"); 
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1'");
         }
         public decimal getTotalChecks()
         {
             decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Check'");
             return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
-            
-            
+
+
         }
         public decimal getTotalCash()
         {
@@ -145,8 +145,8 @@ namespace ERP.Dominio.Gestores
         }
         public string[] getSources()
         {
-            Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID < 1000");
-            String query = "select description from SOURCES_TARGETS where id < " + numSources;
+            Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID >= 1000");
+            String query = "select description from SOURCES_TARGETS where id >= " + numSources;
             DataSet data = conector.getData(query, "SOURCES_TARGETS");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
@@ -174,8 +174,27 @@ namespace ERP.Dominio.Gestores
             conector.setData("INSERT INTO incomes_expenses VALUES (" + idExpense + ", '" + e.Expense_Date.ToString().Substring(0, 10)
                 + "','" + e.RefUser + "','" + e.RefSt + "', '" + e.RefType + "', '"
                 + e.Description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
-                + e.Amount + "', '1','0')");
+                + e.Amount + "', 1,0)");
         }
+        public void deleteExpense(Decimal id, Decimal userID)
+        {
+            Decimal amount = (Decimal)conector.DLookUp("nvl(amount,0)", "incomes_expenses", "id='" + id + "'");
+            bool isRevoked = (decimal)conector.DLookUp("nvl(revoked,0)", "incomes_expenses", "id='" + id + "'") != 0;
 
+            string description = (string)conector.DLookUp("description", "incomes_expenses", "id='" + id + "'") + " -REVOKED";
+            amount = -amount;
+            Decimal source = (Decimal)conector.DLookUp("refst", "incomes_expenses", "id='" + id + "'");
+            Decimal type = (Decimal)conector.DLookUp("reftype", "incomes_expenses", "id='" + id + "'");
+            if (isRevoked || amount > 0)
+            {
+                MessageBox.Show("Error! You cannot revoke the selected income, it's revoked yet!");
+            }
+            else
+            {
+                conector.setData("update incomes_expenses set revoked='1' where id='" + id + "'");
+                newExpense(new Expense(0, DateTime.Now, userID, source, type, description, amount));
+            }
+        }
+       
     }
 }
