@@ -55,6 +55,7 @@ namespace ERP.Dominio.Gestores
             {
                 query.Append(" and i.reftype='" + type + "'");
             }
+            query.Append(" order by id desc");
             DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_ppayment t on i.reftype=t.id");
             tExpenses = data.Tables[0];
             tExpenses.Columns[0].ColumnName = "ID";

@@ -178,6 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(652, 374);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.rtbConcept);
@@ -191,10 +192,14 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblEuro);
             this.Controls.Add(this.lblSource);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(670, 421);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(670, 421);
             this.Name = "NewExpense";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewExpense";
             this.Load += new System.EventHandler(this.NewExpense_Load);
