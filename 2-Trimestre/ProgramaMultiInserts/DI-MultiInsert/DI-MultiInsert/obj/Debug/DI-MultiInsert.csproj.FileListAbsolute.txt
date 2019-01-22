@@ -1,0 +1,10 @@
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.pdb
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\bin\Debug\Oracle.DataAccess.dll
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csprojResolveAssemblyReference.cache
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Form1.resources
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Properties.Resources.resources
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csproj.GenerateResource.Cache
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
+C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
