@@ -2157,5 +2157,28 @@ namespace ERP
             btnRevokeExpense.BackColor = Color.Black;
             btnRevokeExpense.ForeColor = Color.White;
         }
+
+        private void tbxFilterAmountE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!tbxFilterAmountI.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
     }
 }

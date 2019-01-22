@@ -160,6 +160,7 @@ namespace ERP.Dominio.Gestores
         }
         public void newExpense(Expense e)
         {
+
             decimal cantExpense = (decimal)conector.DLookUp("COUNT(id)", "incomes_expenses", "");
             decimal idExpense;
             if (cantExpense == 0)
@@ -193,7 +194,7 @@ namespace ERP.Dominio.Gestores
             else
             {
                 conector.setData("update incomes_expenses set revoked='1' where id='" + id + "'");
-                newExpense(new Expense(0, DateTime.Now, userID, source, type, description, amount));
+                newExpense(new Expense(0, DateTime.Now, userID, (source-1000), type, description, amount));
             }
         }
        

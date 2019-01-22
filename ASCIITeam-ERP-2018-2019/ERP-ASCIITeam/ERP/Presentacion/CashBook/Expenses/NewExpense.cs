@@ -121,5 +121,28 @@ namespace ERP.Presentacion.CashBook.Expenses
         {
 
         }
+
+        private void tbxAmount_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!tbxAmount.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
     }
 }
