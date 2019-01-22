@@ -67,6 +67,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.lablAsciiTeam);
             this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(470, 347);
             this.MinimizeBox = false;

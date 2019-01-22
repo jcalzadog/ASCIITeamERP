@@ -2055,5 +2055,107 @@ namespace ERP
         {
             e.Handled = e.KeyChar == '\'';
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCleanDatesE_Click(object sender, EventArgs e)
+        {
+            dtpRangoInicialE.Value = new DateTime(1970, 01, 01);
+            dtpRangoFinalE.Value = DateTime.Today;
+        }
+
+        private void btnClearDatesE_MouseEnter(object sender, EventArgs e)
+        {
+            btnClearDatesI.BackColor = Color.White;
+            btnClearDatesI.ForeColor = Color.Black;
+        }
+
+        private void btnClearDatesE_MouseLeave(object sender, EventArgs e)
+        {
+            btnClearDatesI.BackColor = Color.White;
+            btnClearDatesI.ForeColor = Color.Black;
+        }
+
+        private void btnCleanDatesE_MouseEnter(object sender, EventArgs e)
+        {
+            btnCleanDatesE.BackColor = Color.White;
+            btnCleanDatesE.ForeColor = Color.Black;
+        }
+
+        private void btnCleanDatesE_MouseLeave(object sender, EventArgs e)
+        {
+            btnCleanDatesE.BackColor = Color.Black;
+            btnCleanDatesE.ForeColor = Color.White;
+        }
+
+        private void btnRevokeExpense_MouseEnter(object sender, EventArgs e)
+        {
+            btnRevokeExpense.BackColor = Color.White;
+            btnRevokeExpense.ForeColor = Color.Black;
+        }
+
+        private void btnRevokeExpense_MouseLeave(object sender, EventArgs e)
+        {
+            btnRevokeExpense.BackColor = Color.Black;
+            btnRevokeExpense.ForeColor = Color.White;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace ERP.Dominio.Gestores
 
         public void readValidation() {
             
-            DataSet data = conector.getData("SELECT v.id,v.validation_date, u.name, v.a_incash, v.a_receipt, v.a_check, v.total from validations v inner join users u on v.refuser=u.iduser", "validations v inner join users u on v.refuser=u.iduser");
+            DataSet data = conector.getData("SELECT v.id,v.validation_date, u.name, v.a_incash, v.a_receipt, v.a_check, v.total from validations v inner join users u on v.refuser=u.iduser order by id desc", "validations v inner join users u on v.refuser=u.iduser order by id desc");
             tValidation = data.Tables[0];
             tValidation.Columns[0].ColumnName = "ID";
             tValidation.Columns[1].ColumnName = "VALIDATION DATE";
