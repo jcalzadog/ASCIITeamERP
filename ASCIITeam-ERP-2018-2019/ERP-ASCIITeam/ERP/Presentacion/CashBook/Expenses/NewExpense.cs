@@ -16,6 +16,7 @@ namespace ERP.Presentacion.CashBook.Expenses
     public partial class NewExpense : Form
     {
         GestorExpenses gestor;
+        Income incomeComprobante;
         Object usuarioLogeado;
         public NewExpense(Object usuarioLogeado)
         {
@@ -27,6 +28,7 @@ namespace ERP.Presentacion.CashBook.Expenses
             dtpDate.Value = DateTime.Today;
             dtpDate.MinDate = DateTime.Today.AddDays(-7);
             gestor = new Expense().gestorExpense;
+            incomeComprobante = new Income();
             cmbSource.DataSource = gestor.getSources();
             cmbType.DataSource = gestor.getTypes();
         }
@@ -85,10 +87,45 @@ namespace ERP.Presentacion.CashBook.Expenses
             }
             else
             {
-                
-                gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                Boolean esPosible = true;
+                if(cmbType.SelectedIndex == 0)
+                {
+                    decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
+                    decimal resultado = totalCash - decimal.Parse(tbxAmount.Text);
+                    if (resultado < 0)
+                    {
+                        esPosible = false;
+                    }
+                }
+                if (cmbType.SelectedIndex == 1)
+                {
+                    decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
+                    decimal resultado = totalCheck - decimal.Parse(tbxAmount.Text);
+                    if (resultado < 0)
+                    {
+                        esPosible = false;
+                    }
+                }
+                if (cmbType.SelectedIndex == 2)
+                {
+                    decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
+                    decimal resultado = totalReceipt - decimal.Parse(tbxAmount.Text);
+                    if (resultado < 0)
+                    {
+                        esPosible = false;
+                    }
+                }
 
-                this.Dispose();
+                if (esPosible)
+                {
+                    gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                    this.Dispose();
+                } else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("There is no income for the action.");
+                    vp.ShowDialog();
+                }
+               
             }
 
         }
