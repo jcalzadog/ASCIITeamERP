@@ -30,7 +30,6 @@
         {
             this.btnClose = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -47,26 +46,15 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(137, 77);
+            this.button2.Location = new System.Drawing.Point(132, 105);
             this.button2.MaximumSize = new System.Drawing.Size(288, 28);
             this.button2.MinimumSize = new System.Drawing.Size(288, 28);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(288, 28);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Insert Incomes";
+            this.button2.Text = "Insert Incomes and Expenses";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(137, 138);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(288, 31);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Insert Expenses";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -75,7 +63,6 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(575, 249);
             this.ControlBox = false;
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnClose);
             this.MaximizeBox = false;
@@ -91,7 +78,6 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -21,7 +21,7 @@ namespace ERP.Dominio.Gestores
         public void readExpenses(String concept, String oper, Decimal amount, String start, String end, Decimal source, Decimal type)
         {
             StringBuilder query = new StringBuilder("Select i.id, i.ie_date, u.name, s.description, t.description, i.description, i.amount from incomes_expenses i inner join users u " +
-               "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_ppayment t on i.reftype=t.id where refaction='1'");
+               "on i.refuser=u.iduser inner join sources_targets s on i.refst=s.id inner join types_income t on i.reftype=t.id where refaction='1'");
             if (!concept.ToString().Equals(""))
             {
                 query.Append(" and upper(i.description) like '%" + concept.ToUpper() + "%'");
@@ -49,14 +49,14 @@ namespace ERP.Dominio.Gestores
             }
             if (source >= 0)
             {
-                query.Append(" and i.refst='" + source + "'");
+                query.Append(" and i.refst='" + (source+1000) + "'");
             }
             if (type >= 0)
             {
                 query.Append(" and i.reftype='" + type + "'");
             }
             query.Append(" order by id desc");
-            DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_ppayment t on i.reftype=t.id");
+            DataSet data = conector.getData(query.ToString(), "incomes_expenses i inner join users u on i.refuser=u.iduser inner join sources_targets t on i.refst=t.id inner join types_income t on i.reftype=t.id");
             tExpenses = data.Tables[0];
             tExpenses.Columns[0].ColumnName = "ID";
             tExpenses.Columns[1].ColumnName = "DATE";
@@ -116,8 +116,8 @@ namespace ERP.Dominio.Gestores
 
 
             //cmbTypes.SelectedIndex = 0;
-            String query = "select description from TYPES_PPAYMENT ";
-            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
+            String query = "select description from TYPES_INCOME ";
+            DataSet data = conector.getData(query, "TYPES_INCOME");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
 
@@ -154,8 +154,8 @@ namespace ERP.Dominio.Gestores
 
         public string[] getTypes()
         {
-            String query = "select description from TYPES_PPAYMENT";
-            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
+            String query = "select description from TYPES_INCOME";
+            DataSet data = conector.getData(query, "TYPES_INCOME");
             return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
         }
         public void newExpense(Expense e)
@@ -173,7 +173,7 @@ namespace ERP.Dominio.Gestores
                 idExpense++;
             }
             conector.setData("INSERT INTO incomes_expenses VALUES (" + idExpense + ", '" + e.Expense_Date.ToString().Substring(0, 10)
-                + "','" + e.RefUser + "','" + e.RefSt + "', '" + e.RefType + "', '"
+                + "','" + e.RefUser + "','" +(Decimal) (e.RefSt+1000) + "', '" + e.RefType + "', '"
                 + e.Description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
                 + e.Amount + "', 1,0)");
         }
