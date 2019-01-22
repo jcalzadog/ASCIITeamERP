@@ -8,3 +8,6 @@ C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiIn
 C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csproj.GenerateResource.Cache
 C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
 C:\Users\b14-17m\Documents\Visual Studio 2015\Projects\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
