@@ -87,43 +87,50 @@ namespace ERP.Presentacion.CashBook.Expenses
             }
             else
             {
-                Boolean esPosible = true;
-                if(cmbType.SelectedIndex == 0)
+                if(decimal.Parse(tbxAmount.Text) < 0)
                 {
-                    decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
-                    decimal resultado = totalCash - decimal.Parse(tbxAmount.Text);
-                    if (resultado < 0)
-                    {
-                        esPosible = false;
-                    }
-                }
-                if (cmbType.SelectedIndex == 1)
-                {
-                    decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
-                    decimal resultado = totalCheck - decimal.Parse(tbxAmount.Text);
-                    if (resultado < 0)
-                    {
-                        esPosible = false;
-                    }
-                }
-                if (cmbType.SelectedIndex == 2)
-                {
-                    decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
-                    decimal resultado = totalReceipt - decimal.Parse(tbxAmount.Text);
-                    if (resultado < 0)
-                    {
-                        esPosible = false;
-                    }
-                }
-
-                if (esPosible)
-                {
-                    gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
-                    this.Dispose();
-                } else
-                {
-                    VentanaPersonalizada vp = new VentanaPersonalizada("There is no income for the action.");
+                    VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
                     vp.ShowDialog();
+                } else {
+                    Boolean esPosible = true;
+                    if (cmbType.SelectedIndex == 0)
+                    {
+                        decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
+                        decimal resultado = totalCash - decimal.Parse(tbxAmount.Text);
+                        if (resultado < 0)
+                        {
+                            esPosible = false;
+                        }
+                    }
+                    if (cmbType.SelectedIndex == 1)
+                    {
+                        decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
+                        decimal resultado = totalCheck - decimal.Parse(tbxAmount.Text);
+                        if (resultado < 0)
+                        {
+                            esPosible = false;
+                        }
+                    }
+                    if (cmbType.SelectedIndex == 2)
+                    {
+                        decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
+                        decimal resultado = totalReceipt - decimal.Parse(tbxAmount.Text);
+                        if (resultado < 0)
+                        {
+                            esPosible = false;
+                        }
+                    }
+
+                    if (esPosible)
+                    {
+                        gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        VentanaPersonalizada vp = new VentanaPersonalizada("There is no income for the action.");
+                        vp.ShowDialog();
+                    }
                 }
                
             }

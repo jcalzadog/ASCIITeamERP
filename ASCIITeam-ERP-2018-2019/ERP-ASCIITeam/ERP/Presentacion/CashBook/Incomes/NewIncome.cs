@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,8 +82,16 @@ namespace ERP.Presentacion.CashBook.Incomes
             }
             else
             {
-                gestor.newIncome(new Dominio.Income(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
-                this.Dispose();
+                if (decimal.Parse(tbxAmount.Text) < 0)
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
+                    vp.ShowDialog();
+                }
+                else
+                {
+                    gestor.newIncome(new Dominio.Income(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                    this.Dispose();
+                }
             }
             
         }
