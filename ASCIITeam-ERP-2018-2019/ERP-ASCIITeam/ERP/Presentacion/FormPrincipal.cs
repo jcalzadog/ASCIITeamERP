@@ -20,6 +20,7 @@ using ERP.Presentacion.CashBook.Incomes;
 using ERP.Dominio.Gestores;
 using ERP.Presentacion.CashBook.Expenses;
 using ERP.Presentacion.CashBook.Validations;
+using ERP.Presentacion.CashBook.PendingPayment;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -2394,6 +2395,13 @@ namespace ERP
 
         private void dtpEndFilterP_ValueChanged(object sender, EventArgs e)
         {
+            filtroTotapPPayment();
+        }
+
+        private void btnNewPpayment_Click(object sender, EventArgs e)
+        {
+            NewPendingPayment newPPayment = new NewPendingPayment(idUsuarioLogueado);
+            newPPayment.ShowDialog();
             filtroTotapPPayment();
         }
     }

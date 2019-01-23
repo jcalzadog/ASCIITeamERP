@@ -64,5 +64,25 @@ namespace ERP.Dominio.Gestores
             tPPayments.Columns[4].ColumnName = "DESCRIPTION";
             tPPayments.Columns[5].ColumnName = "AMOUNT";
         }
+
+        public void newPendingPayment(PendingPayments p)
+        {
+            decimal cantPPaym = (decimal)conector.DLookUp("COUNT(id)", "PPAYMENTS", "");
+            decimal idPPaym;
+            if (cantPPaym == 0)
+            {
+                idPPaym = 1;
+
+            }
+            else
+            {
+                idPPaym = (decimal)conector.DLookUp("MAX(id)", "PPAYMENTS", "");
+                idPPaym++;
+            }
+            conector.setData("INSERT INTO PPAYMENTS VALUES ('" + idPPaym + "', '" + p.ppdate.ToString().Substring(0, 10)
+                + "','" + p.refUser + "','"+ p.refType + "', '"
+                + p.description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
+                + p.amount + "','0')");
+        }
     }
 }
