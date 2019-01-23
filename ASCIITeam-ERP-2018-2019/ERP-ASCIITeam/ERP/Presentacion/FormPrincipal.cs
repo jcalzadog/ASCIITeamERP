@@ -907,21 +907,21 @@ namespace ERP
 
             string[] sourceIncomes = incomes.gestorIncome.getSources();
             cmbFilterSource.Items.Clear();
-            cmbFilterSource.Items.Add("Filter by Source");
+            cmbFilterSource.Items.Add("-SOURCES-");
             for (int i = 0; i < sourceIncomes.Length; i++)
             {
                 cmbFilterSource.Items.Add(sourceIncomes[i]);
             }
-            cmbFilterSource.SelectedItem = "Filter by Source";
+            cmbFilterSource.SelectedItem = "-SOURCES-";
 
             string[] typesIncomes = incomes.gestorIncome.getTypes();
             cmbFilterTypeI.Items.Clear();
-            cmbFilterTypeI.Items.Add("Filter by Type");
+            cmbFilterTypeI.Items.Add("-TYPES-");
             for (int i = 0; i < typesIncomes.Length; i++)
             {
                 cmbFilterTypeI.Items.Add(typesIncomes[i]);
             }
-            cmbFilterTypeI.SelectedItem = "Filter by Type";
+            cmbFilterTypeI.SelectedItem = "-TYPES-";
 
             btnNewIncome.BackColor = Color.Black;
             btnNewIncome.ForeColor = Color.White;
@@ -979,6 +979,55 @@ namespace ERP
             tbxFilterAmountE.Text = "Amount...";
             dtpRangoInicialE.Value = new DateTime(1970, 1, 1);
             dtpRangoFinalE.Value = DateTime.Now;
+
+            //Pending Payment(Filtros y botones)
+            dtpStartFilterP.Value = new DateTime(1970, 1, 1);
+            dtpEndFilterP.Value = DateTime.Now;
+
+            tbxFilterConceptP.ForeColor = Color.Gray;
+            tbxFilterConceptP.Text = "Concept...";
+
+            tbxFilterAmountP.ForeColor = Color.Gray;
+            tbxFilterAmountP.Text = "Amount...";
+
+            cmbFilterAmountSimbolP.Items.Add("");
+            cmbFilterAmountSimbolP.Items.Add("<");
+            cmbFilterAmountSimbolP.Items.Add(">");
+            cmbFilterAmountSimbolP.Items.Add("=");
+            cmbFilterAmountSimbolP.SelectedItem = 0;
+
+            string[] typesPPayment = pendingPayments.gestorPendingPayments.getTypes();
+            cmbFilterTypeP.Items.Clear();
+            cmbFilterTypeP.Items.Add("-TYPES-");
+            for (int i = 0; i < typesPPayment.Length; i++)
+            {
+                cmbFilterTypeP.Items.Add(typesPPayment[i]);
+            }
+            cmbFilterTypeP.SelectedItem = "-TYPES-";
+
+            btnCleanDatesP.BackColor = Color.Black;
+            btnCleanDatesP.ForeColor = Color.White;
+            btnCleanDatesP.FlatStyle = FlatStyle.Flat;
+            btnCleanDatesP.FlatAppearance.BorderColor = Color.Black;
+            btnCleanDatesP.FlatAppearance.BorderSize = 1;
+
+            btnNewPpayment.BackColor = Color.Black;
+            btnNewPpayment.ForeColor = Color.White;
+            btnNewPpayment.FlatStyle = FlatStyle.Flat;
+            btnNewPpayment.FlatAppearance.BorderColor = Color.Black;
+            btnNewPpayment.FlatAppearance.BorderSize = 1;
+
+            btnRevokePpayment.BackColor = Color.Black;
+            btnRevokePpayment.ForeColor = Color.White;
+            btnRevokePpayment.FlatStyle = FlatStyle.Flat;
+            btnRevokePpayment.FlatAppearance.BorderColor = Color.Black;
+            btnRevokePpayment.FlatAppearance.BorderSize = 1;
+
+            btnCollect.BackColor = Color.Black;
+            btnCollect.ForeColor = Color.White;
+            btnCollect.FlatStyle = FlatStyle.Flat;
+            btnCollect.FlatAppearance.BorderColor = Color.Black;
+            btnCollect.FlatAppearance.BorderSize = 1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -1411,6 +1460,25 @@ namespace ERP
             expense.gestorExpense.readExpenses(concept, oper, amount, start, end, source, type);
             dgvExpenses.DataSource = expense.gestorExpense.tExpenses;  
         }
+
+        public void filtroTotapPPayment()
+        {
+            string fechaInicial = dtpStartFilterP.Value.ToString();
+            string fechaFinal = dtpEndFilterP.Value.ToString();
+            Decimal typeNumber = cmbFilterTypeP.SelectedIndex - 1;
+            string operador = Convert.ToString(cmbFilterAmountSimbolP.SelectedItem);
+            filtrarTablaPPayment(tbxFilterConceptP.Text.Equals("Concept...") ? "" : tbxFilterConceptP.Text, operador, (tbxFilterAmountP.Text.Equals("Amount...") || tbxFilterAmountP.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxFilterAmountP.Text), fechaInicial, fechaFinal, typeNumber);
+            cargarTotales();
+
+        }
+
+        public void filtrarTablaPPayment(string concept, string oper, decimal amount, string start, string end, decimal type)
+        {
+
+            pendingPayments.gestorPendingPayments.readPendingPayments(concept, oper, amount, start, end, type);
+            dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+        }
+
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
@@ -2179,6 +2247,154 @@ namespace ERP
                 valido = true;
             }
             e.Handled = !valido;
+        }
+
+        private void btnCleanDatesP_Click(object sender, EventArgs e)
+        {
+            dtpStartFilterP.Value = new DateTime(1970, 01, 01);
+            dtpEndFilterP.Value = DateTime.Today;
+        }
+
+        private void tbxFilterConceptP_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Concept..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxFilterConceptP_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Concept...";
+            }
+        }
+
+        private void tbxFilterConceptP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == '\'';
+        }
+
+        private void tbxFilterAmountP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!tbxFilterAmountI.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
+
+        private void tbxFilterAmountP_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Amount..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxFilterAmountP_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Amount...";
+            }
+        }
+
+        private void btnNewPpayment_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewPpayment.BackColor = Color.White;
+            btnNewPpayment.ForeColor = Color.Black;
+        }
+
+        private void btnNewPpayment_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewPpayment.BackColor = Color.Black;
+            btnNewPpayment.ForeColor = Color.White;
+        }
+
+        private void btnRevokePpayment_MouseEnter(object sender, EventArgs e)
+        {
+            btnRevokePpayment.BackColor = Color.White;
+            btnRevokePpayment.ForeColor = Color.Black;
+        }
+
+        private void btnRevokePpayment_MouseLeave(object sender, EventArgs e)
+        {
+            btnRevokePpayment.BackColor = Color.Black;
+            btnRevokePpayment.ForeColor = Color.White;
+        }
+
+        private void btnCollect_MouseEnter(object sender, EventArgs e)
+        {
+            btnCollect.BackColor = Color.White;
+            btnCollect.ForeColor = Color.Black;
+        }
+
+        private void btnCollect_MouseLeave(object sender, EventArgs e)
+        {
+            btnCollect.BackColor = Color.Black;
+            btnCollect.ForeColor = Color.White;
+        }
+
+        private void btnCleanDatesP_MouseEnter(object sender, EventArgs e)
+        {
+            btnCleanDatesP.BackColor = Color.White;
+            btnCleanDatesP.ForeColor = Color.Black;
+        }
+
+        private void btnCleanDatesP_MouseLeave(object sender, EventArgs e)
+        {
+            btnCleanDatesP.BackColor = Color.Black;
+            btnCleanDatesP.ForeColor = Color.White;
+        }
+
+        private void tbxFilterConceptP_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotapPPayment();
+        }
+
+        private void tbxFilterAmountP_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotapPPayment();
+        }
+
+        private void cmbFilterAmountSimbolP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroTotapPPayment();
+        }
+
+        private void cmbFilterTypeP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroTotapPPayment();
+        }
+
+        private void dtpStartFilterP_ValueChanged(object sender, EventArgs e)
+        {
+            filtroTotapPPayment();
+        }
+
+        private void dtpEndFilterP_ValueChanged(object sender, EventArgs e)
+        {
+            filtroTotapPPayment();
         }
     }
 }

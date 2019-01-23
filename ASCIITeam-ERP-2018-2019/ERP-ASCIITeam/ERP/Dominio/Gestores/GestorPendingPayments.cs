@@ -17,53 +17,41 @@ namespace ERP.Dominio.Gestores
         {
             this.tPPayments = new DataTable();
             this.conector = new ConnectOracle();
-            readPendingPayments("", "", 0, null, null, -1, -1);
+            readPendingPayments("", "", 0, null, null, -1);
         }
 
-        //public string[] getSources()
-        //{
-        //    Object numSources = conector.DLookUp("COUNT(ID)", "SOURCES_TARGETS", "ID < 1000");
-        //    String query = "select description from SOURCES_TARGETS where id < " + numSources;
-        //    DataSet data = conector.getData(query, "SOURCES_TARGETS");
-        //    return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
-        //}
-
-        //public string[] getTypes()
-        //{
-        //    String query = "select description from TYPES_INCOME";
-        //    DataSet data = conector.getData(query, "TYPES_INCOME");
-        //    return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
-        //}
+        public string[] getTypes()
+        {
+            String query = "select description from TYPES_PPAYMENT";
+            DataSet data = conector.getData(query, "TYPES_PPAYMENT");
+            return data.Tables[0].AsEnumerable().Select(r => r.Field<string>("description")).ToArray();
+        }
 
 
-        public void readPendingPayments(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
+        public void readPendingPayments(string concept, string oper, decimal amount, string start, string end, decimal type)
         {
             StringBuilder query = new StringBuilder("Select p.id, p.ppdate, u.name, t.description, p.description, p.amount from PPAYMENTS p inner join users u on p.refuser=u.iduser inner join TYPES_PPAYMENT t on p.reftype=t.id where PAID='0'");
             if (!concept.ToString().Equals(""))
             {
-                query.Append(" and upper(i.description) like '%" + concept.ToUpper() + "%'");
+                query.Append(" and upper(p.description) like '%" + concept.ToUpper() + "%'");
             }
 
             if (!oper.Equals(""))
             {
-                query.Append(" and i.amount" + oper + "'" + amount + "'");
+                query.Append(" and p.amount" + oper + "'" + amount + "'");
             }
 
             if (start != null)
             {
-                query.Append(" and i.ie_date>='" + start.Substring(0, 10) + "'");
+                query.Append(" and p.ppdate>='" + start.Substring(0, 10) + "'");
             }
             if (end != null)
             {
-                query.Append(" and i.ie_date<='" + end.Substring(0, 10) + "'");
-            }
-            if (source >= 0)
-            {
-                query.Append(" and i.refst='" + source + "'");
+                query.Append(" and p.ppdate<='" + end.Substring(0, 10) + "'");
             }
             if (type >= 0)
             {
-                query.Append(" and i.reftype='" + type + "'");
+                query.Append(" and p.reftype='" + type + "'");
             }
             query.Append(" order by id desc");
             //Debug.WriteLine("-------------------------------------------------"+query.ToString());
