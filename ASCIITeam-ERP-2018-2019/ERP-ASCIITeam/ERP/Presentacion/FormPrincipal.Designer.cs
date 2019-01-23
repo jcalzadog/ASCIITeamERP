@@ -139,7 +139,7 @@
             this.dgvPendingPayment = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.btnPay = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCleanDatesD = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -148,8 +148,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnRevokeDebt = new System.Windows.Forms.Button();
+            this.btnNewDebt = new System.Windows.Forms.Button();
             this.dgvDebts = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnMultiInsert = new System.Windows.Forms.Button();
@@ -1471,6 +1471,7 @@
             // 
             // btnCollect
             // 
+            this.btnCollect.Enabled = false;
             this.btnCollect.Location = new System.Drawing.Point(27, 57);
             this.btnCollect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCollect.Name = "btnCollect";
@@ -1582,6 +1583,7 @@
             // 
             // btnRevokePpayment
             // 
+            this.btnRevokePpayment.Enabled = false;
             this.btnRevokePpayment.Location = new System.Drawing.Point(235, 18);
             this.btnRevokePpayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRevokePpayment.Name = "btnRevokePpayment";
@@ -1626,7 +1628,7 @@
             // tabPage13
             // 
             this.tabPage13.Controls.Add(this.btnPay);
-            this.tabPage13.Controls.Add(this.button4);
+            this.tabPage13.Controls.Add(this.btnCleanDatesD);
             this.tabPage13.Controls.Add(this.comboBox3);
             this.tabPage13.Controls.Add(this.textBox3);
             this.tabPage13.Controls.Add(this.textBox4);
@@ -1635,8 +1637,8 @@
             this.tabPage13.Controls.Add(this.label12);
             this.tabPage13.Controls.Add(this.dateTimePicker3);
             this.tabPage13.Controls.Add(this.dateTimePicker4);
-            this.tabPage13.Controls.Add(this.button5);
-            this.tabPage13.Controls.Add(this.button6);
+            this.tabPage13.Controls.Add(this.btnRevokeDebt);
+            this.tabPage13.Controls.Add(this.btnNewDebt);
             this.tabPage13.Controls.Add(this.dgvDebts);
             this.tabPage13.Location = new System.Drawing.Point(4, 26);
             this.tabPage13.Margin = new System.Windows.Forms.Padding(4);
@@ -1659,23 +1661,21 @@
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnCleanDatesD
             // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(1531, 14);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(131, 30);
-            this.button4.TabIndex = 47;
-            this.button4.Text = "Clear Dates";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnCleanDatesD.Location = new System.Drawing.Point(1531, 14);
+            this.btnCleanDatesD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCleanDatesD.Name = "btnCleanDatesD";
+            this.btnCleanDatesD.Size = new System.Drawing.Size(131, 30);
+            this.btnCleanDatesD.TabIndex = 47;
+            this.btnCleanDatesD.Text = "Clean Dates";
+            this.btnCleanDatesD.UseVisualStyleBackColor = true;
+            this.btnCleanDatesD.Click += new System.EventHandler(this.button4_Click);
             // 
             // comboBox3
             // 
             this.comboBox3.BackColor = System.Drawing.Color.DarkOrange;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Enabled = false;
             this.comboBox3.ForeColor = System.Drawing.Color.Black;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(727, 21);
@@ -1707,7 +1707,6 @@
             // 
             this.comboBox4.BackColor = System.Drawing.Color.DarkOrange;
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Enabled = false;
             this.comboBox4.ForeColor = System.Drawing.Color.Black;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(829, 20);
@@ -1755,29 +1754,28 @@
             this.dateTimePicker4.TabIndex = 39;
             this.dateTimePicker4.ValueChanged += new System.EventHandler(this.dateTimePicker4_ValueChanged);
             // 
-            // button5
+            // btnRevokeDebt
             // 
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(232, 17);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(111, 30);
-            this.button5.TabIndex = 38;
-            this.button5.Text = "Revoke";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnRevokeDebt.Enabled = false;
+            this.btnRevokeDebt.Location = new System.Drawing.Point(232, 17);
+            this.btnRevokeDebt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRevokeDebt.Name = "btnRevokeDebt";
+            this.btnRevokeDebt.Size = new System.Drawing.Size(111, 30);
+            this.btnRevokeDebt.TabIndex = 38;
+            this.btnRevokeDebt.Text = "Revoke";
+            this.btnRevokeDebt.UseVisualStyleBackColor = true;
+            this.btnRevokeDebt.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // btnNewDebt
             // 
-            this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(24, 16);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(203, 30);
-            this.button6.TabIndex = 37;
-            this.button6.Text = "New Pending Payment";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnNewDebt.Location = new System.Drawing.Point(24, 16);
+            this.btnNewDebt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNewDebt.Name = "btnNewDebt";
+            this.btnNewDebt.Size = new System.Drawing.Size(203, 30);
+            this.btnNewDebt.TabIndex = 37;
+            this.btnNewDebt.Text = "New Debt";
+            this.btnNewDebt.UseVisualStyleBackColor = true;
+            this.btnNewDebt.Click += new System.EventHandler(this.button6_Click);
             // 
             // dgvDebts
             // 
@@ -2082,7 +2080,7 @@
         private System.Windows.Forms.Button btnRevokePpayment;
         private System.Windows.Forms.Button btnNewPpayment;
         private System.Windows.Forms.Button btnPay;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCleanDatesD;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
@@ -2091,7 +2089,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnRevokeDebt;
+        private System.Windows.Forms.Button btnNewDebt;
     }
 }

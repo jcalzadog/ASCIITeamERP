@@ -29,14 +29,7 @@ namespace ERP.Presentacion.CashBook.PendingPayment
 
         public void cargarComponentes()
         {
-            string[] typesPPayment = pendingPayment.gestorPendingPayments.getTypes();
-            cmbType.Items.Clear();
-            cmbType.Items.Add("-TYPES-");
-            for (int i = 0; i < typesPPayment.Length; i++)
-            {
-                cmbType.Items.Add(typesPPayment[i]);
-            }
-            cmbType.SelectedItem = "-TYPES-";
+            cmbType.DataSource = pendingPayment.gestorPendingPayments.getTypes();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -59,7 +52,7 @@ namespace ERP.Presentacion.CashBook.PendingPayment
                 }
                 else
                 {
-                    pendingPayment.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)this.usuarioLogeado, (cmbType.SelectedIndex-1), rtbConcept.Text, decimal.Parse(tbxAmount.Text),0));
+                    pendingPayment.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)this.usuarioLogeado, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text),0));
                     this.Dispose();
                 }
             }
