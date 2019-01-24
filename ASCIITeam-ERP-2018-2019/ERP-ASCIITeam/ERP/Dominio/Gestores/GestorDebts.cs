@@ -16,7 +16,7 @@ namespace ERP.Dominio.Gestores
         {
             this.tDebts = new DataTable();
             this.conector = new ConnectOracle();
-            readDebts("", "", 0, null, null, -1, -1);
+            readDebts("", "", 0, null, null);
         }
 
         //public string[] getSources()
@@ -35,34 +35,26 @@ namespace ERP.Dominio.Gestores
         //}
 
 
-        public void readDebts(string concept, string oper, decimal amount, string start, string end, decimal source, decimal type)
+        public void readDebts(string concept, string oper, decimal amount, string start, string end)
         {
             StringBuilder query = new StringBuilder("Select d.id, d.ddate, u.name, d.description, d.amount from DEBTS d inner join users u on d.refuser=u.iduser where PAID='0'");
             if (!concept.ToString().Equals(""))
             {
-                query.Append(" and upper(i.description) like '%" + concept.ToUpper() + "%'");
+                query.Append(" and upper(d.description) like '%" + concept.ToUpper() + "%'");
             }
 
             if (!oper.Equals(""))
             {
-                query.Append(" and i.amount" + oper + "'" + amount + "'");
+                query.Append(" and d.amount" + oper + "'" + amount + "'");
             }
 
             if (start != null)
             {
-                query.Append(" and i.ie_date>='" + start.Substring(0, 10) + "'");
+                query.Append(" and d.ddate>='" + start.Substring(0, 10) + "'");
             }
             if (end != null)
             {
-                query.Append(" and i.ie_date<='" + end.Substring(0, 10) + "'");
-            }
-            if (source >= 0)
-            {
-                query.Append(" and i.refst='" + source + "'");
-            }
-            if (type >= 0)
-            {
-                query.Append(" and i.reftype='" + type + "'");
+                query.Append(" and d.ddate<='" + end.Substring(0, 10) + "'");
             }
             query.Append(" order by id desc");
             //Debug.WriteLine("-------------------------------------------------"+query.ToString());

@@ -1023,6 +1023,40 @@ namespace ERP
             btnCollect.FlatStyle = FlatStyle.Flat;
             btnCollect.FlatAppearance.BorderColor = Color.Black;
             btnCollect.FlatAppearance.BorderSize = 1;
+
+            //Debts (Filtros y botones)
+            dtpStartDateD.Value = new DateTime(1970, 1, 1);
+            dtpEndDateD.Value = DateTime.Now;
+
+            tbxConceptD.ForeColor = Color.Gray;
+            tbxConceptD.Text = "Concept...";
+
+            tbxAmountD.ForeColor = Color.Gray;
+            tbxAmountD.Text = "Amount...";
+
+            cmbAmountSimbolD.Items.Add("");
+            cmbAmountSimbolD.Items.Add("<");
+            cmbAmountSimbolD.Items.Add(">");
+            cmbAmountSimbolD.Items.Add("=");
+            cmbAmountSimbolD.SelectedItem = 0;
+
+            btnCleanDatesD.BackColor = Color.Black;
+            btnCleanDatesD.ForeColor = Color.White;
+            btnCleanDatesD.FlatStyle = FlatStyle.Flat;
+            btnCleanDatesD.FlatAppearance.BorderColor = Color.Black;
+            btnCleanDatesD.FlatAppearance.BorderSize = 1;
+
+            btnNewDebt.BackColor = Color.Black;
+            btnNewDebt.ForeColor = Color.White;
+            btnNewDebt.FlatStyle = FlatStyle.Flat;
+            btnNewDebt.FlatAppearance.BorderColor = Color.Black;
+            btnNewDebt.FlatAppearance.BorderSize = 1;
+
+            btnPay.BackColor = Color.Black;
+            btnPay.ForeColor = Color.White;
+            btnPay.FlatStyle = FlatStyle.Flat;
+            btnPay.FlatAppearance.BorderColor = Color.Black;
+            btnPay.FlatAppearance.BorderSize = 1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -1474,6 +1508,22 @@ namespace ERP
             dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
         }
 
+        public void filtroTotalDebts()
+        {
+            string fechaInicial = dtpStartDateD.Value.ToString();
+            string fechaFinal = dtpEndDateD.Value.ToString();
+            string operador = Convert.ToString(cmbAmountSimbolD.SelectedItem);
+            filtrarTablaDebts(tbxConceptD.Text.Equals("Concept...") ? "" : tbxConceptD.Text, operador, (tbxAmountD.Text.Equals("Amount...") || tbxAmountD.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxAmountD.Text), fechaInicial, fechaFinal);
+            cargarTotales();
+
+        }
+
+        public void filtrarTablaDebts(string concept, string oper, decimal amount, string start, string end)
+        {
+            debts.gestorDebts.readDebts(concept, oper, amount, start, end);
+            dgvDebts.DataSource = debts.gestorDebts.tDebts;
+        }
+
         private void tbxSearchCustomer_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalClientes();
@@ -1923,6 +1973,10 @@ namespace ERP
                 {
                     valido = false;
                 }
+                if (!(Char.IsDigit(tbxFilterAmountI.Text.ElementAt(i))))
+                {
+                    valido = false;
+                }
             }
             if (valido)
             {
@@ -2129,6 +2183,10 @@ namespace ERP
                 {
                     valido = false;
                 }
+                if (!(Char.IsDigit(tbxFilterAmountE.Text.ElementAt(i))))
+                {
+                    valido = false;
+                }
             }
             if (valido)
             {
@@ -2178,7 +2236,7 @@ namespace ERP
 
         private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
+            filtroTotalDebts();
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
@@ -2198,17 +2256,18 @@ namespace ERP
 
         private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
         {
-
+            filtroTotalDebts();
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
-
+            filtroTotalDebts();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            dtpStartDateD.Value = new DateTime(1970, 01, 01);
+            dtpEndDateD.Value = DateTime.Today;
         }
 
         private void btnCleanDatesE_Click(object sender, EventArgs e)
@@ -2398,6 +2457,10 @@ namespace ERP
                 {
                     valido = false;
                 }
+                if (!(Char.IsDigit(tbxFilterAmountP.Text.ElementAt(i))))
+                {
+                    valido = false;
+                }
             }
             if (valido)
             {
@@ -2455,6 +2518,136 @@ namespace ERP
                 filtroTotapPPayment();
                 filtroTotalIncomes();
             }
+        }
+
+        private void btnNewDebt_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewDebt.BackColor = Color.White;
+            btnNewDebt.ForeColor = Color.Black;
+        }
+
+        private void btnNewDebt_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewDebt.BackColor = Color.Black;
+            btnNewDebt.ForeColor = Color.White;
+        }
+
+        private void btnPay_MouseEnter(object sender, EventArgs e)
+        {
+            btnPay.BackColor = Color.White;
+            btnPay.ForeColor = Color.Black;
+        }
+
+        private void btnPay_MouseLeave(object sender, EventArgs e)
+        {
+            btnPay.BackColor = Color.Black;
+            btnPay.ForeColor = Color.White;
+        }
+
+        private void btnCleanDatesD_MouseEnter(object sender, EventArgs e)
+        {
+            btnCleanDatesD.BackColor = Color.White;
+            btnCleanDatesD.ForeColor = Color.Black;
+        }
+
+        private void btnCleanDatesD_MouseLeave(object sender, EventArgs e)
+        {
+            btnCleanDatesD.BackColor = Color.Black;
+            btnCleanDatesD.ForeColor = Color.White;
+        }
+
+        private void tbxConceptD_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Concept..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxConceptD_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Concept...";
+            }
+        }
+
+        private void tbxAmountD_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Equals("Amount..."))
+            {
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void tbxAmountD_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text.Trim().Equals(""))
+            {
+                ((TextBox)sender).ForeColor = Color.Gray;
+                ((TextBox)sender).Text = "Amount...";
+            }
+        }
+
+        private void tbxConceptD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == '\'';
+        }
+
+        private void tbxAmountD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!tbxFilterAmountI.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
+
+        private void tbxAmountD_KeyUp(object sender, KeyEventArgs e)
+        {
+            Boolean valido = true;
+            for (int i = 0; i < tbxAmountD.Text.Length; i++)
+            {
+                if (Char.IsLetter(tbxAmountD.Text.ElementAt(i)))
+                {
+                    valido = false;
+                }
+                if (!(Char.IsDigit(tbxAmountD.Text.ElementAt(i))))
+                {
+                    valido = false;
+                }
+            }
+            if (valido)
+            {
+                filtroTotalDebts();
+            }
+            else
+            {
+                tbxAmountD.Text = "0";
+                filtroTotalDebts();
+            }
+        }
+
+        private void tbxConceptD_KeyUp(object sender, KeyEventArgs e)
+        {
+            filtroTotalDebts();
         }
     }
 }
