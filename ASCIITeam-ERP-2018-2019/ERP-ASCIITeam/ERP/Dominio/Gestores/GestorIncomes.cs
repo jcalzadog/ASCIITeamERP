@@ -94,6 +94,7 @@ namespace ERP.Dominio.Gestores
                 idIncome = (decimal)conector.DLookUp("MAX(id)", "incomes_expenses", "");
                 idIncome++;
             }
+            //MessageBox.Show(i.Amount.ToString());
             conector.setData("INSERT INTO incomes_expenses VALUES ('" + idIncome + "', '" + i.Income_date.ToString().Substring(0,10) 
                 + "','"+i.RefUser+"','" + i.RefSt + "', '" + i.RefType + "', '"
                 +i.Description.Replace('\'',' ').PadRight(60,' ').Substring(0,60).Trim()+"', '" 

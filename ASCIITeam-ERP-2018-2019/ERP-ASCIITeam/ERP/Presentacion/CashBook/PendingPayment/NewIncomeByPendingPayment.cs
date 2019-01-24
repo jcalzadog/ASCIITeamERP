@@ -65,10 +65,21 @@ namespace ERP.Presentacion.CashBook.PendingPayment
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            income.gestorIncome.newIncome(new Dominio.Income(0, this.dateIncome, this.user, cmbSource.SelectedIndex, cmbType.SelectedIndex, this.concept, this.amount));
+            double amountTwoDeci = Truncate(Convert.ToDouble(this.amount), 2);
+            string amountS = Convert.ToString(amountTwoDeci);
+            decimal amountFinal = Convert.ToDecimal(amountS);
+
+            income.gestorIncome.newIncome(new Dominio.Income(0, this.dateIncome, this.user, cmbSource.SelectedIndex, cmbType.SelectedIndex, this.concept, amountFinal));
             
             this.hecho = true;
             this.Dispose();
+        }
+
+
+        private double Truncate(double value, int decimales)
+        {
+            double aux_value = Math.Pow(10, decimales);
+            return (Math.Truncate(value * aux_value) / aux_value);
         }
     }
 }

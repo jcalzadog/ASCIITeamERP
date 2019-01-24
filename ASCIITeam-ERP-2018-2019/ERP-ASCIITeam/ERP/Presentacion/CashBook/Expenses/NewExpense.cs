@@ -78,7 +78,7 @@ namespace ERP.Presentacion.CashBook.Expenses
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-        
+
 
             if (rtbConcept.Text == "" || tbxAmount.Text == "")
             {
@@ -87,50 +87,69 @@ namespace ERP.Presentacion.CashBook.Expenses
             }
             else
             {
-                if(decimal.Parse(tbxAmount.Text) < 0)
+
+                Boolean valido = true;
+                for (int i = 0; i < tbxAmount.Text.Length; i++)
+                {
+                    if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
+                    {
+                        valido = false;
+                    }
+                }
+                if (valido)
+                {
+                    if (decimal.Parse(tbxAmount.Text) < 0)
                 {
                     VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
                     vp.ShowDialog();
-                } else {
-                    Boolean esPosible = true;
-                    if (cmbType.SelectedIndex == 0)
-                    {
-                        decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
-                        decimal resultado = totalCash - decimal.Parse(tbxAmount.Text);
-                        if (resultado < 0)
+                }
+                else
+                {
+                        Boolean esPosible = true;
+                        if (cmbType.SelectedIndex == 0)
                         {
-                            esPosible = false;
+                            decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
+                            decimal resultado = totalCash - decimal.Parse(tbxAmount.Text);
+                            if (resultado < 0)
+                            {
+                                esPosible = false;
+                            }
                         }
-                    }
-                    if (cmbType.SelectedIndex == 1)
-                    {
-                        decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
-                        decimal resultado = totalCheck - decimal.Parse(tbxAmount.Text);
-                        if (resultado < 0)
+                        if (cmbType.SelectedIndex == 1)
                         {
-                            esPosible = false;
+                            decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
+                            decimal resultado = totalCheck - decimal.Parse(tbxAmount.Text);
+                            if (resultado < 0)
+                            {
+                                esPosible = false;
+                            }
                         }
-                    }
-                    if (cmbType.SelectedIndex == 2)
-                    {
-                        decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
-                        decimal resultado = totalReceipt - decimal.Parse(tbxAmount.Text);
-                        if (resultado < 0)
+                        if (cmbType.SelectedIndex == 2)
                         {
-                            esPosible = false;
+                            decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
+                            decimal resultado = totalReceipt - decimal.Parse(tbxAmount.Text);
+                            if (resultado < 0)
+                            {
+                                esPosible = false;
+                            }
                         }
-                    }
 
-                    if (esPosible)
-                    {
-                        gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
-                        this.Dispose();
+                        if (esPosible)
+                        {
+                            gestor.newExpense(new Dominio.Expense(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("There is no income for the action.");
+                            vp.ShowDialog();
+                        }
                     }
-                    else
-                    {
-                        VentanaPersonalizada vp = new VentanaPersonalizada("There is no income for the action.");
-                        vp.ShowDialog();
-                    }
+                }
+                else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("The amount is not valid.");
+                    vp.ShowDialog();
                 }
                
             }

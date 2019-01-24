@@ -1916,7 +1916,23 @@ namespace ERP
 
         private void tbxFilterAmountI_KeyUp(object sender, KeyEventArgs e)
         {
-            filtroTotalIncomes();
+            Boolean valido = true;
+            for (int i = 0; i < tbxFilterAmountI.Text.Length; i++)
+            {
+                if (Char.IsLetter(tbxFilterAmountI.Text.ElementAt(i)))
+                {
+                    valido = false;
+                }
+            }
+            if (valido)
+            {
+                filtroTotalIncomes();
+            } else
+            {
+                tbxFilterAmountI.Text = "0";
+                filtroTotalIncomes();
+            }
+                
         }
 
         private void cmbFilterTypeI_SelectedIndexChanged(object sender, EventArgs e)
@@ -2106,7 +2122,23 @@ namespace ERP
 
         private void tbxFilterAmountE_KeyUp(object sender, KeyEventArgs e)
         {
-            filtroTotalExpense();
+            Boolean valido = true;
+            for (int i = 0; i < tbxFilterAmountE.Text.Length; i++)
+            {
+                if (Char.IsLetter(tbxFilterAmountE.Text.ElementAt(i)))
+                {
+                    valido = false;
+                }
+            }
+            if (valido)
+            {
+                filtroTotalExpense();
+            }
+            else
+            {
+                tbxFilterAmountE.Text = "0";
+                filtroTotalExpense();
+            }
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
@@ -2359,7 +2391,23 @@ namespace ERP
 
         private void tbxFilterAmountP_KeyUp(object sender, KeyEventArgs e)
         {
-            filtroTotapPPayment();
+            Boolean valido = true;
+            for (int i = 0; i < tbxFilterAmountP.Text.Length; i++)
+            {
+                if (Char.IsLetter(tbxFilterAmountP.Text.ElementAt(i)))
+                {
+                    valido = false;
+                }
+            }
+            if (valido)
+            {
+                filtroTotapPPayment();
+            }
+            else
+            {
+                tbxFilterAmountP.Text = "0";
+                filtroTotapPPayment();
+            }
         }
 
         private void cmbFilterAmountSimbolP_SelectedIndexChanged(object sender, EventArgs e)

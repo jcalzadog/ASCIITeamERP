@@ -107,20 +107,46 @@ namespace ERP.Presentacion.CashBook.PendingPayment
             if (tbxAmount.Text == "")
             {
                 tbxNewPp.Text = tbxTotal.Text;
-            } else
+            } else 
             {
-                decimal parcial = Convert.ToDecimal(tbxAmount.Text);
-                if (parcial < total)
+                Boolean valido = true;
+                for (int i = 0; i < tbxAmount.Text.Length; i++)
                 {
-                    tbxNewPp.Text = Convert.ToString((total - parcial));
+                    if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
+                    {
+                        valido = false;
+                    }
                 }
-                else
+                if (valido)
                 {
-                    tbxAmount.Text = tbxTotal.Text;
-                    tbxNewPp.Text = "0";
+                    decimal parcial = Convert.ToDecimal(tbxAmount.Text);
+                    if (parcial < 0)
+                    {
+                        tbxAmount.Text = "";
+                    } else {
+                        if (parcial < total)
+                        {
+                            tbxNewPp.Text = Convert.ToString((total - parcial));
+                        }
+                        else
+                        {
+                            tbxAmount.Text = tbxTotal.Text;
+                            tbxNewPp.Text = "0";
+                        }
+                    }
+                    
+                }else
+                {
+                    tbxAmount.Text = "";
                 }
             }
             
+        }
+
+        private double Truncate(double value, int decimales)
+        {
+            double aux_value = Math.Pow(10, decimales);
+            return (Math.Truncate(value * aux_value) / aux_value);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -150,6 +176,7 @@ namespace ERP.Presentacion.CashBook.PendingPayment
                         if (newIncomePP.getHecho() == true)
                         {
                             pendingPayment.id = this.idPpay;
+
                             pendingPayment.amount = Convert.ToDecimal(tbxNewPp.Text);
                             pendingPayment.gestorPendingPayments.updatePendingPaymentTotal(pendingPayment);
                             this.Dispose();
@@ -166,7 +193,10 @@ namespace ERP.Presentacion.CashBook.PendingPayment
                         if (newIncomePP.getHecho() == true)
                         {
                             pendingPayment.id = this.idPpay;
-                            pendingPayment.amount = Convert.ToDecimal(tbxNewPp.Text);
+                            double newPp = Truncate(Convert.ToDouble(this.tbxNewPp.Text), 2);
+                            string pPF = Convert.ToString(newPp);
+
+                            pendingPayment.amount = Convert.ToDecimal(pPF);
                             pendingPayment.gestorPendingPayments.updatePendingPaymentParcial(pendingPayment);
                             this.Dispose();
                         }

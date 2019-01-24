@@ -102,7 +102,7 @@ namespace ERP.Dominio.Gestores
 
         public void updatePendingPaymentParcial(PendingPayments p)
         {
-            conector.setData("UPDATE PPAYMENTS SET AMOUNT="+p.amount+" WHERE ID="+p.id);
+            conector.setData("UPDATE PPAYMENTS SET AMOUNT='"+p.amount+"' WHERE ID="+p.id);
         }
 
         public void updatePendingPaymentTotal(PendingPayments p)

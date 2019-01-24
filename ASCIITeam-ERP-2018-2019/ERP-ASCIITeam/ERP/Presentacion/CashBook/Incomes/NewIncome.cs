@@ -82,16 +82,32 @@ namespace ERP.Presentacion.CashBook.Incomes
             }
             else
             {
-                if (decimal.Parse(tbxAmount.Text) < 0)
+                Boolean valido = true;
+                for(int i = 0; i< tbxAmount.Text.Length; i++)
                 {
-                    VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
+                    if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
+                    {
+                        valido = false;
+                    }
+                }
+                if (valido)
+                {
+                    if (decimal.Parse(tbxAmount.Text) < 0)
+                    {
+                        VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
+                        vp.ShowDialog();
+                    }
+                    else
+                    {
+                        gestor.newIncome(new Dominio.Income(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
+                        this.Dispose();
+                    }
+                } else
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("The amount is not valid.");
                     vp.ShowDialog();
                 }
-                else
-                {
-                    gestor.newIncome(new Dominio.Income(0, dtpDate.Value, (decimal)this.usuarioLogeado, cmbSource.SelectedIndex, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text)));
-                    this.Dispose();
-                }
+               
             }
             
         }
