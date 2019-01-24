@@ -1018,12 +1018,6 @@ namespace ERP
             btnNewPpayment.FlatAppearance.BorderColor = Color.Black;
             btnNewPpayment.FlatAppearance.BorderSize = 1;
 
-            btnRevokePpayment.BackColor = Color.Black;
-            btnRevokePpayment.ForeColor = Color.White;
-            btnRevokePpayment.FlatStyle = FlatStyle.Flat;
-            btnRevokePpayment.FlatAppearance.BorderColor = Color.Black;
-            btnRevokePpayment.FlatAppearance.BorderSize = 1;
-
             btnCollect.BackColor = Color.Black;
             btnCollect.ForeColor = Color.White;
             btnCollect.FlatStyle = FlatStyle.Flat;
@@ -2332,17 +2326,7 @@ namespace ERP
             btnNewPpayment.ForeColor = Color.White;
         }
 
-        private void btnRevokePpayment_MouseEnter(object sender, EventArgs e)
-        {
-            btnRevokePpayment.BackColor = Color.White;
-            btnRevokePpayment.ForeColor = Color.Black;
-        }
-
-        private void btnRevokePpayment_MouseLeave(object sender, EventArgs e)
-        {
-            btnRevokePpayment.BackColor = Color.Black;
-            btnRevokePpayment.ForeColor = Color.White;
-        }
+      
 
         private void btnCollect_MouseEnter(object sender, EventArgs e)
         {
@@ -2403,6 +2387,26 @@ namespace ERP
             NewPendingPayment newPPayment = new NewPendingPayment(idUsuarioLogueado);
             newPPayment.ShowDialog();
             filtroTotapPPayment();
+        }
+
+        private void btnCollect_Click(object sender, EventArgs e)
+        {
+            if (dgvPendingPayment.SelectedRows.Count == 0)
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
+                vp.ShowDialog();
+            }
+            else
+            {
+                decimal idSelecc = (decimal)dgvPendingPayment.SelectedRows[0].Cells[0].Value;
+                if (idSelecc > 0)
+                {
+                    CollectPendingPayment collectPPayment = new CollectPendingPayment(idSelecc, idUsuarioLogueado);
+                    collectPPayment.ShowDialog();
+                }
+                filtroTotapPPayment();
+                filtroTotalIncomes();
+            }
         }
     }
 }

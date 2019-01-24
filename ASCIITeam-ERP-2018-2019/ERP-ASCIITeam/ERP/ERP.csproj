@@ -105,6 +105,18 @@
     <Compile Include="Presentacion\CashBook\Incomes\NewIncome.Designer.cs">
       <DependentUpon>NewIncome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\CashBook\PendingPayment\CollectPendingPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\PendingPayment\CollectPendingPayment.Designer.cs">
+      <DependentUpon>CollectPendingPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\PendingPayment\NewIncomeByPendingPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\PendingPayment\NewIncomeByPendingPayment.Designer.cs">
+      <DependentUpon>NewIncomeByPendingPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\CashBook\PendingPayment\NewPendingPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CashBook\Incomes\NewIncome.resx">
       <DependentUpon>NewIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CashBook\PendingPayment\CollectPendingPayment.resx">
+      <DependentUpon>CollectPendingPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CashBook\PendingPayment\NewIncomeByPendingPayment.resx">
+      <DependentUpon>NewIncomeByPendingPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CashBook\PendingPayment\NewPendingPayment.resx">
       <DependentUpon>NewPendingPayment.cs</DependentUpon>

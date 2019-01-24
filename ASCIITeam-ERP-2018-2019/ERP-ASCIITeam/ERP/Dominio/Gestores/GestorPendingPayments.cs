@@ -20,6 +20,21 @@ namespace ERP.Dominio.Gestores
             readPendingPayments("", "", 0, null, null, -1);
         }
 
+        public decimal getAmount(decimal id)
+        {
+            return Convert.ToDecimal(conector.DLookUp("AMOUNT", "PPAYMENTS", "ID="+id));
+        }
+
+        public DateTime getDate(decimal id)
+        {
+            return Convert.ToDateTime(conector.DLookUp("PPDATE", "PPAYMENTS", "ID=" + id));
+        }
+
+        public string getConcept(decimal id)
+        {
+            return Convert.ToString(conector.DLookUp("DESCRIPTION", "PPAYMENTS", "ID=" + id));
+        }
+
         public string[] getTypes()
         {
             String query = "select description from TYPES_PPAYMENT";
@@ -83,6 +98,16 @@ namespace ERP.Dominio.Gestores
                 + "','" + p.refUser + "','"+ p.refType + "', '"
                 + p.description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
                 + p.amount + "','0')");
+        }
+
+        public void updatePendingPaymentParcial(PendingPayments p)
+        {
+            conector.setData("UPDATE PPAYMENTS SET AMOUNT="+p.amount+" WHERE ID="+p.id);
+        }
+
+        public void updatePendingPaymentTotal(PendingPayments p)
+        {
+            conector.setData("UPDATE PPAYMENTS SET AMOUNT=" + p.amount + ",PAID=1 WHERE ID=" + p.id);
         }
     }
 }

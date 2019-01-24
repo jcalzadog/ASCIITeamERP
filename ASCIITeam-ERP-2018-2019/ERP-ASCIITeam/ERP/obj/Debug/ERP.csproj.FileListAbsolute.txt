@@ -638,3 +638,5 @@ F:\Proyectos\Luis\2-Trim\ERP-ASCIITeam\ERP\obj\Debug\ERP.Recursos.StringResource
 F:\Proyectos\Luis\2-Trim\ERP-ASCIITeam\ERP\obj\Debug\ERP.csproj.GenerateResource.Cache
 F:\Proyectos\Luis\2-Trim\ERP-ASCIITeam\ERP\obj\Debug\ES-ES\ERP.resources.dll
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewPendingPayment.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.CollectPendingPayment.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewIncomeByPendingPayment.resources
