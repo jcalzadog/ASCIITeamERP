@@ -35,7 +35,7 @@ namespace ERP.Dominio.Gestores
         //}
 
 
-        public void readDebts(string concept, string oper, decimal amount, string start, string end)
+        public void readDebts(string concept, string oper, double amount, string start, string end)
         {
             StringBuilder query = new StringBuilder("Select d.id, d.ddate, u.name, d.description, d.amount from DEBTS d inner join users u on d.refuser=u.iduser where PAID='0'");
             if (!concept.ToString().Equals(""))
@@ -65,6 +65,29 @@ namespace ERP.Dominio.Gestores
             tDebts.Columns[2].ColumnName = "USER";
             tDebts.Columns[3].ColumnName = "DESCRIPTION";
             tDebts.Columns[4].ColumnName = "AMOUNT";
+        }
+
+        public void newDebt(Debts d) {
+            
+            decimal cantDebts = (decimal)conector.DLookUp("COUNT(id)", "DEBTS", "");
+            decimal idDebts;
+            if (cantDebts == 0)
+            {
+                idDebts = 1;
+
+            }
+            else
+            {
+                idDebts = (decimal)conector.DLookUp("MAX(id)", "DEBTS", "");
+                idDebts++;
+            }
+            conector.setData("INSERT INTO DEBTS VALUES('" + idDebts+ "', '" + d.ddate.ToString().Substring(0, 10)
+                + "','" + d.refUser + "', '"
+                + d.description.Replace('\'', ' ').PadRight(60, ' ').Substring(0, 60).Trim() + "', '"
+                + d.amount + "','0')");
+
+
+
         }
     }
 }

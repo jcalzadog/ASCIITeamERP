@@ -81,6 +81,12 @@
     <Compile Include="Dominio\Validation.cs" />
     <Compile Include="Persistencia\ConnectOracle.cs" />
     <Compile Include="Persistencia\Logs.cs" />
+    <Compile Include="Presentacion\CashBook\DDebts\NewDebts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CashBook\DDebts\NewDebts.Designer.cs">
+      <DependentUpon>NewDebts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\CashBook\Expenses\NewExpense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StringResources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentacion\CashBook\DDebts\NewDebts.resx">
+      <DependentUpon>NewDebts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\CashBook\Expenses\NewExpense.resx">
       <DependentUpon>NewExpense.cs</DependentUpon>
     </EmbeddedResource>

@@ -21,6 +21,8 @@ using ERP.Dominio.Gestores;
 using ERP.Presentacion.CashBook.Expenses;
 using ERP.Presentacion.CashBook.Validations;
 using ERP.Presentacion.CashBook.PendingPayment;
+
+using ERP.Presentacion.CashBook.DDebts;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -1513,12 +1515,12 @@ namespace ERP
             string fechaInicial = dtpStartDateD.Value.ToString();
             string fechaFinal = dtpEndDateD.Value.ToString();
             string operador = Convert.ToString(cmbAmountSimbolD.SelectedItem);
-            filtrarTablaDebts(tbxConceptD.Text.Equals("Concept...") ? "" : tbxConceptD.Text, operador, (tbxAmountD.Text.Equals("Amount...") || tbxAmountD.Text.Equals("")) ? Convert.ToDecimal(0) : Convert.ToDecimal(tbxAmountD.Text), fechaInicial, fechaFinal);
+            filtrarTablaDebts(tbxConceptD.Text.Equals("Concept...") ? "" : tbxConceptD.Text, operador, (tbxAmountD.Text.Equals("Amount...") || tbxAmountD.Text.Equals("")) ? Convert.ToDouble(0) : Convert.ToDouble(tbxAmountD.Text), fechaInicial, fechaFinal);
             cargarTotales();
 
         }
 
-        public void filtrarTablaDebts(string concept, string oper, decimal amount, string start, string end)
+        public void filtrarTablaDebts(string concept, string oper, double amount, string start, string end)
         {
             debts.gestorDebts.readDebts(concept, oper, amount, start, end);
             dgvDebts.DataSource = debts.gestorDebts.tDebts;
@@ -2211,7 +2213,9 @@ namespace ERP
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            NewDebts debts = new NewDebts(idUsuarioLogueado);
+            debts.ShowDialog();
+            filtroTotalDebts();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -2648,6 +2652,11 @@ namespace ERP
         private void tbxConceptD_KeyUp(object sender, KeyEventArgs e)
         {
             filtroTotalDebts();
+        }
+
+        private void tbxFilterConceptP_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

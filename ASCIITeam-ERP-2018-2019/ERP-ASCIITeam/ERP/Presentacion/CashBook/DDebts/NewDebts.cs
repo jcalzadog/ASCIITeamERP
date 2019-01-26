@@ -10,63 +10,57 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ERP.Presentacion.CashBook.PendingPayment
+namespace ERP.Presentacion.CashBook.DDebts
 {
-    public partial class NewPendingPayment : Form
+    public partial class NewDebts : Form
     {
-
-        PendingPayments pendingPayment;
-        Object usuarioLogeado;
-
-        public NewPendingPayment(Object usuarioLogeado)
+        Debts d = new Debts();
+        Object usuarioLogueado;
+        public NewDebts(Object usuario)
         {
             InitializeComponent();
-            pendingPayment = new PendingPayments();
-
-            cargarComponentes();
-            this.usuarioLogeado = usuarioLogeado;
+            this.usuarioLogueado = usuario;
         }
 
-        public void cargarComponentes()
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            cmbType.DataSource = pendingPayment.gestorPendingPayments.getTypes();
+
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (rtbConcept.Text == "" || tbxAmount.Text == "")
+            if (txtConcept.Text == "" || txtAmount.Text == "")
             {
 
             }
             else
             {
                 Boolean valido = true;
-                for (int i = 0; i < tbxAmount.Text.Length; i++)
+                for (int i = 0; i < txtAmount.Text.Length; i++)
                 {
-                    if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
+                    if (Char.IsLetter(txtAmount.Text.ElementAt(i)))
                     {
                         valido = false;
                     }
                 }
                 if (valido)
                 {
-                    if (decimal.Parse(tbxAmount.Text) < 0)
+                    if (decimal.Parse(txtAmount.Text) < 0)
                     {
                         VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
                         vp.ShowDialog();
                     }
                     else
                     {
-                        pendingPayment.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)this.usuarioLogeado, cmbType.SelectedIndex, rtbConcept.Text, decimal.Parse(tbxAmount.Text), 0));
-                        this.Dispose();
                         
+                        double cant = Convert.ToDouble(txtAmount.Text.Replace(".", ",").Replace("'", ""));
+                        //redondeamos
+                        cant = Math.Round(cant, 2);
+                        d.gestorDebts.newDebt(new Debts( 0, DateTime.Today, (decimal)this.usuarioLogueado, txtConcept.Text,cant, 0));
+                        this.Dispose();
                     }
-                } else
+                }
+                else
                 {
                     VentanaPersonalizada vp = new VentanaPersonalizada("The amount is not valid.");
                     vp.ShowDialog();
@@ -74,7 +68,7 @@ namespace ERP.Presentacion.CashBook.PendingPayment
             }
         }
 
-        private void tbxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool valido = false;
             if (Char.IsDigit(e.KeyChar))
@@ -83,7 +77,7 @@ namespace ERP.Presentacion.CashBook.PendingPayment
             }
             if (e.KeyChar == '.' || e.KeyChar == ',')
             {
-                if (!tbxAmount.Text.Contains(","))
+                if (!txtAmount.Text.Contains(","))
                 {
                     e.KeyChar = ',';
                     valido = true;
@@ -95,11 +89,6 @@ namespace ERP.Presentacion.CashBook.PendingPayment
                 valido = true;
             }
             e.Handled = !valido;
-        }
-
-        private void tbxAmount_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
