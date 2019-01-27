@@ -53,7 +53,7 @@ namespace ERP.Presentacion.CashBook.DDebts
                     else
                     {
                         
-                        double cant = Convert.ToDouble(txtAmount.Text.Replace(".", ",").Replace("'", ""));
+                        decimal cant = decimal.Parse(txtAmount.Text.Replace(".", ",").Replace("'", ""));
                         //redondeamos
                         cant = Math.Round(cant, 2);
                         d.gestorDebts.newDebt(new Debts( 0, DateTime.Today, (decimal)this.usuarioLogueado, txtConcept.Text,cant, 0));

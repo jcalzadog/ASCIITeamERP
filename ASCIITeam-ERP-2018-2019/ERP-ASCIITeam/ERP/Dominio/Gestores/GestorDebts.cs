@@ -89,5 +89,30 @@ namespace ERP.Dominio.Gestores
 
 
         }
+
+        public decimal getAmount(decimal id)
+        {
+            return Convert.ToDecimal(conector.DLookUp("AMOUNT", "DEBTS", "ID=" + id));
+        }
+
+        public DateTime getDate(decimal id)
+        {
+            return Convert.ToDateTime(conector.DLookUp("DDATE", "DEBTS", "ID=" + id));
+        }
+
+        public string getConcept(decimal id)
+        {
+            return Convert.ToString(conector.DLookUp("DESCRIPTION", "DEBTS", "ID=" + id));
+        }
+
+        public void updateDebtsTotal(Debts d)
+        {
+            conector.setData("UPDATE DEBTS SET AMOUNT=" + d.amount + ",PAID=1 WHERE ID=" + d.id);
+        }
+
+        public void updatePendingPaymentParcial(Debts d)
+        {
+            conector.setData("UPDATE DEBTS SET AMOUNT='" + d.amount + "' WHERE ID=" + d.id);
+        }
     }
 }

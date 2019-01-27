@@ -2218,11 +2218,6 @@ namespace ERP
             filtroTotalDebts();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
 
@@ -2657,6 +2652,26 @@ namespace ERP
         private void tbxFilterConceptP_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (dgvDebts.SelectedRows.Count == 0)
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("Any Row Selected");
+                vp.ShowDialog();
+            }
+            else
+            {
+                decimal idSelecc = (decimal)dgvDebts.SelectedRows[0].Cells[0].Value;
+                if (idSelecc > 0)
+                {
+                    PayDebts pDebt = new PayDebts(idSelecc, idUsuarioLogueado);
+                    pDebt.ShowDialog();
+                }
+                filtroTotalDebts();
+                filtroTotalExpense();
+            }
         }
     }
 }

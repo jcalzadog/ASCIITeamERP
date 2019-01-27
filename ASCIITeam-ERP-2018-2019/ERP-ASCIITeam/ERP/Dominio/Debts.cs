@@ -13,7 +13,7 @@ namespace ERP.Dominio
         public DateTime ddate { get; set; }
         public Decimal refUser { get; set; }
         public String description { get; set; }
-        public Double amount { get; set; }
+        public Decimal amount { get; set; }
         public Decimal paid { get; set; }
         public GestorDebts gestorDebts { get; set; }
 
@@ -22,7 +22,7 @@ namespace ERP.Dominio
             this.gestorDebts = new GestorDebts();
         }
 
-        public Debts(decimal id, DateTime date, decimal refUser, string description, double amount, decimal paid)
+        public Debts(decimal id, DateTime date, decimal refUser, string description, decimal amount, decimal paid)
         {
             this.id = id;
             this.ddate = date;
