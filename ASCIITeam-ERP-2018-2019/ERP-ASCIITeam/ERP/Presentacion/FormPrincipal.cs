@@ -1969,6 +1969,7 @@ namespace ERP
         private void tbxFilterAmountI_KeyUp(object sender, KeyEventArgs e)
         {
             Boolean valido = true;
+            Boolean coma = false;
             for (int i = 0; i < tbxFilterAmountI.Text.Length; i++)
             {
                 if (Char.IsLetter(tbxFilterAmountI.Text.ElementAt(i)))
@@ -1978,6 +1979,20 @@ namespace ERP
                 if (!(Char.IsDigit(tbxFilterAmountI.Text.ElementAt(i))))
                 {
                     valido = false;
+                }
+                if ((tbxFilterAmountI.Text.ElementAt(i).Equals(',') || tbxFilterAmountI.Text.ElementAt(i).Equals('.')) && tbxFilterAmountI.Text.Length > 1)
+                {
+                    valido = true;
+                    if (!coma)
+                    {
+                        coma = true;
+                    }
+                    else
+                    {
+                        tbxFilterAmountI.Text = tbxFilterAmountI.Text.Substring(0, tbxFilterAmountI.Text.Length - 1);
+                        tbxFilterAmountI.SelectionStart = tbxFilterAmountI.Text.Length;
+                    }
+
                 }
             }
             if (valido)
@@ -2179,6 +2194,7 @@ namespace ERP
         private void tbxFilterAmountE_KeyUp(object sender, KeyEventArgs e)
         {
             Boolean valido = true;
+            Boolean coma = false;
             for (int i = 0; i < tbxFilterAmountE.Text.Length; i++)
             {
                 if (Char.IsLetter(tbxFilterAmountE.Text.ElementAt(i)))
@@ -2188,6 +2204,20 @@ namespace ERP
                 if (!(Char.IsDigit(tbxFilterAmountE.Text.ElementAt(i))))
                 {
                     valido = false;
+                }
+                if ((tbxFilterAmountE.Text.ElementAt(i).Equals(',') || tbxFilterAmountE.Text.ElementAt(i).Equals('.')) && tbxFilterAmountE.Text.Length > 1)
+                {
+                    valido = true;
+                    if (!coma)
+                    {
+                        coma = true;
+                    }
+                    else
+                    {
+                        tbxFilterAmountE.Text = tbxFilterAmountE.Text.Substring(0, tbxFilterAmountE.Text.Length - 1);
+                        tbxFilterAmountE.SelectionStart = tbxFilterAmountE.Text.Length;
+                    }
+
                 }
             }
             if (valido)
