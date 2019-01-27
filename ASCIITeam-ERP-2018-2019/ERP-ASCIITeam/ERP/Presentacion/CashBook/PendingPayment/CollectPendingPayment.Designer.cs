@@ -52,6 +52,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnSave
             // 
@@ -63,6 +65,8 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // label1
             // 

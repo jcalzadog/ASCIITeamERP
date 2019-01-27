@@ -46,6 +46,8 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCancel
             // 
@@ -57,6 +59,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // cmbType
             // 
@@ -104,12 +108,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(439, 286);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.cmbSource);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblSource);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MaximumSize = new System.Drawing.Size(457, 333);
+            this.MinimumSize = new System.Drawing.Size(457, 333);
             this.Name = "NewExpenseByDebt";
             this.Text = "New Expense";
             this.ResumeLayout(false);

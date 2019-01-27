@@ -90,6 +90,8 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnCancel
             // 
@@ -101,6 +103,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // NewIncomeByPendingPayment
             // 
@@ -115,6 +119,7 @@
             this.Controls.Add(this.cmbSource);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblSource);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewIncomeByPendingPayment";

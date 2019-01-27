@@ -21,6 +21,8 @@ namespace ERP.Presentacion.CashBook.PendingPayment
         public CollectPendingPayment(decimal idPpayment,Object idUsuarioLogueado)
         {
             InitializeComponent();
+            aparienciaBotones(btnCancel);
+            aparienciaBotones(btnSave);
             pendingPayment = new PendingPayments();
             this.idPpay = idPpayment;
             this.idUsuarioLogueado = idUsuarioLogueado;
@@ -147,6 +149,26 @@ namespace ERP.Presentacion.CashBook.PendingPayment
         {
             double aux_value = Math.Pow(10, decimales);
             return (Math.Truncate(value * aux_value) / aux_value);
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

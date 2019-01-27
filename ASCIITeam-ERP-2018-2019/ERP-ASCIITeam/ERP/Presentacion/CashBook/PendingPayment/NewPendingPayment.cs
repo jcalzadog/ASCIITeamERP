@@ -22,6 +22,8 @@ namespace ERP.Presentacion.CashBook.PendingPayment
         {
             InitializeComponent();
             pendingPayment = new PendingPayments();
+            aparienciaBotones(btnCancel);
+            aparienciaBotones(btnSave);
 
             cargarComponentes();
             this.usuarioLogeado = usuarioLogeado;
@@ -100,6 +102,26 @@ namespace ERP.Presentacion.CashBook.PendingPayment
         private void tbxAmount_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
+        }
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
         }
     }
 }
