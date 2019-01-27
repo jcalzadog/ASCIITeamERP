@@ -31,3 +31,13 @@ G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.
 D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
 D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
 D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csprojResolveAssemblyReference.cache
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Form1.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Properties.Resources.resources
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csproj.GenerateResource.Cache
