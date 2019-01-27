@@ -18,3 +18,16 @@ D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMult
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Form1.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Properties.Resources.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\2-Trimestre\ProgramaMultiInserts\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csproj.GenerateResource.Cache
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.pdb
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\Oracle.DataAccess.dll
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csprojResolveAssemblyReference.cache
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Form1.resources
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI_MultiInsert.Properties.Resources.resources
+G:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.csproj.GenerateResource.Cache
+D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\bin\Debug\DI-MultiInsert.exe.config
+D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.exe
+D:\Proyectos\Luis\2-Trim\DI-MultiInsert\DI-MultiInsert\obj\Debug\DI-MultiInsert.pdb

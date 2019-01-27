@@ -41,22 +41,97 @@ namespace DI_MultiInsert
             Random random = new Random();
             for (; idIncome < 2000; idIncome++)
             {
-
-                int randomSource = random.Next(0, 3);
-                int randomType = random.Next(0, 3);
-                int randomUser = random.Next(1, 3);
-                decimal amountAle = random.Next(1, 1001);
                 decimal refActionAle = random.Next(0, 2);
-                string desc = "";
-                if (refActionAle == 0)
+                if(refActionAle == 1)
                 {
-                    desc = "multiple insert income " + idIncome;
-                }
-                else
+                    int randomSource = random.Next(0, 3);
+                    int randomType = random.Next(0, 3);
+                    int randomUser = random.Next(1, 3);
+                    decimal amountAle = random.Next(1, 1001);
+
+                    decimal checkT = getTotalChecksIncome() - getTotalChecksExpense();
+                    decimal cashT = getTotalCashIncome() - getTotalCashExpense();
+                    decimal receiptT = getTotalReceiptsIncome() - getTotalReceiptsExpense();
+
+                    if (randomType == 0)
+                    {
+                        if((cashT- amountAle) < 0)
+                        {
+
+                        } else
+                        {
+                            string desc = "";
+                            if (refActionAle == 0)
+                            {
+                                desc = "multiple insert income " + idIncome;
+                            }
+                            else
+                            {
+                                desc = "multiple insert expense " + idIncome;
+                            }
+                            newIncome(0, DateTime.Today, (decimal)randomUser, randomSource, randomType, desc, amountAle, refActionAle);
+                        }
+                    }
+                    if (randomType == 1)
+                    {
+                        if ((checkT - amountAle) < 0)
+                        {
+
+                        }
+                        else
+                        {
+                            string desc = "";
+                            if (refActionAle == 0)
+                            {
+                                desc = "multiple insert income " + idIncome;
+                            }
+                            else
+                            {
+                                desc = "multiple insert expense " + idIncome;
+                            }
+                            newIncome(0, DateTime.Today, (decimal)randomUser, randomSource, randomType, desc, amountAle, refActionAle);
+                        }
+                    }
+                    if (randomType == 2)
+                    {
+                        if ((receiptT - amountAle) < 0)
+                        {
+
+                        }
+                        else
+                        {
+                            string desc = "";
+                            if (refActionAle == 0)
+                            {
+                                desc = "multiple insert income " + idIncome;
+                            }
+                            else
+                            {
+                                desc = "multiple insert expense " + idIncome;
+                            }
+                            newIncome(0, DateTime.Today, (decimal)randomUser, randomSource, randomType, desc, amountAle, refActionAle);
+                        }
+                    }
+
+                } else
                 {
-                    desc = "multiple insert expense " + idIncome;
+                    int randomSource = random.Next(0, 3);
+                    int randomType = random.Next(0, 3);
+                    int randomUser = random.Next(1, 3);
+                    decimal amountAle = random.Next(1, 1001);
+
+                    string desc = "";
+                    if (refActionAle == 0)
+                    {
+                        desc = "multiple insert income " + idIncome;
+                    }
+                    else
+                    {
+                        desc = "multiple insert expense " + idIncome;
+                    }
+                    newIncome(0, DateTime.Today, (decimal)randomUser, randomSource, randomType, desc, amountAle, refActionAle);
                 }
-                newIncome(0, DateTime.Today, (decimal)randomUser, randomSource, randomType, desc, amountAle, refActionAle);
+                
             }
             MessageBox.Show("Terminado Insert Incomes y Expenses");
         }
@@ -94,6 +169,46 @@ namespace DI_MultiInsert
                 + amount + "'," +refaction+",'0')");
         }
 
+        public decimal getTotalChecksIncome()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Check'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'");
+        }
+        public decimal getTotalCashIncome()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Cash'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'");
+        }
+        public decimal getTotalReceiptsIncome()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Receipt'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='0' and reftype='" + idType + "'");
+        }
+
+        public decimal getTotalChecksExpense()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Check'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+
+
+        }
+        public decimal getTotalCashExpense()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Cash'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+
+        }
+        public decimal getTotalReceiptsExpense()
+        {
+            ConnectOracle conector = new ConnectOracle();
+            decimal idType = (decimal)conector.DLookUp("id", "types_income", "description='Receipt'");
+            return (decimal)conector.DLookUp("NVL(SUM(AMOUNT),0)", "INCOMES_EXPENSES", "REFACTION='1' and reftype='" + idType + "'");
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             //ConnectOracle conector = new ConnectOracle();
