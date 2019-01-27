@@ -1,4 +1,6 @@
 ﻿using ERP.Dominio;
+using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +22,9 @@ namespace ERP.Presentacion.CashBook.DDebts
         string concept;
         decimal amount;
         Boolean hecho;
-
+        GestorExpenses gestor;
+        Income incomeComprobante;
+     
         public NewExpenseByDebt(DateTime dateExpense, decimal user, string concept, decimal amount)
         {
             InitializeComponent();
@@ -33,7 +37,10 @@ namespace ERP.Presentacion.CashBook.DDebts
             this.amount = amount;
             hecho = false;
             cmbSource.DataSource = expense.gestorExpense.getSources();
+
             cmbType.DataSource = expense.gestorExpense.getTypes();
+            gestor = new Expense().gestorExpense;
+            incomeComprobante = new Income();
         }
 
         public Boolean getHecho()
@@ -48,15 +55,56 @@ namespace ERP.Presentacion.CashBook.DDebts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            double amountTwoDeci = Truncate(Convert.ToDouble(this.amount), 2);
-            string amountS = Convert.ToString(amountTwoDeci);
-            decimal amountFinal = Convert.ToDecimal(amountS);
+            Boolean esPosible = true;
+            if (cmbType.SelectedIndex == 0)
+            {
+                decimal totalCash = (incomeComprobante.gestorIncome.getTotalCash() - gestor.getTotalCash());
+                decimal resultado = totalCash - amount;
+                if (resultado < 0)
+                {
+                    esPosible = false;
+                }
+            }
+            if (cmbType.SelectedIndex == 1)
+            {
+                decimal totalCheck = (incomeComprobante.gestorIncome.getTotalChecks() - gestor.getTotalChecks());
+                decimal resultado = totalCheck - amount;
+                if (resultado < 0)
+                {
+                    esPosible = false;
+                }
+            }
+            if (cmbType.SelectedIndex == 2)
+            {
+                decimal totalReceipt = (incomeComprobante.gestorIncome.getTotalReceipts() - gestor.getTotalReceipts());
+                decimal resultado = totalReceipt - amount;
+                if (resultado < 0)
+                {
+                    esPosible = false;
+                }
+            }
 
-            expense.gestorExpense.newExpense(new Expense(0, this.dateExpense, this.user, cmbSource.SelectedIndex, cmbType.SelectedIndex, this.concept, amountFinal));
+            if (esPosible)
+            {
+                double amountTwoDeci = Truncate(Convert.ToDouble(this.amount), 2);
+                string amountS = Convert.ToString(amountTwoDeci);
+                decimal amountFinal = Convert.ToDecimal(amountS);
 
-            this.hecho = true;
-            this.Dispose();
-        }
+                expense.gestorExpense.newExpense(new Expense(0, this.dateExpense, this.user, cmbSource.SelectedIndex, cmbType.SelectedIndex, this.concept, amountFinal));
+
+                this.hecho = true;
+                this.Dispose();
+            }
+            else
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("You dont have enough money to pay in this way");
+                vp.ShowDialog();
+            }
+
+
+
+        
+}
 
         private double Truncate(double value, int decimales)
         {
@@ -66,7 +114,12 @@ namespace ERP.Presentacion.CashBook.DDebts
 
         public void aparienciaBotones(Button btn)
         {
-            btn.BackColor = Color.Black;
+            
+        
+    
+      
+
+btn.BackColor = Color.Black;
             btn.ForeColor = Color.White;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderColor = Color.Black;

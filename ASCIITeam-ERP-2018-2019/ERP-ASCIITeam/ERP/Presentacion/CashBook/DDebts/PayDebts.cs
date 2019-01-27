@@ -89,37 +89,55 @@ namespace ERP.Presentacion.CashBook.DDebts
             else
             {
                 Boolean valido = true;
+                Boolean coma = false;
                 for (int i = 0; i < tbxAmount.Text.Length; i++)
                 {
                     if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
                     {
                         valido = false;
                     }
-                }
-                if (valido)
-                {
-                    decimal parcial = Convert.ToDecimal(tbxAmount.Text);
-                    if (parcial < 0)
+                    if (!(Char.IsDigit(tbxAmount.Text.ElementAt(i))))
                     {
-                        tbxAmount.Text = "";
+                        valido = false;
                     }
-                    else
+                    if ((tbxAmount.Text.ElementAt(i).Equals(',') || tbxAmount.Text.ElementAt(i).Equals('.')) && tbxAmount.Text.Length > 1)
                     {
-                        if (parcial < total)
+                        valido = true;
+                        if (!coma)
                         {
-                            txtNewDebt.Text = Convert.ToString((total - parcial));
+                            coma = true;
                         }
                         else
                         {
-                            tbxAmount.Text = tbxTotal.Text;
-                            txtNewDebt.Text = "0";
+                            tbxAmount.Text = tbxAmount.Text.Substring(0, tbxAmount.Text.Length - 1);
+                            tbxAmount.SelectionStart = tbxAmount.Text.Length;
                         }
                     }
+                    if (valido)
+                    {
+                        decimal parcial = Convert.ToDecimal(tbxAmount.Text);
+                        if (parcial < 0)
+                        {
+                            tbxAmount.Text = "";
+                        }
+                        else
+                        {
+                            if (parcial < total)
+                            {
+                                txtNewDebt.Text = Convert.ToString((total - parcial));
+                            }
+                            else
+                            {
+                                tbxAmount.Text = tbxTotal.Text;
+                                txtNewDebt.Text = "0";
+                            }
+                        }
 
-                }
-                else
-                {
-                    tbxAmount.Text = "";
+                    }
+                    else
+                    {
+                        tbxAmount.Text = "";
+                    }
                 }
             }
         }
@@ -132,12 +150,29 @@ namespace ERP.Presentacion.CashBook.DDebts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Boolean valido = true;
+         
+           
             if (tbxAmount.Text == "")
             {
                 VentanaPersonalizada vp = new VentanaPersonalizada("Amount Not Valid.");
+                valido = false;
                 vp.ShowDialog();
             }
-            else
+           
+             if (valido)
+            {
+                
+               for (int i = 0; i < tbxAmount.Text.Length; i++)
+                {
+                    if (Char.IsLetter(tbxAmount.Text.ElementAt(i)))
+                    {
+                       valido = false;
+                   }
+                }
+            }
+
+            if (valido)
             {
                 decimal amount = Convert.ToDecimal(tbxAmount.Text);
                 if (amount == 0)
@@ -189,6 +224,7 @@ namespace ERP.Presentacion.CashBook.DDebts
                     }
                 }
             }
+            
         }
 
         public void aparienciaBotones(Button btn)
