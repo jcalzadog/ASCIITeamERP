@@ -2450,6 +2450,7 @@ namespace ERP
         private void tbxFilterAmountP_KeyUp(object sender, KeyEventArgs e)
         {
             Boolean valido = true;
+            Boolean coma = false;
             for (int i = 0; i < tbxFilterAmountP.Text.Length; i++)
             {
                 if (Char.IsLetter(tbxFilterAmountP.Text.ElementAt(i)))
@@ -2460,6 +2461,20 @@ namespace ERP
                 {
                     valido = false;
                 }
+                if ((tbxFilterAmountP.Text.ElementAt(i).Equals(',') || tbxFilterAmountP.Text.ElementAt(i).Equals('.')) && tbxFilterAmountP.Text.Length > 1)
+                {
+                    valido = true;
+                    if (!coma)
+                    {
+                        coma = true;
+                    }
+                    else
+                    {
+                        tbxFilterAmountP.Text = tbxFilterAmountP.Text.Substring(0, tbxFilterAmountP.Text.Length - 1);
+                        tbxFilterAmountP.SelectionStart = tbxFilterAmountP.Text.Length;
+                    }
+
+                }
             }
             if (valido)
             {
@@ -2467,7 +2482,7 @@ namespace ERP
             }
             else
             {
-                tbxFilterAmountP.Text = "0";
+                tbxFilterAmountP.Text = "";
                 filtroTotapPPayment();
             }
         }
@@ -2599,6 +2614,7 @@ namespace ERP
         private void tbxAmountD_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool valido = false;
+            
             if (Char.IsDigit(e.KeyChar))
             {
                 valido = true;
@@ -2609,6 +2625,7 @@ namespace ERP
                 {
                     e.KeyChar = ',';
                     valido = true;
+                    
                 }
 
             }
@@ -2622,6 +2639,7 @@ namespace ERP
         private void tbxAmountD_KeyUp(object sender, KeyEventArgs e)
         {
             Boolean valido = true;
+            Boolean coma = false;
             for (int i = 0; i < tbxAmountD.Text.Length; i++)
             {
                 if (Char.IsLetter(tbxAmountD.Text.ElementAt(i)))
@@ -2632,6 +2650,25 @@ namespace ERP
                 {
                     valido = false;
                 }
+                if ((tbxAmountD.Text.ElementAt(i).Equals(',') || tbxAmountD.Text.ElementAt(i).Equals('.')) && tbxAmountD.Text.Length > 1)
+                {
+                    valido = true;
+                    if (!coma)
+                    {                   
+                        coma = true;
+                    }else
+                    {                       
+                        tbxAmountD.Text = tbxAmountD.Text.Substring(0, tbxAmountD.Text.Length - 1);
+                        tbxAmountD.SelectionStart = tbxAmountD.Text.Length;
+                    }
+                    
+                }
+                //if ((tbxAmountD.Text.ElementAt(i).Equals(',') || tbxAmountD.Text.ElementAt(i).Equals('.')) && coma && tbxAmountD.Text.Length > 1)
+                //{
+                //    valido = true;
+                //    coma = true;
+                //    tbxAmountD.Text = tbxAmountD.Text.Substring(0, tbxAmountD.Text.Length - 1);
+                //}
             }
             if (valido)
             {
@@ -2639,7 +2676,7 @@ namespace ERP
             }
             else
             {
-                tbxAmountD.Text = "0";
+                tbxAmountD.Text = "";
                 filtroTotalDebts();
             }
         }

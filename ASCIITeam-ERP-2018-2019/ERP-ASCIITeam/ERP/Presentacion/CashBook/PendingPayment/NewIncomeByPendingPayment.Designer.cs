@@ -121,7 +121,9 @@
             this.Controls.Add(this.lblSource);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(445, 259);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(445, 259);
             this.Name = "NewIncomeByPendingPayment";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

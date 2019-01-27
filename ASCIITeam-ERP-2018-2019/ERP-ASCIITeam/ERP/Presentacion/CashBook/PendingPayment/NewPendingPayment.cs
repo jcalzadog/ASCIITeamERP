@@ -43,7 +43,8 @@ namespace ERP.Presentacion.CashBook.PendingPayment
         {
             if (rtbConcept.Text == "" || tbxAmount.Text == "")
             {
-
+                VentanaPersonalizada vp = new VentanaPersonalizada("Fields cannot be empty.");
+                vp.ShowDialog();
             }
             else
             {
@@ -57,9 +58,9 @@ namespace ERP.Presentacion.CashBook.PendingPayment
                 }
                 if (valido)
                 {
-                    if (decimal.Parse(tbxAmount.Text) < 0)
+                    if (decimal.Parse(tbxAmount.Text) <= 0)
                     {
-                        VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
+                        VentanaPersonalizada vp = new VentanaPersonalizada("The amount is not valid.");
                         vp.ShowDialog();
                     }
                     else

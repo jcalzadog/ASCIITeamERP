@@ -33,7 +33,8 @@ namespace ERP.Presentacion.CashBook.DDebts
         {
             if (txtConcept.Text == "" || txtAmount.Text == "")
             {
-
+                VentanaPersonalizada vp = new VentanaPersonalizada("Fields cannot be empty.");
+                vp.ShowDialog();
             }
             else
             {
@@ -47,9 +48,9 @@ namespace ERP.Presentacion.CashBook.DDebts
                 }
                 if (valido)
                 {
-                    if (decimal.Parse(txtAmount.Text) < 0)
+                    if (decimal.Parse(txtAmount.Text) <= 0)
                     {
-                        VentanaPersonalizada vp = new VentanaPersonalizada("The amount is negative.");
+                        VentanaPersonalizada vp = new VentanaPersonalizada("The amount is not valid.");
                         vp.ShowDialog();
                     }
                     else
@@ -111,6 +112,11 @@ namespace ERP.Presentacion.CashBook.DDebts
         {
             ((Button)sender).BackColor = Color.White;
             ((Button)sender).ForeColor = Color.Black;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
