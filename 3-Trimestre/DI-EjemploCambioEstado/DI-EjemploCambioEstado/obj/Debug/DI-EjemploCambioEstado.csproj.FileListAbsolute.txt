@@ -1,0 +1,9 @@
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.exe.config
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.exe
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.pdb
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.csprojResolveAssemblyReference.cache
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI_EjemploCambioEstado.Form1.resources
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI_EjemploCambioEstado.Properties.Resources.resources
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.csproj.GenerateResource.Cache
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.exe
+c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.pdb
