@@ -2736,3 +2736,43 @@ Insert into VALIDATIONS (ID,VALIDATION_DATE,REFUSER,A_INCASH,A_RECEIPT,A_CHECK,T
   ALTER TABLE "VALIDATIONS" MODIFY ("REFUSER" NOT NULL ENABLE);
   ALTER TABLE "VALIDATIONS" MODIFY ("VALIDATION_DATE" NOT NULL ENABLE);
   ALTER TABLE "VALIDATIONS" MODIFY ("ID" NOT NULL ENABLE);
+  
+  
+  
+  
+  
+  
+  
+  ------------------- 
+  --------------------------------------------------------
+-- Archivo creado  - martes-febrero-19-2019   
+--------------------------------------------------------
+DROP TABLE "ORDERS_STATUS" cascade constraints;
+--------------------------------------------------------
+--  DDL for Table ORDERS_STATUS
+--------------------------------------------------------
+
+  CREATE TABLE "ORDERS_STATUS" 
+   (	"ID" NUMBER(38,0), 
+	"REFORDER" NUMBER(38,0), 
+	"STATUS" NUMBER(1,0) DEFAULT 0
+   ) ;
+
+   COMMENT ON COLUMN "ORDERS_STATUS"."STATUS" IS '0:NADA,1:CONF,2:ETI,3:ENVI,4:FACTU';
+REM INSERTING into ORDERS_STATUS
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index ORDERS_STATUS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ORDERS_STATUS_PK" ON "ORDERS_STATUS" ("ID") 
+  ;
+--------------------------------------------------------
+--  Constraints for Table ORDERS_STATUS
+--------------------------------------------------------
+
+  ALTER TABLE "ORDERS_STATUS" ADD CONSTRAINT "ORDERS_STATUS_PK" PRIMARY KEY ("ID") ENABLE;
+  ALTER TABLE "ORDERS_STATUS" MODIFY ("STATUS" NOT NULL ENABLE);
+  ALTER TABLE "ORDERS_STATUS" MODIFY ("REFORDER" NOT NULL ENABLE);
+  ALTER TABLE "ORDERS_STATUS" MODIFY ("ID" NOT NULL ENABLE);
+
