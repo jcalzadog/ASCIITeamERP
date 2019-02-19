@@ -364,6 +364,8 @@ namespace ERP
 
             dgvOrders.ReadOnly = true;
 
+            dgvOrders.Sort(dgvOrders.Columns[0],ListSortDirection.Descending);
+
         }
 
         private void cargarTablaClientes(String condicion)

@@ -657,3 +657,9 @@ C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITe
 C:\Users\Diego\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.PayDebts.resources
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.NewExpenseByDebt.resources
 C:\Users\enriq\Documents\GitHub\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.PayDebts.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.NewDebts.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.NewExpenseByDebt.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.PayDebts.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.CollectPendingPayment.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewIncomeByPendingPayment.resources
+D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewPendingPayment.resources
