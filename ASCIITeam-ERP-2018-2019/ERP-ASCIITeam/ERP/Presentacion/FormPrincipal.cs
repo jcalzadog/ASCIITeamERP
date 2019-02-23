@@ -347,6 +347,10 @@ namespace ERP
             dgvOrders.Columns.Add("ID", "ID");
             dgvOrders.Columns.Add("SURNAME", "SURNAME");
             dgvOrders.Columns.Add("USERNAME", "USERNAME");
+            dgvOrders.Columns.Add("", "CONFIRMED");
+            dgvOrders.Columns.Add("", "LABELED");
+            dgvOrders.Columns.Add("", "SENT");
+            dgvOrders.Columns.Add("", "INVOICED");
             dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
             dgvOrders.Columns.Add("DAT", "DAT");
             dgvOrders.Columns.Add("TOTAL", "TOTAL");
@@ -354,8 +358,28 @@ namespace ERP
 
             foreach (DataRow row in tOrders.Rows)
             {
-                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"], row["PAYMETHOD"], row["DAT"], row["TOTAL"], row["PREPAID"]);
+                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"],row,row, row, row
+                    , row["PAYMETHOD"], row["DAT"], row["TOTAL"], row["PREPAID"]);
             }
+            
+            for(int i = 0;i< dgvOrders.Rows.Count; i++)
+            {
+                dgvOrders.Rows[i].Cells[3].Value = "";
+                dgvOrders.Rows[i].Cells[3].Style.BackColor = Color.Red;
+
+                dgvOrders.Rows[i].Cells[4].Value = "";
+                dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Red;
+
+                dgvOrders.Rows[i].Cells[5].Value = "";
+                dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Red;
+
+                dgvOrders.Rows[i].Cells[6].Value = "";
+                dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Red;
+            }
+            dgvOrders.Columns[3].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOrders.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOrders.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOrders.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
 
             dgvOrders.RowHeadersVisible = false;
             dgvOrders.AllowUserToAddRows = false;
@@ -1789,6 +1813,20 @@ namespace ERP
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaOrders = e.RowIndex;
+
+            //PARA CAMBIO DE COLOR
+            DataGridView dgv = sender as DataGridView;
+
+            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+            {
+                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                dgv.ClearSelection();
+            }
+            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+            {
+                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                dgv.ClearSelection();
+            }
         }
 
         private void txtSearchOrder_Enter(object sender, EventArgs e)
