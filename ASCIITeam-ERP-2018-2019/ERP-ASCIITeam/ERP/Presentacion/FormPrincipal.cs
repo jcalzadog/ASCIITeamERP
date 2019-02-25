@@ -377,7 +377,7 @@ namespace ERP
                 dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Red;
 
                 //decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(dgvOrders.Rows[i].Cells[10].Value));
-                decimal statusRow = Convert.ToDecimal(Convert.ToString(row["ID"]));
+                decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(Convert.ToString(row["ID"])));
                 switch (Convert.ToInt32(statusRow))
                 {
                     case 1:
@@ -402,10 +402,6 @@ namespace ERP
                 i++;
             }
 
-            //for (int i = 0; i < dgvOrders.Rows.Count; i++)
-            //{
-                
-            //}
             dgvOrders.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
@@ -2804,66 +2800,113 @@ namespace ERP
         {
             //PARA CAMBIO DE COLOR
             DataGridView dgv = sender as DataGridView;
-            if(e.ColumnIndex >=0 && e.RowIndex >= 0)
+
+            if (e.ColumnIndex >=0 && e.RowIndex >= 0)
             {
+                decimal statusRow = statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(Convert.ToString(dgvOrders.Rows[e.RowIndex].Cells[10].Value)));
                 switch (e.ColumnIndex)
                 {
                     case 4:
-                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
-                        }
-                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
 
-                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                        if (statusRow == 0)
+                        {
+                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+                            }
+                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+
+                            
+                        } else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant confirm the product.");
+                        }
 
                         break;
                     case 5:
-                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
-                        }
-                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
 
-                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+                        if (statusRow == 1)
+                        {
+                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+                            }
+                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+
+
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Label the product.");
+                        }
                         break;
                     case 6:
-                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
-                        }
-                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
 
-                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                        if (statusRow == 2)
+                        {
+                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+                            }
+                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Sent the product.");
+                        }
                         break;
                     case 7:
-                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
-                        }
-                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                        {
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
 
-                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
+                        if (statusRow == 3)
+                        {
+                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+                            }
+                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+
+                        }
+                        else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Invoice the product.");
+                        }
                         break;
                 }
             }
