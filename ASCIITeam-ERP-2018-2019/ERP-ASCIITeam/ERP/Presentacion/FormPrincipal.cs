@@ -2810,36 +2810,90 @@ namespace ERP
 
                         if (statusRow == 0)
                         {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
 
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
 
-                            if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
+                            if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0)
                             {
-                                if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0)
+
+                                incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
+
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+
+                                //Recargo incomes
+                                incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
+                                dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
+
+
+                            }
+                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
+                            {
+                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+
+                                //Recargo Pendiente de Pago.
+                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                            }
+                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
+                            {
+                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+
+                                //Recargo Pendiente de Pago.
+                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                            }
+                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) != 0)
+                            {
+                                incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[1].Value)));
+
+                                //Recargo incomes
+                                incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
+                                dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
+
+                                if(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery"))
                                 {
-                                    DateTime dateTime = new DateTime();
-                                    incomes.gestorIncome.newIncome(new Dominio.Income(0, dateTime, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
+                                    pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
+                                } else
+                                {
+                                    pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
                                 }
-                                
-                            }else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
-                            {
-                                DateTime dateTime = new DateTime();
-                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, dateTime, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
-                            } else
+
+                                //Recargo Pendiente de Pago.
+                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+
+                            }
+                            else
                             {
                                 VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
                                 vp.ShowDialog();
                             }
                             
-                        } else if (statusRow == 1)
-                        {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
+                        }// else if (statusRow == 1)  --> ESTO ES QUE TENGA QUE ANULARLO EL OFICINISTA
+                        //{
+                        //    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
 
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        } else if(statusRow>1)
+                        //    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                        //    dgv.ClearSelection();
+                        //} 
+                        else if(statusRow>1)
                         {
                             VentanaPersonalizada vp = new VentanaPersonalizada("Cant desconfirm the product.");
                             vp.ShowDialog();

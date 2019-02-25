@@ -82,8 +82,7 @@ namespace ERP.Presentacion.Orders
             }
             else 
             {
-                
-                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), decimal.Parse(txtPrepaid.Text), 0);
+                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), decimal.Parse(txtPrepaid.Text.Equals("") ? "0" : txtPrepaid.Text), 0);
                 //GestorOrder gestor = new GestorOrder();
                 decimal id = order.gestorOrder.insertOrder(order);
                 foreach (DetailOrder d in details)
