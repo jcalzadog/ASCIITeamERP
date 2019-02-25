@@ -83,7 +83,7 @@ namespace ERP.Presentacion.Orders
             }
             else 
             {
-                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), 0, 0);
+                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), decimal.Parse(txtPrepaid.Text.Equals("") ? "0" : txtPrepaid.Text), 0);
                 //GestorOrder gestor = new GestorOrder();
                 decimal id = order.gestorOrder.insertOrder(order);
                 foreach (DetailOrder d in details)
@@ -152,6 +152,52 @@ namespace ERP.Presentacion.Orders
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtPrepaid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtPrepaid.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+
+            e.Handled = !valido;
+        }
+
+        private void ckTotallyPaid_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckTotallyPaid.Checked)
+            {
+                txtPrepaid.Enabled = false;
+                txtPrepaid.Text = lblTotal.Text;
+            }
+            else
+            {
+                txtPrepaid.Enabled = true;
+                txtPrepaid.Text = "";
+            }
+        }
+
+        private void txtPrepaid_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (decimal.Parse(txtPrepaid.Text == "" ? "0" : txtPrepaid.Text) >decimal.Parse(lblTotal.Text==""? "0" : lblTotal.Text))
+            {
+                txtPrepaid.Text = "";
+            }
         }
     }
 }

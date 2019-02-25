@@ -7,11 +7,4 @@ c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI
 c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.csproj.GenerateResource.Cache
 c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.exe
 c:\users\b14-17m\documents\visual studio 2015\Projects\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.pdb
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.exe.config
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.exe
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.pdb
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI_EjemploCambioEstado.Form1.resources
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI_EjemploCambioEstado.Properties.Resources.resources
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.csproj.GenerateResource.Cache
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.exe
-C:\Users\enriq\Source\Repos\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\obj\Debug\DI-EjemploCambioEstado.pdb
+C:\Users\Diego\Documents\GitHub\ASCIITeamERP\3-Trimestre\DI-EjemploCambioEstado\DI-EjemploCambioEstado\bin\Debug\DI-EjemploCambioEstado.exe.config

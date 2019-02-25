@@ -19,7 +19,7 @@ namespace ERP.Dominio.Gestores
             DataSet data = new DataSet();
 
             data = conector.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME, "+
-                "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DAT,O.TOTAL TOTAL, O.PREPAID PREPAID "+
+                "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DAT,O.TOTAL TOTAL,(O.TOTAL-O.PREPAID) REST,O.PREPAID PREPAID "+
                 "FROM ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER "+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M "+
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD where ( UPPER(c.name) LIKE UPPER ('%" + condicion + "%') OR UPPER(c.surname) LIKE UPPER ('%" + condicion + "%') OR  UPPER(U.NAME) LIKE UPPER ('%" + condicion + "%') OR O.DATETIME LIKE '%" + condicion + "%' OR UPPER(M.PAYMENTMETHOD) LIKE UPPER ('%" + condicion + "%') OR O.TOTAL LIKE '%" + condicion + "%' OR O.PREPAID LIKE '%" + condicion + "%') and o.deleted=0", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER "+
@@ -58,7 +58,22 @@ namespace ERP.Dominio.Gestores
                 idOrder = (decimal)conector.DLookUp("MAX(IDORDER)", "ORDERS", "");
                 idOrder++;
             }
-            conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+o.prepaid+"', '0')");
+
+            decimal numStatus = (decimal)conector.DLookUp("COUNT(ID)", "ORDERS_STATUS", "");
+            decimal idStatus;
+            if (numStatus == 0)
+            {
+                idStatus = 1;
+
+            }
+            else
+            {
+                idStatus = (decimal)conector.DLookUp("MAX(ID)", "ORDERS_STATUS", "");
+                idStatus++;
+            }
+
+            conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+(o.prepaid.ToString().Replace('.',','))+"', '0')");
+            conector.setData("INSERT INTO ORDERS_STATUS VALUES ('" + idStatus + "', '" + idOrder + "', '0')");
             // se podria usar la fecha del objeto pero suponemos que en la insercion es la fecha del pedido por el momento, en futuras versiones quizas permita cambiar fecha
             return idOrder;
         }
@@ -79,6 +94,17 @@ namespace ERP.Dominio.Gestores
                 idDetail++;
             }
             conector.setData("INSERT INTO ORDERSPRODUCTS VALUES ('" + idDetail + "', '" +idOrder + "', '" + d.RefProduct + "', '"+d.Amount + "', '" + d.Pricesale + "')");
+        }
+
+        public decimal getstatus(decimal idOrder)
+        {
+            decimal status = Convert.ToDecimal(conector.DLookUp("STATUS", "ORDERS_STATUS", "REFORDER='" + idOrder + "'"));
+            return status;
+        }
+
+        public void putstatus(decimal idOrder, decimal status)
+        {
+            conector.setData("UPDATE ORDERS_STATUS SET STATUS="+status+ " WHERE REFORDER=" + idOrder);
         }
 
     }
