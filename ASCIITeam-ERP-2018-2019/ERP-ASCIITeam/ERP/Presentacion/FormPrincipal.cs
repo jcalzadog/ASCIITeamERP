@@ -2810,25 +2810,43 @@ namespace ERP
 
                         if (statusRow == 0)
                         {
-                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
+
+                            if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
                             {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-                            }
-                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                                if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0)
+                                {
+                                    DateTime dateTime = new DateTime();
+                                    incomes.gestorIncome.newIncome(new Dominio.Income(0, dateTime, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
+                                }
+                                
+                            }else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
                             {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
-
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                                dgv.ClearSelection();
+                                DateTime dateTime = new DateTime();
+                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, dateTime, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+                            } else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                                vp.ShowDialog();
                             }
-
                             
+                        } else if (statusRow == 1)
+                        {
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
+
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        } else if(statusRow>1)
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant desconfirm the product.");
+                            vp.ShowDialog();
                         } else
                         {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant confirm the product.");
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            vp.ShowDialog();
                         }
 
                         break;
@@ -2836,77 +2854,83 @@ namespace ERP
 
                         if (statusRow == 1)
                         {
-                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
 
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-                            }
-                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                                dgv.ClearSelection();
-                            }
-
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
 
                         }
-                        else
+                        else if (statusRow == 2)
+                        {
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        else if (statusRow > 2)
                         {
                             VentanaPersonalizada vp = new VentanaPersonalizada("Cant Label the product.");
+                            vp.ShowDialog();
+                        } else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            vp.ShowDialog();
                         }
                         break;
                     case 6:
 
                         if (statusRow == 2)
                         {
-                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
 
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-                            }
-                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
-
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                                dgv.ClearSelection();
-                            }
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
 
                         }
-                        else
+                        else if (statusRow == 3)
+                        {
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        else if (statusRow > 3)
                         {
                             VentanaPersonalizada vp = new VentanaPersonalizada("Cant Sent the product.");
+                            vp.ShowDialog();
+                        } else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            vp.ShowDialog();
                         }
                         break;
                     case 7:
 
                         if (statusRow == 3)
                         {
-                            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
 
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-                            }
-                            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-                            {
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
-
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                                dgv.ClearSelection();
-                            }
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
 
                         }
-                        else
+                        else if (statusRow == 4)
+                        {
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        else if (statusRow > 4)
                         {
                             VentanaPersonalizada vp = new VentanaPersonalizada("Cant Invoice the product.");
+                            vp.ShowDialog();
+                        } else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            vp.ShowDialog();
                         }
+
                         break;
                 }
             }
