@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -89,7 +90,8 @@ namespace ERP.Presentacion.Orders
                 {
                     order.gestorOrder.insertDetail(d, id);
                 }
-                MessageBox.Show("Order saved");
+                VentanaPersonalizada vp = new VentanaPersonalizada("Order saved");
+                
                 ERP.Persistencia.Logs.write("Order " + id + " created");
                 this.Dispose();
             }

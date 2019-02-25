@@ -356,7 +356,7 @@ namespace ERP
             {
                 dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"], row["PAYMETHOD"], row["DAT"], row["TOTAL"], row["PREPAID"]);
             }
-
+           
             dgvOrders.RowHeadersVisible = false;
             dgvOrders.AllowUserToAddRows = false;
             dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

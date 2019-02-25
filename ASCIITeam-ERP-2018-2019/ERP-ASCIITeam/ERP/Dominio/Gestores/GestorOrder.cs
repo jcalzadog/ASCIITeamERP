@@ -24,11 +24,11 @@ namespace ERP.Dominio.Gestores
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M "+
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD where ( UPPER(c.name) LIKE UPPER ('%" + condicion + "%') OR UPPER(c.surname) LIKE UPPER ('%" + condicion + "%') OR  UPPER(U.NAME) LIKE UPPER ('%" + condicion + "%') OR O.DATETIME LIKE '%" + condicion + "%' OR UPPER(M.PAYMENTMETHOD) LIKE UPPER ('%" + condicion + "%') OR O.TOTAL LIKE '%" + condicion + "%' OR O.PREPAID LIKE '%" + condicion + "%') and o.deleted=0", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER "+
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
-                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD");
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD ORDER BY O.DATETIME");
 
             tOrders = data.Tables["ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER " +
                 "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
-                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD"];
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD ORDER BY O.DATETIME"];
         }
 
         public DataTable getOrderCart (decimal idOrder)
