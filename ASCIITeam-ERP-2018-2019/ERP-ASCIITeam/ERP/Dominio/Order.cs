@@ -26,7 +26,7 @@ namespace ERP.Dominio
             this.gestorOrder = new GestorOrder();
         }
 
-        public Order(int iD, decimal refCustomer, decimal refUser, DateTime datet, int refPaymentMethod, decimal total, int prepaid, int deleted)
+        public Order(int iD, decimal refCustomer, decimal refUser, DateTime datet, int refPaymentMethod, decimal total, decimal prepaid, int deleted)
         {
             this.id = iD;
             this.refCustomer = refCustomer;

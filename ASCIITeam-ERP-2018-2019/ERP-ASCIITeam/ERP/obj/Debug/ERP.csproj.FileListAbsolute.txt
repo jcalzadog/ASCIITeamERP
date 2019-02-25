@@ -663,3 +663,12 @@ D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.CollectPendingPayment.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewIncomeByPendingPayment.resources
 D:\DiegoAlba\DAM2\Desarrollo de Interfaces\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewPendingPayment.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.NewDebts.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.NewExpenseByDebt.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.DDebts.PayDebts.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Expenses.NewExpense.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Expenses.RevokeExpense.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.CollectPendingPayment.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewIncomeByPendingPayment.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.PendingPayment.NewPendingPayment.resources
+D:\ASCIITeamERP\ASCIITeam-ERP-2018-2019\ERP-ASCIITeam\ERP\obj\Debug\ERP.Presentacion.CashBook.Validations.ValidateHistory.resources

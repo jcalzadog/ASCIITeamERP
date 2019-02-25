@@ -17,7 +17,7 @@ namespace ERP
         ////////////////////  DRIVER //////////////////////
         ////////////////////////////////////////////////////////////
         const String driver = "Data Source=(DESCRIPTION ="
-        + "(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = LOCALHOST )(PORT = 1521)))"
+        + "(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1 )(PORT = 1521)))"
         + "(CONNECT_DATA = (SERVICE_NAME = xe))); "
         + "User Id=videogamesERP; Password=88888888;";
 

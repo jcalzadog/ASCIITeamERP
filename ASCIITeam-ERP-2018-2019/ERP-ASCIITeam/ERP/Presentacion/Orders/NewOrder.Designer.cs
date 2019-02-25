@@ -45,8 +45,8 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtPrepaid = new System.Windows.Forms.TextBox();
+            this.ckTotallyPaid = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,29 +237,32 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(75, 540);
+            this.label2.Location = new System.Drawing.Point(76, 540);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Prepaid=";
+            this.label2.Text = "Prepaid =";
             // 
-            // textBox1
+            // txtPrepaid
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 540);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 13;
+            this.txtPrepaid.Location = new System.Drawing.Point(144, 537);
+            this.txtPrepaid.Name = "txtPrepaid";
+            this.txtPrepaid.Size = new System.Drawing.Size(100, 20);
+            this.txtPrepaid.TabIndex = 13;
+            this.txtPrepaid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrepaid_KeyPress);
+            this.txtPrepaid.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPrepaid_KeyUp);
             // 
-            // checkBox1
+            // ckTotallyPaid
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(256, 542);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(92, 17);
-            this.checkBox1.TabIndex = 14;
-            this.checkBox1.Text = "Totally paid";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckTotallyPaid.AutoSize = true;
+            this.ckTotallyPaid.Location = new System.Drawing.Point(256, 542);
+            this.ckTotallyPaid.Name = "ckTotallyPaid";
+            this.ckTotallyPaid.Size = new System.Drawing.Size(92, 17);
+            this.ckTotallyPaid.TabIndex = 14;
+            this.ckTotallyPaid.Text = "Totally paid";
+            this.ckTotallyPaid.UseVisualStyleBackColor = true;
+            this.ckTotallyPaid.CheckedChanged += new System.EventHandler(this.ckTotallyPaid_CheckedChanged);
             // 
             // NewOrder
             // 
@@ -269,8 +272,8 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(752, 585);
             this.ControlBox = false;
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ckTotallyPaid);
+            this.Controls.Add(this.txtPrepaid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblDate);
@@ -317,7 +320,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn salePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtPrepaid;
+        private System.Windows.Forms.CheckBox ckTotallyPaid;
     }
 }

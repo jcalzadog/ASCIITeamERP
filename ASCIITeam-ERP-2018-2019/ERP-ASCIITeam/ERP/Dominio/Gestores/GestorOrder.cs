@@ -72,7 +72,7 @@ namespace ERP.Dominio.Gestores
                 idStatus++;
             }
 
-            conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+o.prepaid+"', '0')");
+            conector.setData("INSERT INTO ORDERS VALUES ('"+idOrder+"', '"+o.refCustomer+"', '"+o.refUser+ "', sysdate,'"+o.refPayMethod+"', '"+o.total+"', '"+(o.prepaid.ToString().Replace('.',','))+"', '0')");
             conector.setData("INSERT INTO ORDERS_STATUS VALUES ('" + idStatus + "', '" + idOrder + "', '0')");
             // se podria usar la fecha del objeto pero suponemos que en la insercion es la fecha del pedido por el momento, en futuras versiones quizas permita cambiar fecha
             return idOrder;

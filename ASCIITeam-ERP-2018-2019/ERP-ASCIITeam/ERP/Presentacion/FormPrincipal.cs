@@ -1769,7 +1769,7 @@ namespace ERP
         {
             if (dgvOrders.SelectedRows.Count == 1)
             {
-                ViewOrder viewer = new ViewOrder(dgvOrders.SelectedRows[0].Cells[0].Value.ToString());
+                ViewOrder viewer = new ViewOrder(dgvOrders.SelectedRows[0].Cells[10].Value.ToString());
                 viewer.ShowDialog();
             }
         }
