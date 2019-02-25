@@ -81,5 +81,16 @@ namespace ERP.Dominio.Gestores
             conector.setData("INSERT INTO ORDERSPRODUCTS VALUES ('" + idDetail + "', '" +idOrder + "', '" + d.RefProduct + "', '"+d.Amount + "', '" + d.Pricesale + "')");
         }
 
+        public decimal getstatus(decimal idOrder)
+        {
+            decimal status = Convert.ToDecimal(conector.DLookUp("STATUS", "ORDERS_STATUS", "REFORDER='" + idOrder + "'"));
+            return status;
+        }
+
+        public void putstatus(decimal idOrder, decimal status)
+        {
+            conector.setData("UPDATE ORDERS_STATUS SET STATUS="+status+ " WHERE REFORDER=" + idOrder);
+        }
+
     }
 }

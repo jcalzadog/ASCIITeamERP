@@ -358,14 +358,12 @@ namespace ERP
             dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
             dgvOrders.Columns.Add("ID", "ID");
 
+            int i = 0;
             foreach (DataRow row in tOrders.Rows)
             {
                 dgvOrders.Rows.Add(row["DAT"], row["PREPAID"], row["REST"], row["TOTAL"],row,row, row, row
                     , row["SURNAME"], row["PAYMETHOD"], row["ID"]);
-            }
 
-            for (int i = 0; i < dgvOrders.Rows.Count; i++)
-            {
                 dgvOrders.Rows[i].Cells[4].Value = "";
                 dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Red;
 
@@ -377,7 +375,37 @@ namespace ERP
 
                 dgvOrders.Rows[i].Cells[7].Value = "";
                 dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Red;
+
+                //decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(dgvOrders.Rows[i].Cells[10].Value));
+                decimal statusRow = Convert.ToDecimal(Convert.ToString(row["ID"]));
+                switch (Convert.ToInt32(statusRow))
+                {
+                    case 1:
+                        dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        break;
+                    case 2:
+                        dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        break;
+                    case 3:
+                        dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Green;
+                        break;
+                    case 4:
+                        dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Green;
+                        dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Green;
+                        break;
+                }
+                i++;
             }
+
+            //for (int i = 0; i < dgvOrders.Rows.Count; i++)
+            //{
+                
+            //}
             dgvOrders.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
@@ -390,7 +418,7 @@ namespace ERP
 
             dgvOrders.ReadOnly = true;
 
-            dgvOrders.Sort(dgvOrders.Columns[0],ListSortDirection.Descending);
+            dgvOrders.Sort(dgvOrders.Columns[10],ListSortDirection.Descending);
 
         }
 
@@ -1755,7 +1783,7 @@ namespace ERP
             if (filaOrders >= 0)
             {
 
-                string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[0].Value).ToString();
+                string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
                 DeleteOrder dlg = new DeleteOrder();
                 dlg.ShowDialog();
                 if (dlg.Acept)
@@ -2791,6 +2819,9 @@ namespace ERP
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }
+
+                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+
                         break;
                     case 5:
                         if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
@@ -2803,6 +2834,8 @@ namespace ERP
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }
+
+                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
                         break;
                     case 6:
                         if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
@@ -2815,6 +2848,8 @@ namespace ERP
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }
+
+                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
                         break;
                     case 7:
                         if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
@@ -2827,6 +2862,8 @@ namespace ERP
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }
+
+                        orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
                         break;
                 }
             }
