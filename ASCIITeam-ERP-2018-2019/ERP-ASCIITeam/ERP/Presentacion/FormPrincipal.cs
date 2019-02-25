@@ -2815,7 +2815,7 @@ namespace ERP
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                             dgv.ClearSelection();
 
-                            if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0)
+                            if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
                             {
                                 if(Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0)
                                 {
@@ -2823,7 +2823,11 @@ namespace ERP
                                     incomes.gestorIncome.newIncome(new Dominio.Income(0, dateTime, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
                                 }
                                 
-                            }else
+                            }else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
+                            {
+                                DateTime dateTime = new DateTime();
+                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, dateTime, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+                            } else
                             {
                                 VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
                                 vp.ShowDialog();
