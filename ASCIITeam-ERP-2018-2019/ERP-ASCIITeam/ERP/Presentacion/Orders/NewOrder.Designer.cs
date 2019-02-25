@@ -44,6 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +84,7 @@
             this.txtNameCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameCustomer.Name = "txtNameCustomer";
             this.txtNameCustomer.ReadOnly = true;
-            this.txtNameCustomer.Size = new System.Drawing.Size(180, 23);
+            this.txtNameCustomer.Size = new System.Drawing.Size(180, 20);
             this.txtNameCustomer.TabIndex = 2;
             // 
             // cboPayMethods
@@ -91,7 +94,7 @@
             this.cboPayMethods.Location = new System.Drawing.Point(78, 118);
             this.cboPayMethods.Margin = new System.Windows.Forms.Padding(4);
             this.cboPayMethods.Name = "cboPayMethods";
-            this.cboPayMethods.Size = new System.Drawing.Size(180, 25);
+            this.cboPayMethods.Size = new System.Drawing.Size(180, 21);
             this.cboPayMethods.TabIndex = 3;
             // 
             // btnSelectCustomer
@@ -180,7 +183,7 @@
             this.lbltextototal.Location = new System.Drawing.Point(504, 96);
             this.lbltextototal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltextototal.Name = "lbltextototal";
-            this.lbltextototal.Size = new System.Drawing.Size(54, 17);
+            this.lbltextototal.Size = new System.Drawing.Size(43, 13);
             this.lbltextototal.TabIndex = 7;
             this.lbltextototal.Text = "Total=";
             // 
@@ -204,7 +207,7 @@
             this.label1.Location = new System.Drawing.Point(495, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Date:";
             // 
@@ -215,7 +218,7 @@
             this.lblDate.Location = new System.Drawing.Point(561, 58);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(104, 17);
+            this.lblDate.Size = new System.Drawing.Size(89, 13);
             this.lblDate.TabIndex = 10;
             this.lblDate.Text = "DD/MM/YYYY";
             // 
@@ -226,18 +229,49 @@
             this.lblTotal.Location = new System.Drawing.Point(561, 96);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(40, 17);
+            this.lblTotal.Size = new System.Drawing.Size(32, 13);
             this.lblTotal.TabIndex = 11;
             this.lblTotal.Text = "0.00";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(75, 540);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Prepaid=";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(140, 540);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 13;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(256, 542);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 17);
+            this.checkBox1.TabIndex = 14;
+            this.checkBox1.Text = "Totally paid";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // NewOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(752, 585);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label1);
@@ -282,5 +316,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn salePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
