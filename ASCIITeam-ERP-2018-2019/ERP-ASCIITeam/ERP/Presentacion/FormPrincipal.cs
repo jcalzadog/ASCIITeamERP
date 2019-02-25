@@ -344,29 +344,28 @@ namespace ERP
 
             DataTable tOrders = orders.gestorOrder.tOrders;
 
-            dgvOrders.Columns.Add("ID", "ID");
-            dgvOrders.Columns.Add("SURNAME", "SURNAME");
-            dgvOrders.Columns.Add("USERNAME", "USERNAME");
+            dgvOrders.Columns.Add("DAT", "DAT");
+
+            //dgvOrders.Columns.Add("USERNAME", "USERNAME");
+            dgvOrders.Columns.Add("PREPAID", "PREPAID");
+            dgvOrders.Columns.Add("REST", "REST");
+            dgvOrders.Columns.Add("TOTAL", "TOTAL");
             dgvOrders.Columns.Add("", "CONFIRMED");
             dgvOrders.Columns.Add("", "LABELED");
             dgvOrders.Columns.Add("", "SENT");
             dgvOrders.Columns.Add("", "INVOICED");
+            dgvOrders.Columns.Add("SURNAME", "SURNAME");
             dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
-            dgvOrders.Columns.Add("DAT", "DAT");
-            dgvOrders.Columns.Add("TOTAL", "TOTAL");
-            dgvOrders.Columns.Add("PREPAID", "PREPAID");
+            dgvOrders.Columns.Add("ID", "ID");
 
             foreach (DataRow row in tOrders.Rows)
             {
-                dgvOrders.Rows.Add(row["ID"], row["SURNAME"], row["USERNAME"],row,row, row, row
-                    , row["PAYMETHOD"], row["DAT"], row["TOTAL"], row["PREPAID"]);
+                dgvOrders.Rows.Add(row["DAT"], row["PREPAID"], row["REST"], row["TOTAL"],row,row, row, row
+                    , row["SURNAME"], row["PAYMETHOD"], row["ID"]);
             }
-            
-            for(int i = 0;i< dgvOrders.Rows.Count; i++)
-            {
-                dgvOrders.Rows[i].Cells[3].Value = "";
-                dgvOrders.Rows[i].Cells[3].Style.BackColor = Color.Red;
 
+            for (int i = 0; i < dgvOrders.Rows.Count; i++)
+            {
                 dgvOrders.Rows[i].Cells[4].Value = "";
                 dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Red;
 
@@ -375,11 +374,14 @@ namespace ERP
 
                 dgvOrders.Rows[i].Cells[6].Value = "";
                 dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Red;
+
+                dgvOrders.Rows[i].Cells[7].Value = "";
+                dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Red;
             }
-            dgvOrders.Columns[3].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
             dgvOrders.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOrders.Columns[7].DefaultCellStyle.SelectionBackColor = Color.Transparent;
 
             dgvOrders.RowHeadersVisible = false;
             dgvOrders.AllowUserToAddRows = false;
@@ -1813,20 +1815,6 @@ namespace ERP
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             filaOrders = e.RowIndex;
-
-            //PARA CAMBIO DE COLOR
-            DataGridView dgv = sender as DataGridView;
-
-            if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
-            {
-                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                dgv.ClearSelection();
-            }
-            else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
-            {
-                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                dgv.ClearSelection();
-            }
         }
 
         private void txtSearchOrder_Enter(object sender, EventArgs e)
@@ -2781,6 +2769,66 @@ namespace ERP
                 }
                 filtroTotalDebts();
                 filtroTotalExpense();
+            }
+        }
+
+        private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //PARA CAMBIO DE COLOR
+            DataGridView dgv = sender as DataGridView;
+            if(e.ColumnIndex >=0 && e.RowIndex >= 0)
+            {
+                switch (e.ColumnIndex)
+                {
+                    case 4:
+                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
+                        }
+                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        break;
+                    case 5:
+                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
+                        }
+                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        break;
+                    case 6:
+                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
+                        }
+                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        break;
+                    case 7:
+                        if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Red)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            dgv.ClearSelection();
+                        }
+                        else if (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                        {
+                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            dgv.ClearSelection();
+                        }
+                        break;
+                }
             }
         }
     }
