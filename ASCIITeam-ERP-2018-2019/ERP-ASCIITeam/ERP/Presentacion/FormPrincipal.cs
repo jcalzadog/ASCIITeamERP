@@ -2830,16 +2830,18 @@ namespace ERP
                             }
                             else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
                             {
-                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+                                //pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
 
-                                //Cambiar status y color
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
+                                ////Cambiar status y color
+                                //orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                //dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                //dgv.ClearSelection();
 
-                                //Recargo Pendiente de Pago.
-                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
-                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                                ////Recargo Pendiente de Pago.
+                                //pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                //dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do the action.");
+                                vp.ShowDialog();
                             }
                             else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
                             {
@@ -2908,16 +2910,16 @@ namespace ERP
 
                         if (statusRow == 1)
                         {
+                            //Cambiar status y color
                             orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
-
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                             dgv.ClearSelection();
 
                         }
                         else if (statusRow == 2)
                         {
+                            //Cambiar status y color
                             orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }
@@ -2935,16 +2937,35 @@ namespace ERP
 
                         if (statusRow == 2)
                         {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
 
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
+                            //SENTENCIA ACTUALIZAR --> UPDATE PRODUCTS P SET P.STOCK=(
+                            //SELECT(P.STOCK - O.AMOUNT)
+                            //FROM ORDERSPRODUCTS O
+                            //WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9);
+
+                            bool posible = orders.gestorOrder.restarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
+
+                            if (posible)
+                            {
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
+                            } else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action. There are not enough Stocks.");
+                                vp.ShowDialog();
+                            }
+
 
                         }
                         else if (statusRow == 3)
                         {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
 
+                            orders.gestorOrder.sumarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
+
+                            //Cambiar status y color
+                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
                             dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                             dgv.ClearSelection();
                         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.Linq;
 
 namespace ERP.Dominio.Gestores
 {
@@ -105,6 +106,30 @@ namespace ERP.Dominio.Gestores
         public void putstatus(decimal idOrder, decimal status)
         {
             conector.setData("UPDATE ORDERS_STATUS SET STATUS="+status+ " WHERE REFORDER=" + idOrder);
+        }
+
+        public bool restarStock(decimal idOrder)
+        {
+            bool posible = true;
+            //conector.setData("UPDATE PRODUCTS P SET P.STOCK=(SELECT(P.STOCK - O.AMOUNT) FROM ORDERSPRODUCTS O WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER=" + idOrder + ")");
+            conector.setData("UPDATE PRODUCTS P SET P.STOCK = ( SELECT(P.STOCK - O.AMOUNT) FROM ORDERSPRODUCTS O WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9) WHERE P.IDPRODUCT IN (SELECT PR.IDPRODUCT FROM PRODUCTS PR INNER JOIN ORDERSPRODUCTS OS ON PR.IDPRODUCT = OS.REFPRODUCT WHERE OS.REFORDER =" + idOrder + ")");
+            String query = "SELECT STOCK FROM PRODUCTS P INNER JOIN ORDERSPRODUCTS O ON P.IDPRODUCT= O.REFPRODUCT WHERE O.REFORDER=" + idOrder;
+            DataSet data = conector.getData(query, "PRODUCTS P INNER JOIN ORDERSPRODUCTS O ON P.IDPRODUCT= O.REFPRODUCT");
+            int[] arrayStocks= data.Tables[0].AsEnumerable().Select(r => r.Field<int>("STOCK")).ToArray();
+
+            for(int i = 0; i < arrayStocks.Length; i++)
+            {
+                if (arrayStocks[i] < 0)
+                {
+                    posible = false;
+                }
+            }
+            return posible;
+        }
+
+        public void sumarStock(decimal idOrder)
+        {
+            conector.setData("UPDATE PRODUCTS P SET P.STOCK = ( SELECT(P.STOCK + O.AMOUNT) FROM ORDERSPRODUCTS O WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9) WHERE P.IDPRODUCT IN (SELECT PR.IDPRODUCT FROM PRODUCTS PR INNER JOIN ORDERSPRODUCTS OS ON PR.IDPRODUCT = OS.REFPRODUCT WHERE OS.REFORDER =" + idOrder + ")");
         }
 
     }
