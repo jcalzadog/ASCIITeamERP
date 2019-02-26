@@ -14,6 +14,7 @@ namespace ERP.Presentacion.Orders
         decimal idCustomer;
         decimal userId;
         decimal idPayMethod;
+        bool editing;
         DateTime date;
         Order order;
         List<DetailOrder> details;
@@ -46,6 +47,17 @@ namespace ERP.Presentacion.Orders
             date = DateTime.UtcNow.Date;
             lblDate.Text = date.ToString("dd/MM/yyyy");
             details = new List<DetailOrder>();
+            editing = false;
+        }
+        /// <summary>
+        /// Constructor del formulario de pedido para el caso de estar editando en lugar de creando una nueva, deshabilita el boton de seleccionar cliente
+        /// ademas en caso de luego guardar cambios verifica el estado de confirmacion y se lo quita
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="orderId"></param>
+        public NewOrder(Object userId, Object orderId)
+        {
+
         }
 
         private void btnSelectCustomer_Click(object sender, EventArgs e)
@@ -197,6 +209,23 @@ namespace ERP.Presentacion.Orders
             if (decimal.Parse(txtPrepaid.Text == "" ? "0" : txtPrepaid.Text) >decimal.Parse(lblTotal.Text==""? "0" : lblTotal.Text))
             {
                 txtPrepaid.Text = "";
+            }
+        }
+
+        private void cboPayMethods_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboPayMethods.Text.Equals("Cash on Delivery"))
+            {
+                txtPrepaid.Text = "";
+                txtPrepaid.Enabled = false;
+                ckTotallyPaid.Checked = false;
+                ckTotallyPaid.Enabled = false;
+            } else
+            {
+
+                txtPrepaid.Enabled = true;
+                ckTotallyPaid.Checked = false;
+                ckTotallyPaid.Enabled = true;
             }
         }
     }

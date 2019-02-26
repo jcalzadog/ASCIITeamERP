@@ -96,6 +96,7 @@
             this.cboPayMethods.Name = "cboPayMethods";
             this.cboPayMethods.Size = new System.Drawing.Size(180, 21);
             this.cboPayMethods.TabIndex = 3;
+            this.cboPayMethods.SelectedValueChanged += new System.EventHandler(this.cboPayMethods_SelectedValueChanged);
             // 
             // btnSelectCustomer
             // 
