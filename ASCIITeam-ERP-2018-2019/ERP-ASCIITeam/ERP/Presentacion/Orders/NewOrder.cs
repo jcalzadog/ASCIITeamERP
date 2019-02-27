@@ -3,6 +3,7 @@ using ERP.Dominio.Gestores;
 using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,8 +14,7 @@ namespace ERP.Presentacion.Orders
     {
         decimal idCustomer;
         decimal userId;
-        decimal idPayMethod;
-        bool editing;
+        Order editingOrder;
         DateTime date;
         Order order;
         List<DetailOrder> details;
@@ -47,7 +47,8 @@ namespace ERP.Presentacion.Orders
             date = DateTime.UtcNow.Date;
             lblDate.Text = date.ToString("dd/MM/yyyy");
             details = new List<DetailOrder>();
-            editing = false;
+            editingOrder = null;
+            order = new Order();
         }
         /// <summary>
         /// Constructor del formulario de pedido para el caso de estar editando en lugar de creando una nueva, deshabilita el boton de seleccionar cliente
@@ -55,9 +56,23 @@ namespace ERP.Presentacion.Orders
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="orderId"></param>
-        public NewOrder(Object userId, Object orderId)
+        public NewOrder(Object userId, Object orderId) : this (userId)
         {
-
+            this.Text = "Edit order ID" + orderId;
+            editingOrder = order.gestorOrder.getOrder(decimal.Parse((string) orderId));
+            btnSelectCustomer.Enabled = false;
+            foreach (DataRow row in order.gestorOrder.getOrderCart(decimal.Parse((string)orderId)).Rows)
+            {
+                dgvCart.Rows.Add(row[0], row[1], row[2], row[3]);
+            }
+            details = order.gestorOrder.getDetails(decimal.Parse((string)orderId));
+            //establecer total fecha prepagado, lista de objetos , metodo de pago
+            lblTotal.Text = editingOrder.total.ToString();
+            lblDate.Text = editingOrder.date.ToString("dd/MM/yyyy");
+            cboPayMethods.SelectedIndex = Decimal.ToInt16(editingOrder.refPayMethod) - 1;
+            txtNameCustomer.Text = "Customer with ID:" + editingOrder.refCustomer.ToString();
+            txtPrepaid.Text = editingOrder.prepaid.ToString();
+            idCustomer = editingOrder.refCustomer;
         }
 
         private void btnSelectCustomer_Click(object sender, EventArgs e)
@@ -95,9 +110,24 @@ namespace ERP.Presentacion.Orders
             }
             else 
             {
-                order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), decimal.Parse(txtPrepaid.Text.Equals("") ? "0" : txtPrepaid.Text), 0);
-                //GestorOrder gestor = new GestorOrder();
-                decimal id = order.gestorOrder.insertOrder(order);
+                decimal id=0;
+                if (editingOrder == null)
+                {
+                    order = new Dominio.Order(0, idCustomer, userId, DateTime.Now, cboPayMethods.SelectedIndex + 1, Convert.ToDecimal(lblTotal.Text), decimal.Parse(txtPrepaid.Text.Equals("") ? "0" : txtPrepaid.Text), 0);
+                    //GestorOrder gestor = new GestorOrder();
+                    id = order.gestorOrder.insertOrder(order);
+                }
+                else
+                {
+                    editingOrder.refPayMethod = cboPayMethods.SelectedIndex + 1;
+                    editingOrder.total = Convert.ToDecimal(lblTotal.Text);
+                    editingOrder.prepaid = Convert.ToDecimal(txtPrepaid.Text);
+                    id = editingOrder.id;
+                    order.gestorOrder.deleteDetails(id);
+                    order.gestorOrder.updateOrder(editingOrder);
+                    
+                }
+                
                 foreach (DetailOrder d in details)
                 {
                     order.gestorOrder.insertDetail(d, id);

@@ -3015,13 +3015,12 @@ namespace ERP
         {
             if (dgvOrders.SelectedRows.Count == 1)
             {
-                ViewOrder viewer = new ViewOrder(dgvOrders.SelectedRows[0].Cells[10].Value.ToString());
-                viewer.ShowDialog();
+                Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(idUsuarioLogueado, dgvOrders.SelectedRows[0].Cells[10].Value.ToString());
+                dialogNewOrder.ShowDialog();
+                txtSearchOrder.Text = "";
+                cargarTablaOrders("");
             }
-            Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(idUsuarioLogueado);
-            dialogNewOrder.ShowDialog();
-            txtSearchOrder.Text = "";
-            cargarTablaOrders("");
+            
         }
     }
 }
