@@ -203,7 +203,7 @@ namespace ERP.Dominio.Gestores
             Decimal idRol_Permits = (Decimal)conector.DLookUp("MAX(IDROLPERM)", "ROL_PERM", "");
             idRol_Permits += 1;
 
-            int[] modelo = { 0, 0, 0, 0, 0, 0, 0 };
+            int[] modelo = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
             int checkedPermit = 0;
             foreach (DataGridViewRow row in dgvPermissions.Rows)

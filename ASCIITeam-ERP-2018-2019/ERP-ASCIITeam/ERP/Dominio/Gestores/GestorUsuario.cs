@@ -127,7 +127,7 @@ namespace ERP.Dominio.Gestores
             
             //MessageBox.Show(rol.ToString());
 
-            Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", "");
+            Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", " NAME LIKE '%MANAGEMENT%'");
 
             //taboage de 1 a 6
             Decimal tienePermiso = 0;

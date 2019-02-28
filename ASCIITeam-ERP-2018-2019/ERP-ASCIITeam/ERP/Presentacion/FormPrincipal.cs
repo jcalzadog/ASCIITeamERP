@@ -3015,10 +3015,19 @@ namespace ERP
         {
             if (dgvOrders.SelectedRows.Count == 1)
             {
-                Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(idUsuarioLogueado, dgvOrders.SelectedRows[0].Cells[10].Value.ToString());
-                dialogNewOrder.ShowDialog();
-                txtSearchOrder.Text = "";
-                cargarTablaOrders("");
+                decimal status = orders.gestorOrder.getstatus(Convert.ToDecimal(dgvOrders.SelectedRows[0].Cells[10].Value));
+                if (status > 0)
+                {
+                    VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                    vp.ShowDialog();
+                } else
+                {
+                    Presentacion.Orders.NewOrder dialogNewOrder = new Presentacion.Orders.NewOrder(idUsuarioLogueado, dgvOrders.SelectedRows[0].Cells[10].Value.ToString());
+                    dialogNewOrder.ShowDialog();
+                    txtSearchOrder.Text = "";
+                    cargarTablaOrders("");
+                }
+
             }
             
         }
