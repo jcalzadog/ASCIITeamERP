@@ -37,16 +37,16 @@ namespace ERP.Dominio.Gestores
 
             if (condicion.Equals(""))
             {
-                data = conector.getData("SELECT PR.IDPRODUCT, PR.NAME NAME,C.NAME CATEGORY,PL.NAME PLATFORM,PR.MINIMUMAGE PEGI,PR.PRICE PRICE FROM PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM", "PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM");
+                data = conector.getData("SELECT PR.IDPRODUCT, PR.NAME NAME,C.NAME CATEGORY,PL.NAME PLATFORM,PR.MINIMUMAGE PEGI,PR.PRICE PRICE, PR.STOCK STOCK FROM PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM", "PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM");
             }
             else
             {
-                data = conector.getData("SELECT PR.IDPRODUCT, PR.NAME NAME,C.NAME CATEGORY,PL.NAME PLATFORM,PR.MINIMUMAGE PEGI,PR.PRICE PRICE FROM PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM WHERE" + condicion, "PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM");
+                data = conector.getData("SELECT PR.IDPRODUCT, PR.NAME NAME,C.NAME CATEGORY,PL.NAME PLATFORM,PR.MINIMUMAGE PEGI,PR.PRICE PRICE, PR.STOCK STOCK FROM PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM WHERE" + condicion, "PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM");
             }
             tabla = data.Tables["PRODUCTS PR INNER JOIN CATEGORIES C ON PR.IDCATEGORY = C.IDCATEGORY INNER JOIN PLATFORMS PL ON PR.IDPLATFORM = PL.IDPLATFORM"];
         }
 
-        public Boolean nuevoProducto(Producto P)//(String name, String nomCat, String nomPlat, int pegi, int price)
+        public Boolean nuevoProducto(Producto P)//(String name, String nomCat, String nomPlat, int pegi, int price, int stock)
         {
             Decimal idCat = (Decimal)conector.DLookUp("IDCATEGORY", "CATEGORIES", "NAME = '" + P.nomCategory + "'");
             Decimal idPlat = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + P.nomPlatform + "'");
@@ -65,7 +65,7 @@ namespace ERP.Dominio.Gestores
                     idProduct = (Decimal)conector.DLookUp("MAX(IDPRODUCT)", "PRODUCTS", "");
                 }
 
-                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + P.name + "'," + idCat + "," + idPlat + "," + P.miniNumage + "," + P.prize + "," + 0 + ")";
+                String sentencia = "INSERT INTO PRODUCTS VALUES(" + (idProduct + 1) + ",'" + P.name + "'," + idCat + "," + idPlat + "," + P.miniNumage + "," + P.prize + "," + 0 + "," + P.stock + ")";
                 conector.setData(sentencia);
 
                 existe = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "NAME='" + P.name + "' AND IDCATEGORY = " + idCat + " AND IDPLATFORM = " + idPlat);

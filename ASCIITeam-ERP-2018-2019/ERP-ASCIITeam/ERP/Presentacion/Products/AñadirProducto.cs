@@ -48,6 +48,7 @@ namespace ERP.Presentacion.Products
             product.nomPlatform = cmbPlatform.SelectedItem.ToString();
             product.miniNumage = Int32.Parse(txtPegi.Text);
             product.prize = Int32.Parse(txtPrice.Text);
+            product.stock = Int32.Parse(txtStock.Text);
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Int32.Parse(txtPegi.Text),Int32.Parse(txtPrice.Text));
             if (creado)
             {
@@ -57,6 +58,7 @@ namespace ERP.Presentacion.Products
                 cmbPlatform.SelectedIndex = 0;
                 txtPegi.Text = "";
                 txtPrice.Text = "";
+                txtStock.Text = "";
             }
             
         }
@@ -69,6 +71,7 @@ namespace ERP.Presentacion.Products
             product.nomPlatform = cmbPlatform.SelectedItem.ToString();
             product.miniNumage = Int32.Parse(txtPegi.Text);
             product.prize = Int32.Parse(txtPrice.Text);
+            product.stock = Int32.Parse(txtStock.Text);
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
             if (creado)
             {

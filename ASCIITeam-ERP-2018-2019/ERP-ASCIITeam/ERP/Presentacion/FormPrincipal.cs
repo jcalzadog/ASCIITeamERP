@@ -51,6 +51,8 @@ namespace ERP
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
 
+        public static int eliminadoOrders = 0;
+
         public static String dniFilaSeleccionadaClientes = "";
         public static String nameFilaSellecionadaClientes = "";
         public static String surnameFilaSeleccionadaClientes = "";
@@ -320,10 +322,11 @@ namespace ERP
             dgvProducts.Columns.Add("IDPLATFORM", "PLATFORM");
             dgvProducts.Columns.Add("MINIMUMAGE", "PEGI");
             dgvProducts.Columns.Add("PRICE", "PRICE");
+            dgvProducts.Columns.Add("STOCK", "STOCK");
 
             foreach (DataRow row in tproduct.Rows)
             {
-                dgvProducts.Rows.Add(row["NAME"], row["CATEGORY"], row["PLATFORM"], row["PEGI"], row["PRICE"]);
+                dgvProducts.Rows.Add(row["NAME"], row["CATEGORY"], row["PLATFORM"], row["PEGI"], row["PRICE"], row["STOCK"]);
             }
 
             dgvProducts.RowHeadersVisible = false;
@@ -339,7 +342,7 @@ namespace ERP
         {
             dgvOrders.Columns.Clear();
 
-            orders.gestorOrder.leerOrders(condicion);
+            orders.gestorOrder.leerOrders(condicion,eliminadoOrders);
 
 
             DataTable tOrders = orders.gestorOrder.tOrders;
@@ -417,6 +420,89 @@ namespace ERP
             dgvOrders.Sort(dgvOrders.Columns[10],ListSortDirection.Descending);
 
         }
+
+        //private void cargarTablaOrders(string condicion,int eliminado)
+        //{
+        //    dgvOrders.Columns.Clear();
+
+        //    orders.gestorOrder.leerOrders(condicion, eliminado);
+
+
+        //    DataTable tOrders = orders.gestorOrder.tOrders;
+
+        //    dgvOrders.Columns.Add("DAT", "DAT");
+
+        //    //dgvOrders.Columns.Add("USERNAME", "USERNAME");
+        //    dgvOrders.Columns.Add("PREPAID", "PREPAID");
+        //    dgvOrders.Columns.Add("REST", "REST");
+        //    dgvOrders.Columns.Add("TOTAL", "TOTAL");
+        //    dgvOrders.Columns.Add("", "CONFIRMED");
+        //    dgvOrders.Columns.Add("", "LABELED");
+        //    dgvOrders.Columns.Add("", "SENT");
+        //    dgvOrders.Columns.Add("", "INVOICED");
+        //    dgvOrders.Columns.Add("SURNAME", "SURNAME");
+        //    dgvOrders.Columns.Add("PAYMETHOD", "PAYMETHOD");
+        //    dgvOrders.Columns.Add("ID", "ID");
+
+        //    int i = 0;
+        //    foreach (DataRow row in tOrders.Rows)
+        //    {
+        //        dgvOrders.Rows.Add(row["DAT"], row["PREPAID"], row["REST"], row["TOTAL"], row, row, row, row
+        //            , row["SURNAME"], row["PAYMETHOD"], row["ID"]);
+
+        //        dgvOrders.Rows[i].Cells[4].Value = "";
+        //        dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Red;
+
+        //        dgvOrders.Rows[i].Cells[5].Value = "";
+        //        dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Red;
+
+        //        dgvOrders.Rows[i].Cells[6].Value = "";
+        //        dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Red;
+
+        //        dgvOrders.Rows[i].Cells[7].Value = "";
+        //        dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Red;
+
+        //        //decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(dgvOrders.Rows[i].Cells[10].Value));
+        //        decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(Convert.ToString(row["ID"])));
+        //        switch (Convert.ToInt32(statusRow))
+        //        {
+        //            case 1:
+        //                dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+        //                break;
+        //            case 2:
+        //                dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+        //                break;
+        //            case 3:
+        //                dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Green;
+        //                break;
+        //            case 4:
+        //                dgvOrders.Rows[i].Cells[4].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[5].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[6].Style.BackColor = Color.Green;
+        //                dgvOrders.Rows[i].Cells[7].Style.BackColor = Color.Green;
+        //                break;
+        //        }
+        //        i++;
+        //    }
+
+        //    dgvOrders.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+        //    dgvOrders.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+        //    dgvOrders.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+        //    dgvOrders.Columns[7].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+
+        //    dgvOrders.RowHeadersVisible = false;
+        //    dgvOrders.AllowUserToAddRows = false;
+        //    dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    dgvOrders.BackgroundColor = Color.Black;
+
+        //    dgvOrders.ReadOnly = true;
+
+        //    dgvOrders.Sort(dgvOrders.Columns[10], ListSortDirection.Descending);
+
+        //}
 
         private void cargarTablaClientes(String condicion)
         {
@@ -888,7 +974,12 @@ namespace ERP
             //Orders
             aparienciaBotones(btnNewOrder);
             aparienciaBotones(btnViewDetails);
+            aparienciaBotones(btnEditOrder);
             aparienciaBotones(btnDeleteOrder);
+            aparienciaBotones(btnResOrders);
+            btnResOrders.Enabled = false;
+            btnResOrders.BackColor = Color.DarkOrange;
+
 
 
             //Productos
@@ -3070,6 +3161,56 @@ namespace ERP
 
             }
             
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+            if (ckbDeletedOrder.CheckState == CheckState.Checked)
+            {
+                eliminadoOrders = 1;
+                btnDeleteOrder.Enabled = false;
+                btnDeleteOrder.BackColor = Color.DarkOrange;
+
+                btnResOrders.Enabled = true;
+                btnResOrders.BackColor = Color.Black;
+            }
+            else
+            {
+                eliminadoOrders = 0;
+                btnDeleteOrder.Enabled = true;
+                btnDeleteOrder.BackColor = Color.Black;
+
+                btnResOrders.Enabled = false;
+                btnResOrders.BackColor = Color.DarkOrange;
+
+            }
+
+            //Filtrar tabla Order
+                cargarTablaOrders("");
+        }
+
+        private void btnResOrders_Click(object sender, EventArgs e)
+        {
+            if (filaOrders >= 0)
+            {
+
+                string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
+                RestoreOrder dlg = new RestoreOrder();
+                dlg.ShowDialog();
+                if (dlg.Acept)
+                {
+                    orders.gestorOrder.restaurar(id);
+                    MessageBox.Show("Deleted successfully");
+                    cargarTablaOrders("");
+                    ERP.Persistencia.Logs.write("Order " + id + " restored");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("You haven't choose an order, or it can't be restored");
+            }
         }
     }
 }

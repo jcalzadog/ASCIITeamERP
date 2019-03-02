@@ -42,6 +42,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -146,7 +148,7 @@
             // 
             // btnSaveAnother
             // 
-            this.btnSaveAnother.Location = new System.Drawing.Point(35, 236);
+            this.btnSaveAnother.Location = new System.Drawing.Point(35, 258);
             this.btnSaveAnother.Name = "btnSaveAnother";
             this.btnSaveAnother.Size = new System.Drawing.Size(147, 23);
             this.btnSaveAnother.TabIndex = 10;
@@ -158,7 +160,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(194, 236);
+            this.btnSave.Location = new System.Drawing.Point(194, 258);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(135, 23);
             this.btnSave.TabIndex = 12;
@@ -170,7 +172,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(344, 236);
+            this.btnCancel.Location = new System.Drawing.Point(344, 258);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 23);
             this.btnCancel.TabIndex = 11;
@@ -189,13 +191,34 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "*Campos obligatorios";
             // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(193, 204);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(160, 23);
+            this.txtStock.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(105, 204);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 17);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Stock*";
+            // 
             // AñadirProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(568, 270);
+            this.ClientSize = new System.Drawing.Size(568, 303);
             this.ControlBox = false;
+            this.Controls.Add(this.txtStock);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -235,5 +258,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Label label7;
     }
 }
