@@ -119,44 +119,64 @@ namespace ERP.Dominio.Gestores
             dgvUsers.ReadOnly = true;
         }*/
 
-        public void comprobarPermisos(User U,TabControl tbcMenuPrincipal)//(String name,String password,TabControl tbcMenuPrincipal)
+        public void comprobarPermisos(User U, TabControl tbcMenuPrincipal)//(String name,String password,TabControl tbcMenuPrincipal)
         {
             //SELECT R.NAME ROLE FROM USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE WHERE U.NAME='root' AND U.PASSWORD='admin1234';
             //   Object rol = conector.DLookUp("R.IDROLE", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE", "U.NAME='root' AND U.PASSWORD='admin1234'");
             //------------devuelve -1 en vez del id. EHCHO TODO EN UNO ABAJO EN VEZ DE POR PARTES.
-            
+
             //MessageBox.Show(rol.ToString());
 
             Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", " NAME LIKE '%MANAGEMENT%'");
 
-            //taboage de 1 a 6
+            //taboage de 1 a 8
             Decimal tienePermiso = 0;
-            for (int i = 0;i< numPermisos; i++)
+            for (int i = 0; i < numPermisos; i++)
             {
                 //si existe el id role con nombre de ese usuario con el permiso, le permite usarlo.
                 //problema en el rol DE ARRIBA ASIQUE TODO EN 1.
                 //tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND R.IDROLE=" + rol);
-                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.NAME = '"+ U.name+"' AND U.PASSWORD = '"+U.password+"'");
+                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.NAME = '" + U.name + "' AND U.PASSWORD = '" + U.password + "'");
                 if (tienePermiso == 0)
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
                     ((Control)tp).Text = "";
                     ((Control)tp).Enabled = false;
-                    
-                } else
+
+                }
+                else
                 {
                     TabPage tp = tbcMenuPrincipal.TabPages[i + 1];
                     ((Control)tp).Enabled = true;
                 }
             }
+        }
 
+        public int[] comprobarPermisosOrders(User U, int[] permisos)
+        {
 
+            Decimal numPermisosTotales = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", "");
+            Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", " NAME LIKE '%MANAGEMENT%'");
+            
 
-            //Decimal tienePermiso = 0;
-            //if (!Role.Equals(""))
-            //{
-            //    tienePermiso = (Decimal)conexion.DLookUp("COUNT(R.IDROLE)", "ROLES R INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (columnaCheck + 1) + " AND R.NAME='" + Role + "'");
-            //}
+            Decimal tienePermiso = 0;
+            int j = 0;
+            for (int i = Convert.ToInt32(numPermisos); i < numPermisosTotales; i++)
+            {
+                
+                tienePermiso = (Decimal)conector.DLookUp("COUNT(R.IDROLE)", "USERS U INNER JOIN USERS_ROLES A ON U.IDUSER=A.IDUSER INNER JOIN ROLES R ON A.IDROLE=R.IDROLE INNER JOIN ROL_PERM A ON R.IDROLE=A.IDROLE INNER JOIN PERMITS P ON A.IDPERMIT=P.IDPERMIT", "P.IDPERMIT=" + (i + 1) + " AND U.IDUSER = '" + U.idUser + "'");
+                if (tienePermiso == 0)
+                {
+                    permisos[j] = 0;
+
+                }
+                else
+                {
+                    permisos[j] = 1;
+                }
+                j++;
+            }
+            return permisos;
         }
 
         public String loguearse(User U)//(String user,String pass)

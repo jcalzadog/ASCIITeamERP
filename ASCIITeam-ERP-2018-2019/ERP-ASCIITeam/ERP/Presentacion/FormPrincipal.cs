@@ -2798,213 +2798,253 @@ namespace ERP
 
         private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //PARA CAMBIO DE COLOR
             DataGridView dgv = sender as DataGridView;
 
             if (e.ColumnIndex >=0 && e.RowIndex >= 0)
             {
+                int[] permisos = new int[4];
+                usuario.idUser = Convert.ToInt32(idUsuarioLogueado);
+                permisos = usuario.gestorusuario.comprobarPermisosOrders(usuario, permisos);
+
                 decimal statusRow = statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(Convert.ToString(dgvOrders.Rows[e.RowIndex].Cells[10].Value)));
+
+
                 switch (e.ColumnIndex)
                 {
-                    case 4:
-
-                        if (statusRow == 0)
+                    case 4 :
+                        if (permisos[0] == 1) //Controlo que usuario tenga permisos para Confirmar
                         {
-
-
-                            if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0)
+                            if (statusRow == 0)
                             {
 
-                                incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
 
-                                //Cambiar status y color
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-
-                                //Recargo incomes
-                                incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
-                                dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
-
-
-                            }
-                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
-                            {
-                                //pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
-
-                                ////Cambiar status y color
-                                //orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                                //dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                //dgv.ClearSelection();
-
-                                ////Recargo Pendiente de Pago.
-                                //pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
-                                //dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
-                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do the action.");
-                                vp.ShowDialog();
-                            }
-                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery")))
-                            {
-                                pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
-
-                                //Cambiar status y color
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-
-                                //Recargo Pendiente de Pago.
-                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
-                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
-                            }
-                            else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) != 0)
-                            {
-                                incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[1].Value)));
-
-                                //Recargo incomes
-                                incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
-                                dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
-
-                                if(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery"))
+                                if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) == 0) //Caja porque total del pedido pagado
                                 {
-                                    pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
-                                } else
+
+                                    incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value)));
+
+                                    //Cambiar status y color
+                                    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                    dgv.ClearSelection();
+
+                                    //Recargo incomes
+                                    incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
+                                    dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
+
+
+                                }
+                                else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && !(dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery"))) //Nada pagado y NO es contrarrembolso
                                 {
-                                    pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
+                                    //pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+
+                                    ////Cambiar status y color
+                                    //orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                    //dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                    //dgv.ClearSelection();
+
+                                    ////Recargo Pendiente de Pago.
+                                    //pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                    //dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Cant do the action.");
+                                    vp.ShowDialog();
+                                }
+                                else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) == 0 && (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery"))) //Nada pagado y SI es contrarrembolso
+                                {
+                                    pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[3].Value), 0));
+
+                                    //Cambiar status y color
+                                    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                    dgv.ClearSelection();
+
+                                    //Recargo Pendiente de Pago.
+                                    pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                    dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                                }
+                                else if (Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[1].Value) != 0 && Convert.ToInt32(dgvOrders.Rows[e.RowIndex].Cells[2].Value) != 0) //Pagado Parcialmente
+                                {
+                                    incomes.gestorIncome.newIncome(new Dominio.Income(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[1].Value)));
+
+                                    //Recargo incomes
+                                    incomes.gestorIncome.readIncomes("", "", 0, null, null, -1, -1);
+                                    dgvIncomes.DataSource = incomes.gestorIncome.tIncomes;
+
+                                    if (dgvOrders.Rows[e.RowIndex].Cells[9].Value.Equals("Cash on Delivery"))
+                                    {
+                                        pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 0, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
+                                    }
+                                    else
+                                    {
+                                        pendingPayments.gestorPendingPayments.newPendingPayment(new Dominio.PendingPayments(0, DateTime.Today, (decimal)idUsuarioLogueado, 1, "Nº Order" + dgvOrders.Rows[e.RowIndex].Cells[10].Value, Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[2].Value), 0));
+                                    }
+
+                                    //Recargo Pendiente de Pago.
+                                    pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
+                                    dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+
+                                    //Cambiar status y color
+                                    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                    dgv.ClearSelection();
+
+                                }
+                                else
+                                {
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                                    vp.ShowDialog();
                                 }
 
-                                //Recargo Pendiente de Pago.
-                                pendingPayments.gestorPendingPayments.readPendingPayments("", "", 0, null, null, -1);
-                                dgvPendingPayment.DataSource = pendingPayments.gestorPendingPayments.tPPayments;
+                            }// else if (statusRow == 1)  --> ESTO ES QUE TENGA QUE ANULARLO EL OFICINISTA
+                             //{
+                             //    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
 
-                                //Cambiar status y color
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                                dgv.ClearSelection();
-
+                            //    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            //    dgv.ClearSelection();
+                            //} 
+                            else if (statusRow > 1)
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant desconfirm the product.");
+                                vp.ShowDialog();
                             }
                             else
                             {
                                 VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
                                 vp.ShowDialog();
                             }
-                            
-                        }// else if (statusRow == 1)  --> ESTO ES QUE TENGA QUE ANULARLO EL OFICINISTA
-                        //{
-                        //    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 0);
-
-                        //    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                        //    dgv.ClearSelection();
-                        //} 
-                        else if(statusRow>1)
-                        {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant desconfirm the product.");
-                            vp.ShowDialog();
                         } else
                         {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            VentanaPersonalizada vp = new VentanaPersonalizada("You no have permissions to this action.");
                             vp.ShowDialog();
                         }
 
                         break;
                     case 5:
-
-                        if (statusRow == 1)
+                        if (permisos[1] == 1) //Controlo que usuario tenga permisos para Etiquetar
                         {
-                            //Cambiar status y color
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
-
-                        }
-                        else if (statusRow == 2)
-                        {
-                            //Cambiar status y color
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
-                        else if (statusRow > 2)
-                        {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Label the product.");
-                            vp.ShowDialog();
-                        } else
-                        {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
-                            vp.ShowDialog();
-                        }
-                        break;
-                    case 6:
-
-                        if (statusRow == 2)
-                        {
-
-                            //SENTENCIA ACTUALIZAR --> UPDATE PRODUCTS P SET P.STOCK=(
-                            //SELECT(P.STOCK - O.AMOUNT)
-                            //FROM ORDERSPRODUCTS O
-                            //WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9);
-
-                            bool posible = orders.gestorOrder.restarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
-
-                            if (posible)
+                            if (statusRow == 1)
                             {
                                 //Cambiar status y color
-                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
                                 dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                                 dgv.ClearSelection();
-                            } else
+
+                            }
+                            else if (statusRow == 2)
                             {
-                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action. There are not enough Stocks.");
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 1);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+                            else if (statusRow > 2)
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant Label the product.");
                                 vp.ShowDialog();
                             }
-
-
-                        }
-                        else if (statusRow == 3)
-                        {
-
-                            orders.gestorOrder.sumarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
-
-                            //Cambiar status y color
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
-                        else if (statusRow > 3)
-                        {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Sent the product.");
-                            vp.ShowDialog();
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                                vp.ShowDialog();
+                            }
                         } else
                         {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            VentanaPersonalizada vp = new VentanaPersonalizada("You no have permissions to this action.");
                             vp.ShowDialog();
                         }
+
+                        break;
+                    case 6:
+                        if (permisos[2] == 1) //Controlo que usuario tenga permisos para Enviar
+                        {
+                            if (statusRow == 2)
+                            {
+
+                                //SENTENCIA ACTUALIZAR --> UPDATE PRODUCTS P SET P.STOCK=(
+                                //SELECT(P.STOCK - O.AMOUNT)
+                                //FROM ORDERSPRODUCTS O
+                                //WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9);
+
+                                bool posible = orders.gestorOrder.restarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
+
+                                if (posible)
+                                {
+                                    //Cambiar status y color
+                                    orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                    dgv.ClearSelection();
+                                }
+                                else
+                                {
+                                    VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action. There are not enough Stocks.");
+                                    vp.ShowDialog();
+                                }
+
+
+                            }
+                            else if (statusRow == 3)
+                            {
+
+                                orders.gestorOrder.sumarStock(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
+
+                                //Cambiar status y color
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 2);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+                            else if (statusRow > 3)
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant Sent the product.");
+                                vp.ShowDialog();
+                            }
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                                vp.ShowDialog();
+                            }
+                        } else
+                        {
+                            VentanaPersonalizada vp = new VentanaPersonalizada("You no have permissions to this action.");
+                            vp.ShowDialog();
+                        }
+
                         break;
                     case 7:
-
-                        if (statusRow == 3)
+                        if (permisos[3] == 1) //Controlo que usuario tenga permisos para Facturar
                         {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
 
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                            dgv.ClearSelection();
+                            if (statusRow == 3)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 4);
 
-                        }
-                        else if (statusRow == 4)
-                        {
-                            orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                                dgv.ClearSelection();
 
-                            dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                            dgv.ClearSelection();
-                        }
-                        else if (statusRow > 4)
-                        {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant Invoice the product.");
-                            vp.ShowDialog();
+                            }
+                            else if (statusRow == 4)
+                            {
+                                orders.gestorOrder.putstatus(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value), 3);
+
+                                dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                                dgv.ClearSelection();
+                            }
+                            else if (statusRow > 4)
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant Invoice the product.");
+                                vp.ShowDialog();
+                            }
+                            else
+                            {
+                                VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                                vp.ShowDialog();
+                            }
                         } else
                         {
-                            VentanaPersonalizada vp = new VentanaPersonalizada("Cant do this action.");
+                            VentanaPersonalizada vp = new VentanaPersonalizada("You no have permissions to this action.");
                             vp.ShowDialog();
                         }
+
+
 
                         break;
                 }
