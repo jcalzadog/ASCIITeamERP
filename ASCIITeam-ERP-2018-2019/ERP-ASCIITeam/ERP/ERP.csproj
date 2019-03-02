@@ -66,7 +66,7 @@
     <Compile Include="Dominio\Gestores\GestorPlataformas.cs" />
     <Compile Include="Dominio\Gestores\GestorValidation.cs" />
     <Compile Include="Dominio\Income.cs" />
-    <Compile Include="Dominio\Invoices.cs" />
+    <Compile Include="Dominio\Invoicees.cs" />
     <Compile Include="Dominio\Order.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
@@ -220,6 +220,12 @@
     </Compile>
     <Compile Include="Presentacion\Invoices\NewInvoice.Designer.cs">
       <DependentUpon>NewInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Invoices\selectCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Invoices\selectCustomer.Designer.cs">
+      <DependentUpon>selectCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Orders\DeleteOrder.cs">
       <SubType>Form</SubType>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Invoices\NewInvoice.resx">
       <DependentUpon>NewInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Invoices\selectCustomer.resx">
+      <DependentUpon>selectCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Orders\DeleteOrder.resx">
       <DependentUpon>DeleteOrder.cs</DependentUpon>

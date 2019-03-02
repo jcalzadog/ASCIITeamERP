@@ -50,7 +50,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,6 +77,7 @@
             this.btnAddProduct.TabIndex = 57;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // txtPriceProduct
             // 
@@ -88,9 +89,24 @@
             // amountProducts
             // 
             this.amountProducts.Location = new System.Drawing.Point(332, 79);
+            this.amountProducts.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.amountProducts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.amountProducts.Name = "amountProducts";
             this.amountProducts.Size = new System.Drawing.Size(75, 20);
             this.amountProducts.TabIndex = 55;
+            this.amountProducts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -136,6 +152,7 @@
             this.btnCancel.TabIndex = 50;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label9
             // 
@@ -149,16 +166,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(559, 440);
+            this.label8.Location = new System.Drawing.Point(505, 440);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.Size = new System.Drawing.Size(88, 13);
             this.label8.TabIndex = 48;
-            this.label8.Text = "Total:";
+            this.label8.Text = "Total with Taxes:";
             // 
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(599, 437);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 47;
             // 
@@ -166,6 +184,7 @@
             // 
             this.txtTotalNeto.Location = new System.Drawing.Point(389, 437);
             this.txtTotalNeto.Name = "txtTotalNeto";
+            this.txtTotalNeto.ReadOnly = true;
             this.txtTotalNeto.Size = new System.Drawing.Size(100, 20);
             this.txtTotalNeto.TabIndex = 46;
             // 
@@ -194,6 +213,7 @@
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtPrice
             // 
@@ -205,9 +225,24 @@
             // amount
             // 
             this.amount.Location = new System.Drawing.Point(332, 121);
+            this.amount.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.amount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(75, 20);
             this.amount.TabIndex = 41;
+            this.amount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtDescription
             // 
@@ -244,12 +279,13 @@
             this.label5.TabIndex = 37;
             this.label5.Text = "Description:";
             // 
-            // textBox1
+            // txtCustomer
             // 
-            this.textBox1.Location = new System.Drawing.Point(76, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 36;
+            this.txtCustomer.Enabled = false;
+            this.txtCustomer.Location = new System.Drawing.Point(76, 28);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.Size = new System.Drawing.Size(181, 20);
+            this.txtCustomer.TabIndex = 36;
             // 
             // label1
             // 
@@ -268,6 +304,7 @@
             this.btnSearch.TabIndex = 34;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label10
             // 
@@ -327,7 +364,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.Name = "NewInvoice";
@@ -364,11 +401,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox txtCustomer;
     }
 }
