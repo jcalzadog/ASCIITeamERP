@@ -3213,9 +3213,6 @@ namespace ERP
                 MessageBox.Show("You haven't choose an order, or it can't be restored");
             }
         }
-            }
-            
-        }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
@@ -3228,4 +3225,9 @@ namespace ERP
 
         }
     }
+
+    
 }
+
+        
+    
