@@ -65,59 +65,21 @@ namespace ERP.Presentacion.Usuarios
             cmbRoles.SelectedIndex = 0;
         }
 
+        private void style_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void style_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void lblPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbxPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEditRole_MouseEnter(object sender, EventArgs e)
-        {
-            btnEditRole.BackColor = Color.White;
-            btnEditRole.ForeColor = Color.Black;
-        }
-
-        private void btnEditRole_MouseLeave(object sender, EventArgs e)
-        {
-            btnEditRole.BackColor = Color.Black;
-            btnEditRole.ForeColor = Color.White;
-        }
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.Black;
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
-        }
-
-        private void lblPassword_MouseEnter(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

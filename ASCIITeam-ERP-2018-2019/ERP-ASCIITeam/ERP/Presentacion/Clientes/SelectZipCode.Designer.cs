@@ -51,8 +51,8 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.button1_Click);
-            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
+            this.btnClose.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // lblRegion
             // 
@@ -107,8 +107,8 @@
             this.btnChooseCode.Text = "Choose Zip Code";
             this.btnChooseCode.UseVisualStyleBackColor = true;
             this.btnChooseCode.Click += new System.EventHandler(this.btnChooseCode_Click);
-            this.btnChooseCode.MouseEnter += new System.EventHandler(this.btnChooseCode_MouseEnter);
-            this.btnChooseCode.MouseLeave += new System.EventHandler(this.btnChooseCode_MouseLeave);
+            this.btnChooseCode.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnChooseCode.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // cmbZipCode
             // 

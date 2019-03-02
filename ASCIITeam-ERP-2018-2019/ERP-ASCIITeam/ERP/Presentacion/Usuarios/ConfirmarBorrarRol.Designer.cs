@@ -53,8 +53,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnConfirm
             // 
@@ -66,8 +66,8 @@
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            this.btnConfirm.MouseEnter += new System.EventHandler(this.btnConfirm_MouseEnter);
-            this.btnConfirm.MouseLeave += new System.EventHandler(this.btnConfirm_MouseLeave);
+            this.btnConfirm.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnConfirm.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // ConfirmarBorrarRol
             // 

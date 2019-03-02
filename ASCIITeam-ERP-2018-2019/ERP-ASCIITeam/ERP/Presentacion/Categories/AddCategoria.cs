@@ -86,50 +86,17 @@ namespace ERP.Presentacion.Categories
             btnCancelar.FlatAppearance.BorderSize = 1;
         }
 
-        private void btnAceptar_MouseLeave(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnAceptar.BackColor = Color.Black;
-            btnAceptar.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnAceptar_MouseEnter(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnAceptar.BackColor = Color.White;
-            btnAceptar.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.Black;
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
-        }
-
-        private void AddCategoria_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

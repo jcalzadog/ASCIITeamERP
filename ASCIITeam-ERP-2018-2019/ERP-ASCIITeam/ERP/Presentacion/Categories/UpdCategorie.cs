@@ -45,30 +45,18 @@ namespace ERP.Presentacion.Categories
         {
             this.Dispose();
         }
-
-        private void btnUpdate_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnUpdate.BackColor = Color.White;
-            btnUpdate.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
-        }
-
-        private void btnUpdate_MouseLeave(object sender, EventArgs e)
-        {
-            btnUpdate.BackColor = Color.Black;
-            btnUpdate.ForeColor = Color.White;
-        }
         public void cargarComponentes()
         {
             //Exit

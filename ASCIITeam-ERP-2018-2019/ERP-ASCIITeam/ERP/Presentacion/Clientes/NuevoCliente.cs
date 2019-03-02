@@ -57,35 +57,21 @@ namespace ERP.Presentacion.Clientes
             btnSelectZipCode.FlatAppearance.BorderSize = 1;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void NuevoCliente_Load(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void cmbRegion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbCities_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnSelectZipCode_Click(object sender, EventArgs e)
@@ -94,66 +80,6 @@ namespace ERP.Presentacion.Clientes
             zipCode.ShowDialog();
             tbxZipCode.Text = zipCode.codZipCodeFIlaSeleccionada;
             zipCode.Dispose();
-        }
-
-        private void btnSelectZipCode_MouseEnter(object sender, EventArgs e)
-        {
-            btnSelectZipCode.BackColor = Color.White;
-            btnSelectZipCode.ForeColor = Color.Black;
-        }
-
-        private void btnSelectZipCode_MouseLeave(object sender, EventArgs e)
-        {
-            btnSelectZipCode.BackColor = Color.Black;
-            btnSelectZipCode.ForeColor = Color.White;
-        }
-
-        private void btnClearAll_MouseEnter(object sender, EventArgs e)
-        {
-            btnClearAll.BackColor = Color.White;
-            btnClearAll.ForeColor = Color.Black;
-        }
-
-        private void btnClearAll_MouseLeave(object sender, EventArgs e)
-        {
-            btnClearAll.BackColor = Color.Black;
-            btnClearAll.ForeColor = Color.White;
-        }
-
-        private void btnSaveClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnSaveClose.BackColor = Color.White;
-            btnSaveClose.ForeColor = Color.Black;
-        }
-
-        private void btnSaveClose_MouseLeave(object sender, EventArgs e)
-        {
-            btnSaveClose.BackColor = Color.Black;
-            btnSaveClose.ForeColor = Color.White;
-        }
-
-        private void btnSaveAnother_MouseEnter(object sender, EventArgs e)
-        {
-            btnSaveAnother.BackColor = Color.White;
-            btnSaveAnother.ForeColor = Color.Black;
-        }
-
-        private void btnSaveAnother_MouseLeave(object sender, EventArgs e)
-        {
-            btnSaveAnother.BackColor = Color.Black;
-            btnSaveAnother.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)

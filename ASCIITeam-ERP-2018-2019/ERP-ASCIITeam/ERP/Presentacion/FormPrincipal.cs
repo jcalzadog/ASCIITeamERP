@@ -23,6 +23,7 @@ using ERP.Presentacion.CashBook.Validations;
 using ERP.Presentacion.CashBook.PendingPayment;
 
 using ERP.Presentacion.CashBook.DDebts;
+using ERP.Presentacion.Invoices;
 //using ERP.Presentacion.Categorias;
 
 namespace ERP
@@ -3211,6 +3212,20 @@ namespace ERP
             {
                 MessageBox.Show("You haven't choose an order, or it can't be restored");
             }
+        }
+            }
+            
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            NewInvoice ni = new NewInvoice();
+            ni.ShowDialog();
+        }
+
+        private void tbxSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

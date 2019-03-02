@@ -49,16 +49,16 @@ namespace ERP.Presentacion.Usuarios
             gestorL.cargarTablaLogs(dgvLogs,condicion);
         }
 
-        private void btnClose_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnClose.BackColor = Color.White;
-            btnClose.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnClose_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.BackColor = Color.Black;
-            btnClose.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

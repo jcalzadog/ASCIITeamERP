@@ -152,6 +152,12 @@
             this.btnNewDebt = new System.Windows.Forms.Button();
             this.dgvDebts = new System.Windows.Forms.DataGridView();
             this.tpgInvoices = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dgvInvoices = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.btnMultiInsert = new System.Windows.Forms.Button();
@@ -436,6 +442,7 @@
             this.tbxSearchCustomer.Name = "tbxSearchCustomer";
             this.tbxSearchCustomer.Size = new System.Drawing.Size(331, 22);
             this.tbxSearchCustomer.TabIndex = 9;
+            this.tbxSearchCustomer.TextChanged += new System.EventHandler(this.tbxSearchCustomer_TextChanged);
             this.tbxSearchCustomer.Enter += new System.EventHandler(this.tbxSearchCustomer_Enter);
             this.tbxSearchCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearchCustomer_KeyUp);
             this.tbxSearchCustomer.Leave += new System.EventHandler(this.tbxSearchCustomer_Leave);
@@ -1795,6 +1802,12 @@
             // tpgInvoices
             // 
             this.tpgInvoices.BackColor = System.Drawing.Color.DarkOrange;
+            this.tpgInvoices.Controls.Add(this.textBox1);
+            this.tpgInvoices.Controls.Add(this.label13);
+            this.tpgInvoices.Controls.Add(this.button4);
+            this.tpgInvoices.Controls.Add(this.button3);
+            this.tpgInvoices.Controls.Add(this.button2);
+            this.tpgInvoices.Controls.Add(this.button1);
             this.tpgInvoices.Controls.Add(this.dgvInvoices);
             this.tpgInvoices.Location = new System.Drawing.Point(104, 4);
             this.tpgInvoices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1803,6 +1816,59 @@
             this.tpgInvoices.Size = new System.Drawing.Size(1556, 598);
             this.tpgInvoices.TabIndex = 9;
             this.tpgInvoices.Text = "Invoices";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(454, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 16;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 13);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Accounting Pass: ";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(272, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Print Invoice";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(182, 5);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Delete Invoice";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(87, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Update Invoice";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "New Invoice";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // dgvInvoices
             // 
@@ -2028,6 +2094,7 @@
             this.tabPage13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebts)).EndInit();
             this.tpgInvoices.ResumeLayout(false);
+            this.tpgInvoices.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -2164,5 +2231,11 @@
         private System.Windows.Forms.Button btnEditOrder;
         private System.Windows.Forms.CheckBox ckbDeletedOrder;
         private System.Windows.Forms.Button btnResOrders;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

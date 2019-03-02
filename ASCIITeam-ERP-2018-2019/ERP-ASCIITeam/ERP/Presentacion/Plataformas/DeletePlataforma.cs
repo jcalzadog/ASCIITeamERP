@@ -51,28 +51,16 @@ namespace ERP.Presentacion.Plataformas
 
         }
 
-        private void btnConfirm_MouseLeave(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnConfirm.BackColor = Color.Black;
-            btnConfirm.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnConfirm_MouseEnter(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnConfirm.BackColor = Color.White;
-            btnConfirm.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
     }
 }

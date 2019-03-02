@@ -69,8 +69,8 @@
             this.btnAllow.Text = "Allow All";
             this.btnAllow.UseVisualStyleBackColor = false;
             this.btnAllow.Click += new System.EventHandler(this.btnAllow_Click);
-            this.btnAllow.MouseEnter += new System.EventHandler(this.btnAllow_MouseEnter);
-            this.btnAllow.MouseLeave += new System.EventHandler(this.btnAllow_MouseLeave);
+            this.btnAllow.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnAllow.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnDeny
             // 
@@ -83,8 +83,8 @@
             this.btnDeny.Text = "Deny All";
             this.btnDeny.UseVisualStyleBackColor = false;
             this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click);
-            this.btnDeny.MouseEnter += new System.EventHandler(this.btnDeny_MouseEnter);
-            this.btnDeny.MouseLeave += new System.EventHandler(this.btnDeny_MouseLeave);
+            this.btnDeny.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnDeny.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnCancel
             // 
@@ -97,8 +97,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnSave
             // 
@@ -111,8 +111,8 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
-            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
+            this.btnSave.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // dgvPermissions
             // 

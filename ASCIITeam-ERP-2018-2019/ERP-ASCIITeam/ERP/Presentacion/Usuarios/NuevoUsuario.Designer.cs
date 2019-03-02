@@ -112,8 +112,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnSaveAnother
             // 
@@ -127,8 +127,8 @@
             this.btnSaveAnother.Text = "Save and Another";
             this.btnSaveAnother.UseVisualStyleBackColor = false;
             this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnother_Click);
-            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.btnSaveAnother_MouseEnter);
-            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.btnSaveAnother_MouseLeave);
+            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnSaveClose
             // 
@@ -142,8 +142,8 @@
             this.btnSaveClose.Text = "Save and Close";
             this.btnSaveClose.UseVisualStyleBackColor = false;
             this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
-            this.btnSaveClose.MouseEnter += new System.EventHandler(this.btnSaveClose_MouseEnter);
-            this.btnSaveClose.MouseLeave += new System.EventHandler(this.btnSaveClose_MouseLeave);
+            this.btnSaveClose.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSaveClose.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnEditRole
             // 
@@ -156,8 +156,8 @@
             this.btnEditRole.Text = "Edit Role";
             this.btnEditRole.UseVisualStyleBackColor = false;
             this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
-            this.btnEditRole.MouseEnter += new System.EventHandler(this.btnEditRole_MouseEnter);
-            this.btnEditRole.MouseLeave += new System.EventHandler(this.btnEditRole_MouseLeave);
+            this.btnEditRole.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnEditRole.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // NuevoUsuario
             // 
