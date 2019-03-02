@@ -35,11 +35,6 @@ namespace ERP.Presentacion.SystemTab
 
         }
 
-        private void ConfirmarExit_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -50,28 +45,16 @@ namespace ERP.Presentacion.SystemTab
             Application.Exit();
         }
 
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-        }
-
-        private void btnConfirmar_MouseEnter(object sender, EventArgs e)
-        {
-            btnConfirmar.BackColor = Color.White;
-            btnConfirmar.ForeColor = Color.Black;
-        }
-
-        private void btnConfirmar_MouseLeave(object sender, EventArgs e)
-        {
-            btnConfirmar.BackColor = Color.Black;
-            btnConfirmar.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
     }
 }

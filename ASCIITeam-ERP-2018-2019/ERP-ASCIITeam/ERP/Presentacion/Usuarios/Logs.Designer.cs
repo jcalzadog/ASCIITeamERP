@@ -63,8 +63,8 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
+            this.btnClose.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // Logs
             // 

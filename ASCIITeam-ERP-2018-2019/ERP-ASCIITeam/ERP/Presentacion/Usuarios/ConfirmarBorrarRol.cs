@@ -47,16 +47,16 @@ namespace ERP.Presentacion.Usuarios
             this.Dispose();
         }
 
-        private void btnConfirm_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnConfirm.BackColor = Color.White;
-            btnConfirm.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnConfirm_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnConfirm.BackColor = Color.Black;
-            btnConfirm.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -67,18 +67,6 @@ namespace ERP.Presentacion.Usuarios
                 ERP.Persistencia.Logs.write("Role " + rol.nameRol + " deleted");
                 this.Dispose();
             }
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
         }
     }
 }

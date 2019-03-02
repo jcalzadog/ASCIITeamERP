@@ -27,31 +27,6 @@ namespace ERP.Presentacion.Usuarios
             rol.gestorRol.cargarTablaPermisos(dgvPermissions, rol);
         }
 
-        private void dgvPermissions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAllow_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeny_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -144,64 +119,17 @@ namespace ERP.Presentacion.Usuarios
             rol.gestorRol.refrescarRoles(cmbRoles);
             cmbRoles.SelectedIndex = 0;
         }
-        private void btnAllow_MouseEnter(object sender, EventArgs e)
+
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnAllow.BackColor = Color.White;
-            btnAllow.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnAllow_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnAllow.BackColor = Color.Black;
-            btnAllow.ForeColor = Color.White;
-        }
-
-        private void btnDeny_MouseEnter(object sender, EventArgs e)
-        {
-            btnDeny.BackColor = Color.White;
-            btnDeny.ForeColor = Color.Black;
-        }
-
-        private void btnDeny_MouseLeave(object sender, EventArgs e)
-        {
-            btnDeny.BackColor = Color.Black;
-            btnDeny.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.Black;
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.White;
-            btnClose.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.Black;
-            btnClose.ForeColor = Color.White;
-        }
-
-        private void btnNewRole_MouseEnter(object sender, EventArgs e)
-        {
-            btnNewRole.BackColor = Color.White;
-            btnNewRole.ForeColor = Color.Black;
-        }
-
-        private void btnNewRole_MouseLeave(object sender, EventArgs e)
-        {
-            btnNewRole.BackColor = Color.Black;
-            btnNewRole.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void btnCancel_Click_1(object sender, EventArgs e)
@@ -262,16 +190,6 @@ namespace ERP.Presentacion.Usuarios
             
         }
 
-        private void btnDeleteRol_MouseEnter(object sender, EventArgs e)
-        { 
-            btnDeleteRol.BackColor = Color.White;
-            btnDeleteRol.ForeColor = Color.Black;
-        }
-        private void btnDeleteRol_MouseLeave(object sender, EventArgs e)
-        {
-            btnDeleteRol.BackColor = Color.Black;
-            btnDeleteRol.ForeColor = Color.White;
-        }
     }
 }
 

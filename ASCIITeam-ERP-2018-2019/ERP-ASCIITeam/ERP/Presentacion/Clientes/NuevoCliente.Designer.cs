@@ -170,8 +170,8 @@
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
-            this.btnClearAll.MouseEnter += new System.EventHandler(this.btnClearAll_MouseEnter);
-            this.btnClearAll.MouseLeave += new System.EventHandler(this.btnClearAll_MouseLeave);
+            this.btnClearAll.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnClearAll.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnSaveClose
             // 
@@ -184,8 +184,8 @@
             this.btnSaveClose.Text = "Save and Close";
             this.btnSaveClose.UseVisualStyleBackColor = true;
             this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
-            this.btnSaveClose.MouseEnter += new System.EventHandler(this.btnSaveClose_MouseEnter);
-            this.btnSaveClose.MouseLeave += new System.EventHandler(this.btnSaveClose_MouseLeave);
+            this.btnSaveClose.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSaveClose.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnSaveAnother
             // 
@@ -198,8 +198,8 @@
             this.btnSaveAnother.Text = "Save and Another";
             this.btnSaveAnother.UseVisualStyleBackColor = true;
             this.btnSaveAnother.Click += new System.EventHandler(this.btnSaveAnother_Click);
-            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.btnSaveAnother_MouseEnter);
-            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.btnSaveAnother_MouseLeave);
+            this.btnSaveAnother.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSaveAnother.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnCancel
             // 
@@ -212,8 +212,8 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.button4_Click);
-            this.btnCancel.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // panel1
             // 
@@ -256,8 +256,8 @@
             this.btnSelectZipCode.Text = "Select Zip Code";
             this.btnSelectZipCode.UseVisualStyleBackColor = true;
             this.btnSelectZipCode.Click += new System.EventHandler(this.btnSelectZipCode_Click);
-            this.btnSelectZipCode.MouseEnter += new System.EventHandler(this.btnSelectZipCode_MouseEnter);
-            this.btnSelectZipCode.MouseLeave += new System.EventHandler(this.btnSelectZipCode_MouseLeave);
+            this.btnSelectZipCode.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSelectZipCode.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // label1
             // 
@@ -307,7 +307,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Customer";
-            this.Load += new System.EventHandler(this.NuevoCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

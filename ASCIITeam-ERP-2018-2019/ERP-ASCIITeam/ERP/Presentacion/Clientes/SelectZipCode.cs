@@ -156,28 +156,16 @@ namespace ERP.Presentacion.Clientes
 
         }
 
-        private void btnChooseCode_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnChooseCode.BackColor = Color.White;
-            btnChooseCode.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnChooseCode_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnChooseCode.BackColor = Color.Black;
-            btnChooseCode.ForeColor = Color.White;
-        }
-
-        private void btnClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.White;
-            btnClose.ForeColor = Color.Black;
-        }
-
-        private void btnClose_MouseLeave(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.Black;
-            btnClose.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void cmbCities_SelectedIndexChanged(object sender, EventArgs e)
