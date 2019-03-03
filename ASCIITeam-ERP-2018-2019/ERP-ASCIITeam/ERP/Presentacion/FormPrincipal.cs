@@ -68,6 +68,7 @@ namespace ERP
         public static String platViejaFilaSellecionadaProducts = "";
         public static String pegiFilaSellecionadaProducts = "";
         public static String priceFilaSellecionadaProducts = "";
+        public static String stockFilaSeleccionadaProducts = "";
 
         private Categorias categoria;
         public static String nombreviejoCategoria = "";
@@ -582,6 +583,7 @@ namespace ERP
                     platViejaFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[2].Value.ToString();
                     pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
                     priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
+                    stockFilaSeleccionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[5].Value.ToString();
                 }
 
 
@@ -1466,7 +1468,7 @@ namespace ERP
 
         private void btnUpdateProd_Click(object sender, EventArgs e)
         {
-            EditarProducto updateProduct = new EditarProducto(nombreFilaSeleccionadaProducts, catViejaFilaSellecionadaProducts, platViejaFilaSellecionadaProducts, pegiFilaSellecionadaProducts, priceFilaSellecionadaProducts);
+            EditarProducto updateProduct = new EditarProducto(nombreFilaSeleccionadaProducts, catViejaFilaSellecionadaProducts, platViejaFilaSellecionadaProducts, pegiFilaSellecionadaProducts, priceFilaSellecionadaProducts, stockFilaSeleccionadaProducts);
             updateProduct.ShowDialog();
             filtroTotalProd();
         }
@@ -1578,6 +1580,7 @@ namespace ERP
                     platViejaFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString();
                     pegiFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[3].Value.ToString();
                     priceFilaSellecionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    stockFilaSeleccionadaProducts = dgvProducts.Rows[e.RowIndex].Cells[5].Value.ToString();
                 }
             }
 

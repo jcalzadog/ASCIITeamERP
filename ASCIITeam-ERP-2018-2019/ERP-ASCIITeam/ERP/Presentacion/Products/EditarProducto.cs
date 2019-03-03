@@ -1,13 +1,6 @@
 ﻿using ERP.Dominio;
-using ERP.Dominio.Gestores;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Products
@@ -18,7 +11,7 @@ namespace ERP.Presentacion.Products
         Categorias categoria;
         Platforms plataforma;
 
-        public EditarProducto(String nombre,String catVieja, String platVieja,String pegi, String price)
+        public EditarProducto(String nombre,String catVieja, String platVieja,String pegi, String price, String stock)
         {
             producto = new Producto();
             plataforma = new Platforms();
@@ -26,7 +19,7 @@ namespace ERP.Presentacion.Products
             InitializeComponent();
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
-            cargarDatos(nombre,catVieja,platVieja,pegi,price);
+            cargarDatos(nombre,catVieja,platVieja,pegi,price,stock);
             aparienciaBotones(btnSave);
             aparienciaBotones(btnCancel);
             
@@ -62,12 +55,13 @@ namespace ERP.Presentacion.Products
             product.nomPlatform = cmbPlatform.SelectedItem.ToString();
             product.miniNumage = Int32.Parse(txtPegi.Text);
             product.prize = Int32.Parse(txtPrice.Text);
+            product.stock = Int32.Parse(txtStock.Text);
 
             producto.gestorProducto.modificarProducto(product, FormPrincipal.catViejaFilaSellecionadaProducts, FormPrincipal.platViejaFilaSellecionadaProducts);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text),FormPrincipal.catViejaFilaSellecionadaProducts,FormPrincipal.platViejaFilaSellecionadaProducts);
             ERP.Persistencia.Logs.write("Product " + txtName.Text + " updated");
             this.Dispose();
         }
-        private void cargarDatos(String name,String catVieja,String platVieja,String pegi,String price)
+        private void cargarDatos(String name,String catVieja,String platVieja,String pegi,String price, String stock)
         {
             txtName.Text = name;
             categoria.gestor.refrescarCategorias(cmbCategory);
@@ -76,6 +70,7 @@ namespace ERP.Presentacion.Products
             cmbPlatform.SelectedItem = platVieja;
             txtPegi.Text = pegi;
             txtPrice.Text = price;
+            txtStock.Text = stock;
             btnSave.BackColor = Color.Transparent;
             btnCancel.BackColor = Color.Transparent;
         }
@@ -85,9 +80,9 @@ namespace ERP.Presentacion.Products
             this.Dispose();
         }
 
-        private void cargarBotones(bool pegi, bool price)
+        private void cargarBotones(bool pegi, bool price, bool stock)
         {
-            if (pegi && price)
+            if (pegi && price && stock)
             {
                 btnSave.Enabled = true;
                 btnSave.BackColor = Color.Black;
@@ -108,7 +103,8 @@ namespace ERP.Presentacion.Products
             int i = 0;
             bool result1 = int.TryParse(txtPrice.Text, out i);
             bool result2 = int.TryParse(txtPegi.Text, out i);
-            cargarBotones(result1, result2);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2, result3);
         }
 
         private void txtPrice_KeyUp(object sender, KeyEventArgs e)
@@ -116,7 +112,17 @@ namespace ERP.Presentacion.Products
             int i = 0;
             bool result1 = int.TryParse(txtPrice.Text, out i);
             bool result2 = int.TryParse(txtPegi.Text, out i);
-            cargarBotones(result1, result2);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2, result3);
+        }
+
+        private void txtStock_KeyUp(object sender, KeyEventArgs e)
+        {
+            int i = 0;
+            bool result1 = int.TryParse(txtPrice.Text, out i);
+            bool result2 = int.TryParse(txtPegi.Text, out i);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2,result3);
         }
     }
 }

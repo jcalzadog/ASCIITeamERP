@@ -95,7 +95,7 @@ namespace ERP.Dominio.Gestores
             Decimal idPlatVieja = (Decimal)conector.DLookUp("IDPLATFORM", "PLATFORMS", "NAME = '" + nomPlatVieja + "'");
 
 
-            String sentencia = "UPDATE PRODUCTS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + P.miniNumage + ", price = " + P.prize + " WHERE name = '" + P.name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
+            String sentencia = "UPDATE PRODUCTS SET idcategory = " + idCat + ", idplatform = " + idPlat + ", minimumage = " + P.miniNumage + ", price = " + P.prize + ", stock = "+ P.stock +" WHERE name = '" + P.name + "' and idcategory = " + idCatVieja + " and idplatform = " + idPlatVieja;
             conector.setData(sentencia);
 
 

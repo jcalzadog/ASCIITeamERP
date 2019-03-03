@@ -170,6 +170,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(204, 23);
             this.txtStock.TabIndex = 28;
+            this.txtStock.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtStock_KeyUp);
             // 
             // label7
             // 
