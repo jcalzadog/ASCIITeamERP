@@ -3209,6 +3209,7 @@ namespace ERP
 
             //Filtrar tabla Order
                 cargarTablaOrders("");
+            dgvOrders.ClearSelection();
                 
         }
 
