@@ -48,6 +48,7 @@ namespace ERP
         private Expense expense;
         private PendingPayments pendingPayments;
         private Debts debts;
+        private Invoicees invoice;
 
         public static String nombreFilaSeleccionadaUsers = "";
         public static String rolFilaSellecionadaUsers = "";
@@ -86,6 +87,7 @@ namespace ERP
             expense = new Expense();
             pendingPayments = new PendingPayments();
             debts = new Debts();
+            invoice = new Invoicees();
 
             InitializeComponent();
 
@@ -3126,7 +3128,7 @@ namespace ERP
                                     dgv.ClearSelection();
 
                                     //Se ha facturado
-                                    //metodo crear nueva factura con el pedido
+                                    invoice.gestor.generateInvoice(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
                                     VentanaPersonalizada vp = new VentanaPersonalizada("The order has been invoiced.");
                                     vp.ShowDialog();
                                 }
