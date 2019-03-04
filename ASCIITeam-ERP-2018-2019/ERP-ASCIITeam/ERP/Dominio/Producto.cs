@@ -17,6 +17,7 @@ namespace ERP.Dominio
         public int miniNumage { get; set; }
         public float prize { get; set; }
         public int deleted { get; set; }
+        public int stock { get; set; }
         public GestorProducto gestorProducto { get; set; }
 
         //Metodos
@@ -32,7 +33,7 @@ namespace ERP.Dominio
             gestorProducto = new GestorProducto();
         }
 
-        public Producto(int idP, String nameP,String nomCat, String nomPlat,int pegiP,float prizeP, int deletedP)
+        public Producto(int idP, String nameP,String nomCat, String nomPlat,int pegiP,float prizeP, int deletedP, int stock)
         {
             this.idProduct = idP;
             this.name = nameP;
@@ -40,7 +41,8 @@ namespace ERP.Dominio
             this.nomPlatform = nomPlat;
             this.miniNumage = pegiP;
             this.prize = prizeP;
-            this.deleted = deletedP; ;
+            this.deleted = deletedP;
+            this.stock = stock;
             
             gestorProducto = new GestorProducto();
         }

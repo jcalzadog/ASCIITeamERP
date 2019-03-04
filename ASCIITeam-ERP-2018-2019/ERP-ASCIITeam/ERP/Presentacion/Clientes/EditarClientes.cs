@@ -77,11 +77,6 @@ namespace ERP.Presentacion.Clientes
             tbxZipCode.Text = this.cityFilaSeleccionadaClientes.ToString();
         }
 
-        private void EditarClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -158,52 +153,16 @@ namespace ERP.Presentacion.Clientes
             zipCode.Dispose();
         }
 
-        private void btnSelectZipCode_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnSelectZipCode.BackColor = Color.White;
-            btnSelectZipCode.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnSelectZipCode_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnSelectZipCode.BackColor = Color.Black;
-            btnSelectZipCode.ForeColor = Color.White;
-        }
-
-        private void btnClearAll_MouseEnter(object sender, EventArgs e)
-        {
-            btnClearAll.BackColor = Color.White;
-            btnClearAll.ForeColor = Color.Black;
-        }
-
-        private void btnClearAll_MouseLeave(object sender, EventArgs e)
-        {
-            btnClearAll.BackColor = Color.Black;
-            btnClearAll.ForeColor = Color.White;
-        }
-
-        private void btnConfirm_MouseEnter(object sender, EventArgs e)
-        {
-            btnConfirm.BackColor = Color.White;
-            btnConfirm.ForeColor = Color.Black;
-        }
-
-        private void btnConfirm_MouseLeave(object sender, EventArgs e)
-        {
-            btnConfirm.BackColor = Color.Black;
-            btnConfirm.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
     }
 }

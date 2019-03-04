@@ -22,11 +22,6 @@ namespace ERP.Presentacion.Plataformas
             plataforma = new Platforms();
         }
 
-        private void AddPlataforma_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSaveAnother_Click(object sender, EventArgs e)
         {
             if (Dominio.Util.Validations.validatePlatforms(textBox1.Text))
@@ -87,6 +82,18 @@ namespace ERP.Presentacion.Plataformas
             btnCancelar.FlatAppearance.BorderSize = 1;
         }
 
+        private void style_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void style_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
         private void btnSaveAnother_MouseLeave(object sender, EventArgs e)
         {
             btnSaveAnother.BackColor = Color.Black;
@@ -103,24 +110,6 @@ namespace ERP.Presentacion.Plataformas
         {
             btnSave.BackColor = Color.Black;
             btnSave.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
         }
     }
 }

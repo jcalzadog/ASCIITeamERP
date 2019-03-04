@@ -64,8 +64,8 @@
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
-            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnUpdate
             // 
@@ -78,8 +78,8 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            this.btnUpdate.MouseEnter += new System.EventHandler(this.btnUpdate_MouseEnter);
-            this.btnUpdate.MouseLeave += new System.EventHandler(this.btnUpdate_MouseLeave);
+            this.btnUpdate.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnUpdate.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // UpdatePlataforma
             // 
@@ -102,7 +102,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update Platform";
-            this.Load += new System.EventHandler(this.UpdatePlataforma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

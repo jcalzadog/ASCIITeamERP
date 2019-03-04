@@ -54,28 +54,16 @@ namespace ERP.Presentacion.Clientes
             btnConfirmar.FlatAppearance.BorderSize = 1;
         }
 
-        private void btnConfirmar_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnConfirmar.BackColor = Color.White;
-            btnConfirmar.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnConfirmar_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnConfirmar.BackColor = Color.Black;
-            btnConfirmar.ForeColor = Color.White;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
     }
  }

@@ -68,7 +68,6 @@
             this.dgvPermissions.RowTemplate.Height = 24;
             this.dgvPermissions.Size = new System.Drawing.Size(444, 216);
             this.dgvPermissions.TabIndex = 14;
-            this.dgvPermissions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermissions_CellContentClick);
             // 
             // btnSave
             // 
@@ -81,8 +80,8 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
-            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
-            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
+            this.btnSave.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnClose
             // 
@@ -95,8 +94,8 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnCancel_Click_1);
-            this.btnClose.MouseEnter += new System.EventHandler(this.btnCancel_MouseEnter);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
+            this.btnClose.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnDeny
             // 
@@ -109,8 +108,8 @@
             this.btnDeny.Text = "Deny All";
             this.btnDeny.UseVisualStyleBackColor = false;
             this.btnDeny.Click += new System.EventHandler(this.btnDeny_Click_1);
-            this.btnDeny.MouseEnter += new System.EventHandler(this.btnDeny_MouseEnter);
-            this.btnDeny.MouseLeave += new System.EventHandler(this.btnDeny_MouseLeave);
+            this.btnDeny.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnDeny.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnAllow
             // 
@@ -123,8 +122,8 @@
             this.btnAllow.Text = "Allow All";
             this.btnAllow.UseVisualStyleBackColor = false;
             this.btnAllow.Click += new System.EventHandler(this.btnAllow_Click_1);
-            this.btnAllow.MouseEnter += new System.EventHandler(this.btnAllow_MouseEnter);
-            this.btnAllow.MouseLeave += new System.EventHandler(this.btnAllow_MouseLeave);
+            this.btnAllow.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnAllow.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // lblRole
             // 
@@ -158,8 +157,8 @@
             this.btnNewRole.Text = "New Role";
             this.btnNewRole.UseVisualStyleBackColor = false;
             this.btnNewRole.Click += new System.EventHandler(this.btnNewRole_Click);
-            this.btnNewRole.MouseEnter += new System.EventHandler(this.btnNewRole_MouseEnter);
-            this.btnNewRole.MouseLeave += new System.EventHandler(this.btnNewRole_MouseLeave);
+            this.btnNewRole.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnNewRole.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnDeleteRol
             // 
@@ -172,8 +171,8 @@
             this.btnDeleteRol.Text = "Delete Role";
             this.btnDeleteRol.UseVisualStyleBackColor = false;
             this.btnDeleteRol.Click += new System.EventHandler(this.btnDeleteRol_Click);
-            this.btnDeleteRol.MouseEnter += new System.EventHandler(this.btnDeleteRol_MouseEnter);
-            this.btnDeleteRol.MouseLeave += new System.EventHandler(this.btnDeleteRol_MouseLeave);
+            this.btnDeleteRol.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnDeleteRol.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // EditarRol
             // 

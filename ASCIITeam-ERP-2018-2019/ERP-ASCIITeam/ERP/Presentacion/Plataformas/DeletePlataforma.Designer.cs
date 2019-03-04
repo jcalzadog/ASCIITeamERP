@@ -48,29 +48,29 @@
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(111, 125);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 28);
             this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            this.btnConfirm.MouseEnter += new System.EventHandler(this.btnConfirm_MouseEnter);
-            this.btnConfirm.MouseLeave += new System.EventHandler(this.btnConfirm_MouseLeave);
+            this.btnConfirm.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnConfirm.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(282, 125);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
-            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // DeletePlataforma
             // 
@@ -83,7 +83,7 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(554, 231);
             this.MinimizeBox = false;

@@ -57,53 +57,16 @@ namespace ERP.Presentacion.Usuarios
             btnSave.FlatAppearance.BorderSize = 1;
         }
 
-
-        private void btnAllow_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnAllow.BackColor = Color.White;
-            btnAllow.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnAllow_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnAllow.BackColor = Color.Black;
-            btnAllow.ForeColor = Color.White;
-        }
-
-        private void btnDeny_MouseEnter(object sender, EventArgs e)
-        {
-            btnDeny.BackColor = Color.White;
-            btnDeny.ForeColor = Color.Black;
-        }
-
-        private void btnDeny_MouseLeave(object sender, EventArgs e)
-        {
-            btnDeny.BackColor = Color.Black;
-            btnDeny.ForeColor = Color.White;
-        }
-
-        private void btnSave_MouseEnter(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.White;
-            btnSave.ForeColor = Color.Black;
-        }
-
-        private void btnSave_MouseLeave(object sender, EventArgs e)
-        {
-            btnSave.BackColor = Color.Black;
-            btnSave.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
         private void btnAllow_Click(object sender, EventArgs e)

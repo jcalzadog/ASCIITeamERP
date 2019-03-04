@@ -41,6 +41,8 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -161,6 +163,26 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "*Campos obligatorios";
             // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(224, 253);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(204, 23);
+            this.txtStock.TabIndex = 28;
+            this.txtStock.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtStock_KeyUp);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(129, 255);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 17);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Stock*";
+            // 
             // EditarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -168,6 +190,8 @@
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(693, 359);
             this.ControlBox = false;
+            this.Controls.Add(this.txtStock);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -204,5 +228,7 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Label label7;
     }
 }

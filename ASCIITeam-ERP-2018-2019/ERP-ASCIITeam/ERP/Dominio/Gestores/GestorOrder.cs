@@ -33,6 +33,23 @@ namespace ERP.Dominio.Gestores
                 "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD ORDER BY O.DATETIME"];
         }
 
+        public void leerOrders(string condicion,int eliminado)
+        {
+            DataSet data = new DataSet();
+
+            data = conector.getData("SELECT O.IDORDER ID, C.SURNAME SURNAME, U.NAME USERNAME, " +
+                "M.PAYMENTMETHOD PAYMETHOD, O.DATETIME DAT,O.TOTAL TOTAL,(O.TOTAL-O.PREPAID) REST,O.PREPAID PREPAID " +
+                "FROM ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER=C.IDCUSTOMER " +
+                "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD where ( UPPER(c.name) LIKE UPPER ('%" + condicion + "%') OR UPPER(c.surname) LIKE UPPER ('%" + condicion + "%') OR  UPPER(U.NAME) LIKE UPPER ('%" + condicion + "%') OR O.DATETIME LIKE '%" + condicion + "%' OR UPPER(M.PAYMENTMETHOD) LIKE UPPER ('%" + condicion + "%') OR O.TOTAL LIKE '%" + condicion + "%' OR O.PREPAID LIKE '%" + condicion + "%') and o.deleted="+eliminado+"", "ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER " +
+                "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD ORDER BY O.DATETIME");
+
+            tOrders = data.Tables["ORDERS O INNER JOIN CUSTOMERS C ON O.REFCUSTOMER = C.IDCUSTOMER " +
+                "INNER JOIN USERS U ON O.REFUSER=U.IDUSER INNER JOIN PAYMENTMETHODS M " +
+                "ON O.REFPAYMENTMETHOD=M.IDPAYMENTMETHOD ORDER BY O.DATETIME"];
+        }
+
         public DataTable getOrderCart (decimal idOrder)
         {
             DataTable cart = new DataTable();
@@ -92,6 +109,11 @@ namespace ERP.Dominio.Gestores
         public void eliminar (string idOrder)
         {
             conector.setData("UPDATE ORDERS SET DELETED=1 WHERE IDORDER='" + idOrder + "'");
+        }
+
+        public void restaurar(string idOrder)
+        {
+            conector.setData("UPDATE ORDERS SET DELETED=0 WHERE IDORDER='" + idOrder + "'");
         }
 
         public decimal insertOrder (Order o)

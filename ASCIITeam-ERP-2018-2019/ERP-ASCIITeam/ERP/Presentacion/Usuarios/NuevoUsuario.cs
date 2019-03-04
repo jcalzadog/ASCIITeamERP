@@ -134,58 +134,22 @@ namespace ERP.Presentacion.Usuarios
             cmbRoles.SelectedIndex = 0;
         }
 
+        private void style_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void style_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
         private void btnEditRole_Click(object sender, EventArgs e)
         {
             EditarRol editRol = new EditarRol();
             editRol.ShowDialog();
-        }
-
-        private void btnEditRole_MouseEnter(object sender, EventArgs e)
-        {
-            btnEditRole.BackColor = Color.White;
-            btnEditRole.ForeColor = Color.Black;
-        }
-
-        private void btnEditRole_MouseLeave(object sender, EventArgs e)
-        {
-            btnEditRole.BackColor = Color.Black;
-            btnEditRole.ForeColor = Color.White;
-        }
-
-        private void btnSaveAnother_MouseEnter(object sender, EventArgs e)
-        {
-            btnSaveAnother.BackColor = Color.White;
-            btnSaveAnother.ForeColor = Color.Black;
-        }
-
-        private void btnSaveAnother_MouseLeave(object sender, EventArgs e)
-        {
-            btnSaveAnother.BackColor = Color.Black;
-            btnSaveAnother.ForeColor = Color.White;
-        }
-
-        private void btnSaveClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnSaveClose.BackColor = Color.White;
-            btnSaveClose.ForeColor = Color.Black;
-        }
-
-        private void btnSaveClose_MouseLeave(object sender, EventArgs e)
-        {
-            btnSaveClose.BackColor = Color.Black;
-            btnSaveClose.ForeColor = Color.White;
-        }
-
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.White;
-            btnCancel.ForeColor = Color.Black;
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancel.BackColor = Color.Black;
-            btnCancel.ForeColor = Color.White;
         }
     }
 }

@@ -61,33 +61,16 @@ namespace ERP.Presentacion.Plataformas
             btnCancelar.FlatAppearance.BorderSize = 1;
         }
 
-        private void btnUpdate_MouseEnter(object sender, EventArgs e)
+        private void style_MouseEnter(object sender, EventArgs e)
         {
-            btnUpdate.BackColor = Color.White;
-            btnUpdate.ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
 
-        private void btnUpdate_MouseLeave(object sender, EventArgs e)
+        private void style_MouseLeave(object sender, EventArgs e)
         {
-            btnUpdate.BackColor = Color.Black;
-            btnUpdate.ForeColor = Color.White;
-        }
-
-        private void btnCancelar_MouseEnter(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.ForeColor = Color.Black;
-        }
-
-        private void btnCancelar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCancelar.BackColor = Color.Black;
-            btnCancelar.ForeColor = Color.White;
-        }
-
-        private void UpdatePlataforma_Load(object sender, EventArgs e)
-        {
-
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
     }
 }

@@ -1,13 +1,6 @@
 ﻿using ERP.Dominio;
-using ERP.Dominio.Gestores;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Products
@@ -48,6 +41,7 @@ namespace ERP.Presentacion.Products
             product.nomPlatform = cmbPlatform.SelectedItem.ToString();
             product.miniNumage = Int32.Parse(txtPegi.Text);
             product.prize = Int32.Parse(txtPrice.Text);
+            product.stock = Int32.Parse(txtStock.Text);
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text,cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(),Int32.Parse(txtPegi.Text),Int32.Parse(txtPrice.Text));
             if (creado)
             {
@@ -57,6 +51,7 @@ namespace ERP.Presentacion.Products
                 cmbPlatform.SelectedIndex = 0;
                 txtPegi.Text = "";
                 txtPrice.Text = "";
+                txtStock.Text = "";
             }
             
         }
@@ -69,6 +64,7 @@ namespace ERP.Presentacion.Products
             product.nomPlatform = cmbPlatform.SelectedItem.ToString();
             product.miniNumage = Int32.Parse(txtPegi.Text);
             product.prize = Int32.Parse(txtPrice.Text);
+            product.stock = Int32.Parse(txtStock.Text);
             Boolean creado = producto.gestorProducto.nuevoProducto(product);//(txtName.Text, cmbCategory.SelectedItem.ToString(), cmbPlatform.SelectedItem.ToString(), Int32.Parse(txtPegi.Text), Int32.Parse(txtPrice.Text));
             if (creado)
             {
@@ -123,7 +119,8 @@ namespace ERP.Presentacion.Products
             int i = 0;
             bool result1 = int.TryParse(txtPrice.Text, out i);
             bool result2 = int.TryParse(txtPegi.Text, out i);
-            cargarBotones(result1, result2);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2,result3);
         }
 
         private void txtPrice_KeyUp(object sender, KeyEventArgs e)
@@ -131,12 +128,13 @@ namespace ERP.Presentacion.Products
             int i = 0;
             bool result1 = int.TryParse(txtPrice.Text, out i);
             bool result2 = int.TryParse(txtPegi.Text, out i);
-            cargarBotones(result1, result2);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2, result3);
         }
 
-        private void cargarBotones(bool pegi,bool price)
+        private void cargarBotones(bool pegi,bool price,bool stock)
         {
-            if(pegi && price)
+            if(pegi && price && stock)
             {
                 btnSave.Enabled = true;
                 btnSaveAnother.Enabled = true;
@@ -158,6 +156,15 @@ namespace ERP.Presentacion.Products
                 btnSaveAnother.BackColor = Color.Transparent;
                 btnSaveAnother.ForeColor = Color.Black;
             }
+        }
+
+        private void txtStock_KeyUp(object sender, KeyEventArgs e)
+        {
+            int i = 0;
+            bool result1 = int.TryParse(txtPrice.Text, out i);
+            bool result2 = int.TryParse(txtPegi.Text, out i);
+            bool result3 = int.TryParse(txtStock.Text, out i);
+            cargarBotones(result1, result2, result3);
         }
     }
 }

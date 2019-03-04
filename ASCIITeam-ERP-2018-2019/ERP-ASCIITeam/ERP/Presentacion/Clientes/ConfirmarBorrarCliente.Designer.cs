@@ -55,8 +55,8 @@
             this.btnConfirmar.Text = "Confirm";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            this.btnConfirmar.MouseEnter += new System.EventHandler(this.btnConfirmar_MouseEnter);
-            this.btnConfirmar.MouseLeave += new System.EventHandler(this.btnConfirmar_MouseLeave);
+            this.btnConfirmar.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnConfirmar.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // btnCancelar
             // 
@@ -69,8 +69,8 @@
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
-            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.style_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.style_MouseLeave);
             // 
             // ConfirmarBorrarCliente
             // 
