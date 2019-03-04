@@ -422,6 +422,7 @@ namespace ERP
             dgvOrders.ReadOnly = true;
 
             dgvOrders.Sort(dgvOrders.Columns[10],ListSortDirection.Descending);
+           
 
         }
 
@@ -1902,7 +1903,7 @@ namespace ERP
 
         private void tbcMenuPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            dgvOrders.ClearSelection();
         }
 
         private void tabPage7_Click(object sender, EventArgs e)
@@ -1931,6 +1932,7 @@ namespace ERP
         private void txtSearchOrder_KeyUp(object sender, KeyEventArgs e)
         {
             cargarTablaOrders(txtSearchOrder.Text.ToUpper().Replace("'", ""));
+            dgvOrders.ClearSelection();
         }
         int filaOrders = -1;
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
