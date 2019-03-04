@@ -38,6 +38,24 @@ namespace ERP.Dominio.Gestores
             return precio;
         }
 
+        /// <summary>
+        /// realiza las inserciones necesarias para generar una factura a partir de un pedido
+        /// </summary>
+        /// <param name="idOrder">pedido al que se le va a generar la factura</param>
+        public decimal generateInvoice (decimal idOrder)
+        {
+            decimal numberInvoice = (decimal)conector.DLookUp("nvl(MAX(NUM_INVOICE)+1,TO_NUMBER(TO_CHAR(sysdate,'YYYY')||'0000')+1)", "invoices", "(NUM_INVOICE>TO_NUMBER(TO_CHAR(sysdate,'YYYY')||'0000') and NUM_INVOICE<TO_NUMBER(TO_CHAR(sysdate,'YYYY')+1||'0000'))");
+            
+            decimal idInvoice = (decimal)conector.DLookUp("nvl(MAX(ID)+1,1)", "invoices", "");
+            decimal idCustomer = (decimal)conector.DLookUp("refcustomer", "orders", "idorder='" + idOrder + "'");
+            decimal amount = (decimal)conector.DLookUp("total", "orders", "idorder='" + idOrder + "'");
+            conector.setData("insert into invoices values ( '"+numberInvoice+"', sysdate, '"+idCustomer+"', '"+amount+"', 0, 0, '"+idInvoice+"')");
+            decimal idOrderInvoice = (decimal)conector.DLookUp("nvl(max(idorderinv)+1,1)", "orders_invoices", "");
+            conector.setData("insert into orders_invoices values ('"+idOrderInvoice+"', '"+idOrder+"', '"+idInvoice+"')");
+            return numberInvoice;
+        }
+
+
 
     }
 }
