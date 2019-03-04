@@ -32,8 +32,8 @@ namespace ERP.Presentacion.Invoices
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.txtTotalNeto.Text = "0";
             this.txtTotal.Text = "0";
-           
-           
+            
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -145,6 +145,18 @@ namespace ERP.Presentacion.Invoices
                 valido = true;
             }
             e.Handled = !valido;
+        }
+
+        private void cmbProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbProducts.Text.ToString().Equals("Nothing"))
+            {
+                this.txtPriceProduct.Text = "";
+            }
+            else {
+                decimal precio = i.gestor.productPrice(this.cmbProducts.Text.ToString());
+                this.txtPriceProduct.Text = precio.ToString();
+            }
         }
     }
     

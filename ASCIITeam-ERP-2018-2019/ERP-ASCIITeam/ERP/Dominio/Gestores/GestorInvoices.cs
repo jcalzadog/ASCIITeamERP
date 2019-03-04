@@ -33,7 +33,10 @@ namespace ERP.Dominio.Gestores
             c.SelectedIndex = 0;
            
         }
-
+        public decimal productPrice(String product) {
+            decimal precio = (decimal)conector.DLookUp("PRICE", "PRODUCTS", "UPPER(NAME)='"+product.ToUpper()+"'");
+            return precio;
+        }
 
 
     }

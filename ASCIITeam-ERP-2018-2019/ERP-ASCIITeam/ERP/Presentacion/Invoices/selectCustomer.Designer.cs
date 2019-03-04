@@ -68,8 +68,10 @@
             // 
             this.txtFilter.Location = new System.Drawing.Point(51, 10);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(100, 20);
+            this.txtFilter.Size = new System.Drawing.Size(130, 20);
             this.txtFilter.TabIndex = 3;
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
+            this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFilter_KeyUp);
             // 
             // label1
             // 

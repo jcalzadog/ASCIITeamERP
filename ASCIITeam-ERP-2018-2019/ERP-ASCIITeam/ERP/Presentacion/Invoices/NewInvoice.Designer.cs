@@ -63,11 +63,13 @@
             // 
             // cmbProducts
             // 
+            this.cmbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducts.FormattingEnabled = true;
             this.cmbProducts.Location = new System.Drawing.Point(76, 78);
             this.cmbProducts.Name = "cmbProducts";
             this.cmbProducts.Size = new System.Drawing.Size(181, 21);
             this.cmbProducts.TabIndex = 58;
+            this.cmbProducts.SelectedIndexChanged += new System.EventHandler(this.cmbProducts_SelectedIndexChanged);
             // 
             // btnAddProduct
             // 
