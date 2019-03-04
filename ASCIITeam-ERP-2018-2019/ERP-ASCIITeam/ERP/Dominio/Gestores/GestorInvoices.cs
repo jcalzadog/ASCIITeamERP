@@ -47,6 +47,8 @@ namespace ERP.Dominio.Gestores
             decimal idCustomer = (decimal)conector.DLookUp("refcustomer", "orders", "where idorder='" + idOrder + "'");
             decimal amount = (decimal)conector.DLookUp("total", "orders", "where idorder='" + idOrder + "'");
             conector.setData("insert into invoices values ( '"+numberInvoice+"', sysdate, '"+idCustomer+"', '"+amount+"', 0, 0, '"+idInvoice+"'");
+            decimal idOrderInvoice = (decimal)conector.DLookUp("nvl(max(idorderinvoice)+1,1)", "orders_invoices", "");
+            conector.setData("insert into orders_invoices ('"+idOrderInvoice+"', '"+idOrder+"', '"+idInvoice+"')");
             return numberInvoice;
         }
 
