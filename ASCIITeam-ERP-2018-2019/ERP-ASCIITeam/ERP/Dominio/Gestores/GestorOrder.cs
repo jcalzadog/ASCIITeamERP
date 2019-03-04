@@ -215,5 +215,12 @@ namespace ERP.Dominio.Gestores
             }
         }
 
+        public Decimal contarOrders()
+        {
+            Decimal cuentaOrders = (Decimal)conector.DLookUp("COUNT(IDORDER)", "ORDERS", "");
+
+            return cuentaOrders;
+        }
+
     }
 }
