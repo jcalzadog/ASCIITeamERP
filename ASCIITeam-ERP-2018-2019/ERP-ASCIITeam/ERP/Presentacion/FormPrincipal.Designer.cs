@@ -552,6 +552,7 @@
             this.txtSearchOrder.Name = "txtSearchOrder";
             this.txtSearchOrder.Size = new System.Drawing.Size(172, 20);
             this.txtSearchOrder.TabIndex = 21;
+            this.txtSearchOrder.TextChanged += new System.EventHandler(this.txtSearchOrder_TextChanged_1);
             this.txtSearchOrder.Enter += new System.EventHandler(this.txtSearchOrder_Enter);
             this.txtSearchOrder.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchOrder_KeyUp);
             this.txtSearchOrder.Leave += new System.EventHandler(this.txtSearchOrder_Leave);

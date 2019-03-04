@@ -85,6 +85,8 @@
             this.txtPriceProduct.Name = "txtPriceProduct";
             this.txtPriceProduct.Size = new System.Drawing.Size(100, 20);
             this.txtPriceProduct.TabIndex = 56;
+            this.txtPriceProduct.TextChanged += new System.EventHandler(this.txtPriceProduct_TextChanged);
+            this.txtPriceProduct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPriceProduct_KeyPress);
             // 
             // amountProducts
             // 
@@ -174,6 +176,7 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(599, 437);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -182,6 +185,7 @@
             // 
             // txtTotalNeto
             // 
+            this.txtTotalNeto.Enabled = false;
             this.txtTotalNeto.Location = new System.Drawing.Point(389, 437);
             this.txtTotalNeto.Name = "txtTotalNeto";
             this.txtTotalNeto.ReadOnly = true;
@@ -221,6 +225,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 20);
             this.txtPrice.TabIndex = 42;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // amount
             // 

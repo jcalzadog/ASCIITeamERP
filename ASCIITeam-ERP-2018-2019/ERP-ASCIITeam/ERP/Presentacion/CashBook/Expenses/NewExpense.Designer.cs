@@ -47,7 +47,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(331, 257);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(61, 24);
             this.btnSave.TabIndex = 25;
@@ -60,7 +60,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(404, 257);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(58, 24);
             this.btnCancel.TabIndex = 24;
@@ -70,7 +70,7 @@
             // rtbConcept
             // 
             this.rtbConcept.Location = new System.Drawing.Point(280, 55);
-            this.rtbConcept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbConcept.Margin = new System.Windows.Forms.Padding(2);
             this.rtbConcept.Name = "rtbConcept";
             this.rtbConcept.Size = new System.Drawing.Size(183, 108);
             this.rtbConcept.TabIndex = 23;
@@ -79,16 +79,17 @@
             // tbxAmount
             // 
             this.tbxAmount.Location = new System.Drawing.Point(64, 194);
-            this.tbxAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxAmount.Margin = new System.Windows.Forms.Padding(2);
             this.tbxAmount.Name = "tbxAmount";
             this.tbxAmount.Size = new System.Drawing.Size(101, 20);
             this.tbxAmount.TabIndex = 22;
+            this.tbxAmount.TextChanged += new System.EventHandler(this.tbxAmount_TextChanged);
             this.tbxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxAmount_KeyPress_1);
             // 
             // dtpDate
             // 
             this.dtpDate.Location = new System.Drawing.Point(64, 149);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(191, 20);
             this.dtpDate.TabIndex = 21;
@@ -98,7 +99,7 @@
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(64, 87);
-            this.cmbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(108, 21);
             this.cmbType.TabIndex = 20;
@@ -108,7 +109,7 @@
             this.cmbSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSource.FormattingEnabled = true;
             this.cmbSource.Location = new System.Drawing.Point(64, 37);
-            this.cmbSource.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSource.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSource.Name = "cmbSource";
             this.cmbSource.Size = new System.Drawing.Size(108, 21);
             this.cmbSource.TabIndex = 19;

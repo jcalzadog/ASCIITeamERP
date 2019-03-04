@@ -207,5 +207,10 @@ namespace ERP.Presentacion.CashBook.Expenses
             }
             e.Handled = !valido;
         }
+
+        private void tbxAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

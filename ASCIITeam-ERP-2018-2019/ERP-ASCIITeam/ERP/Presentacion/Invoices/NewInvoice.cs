@@ -1,5 +1,6 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
+using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,36 +33,54 @@ namespace ERP.Presentacion.Invoices
             this.txtTotalNeto.Text = "0";
             this.txtTotal.Text = "0";
            
+           
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            float price = float.Parse(this.txtPrice.Text.Replace(".", ",").Replace("'", ""));
-            price = (float)Math.Round(price, 2);
-            int amount = int.Parse(this.amount.Value.ToString());
-            string description = this.txtDescription.Text;
-            float total = price * amount;
-            total = (float)Math.Round(total, 2);
-            this.dataGridView1.Rows.Add(description, amount, price, total);
-            float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
-            this.txtTotalNeto.Text = xneto.ToString();
-            float xtotal = xneto + ((xneto * 21) / 100);
-            this.txtTotal.Text = xtotal.ToString();
+            if (this.txtDescription.Text.Equals("") || this.txtPrice.Text.Equals(""))
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("You must fill al the fields");
+                vp.ShowDialog();
+            }
+            else
+            {
+                float price = float.Parse(this.txtPrice.Text.Replace(".", ",").Replace("'", ""));
+                price = (float)Math.Round(price, 2);
+                int amount = int.Parse(this.amount.Value.ToString());
+                string description = this.txtDescription.Text;
+                float total = price * amount;
+                total = (float)Math.Round(total, 2);
+                this.dataGridView1.Rows.Add(description, amount, price, total);
+                float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
+                this.txtTotalNeto.Text = xneto.ToString();
+                float xtotal = xneto + ((xneto * 21) / 100);
+                this.txtTotal.Text = xtotal.ToString();
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            float price = float.Parse(this.txtPriceProduct.Text.Replace(".", ",").Replace("'", ""));
-            price = (float)Math.Round(price, 2);
-            int amount = int.Parse(this.amountProducts.Value.ToString());
-            string product = this.cmbProducts.SelectedItem.ToString() ;
-            float total = price * amount;
-            total = (float)Math.Round(total, 2);
-            this.dataGridView1.Rows.Add(product, amount, price, total);
-            float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
-            this.txtTotalNeto.Text = xneto.ToString();
-            float xtotal = xneto + ((xneto * 21) / 100);
-            this.txtTotal.Text = xtotal.ToString();
+            if (this.cmbProducts.Text.ToString().Equals("Nothing") || this.txtPriceProduct.Text.Equals(""))
+            {
+                VentanaPersonalizada vp = new VentanaPersonalizada("You must fill al the fields");
+                vp.ShowDialog();
+
+            }
+            else
+            {
+                float price = float.Parse(this.txtPriceProduct.Text.Replace(".", ",").Replace("'", ""));
+                price = (float)Math.Round(price, 2);
+                int amount = int.Parse(this.amountProducts.Value.ToString());
+                string product = this.cmbProducts.SelectedItem.ToString();
+                float total = price * amount;
+                total = (float)Math.Round(total, 2);
+                this.dataGridView1.Rows.Add(product, amount, price, total);
+                float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
+                this.txtTotalNeto.Text = xneto.ToString();
+                float xtotal = xneto + ((xneto * 21) / 100);
+                this.txtTotal.Text = xtotal.ToString();
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -76,5 +95,58 @@ namespace ERP.Presentacion.Invoices
         {
             this.Dispose();
         }
+
+        private void txtPriceProduct_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPriceProduct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtPriceProduct.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool valido = false;
+            if (Char.IsDigit(e.KeyChar))
+            {
+                valido = true;
+            }
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                if (!txtPrice.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                    valido = true;
+                }
+
+            }
+            if (Char.IsControl(e.KeyChar))
+            {
+                valido = true;
+            }
+            e.Handled = !valido;
+        }
     }
+    
+    
 }
