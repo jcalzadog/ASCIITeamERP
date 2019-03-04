@@ -35,6 +35,16 @@ namespace ERP.Dominio.Gestores
         }
 
 
+        /// <summary>
+        /// realiza las inserciones necesarias para generar una factura a partir de un pedido
+        /// </summary>
+        /// <param name="idOrder">pedido al que se le va a generar la factura</param>
+        public decimal generateInvoice (Decimal idOrder)
+        {
+            return null;
+        }
+
+
 
     }
 }
