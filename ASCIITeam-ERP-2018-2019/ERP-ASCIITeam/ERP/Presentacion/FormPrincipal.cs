@@ -3192,22 +3192,27 @@ namespace ERP
 
             //Filtrar tabla Order
                 cargarTablaOrders("");
+                
         }
 
         private void btnResOrders_Click(object sender, EventArgs e)
         {
             if (filaOrders >= 0)
             {
-
-                string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
-                RestoreOrder dlg = new RestoreOrder();
-                dlg.ShowDialog();
-                if (dlg.Acept)
+                try
                 {
-                    orders.gestorOrder.restaurar(id);
-                    MessageBox.Show("Deleted successfully");
-                    cargarTablaOrders("");
-                    ERP.Persistencia.Logs.write("Order " + id + " restored");
+                    string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
+                    RestoreOrder dlg = new RestoreOrder();
+                    dlg.ShowDialog();
+                    if (dlg.Acept)
+                    {
+                        orders.gestorOrder.restaurar(id);
+                        MessageBox.Show("Restored successfully");
+                        cargarTablaOrders("");
+                        ERP.Persistencia.Logs.write("Order " + id + " restored");
+                    }
+                }catch(ArgumentOutOfRangeException) {
+                    MessageBox.Show("You haven't choose an order, or it can't be restored");
                 }
 
             }

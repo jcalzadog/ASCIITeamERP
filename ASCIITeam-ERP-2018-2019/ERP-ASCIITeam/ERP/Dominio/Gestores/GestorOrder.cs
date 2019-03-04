@@ -202,5 +202,12 @@ namespace ERP.Dominio.Gestores
             conector.setData("UPDATE PRODUCTS P SET P.STOCK = ( SELECT(P.STOCK + O.AMOUNT) FROM ORDERSPRODUCTS O WHERE P.IDPRODUCT = O.REFPRODUCT AND O.REFORDER = 9) WHERE P.IDPRODUCT IN (SELECT PR.IDPRODUCT FROM PRODUCTS PR INNER JOIN ORDERSPRODUCTS OS ON PR.IDPRODUCT = OS.REFPRODUCT WHERE OS.REFORDER =" + idOrder + ")");
         }
 
+        public Decimal contarOrders()
+        {
+            Decimal cuentaOrders = (Decimal)conector.DLookUp("COUNT(IDORDER)", "ORDERS", "");
+
+            return cuentaOrders;
+        }
+
     }
 }
