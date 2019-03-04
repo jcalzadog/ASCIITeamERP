@@ -2896,10 +2896,11 @@ namespace ERP
         private void dgvOrders_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = sender as DataGridView;
-            bool NoBorrado = orders.gestorOrder.comprobarPedidoEliminado(Convert.ToDecimal(Convert.ToString(dgvOrders.Rows[e.RowIndex].Cells[10].Value)));
-            if (NoBorrado)
+            
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+                bool NoBorrado = orders.gestorOrder.comprobarPedidoEliminado(Convert.ToDecimal(Convert.ToString(dgvOrders.Rows[e.RowIndex].Cells[10].Value)));
+                if (NoBorrado)
                 {
                     int[] permisos = new int[4];
                     usuario.idUser = Convert.ToInt32(idUsuarioLogueado);
