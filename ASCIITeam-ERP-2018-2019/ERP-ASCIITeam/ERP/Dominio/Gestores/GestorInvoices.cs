@@ -70,15 +70,14 @@ namespace ERP.Dominio.Gestores
         public void loadTable()
         {
             DataSet data = new DataSet();
-            data = conector.getData("SELECT I.NUM_INVOICE NUM_INVOICE, I.DATETIME DATETIME, C.SURNAME CUSTOMER, (I.AMOUNT*'0,79') NET, I.AMOUNT TOTAL FROM INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER WHERE i.DELETED=0", "INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER");
+            data = conector.getData("SELECT I.NUM_INVOICE, I.DATETIME, C.SURNAME CUSTOMER, (I.AMOUNT*'0,79') NET, I.AMOUNT TOTAL FROM INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER WHERE i.DELETED=0", "INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER");
             tabla = data.Tables[0];
-
         }
 
         public bool isPosted (string num_invoice)
         {
             decimal posted = Convert.ToDecimal(conector.DLookUp("POSTED", "INVOICES", "NUM_INVOICE='" + num_invoice + "'"));
-
+            
             return posted == 1;
         }
 
@@ -88,15 +87,5 @@ namespace ERP.Dominio.Gestores
 
             return cuentaInvoices;
         }
-        public void post (string num_invoice)
-        {
-            conector.setData("update invoices set posted=1 where num_invoice=" + num_invoice);
-        }
-
-        public void delete (string num_invoice)
-        {
-            conector.setData("update invoices set deleted=1 where num_invoice=" + num_invoice);
-        }
-
     }
 }
