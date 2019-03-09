@@ -1,5 +1,4 @@
-﻿using ERP.Presentacion.ErroresCambios;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -55,14 +54,6 @@ namespace ERP.Dominio.Gestores
             conector.setData("insert into orders_invoices values ('"+idOrderInvoice+"', '"+idOrder+"', '"+idInvoice+"')");
             return numberInvoice;
         }
-
-        public void delete(string num_invoice)
-        {
-            MessageBox.Show("UPDATE invoices SET DELETED=1 WHERE NUM_INVOICE='" + num_invoice + "'");
-
-            conector.setData("UPDATE invoices SET DELETED=1 WHERE NUM_INVOICE='" + num_invoice + "'");
-        }
-
         /// <summary>
         /// carga en tabla las facturas
         /// </summary>
@@ -81,11 +72,5 @@ namespace ERP.Dominio.Gestores
             return posted == 1;
         }
 
-        internal Decimal contarInvoices()
-        {
-            Decimal cuentaInvoices = (Decimal)conector.DLookUp("COUNT(NUM_INVOICE)", "INVOICES", "");
-
-            return cuentaInvoices;
-        }
     }
 }

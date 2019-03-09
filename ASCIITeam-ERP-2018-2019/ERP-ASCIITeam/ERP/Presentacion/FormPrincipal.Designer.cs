@@ -1870,7 +1870,6 @@
             this.btnDeleteInvoice.TabIndex = 13;
             this.btnDeleteInvoice.Text = "Delete Invoice";
             this.btnDeleteInvoice.UseVisualStyleBackColor = true;
-            this.btnDeleteInvoice.Click += new System.EventHandler(this.btnDeleteInvoice_Click);
             this.btnDeleteInvoice.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
             this.btnDeleteInvoice.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
