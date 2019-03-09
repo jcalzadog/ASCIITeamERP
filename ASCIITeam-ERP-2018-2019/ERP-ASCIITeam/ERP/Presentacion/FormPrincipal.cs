@@ -878,7 +878,7 @@ namespace ERP
             //Invoices
             aparienciaBotones(btnNewInvoice);
             aparienciaBotones(btnUpdateInvoice);
-            aparienciaBotones(btnRevokeIncome);
+            aparienciaBotones(btnDeleteInvoice);
             aparienciaBotones(btnPrintInvoice);
         }
 
