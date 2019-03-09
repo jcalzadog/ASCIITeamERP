@@ -1393,7 +1393,9 @@ namespace ERP
 
         private void tbcMenuPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvOrders.ClearSelection();
+            dgvOrders.ClearSelection(); cargarInvoices();
+            dgvInvoices.ClearSelection();
+            
         }
 
         private void cbxCustomerDeleted_CheckedChanged(object sender, EventArgs e)
@@ -2401,6 +2403,26 @@ namespace ERP
         {
             ((Button)sender).BackColor = Color.Black;
             ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void dgvInvoices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (dgvInvoices.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("Can't un-post this invoice, please post it now.").Show();
+                } else if (txtPassAccounting.Text == "accounting")
+                {
+                    invoice.gestor.post(dgvInvoices.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    cargarInvoices();
+                }
+                else
+                {
+                    new VentanaPersonalizada("The ACCOUNTING password is incorrect!.").Show();
+                }
+                txtPassAccounting.Text = "";
+            }
         }
     }
 }

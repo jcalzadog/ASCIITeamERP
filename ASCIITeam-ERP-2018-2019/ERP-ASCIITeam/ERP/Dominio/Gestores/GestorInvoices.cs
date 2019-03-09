@@ -72,5 +72,15 @@ namespace ERP.Dominio.Gestores
             return posted == 1;
         }
 
+        public void post (string num_invoice)
+        {
+            conector.setData("update invoices set posted=1 where num_invoice=" + num_invoice);
+        }
+
+        public void delete (string num_invoice)
+        {
+            conector.setData("update invoices set deleted=1 where num_invoice=" + num_invoice);
+        }
+
     }
 }
