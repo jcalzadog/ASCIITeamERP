@@ -121,6 +121,16 @@ namespace ERP
         {
             invoice.gestor.loadTable();
             dgvInvoices.DataSource = invoice.gestor.tabla;
+            foreach (DataGridViewRow fila in dgvInvoices.Rows)
+            {
+                string numfact = Convert.ToString(fila.Cells[0].Value);
+                
+                if (invoice.gestor.isPosted(numfact))
+                {
+                    fila.Cells[0].Style.BackColor = Color.Red;
+                    fila.Cells[0].Style.SelectionBackColor = Color.Transparent;
+                }
+            }
         }
 
         public void cargarIncomes()

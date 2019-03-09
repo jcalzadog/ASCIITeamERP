@@ -65,5 +65,12 @@ namespace ERP.Dominio.Gestores
             tabla = data.Tables[0];
         }
 
+        public bool isPosted (string num_invoice)
+        {
+            decimal posted = Convert.ToDecimal(conector.DLookUp("POSTED", "INVOICES", "NUM_INVOICE='" + num_invoice + "'"));
+            
+            return posted == 1;
+        }
+
     }
 }
