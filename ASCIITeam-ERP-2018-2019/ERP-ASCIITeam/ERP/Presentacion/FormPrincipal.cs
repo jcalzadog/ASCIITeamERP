@@ -99,7 +99,7 @@ namespace ERP
             cargarExpenses();
             cargarPendingPayments();
             cargarDebts();
-
+            cargarInvoices();
             FormLogin login = new FormLogin(tbcMenuPrincipal);
             login.ShowDialog();
             nombreUsuarioLogueado = login.nombreUsuario;
@@ -117,6 +117,11 @@ namespace ERP
             controlErroresClientes();
         }
 
+        public void cargarInvoices()
+        {
+            invoice.gestor.loadTable();
+            dgvInvoices.DataSource = invoice.gestor.tabla;
+        }
 
         public void cargarIncomes()
         {

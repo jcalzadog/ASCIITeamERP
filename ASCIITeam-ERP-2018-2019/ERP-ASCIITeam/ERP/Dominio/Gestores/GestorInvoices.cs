@@ -54,8 +54,16 @@ namespace ERP.Dominio.Gestores
             conector.setData("insert into orders_invoices values ('"+idOrderInvoice+"', '"+idOrder+"', '"+idInvoice+"')");
             return numberInvoice;
         }
-
-
+        /// <summary>
+        /// carga en tabla las facturas
+        /// </summary>
+        ///
+        public void loadTable()
+        {
+            DataSet data = new DataSet();
+            data = conector.getData("SELECT I.NUM_INVOICE, I.DATETIME, C.SURNAME CUSTOMER, (I.AMOUNT*'0,79') NET, I.AMOUNT TOTAL FROM INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER WHERE i.DELETED=0", "INVOICES I INNER JOIN CUSTOMERS C ON I.REFCUSTOMER=C.IDCUSTOMER");
+            tabla = data.Tables[0];
+        }
 
     }
 }
