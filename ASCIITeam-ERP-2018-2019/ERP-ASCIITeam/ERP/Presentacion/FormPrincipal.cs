@@ -125,14 +125,13 @@ namespace ERP
             dgvInvoices.AllowUserToAddRows = false;
             dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoices.BackgroundColor = Color.Black;
-            dgvInvoices.Columns[0].Visible = false;
             foreach (DataGridViewRow fila in dgvInvoices.Rows)
             {
                 string numfact = Convert.ToString(fila.Cells[0].Value);
                 
                 if (invoice.gestor.isPosted(numfact))
                 {
-                    fila.Cells[0].Style.BackColor = Color.Red;
+                    fila.Cells[0].Style.BackColor = Color.Green;
                     fila.Cells[0].Style.SelectionBackColor = Color.Transparent;
                 }
             }
