@@ -216,6 +216,12 @@
     <Compile Include="Presentacion\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Invoices\ConfirmarBorrarInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Invoices\ConfirmarBorrarInvoice.Designer.cs">
+      <DependentUpon>ConfirmarBorrarInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Invoices\NewInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Invoices\ConfirmarBorrarInvoice.resx">
+      <DependentUpon>ConfirmarBorrarInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Invoices\NewInvoice.resx">
       <DependentUpon>NewInvoice.cs</DependentUpon>

@@ -64,6 +64,8 @@ namespace ERP
         public static String priceFilaSellecionadaProducts = "";
         public static String stockFilaSeleccionadaProducts = "";
 
+        public static String numInvoiceFilaSeleccionada = "";
+
         public static String nombreviejoCategoria = "";
         public static String nombreviejoPlataformas = "";
 
@@ -115,6 +117,7 @@ namespace ERP
             controlErroresPlataformas();
             controlErroresCategorias();
             controlErroresClientes();
+            controlErroresInvoices();
         }
 
         public void cargarInvoices()
@@ -125,7 +128,6 @@ namespace ERP
             dgvInvoices.AllowUserToAddRows = false;
             dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoices.BackgroundColor = Color.Black;
-            dgvInvoices.Columns[0].Visible = false;
             foreach (DataGridViewRow fila in dgvInvoices.Rows)
             {
                 string numfact = Convert.ToString(fila.Cells[0].Value);
@@ -456,6 +458,24 @@ namespace ERP
                     pegiFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[3].Value.ToString();
                     priceFilaSellecionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[4].Value.ToString();
                     stockFilaSeleccionadaProducts = dgvProducts.Rows[dgvProducts.SelectedRows[0].Index].Cells[5].Value.ToString();
+                }
+            }
+        }
+
+        private void controlErroresInvoices()
+        {
+            /*Hay un problema y es que cuando se inicia la tabla sale selecionada ya una fila y si no selecionas otra
+             * y le das a alguna funcion, al no funcionar elevento que salta cuando pulsas una fila da error porque
+             * estas dos variables estan vacias. Para ello le asigno en este metodo desde el principio el contenido de la
+             * fila seleccionada por defecto.*/
+
+            if (numInvoiceFilaSeleccionada.Equals(""))
+            {
+                if (invoice.gestor.contarInvoices() > 0)
+                {
+                    dgvInvoices.Rows[dgvInvoices.Rows[0].Index].Selected = true;
+                    dgvInvoices.CurrentCell = dgvInvoices.Rows[dgvInvoices.Rows[0].Index].Cells[0];
+                    numInvoiceFilaSeleccionada = dgvInvoices.Rows[dgvInvoices.SelectedRows[0].Index].Cells[0].Value.ToString();
                 }
             }
         }
@@ -2402,6 +2422,25 @@ namespace ERP
         {
             ((Button)sender).BackColor = Color.Black;
             ((Button)sender).ForeColor = Color.White;
+        }
+
+        private void btnDeleteInvoice_Click(object sender, EventArgs e)
+        {
+            if (!numInvoiceFilaSeleccionada.Equals(""))
+            {
+                MessageBox.Show("Numero de invoice : " + numInvoiceFilaSeleccionada);
+                ConfirmarBorrarInvoice deletedInvoice = new ConfirmarBorrarInvoice(numInvoiceFilaSeleccionada);
+                deletedInvoice.ShowDialog();
+                MessageBox.Show("Fin");
+                cargarInvoices();
+                
+            }
+            else
+            {
+                String mensaje = "No se ha selecionado ninguna fila.";
+                VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
+                cambio.ShowDialog();
+            }
         }
     }
 }
