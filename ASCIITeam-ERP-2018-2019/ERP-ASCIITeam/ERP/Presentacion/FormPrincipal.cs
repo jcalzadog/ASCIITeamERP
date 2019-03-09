@@ -121,6 +121,11 @@ namespace ERP
         {
             invoice.gestor.loadTable();
             dgvInvoices.DataSource = invoice.gestor.tabla;
+            dgvInvoices.RowHeadersVisible = false;
+            dgvInvoices.AllowUserToAddRows = false;
+            dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvInvoices.BackgroundColor = Color.Black;
+            dgvInvoices.Columns[0].Visible = false;
         }
 
         public void cargarIncomes()
