@@ -2418,11 +2418,12 @@ namespace ERP
             ((Button)sender).ForeColor = Color.White;
         }
 
-<<<<<<< HEAD
+
         private void btnPrintInvoice_Click(object sender, EventArgs e)
         {
             PrintInvoice invoicePrinted = new PrintInvoice();
             invoicePrinted.Show();
+        }
 
             //SELECT PARA LA FACTURA USANDO UNION
 /*            SELECT P.NAME DESCR, SUM(OP.AMOUNT)AMO, OP.PRICESALE PRIC
@@ -2438,7 +2439,7 @@ UNION
 SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
     FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT
     WHERE PI.IDINVOICE = 3;*/
-=======
+
         private void dgvInvoices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -2457,7 +2458,7 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
                 }
                 txtPassAccounting.Text = "";
             }
->>>>>>> 089d6c3f244704b7dfb1caf241631b9d28bc26dd
+
         }
     }
 }
