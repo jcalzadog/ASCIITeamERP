@@ -119,22 +119,35 @@ namespace ERP
 
         public void cargarInvoices()
         {
+            dgvInvoices.Columns.Clear();
             invoice.gestor.loadTable();
-            dgvInvoices.DataSource = invoice.gestor.tabla;
+
+            dgvInvoices.Columns.Add("NUM_INVOICE", "NUM_INVOICE");
+            dgvInvoices.Columns.Add("DATETIME", "DATETIME");
+            dgvInvoices.Columns.Add("CUSTOMER", "CUSTOMER");
+            dgvInvoices.Columns.Add("NET", "NET");
+            dgvInvoices.Columns.Add("TOTAL", "TOTAL");
+
+            DataTable tInvoices = invoice.gestor.tabla;
+            int i = 0;
+            foreach (DataRow row in tInvoices.Rows)
+            {
+                dgvInvoices.Rows.Add(row["NUM_INVOICE"], row["DATETIME"], row["CUSTOMER"], row["NET"], row["TOTAL"]);
+
+                string numfact = Convert.ToString(dgvInvoices.Rows[i].Cells[0].Value);
+
+                if (invoice.gestor.isPosted(numfact))
+                {
+                    dgvInvoices.Rows[i].Cells[0].Style.BackColor = Color.Green;
+                    dgvInvoices.Rows[i].Cells[0].Style.SelectionBackColor = Color.Transparent;
+                }
+                i++;
+
+            }
             dgvInvoices.RowHeadersVisible = false;
             dgvInvoices.AllowUserToAddRows = false;
             dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoices.BackgroundColor = Color.Black;
-            foreach (DataGridViewRow fila in dgvInvoices.Rows)
-            {
-                string numfact = Convert.ToString(fila.Cells[0].Value);
-                
-                if (invoice.gestor.isPosted(numfact))
-                {
-                    fila.Cells[0].Style.BackColor = Color.Green;
-                    fila.Cells[0].Style.SelectionBackColor = Color.Transparent;
-                }
-            }
         }
 
         public void cargarIncomes()
