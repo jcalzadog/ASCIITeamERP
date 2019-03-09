@@ -20,7 +20,7 @@ namespace ERP.Presentacion.Invoices
         Customer c;
         int taxes = 21;
         List<Producto> listaProducts = new List<Producto>();
-        List<LinesInvoices> listaProducts = new List<LinesInvoices>();
+        List<LinesInvoices> listaLineas = new List<LinesInvoices>();
         public NewInvoice()
         {   
             InitializeComponent();
