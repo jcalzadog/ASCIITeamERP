@@ -2415,5 +2415,26 @@ namespace ERP
             ((Button)sender).BackColor = Color.Black;
             ((Button)sender).ForeColor = Color.White;
         }
+
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            PrintInvoice invoicePrinted = new PrintInvoice();
+            invoicePrinted.Show();
+
+            //SELECT PARA LA FACTURA USANDO UNION
+/*            SELECT P.NAME DESCR, SUM(OP.AMOUNT)AMO, OP.PRICESALE PRIC
+    FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT
+        INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER
+    WHERE OI.IDINVOICE = 3
+    GROUP BY P.NAME, OP.PRICESALE
+UNION
+SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC
+    FROM LINES_INVOICE LI
+    WHERE LI.REFINVOICE = 3
+UNION
+SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
+    FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT
+    WHERE PI.IDINVOICE = 3;*/
+        }
     }
 }

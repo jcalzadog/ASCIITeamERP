@@ -1858,6 +1858,7 @@
             this.btnPrintInvoice.TabIndex = 14;
             this.btnPrintInvoice.Text = "Print Invoice";
             this.btnPrintInvoice.UseVisualStyleBackColor = true;
+            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
             this.btnPrintInvoice.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
             this.btnPrintInvoice.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
