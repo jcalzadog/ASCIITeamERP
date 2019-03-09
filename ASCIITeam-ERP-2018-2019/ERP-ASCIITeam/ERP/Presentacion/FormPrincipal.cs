@@ -1386,7 +1386,7 @@ namespace ERP
             {
 
                 string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
-                DeleteOrder dlg = new DeleteOrder();
+                DeleteInvoice dlg = new DeleteInvoice();
                 dlg.ShowDialog();
                 if (dlg.Acept)
                 {
@@ -2459,6 +2459,27 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
                 txtPassAccounting.Text = "";
             }
 
+        }
+
+        private void btnDeleteInvoice_Click(object sender, EventArgs e)
+        {
+            if (dgvInvoices.SelectedRows.Count == 1)
+            {
+                if (dgvInvoices.SelectedRows[0].Cells[0].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("You cannot delete a posted invoice.").ShowDialog();
+                } else
+                {
+                    DeleteInvoice dlg = new DeleteInvoice();
+                    dlg.ShowDialog();
+                    if (dlg.Acept)
+                    invoice.gestor.delete(dgvInvoices.SelectedRows[0].Cells[0].Value.ToString());
+                }
+            } else
+            {
+                new VentanaPersonalizada("Select an invoice first.").ShowDialog();
+            }
+            cargarInvoices();
         }
     }
 }

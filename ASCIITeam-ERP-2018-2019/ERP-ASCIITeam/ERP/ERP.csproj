@@ -234,6 +234,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetInvoice.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Invoices\DeleteInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Invoices\DeleteInvoice.Designer.cs">
+      <DependentUpon>DeleteInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Invoices\NewInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +465,9 @@
     <EmbeddedResource Include="Presentacion\Invoices\CrystalReportInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Invoices\DeleteInvoice.resx">
+      <DependentUpon>DeleteInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Invoices\NewInvoice.resx">
       <DependentUpon>NewInvoice.cs</DependentUpon>
