@@ -18,6 +18,9 @@ namespace ERP.Presentacion.Invoices
     {
         Invoicees i;
         Customer c;
+        int taxes = 21;
+        List<Producto> listaProducts = new List<Producto>();
+        List<LinesInvoices> listaProducts = new List<LinesInvoices>();
         public NewInvoice()
         {   
             InitializeComponent();
@@ -78,7 +81,7 @@ namespace ERP.Presentacion.Invoices
                 this.dataGridView1.Rows.Add(product, amount, price, total);
                 float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
                 this.txtTotalNeto.Text = xneto.ToString();
-                float xtotal = xneto + ((xneto * 21) / 100);
+                float xtotal = xneto + ((xneto * taxes) / 100);
                 this.txtTotal.Text = xtotal.ToString();
             }
         }

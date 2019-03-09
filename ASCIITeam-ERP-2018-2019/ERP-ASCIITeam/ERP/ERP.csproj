@@ -67,6 +67,7 @@
     <Compile Include="Dominio\Gestores\GestorValidation.cs" />
     <Compile Include="Dominio\Income.cs" />
     <Compile Include="Dominio\Invoicees.cs" />
+    <Compile Include="Dominio\LinesInvoices.cs" />
     <Compile Include="Dominio\Order.cs" />
     <Compile Include="Dominio\Gestores\GestorCategorias.cs" />
     <Compile Include="Dominio\Gestores\GestorCliente.cs" />
