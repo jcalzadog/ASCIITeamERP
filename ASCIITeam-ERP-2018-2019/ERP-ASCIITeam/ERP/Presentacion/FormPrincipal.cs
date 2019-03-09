@@ -1406,7 +1406,9 @@ namespace ERP
 
         private void tbcMenuPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvOrders.ClearSelection();
+            dgvOrders.ClearSelection(); cargarInvoices();
+            dgvInvoices.ClearSelection();
+            
         }
 
         private void cbxCustomerDeleted_CheckedChanged(object sender, EventArgs e)
@@ -2416,6 +2418,7 @@ namespace ERP
             ((Button)sender).ForeColor = Color.White;
         }
 
+<<<<<<< HEAD
         private void btnPrintInvoice_Click(object sender, EventArgs e)
         {
             PrintInvoice invoicePrinted = new PrintInvoice();
@@ -2435,6 +2438,26 @@ UNION
 SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
     FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT
     WHERE PI.IDINVOICE = 3;*/
+=======
+        private void dgvInvoices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (dgvInvoices.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("Can't un-post this invoice, please post it now.").Show();
+                } else if (txtPassAccounting.Text == "accounting")
+                {
+                    invoice.gestor.post(dgvInvoices.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    cargarInvoices();
+                }
+                else
+                {
+                    new VentanaPersonalizada("The ACCOUNTING password is incorrect!.").Show();
+                }
+                txtPassAccounting.Text = "";
+            }
+>>>>>>> 089d6c3f244704b7dfb1caf241631b9d28bc26dd
         }
     }
 }
