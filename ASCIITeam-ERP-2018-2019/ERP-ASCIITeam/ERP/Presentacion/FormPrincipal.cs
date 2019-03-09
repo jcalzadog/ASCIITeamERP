@@ -121,6 +121,11 @@ namespace ERP
         {
             invoice.gestor.loadTable();
             dgvInvoices.DataSource = invoice.gestor.tabla;
+            dgvInvoices.RowHeadersVisible = false;
+            dgvInvoices.AllowUserToAddRows = false;
+            dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvInvoices.BackgroundColor = Color.Black;
+            dgvInvoices.Columns[0].Visible = false;
             foreach (DataGridViewRow fila in dgvInvoices.Rows)
             {
                 string numfact = Convert.ToString(fila.Cells[0].Value);
