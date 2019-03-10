@@ -108,7 +108,7 @@ namespace ERP.Presentacion.Invoices
             tInvoice.Columns.Add("Iva", Type.GetType("System.String"));
             tInvoice.Columns.Add("TotalFactura", Type.GetType("System.String"));
 
-            data = search.getData("SELECT I.NUM_INVOICE NUMI, I.DATETIME DATETI, I.AMOUNT BASEI, (I.AMOUNT*0.21) IVA, ROUND(I.AMOUNT + (I.AMOUNT*0.21), 2) TOTALFAC FROM INVOICES I WHERE I.ID=" + this.idInvoice, "table");
+            data = search.getData("SELECT I.NUM_INVOICE NUMI, I.DATETIME DATETI, (I.AMOUNT-(I.AMOUNT*0.21)) BASEI, (I.AMOUNT*0.21) IVA, I.AMOUNT TOTALFAC FROM INVOICES I WHERE I.ID=" + this.idInvoice, "table");
             DataTable tmp = data.Tables["table"];
 
             foreach (DataRow row in tmp.Rows)
