@@ -34,17 +34,17 @@ namespace ERP
             OracleConnection objConexion;
             OracleDataAdapter objComando;
             DataSet requestQuery = new DataSet();
-            try
-            {
+            //try
+            //{
                 objConexion = new OracleConnection(driver);
                 objConexion.Open();
                 objComando = new OracleDataAdapter(query, objConexion);
                 objComando.Fill(requestQuery, table);
                 objConexion.Close();
-            } catch (Exception e)
-            {
-                MessageBox.Show("Error on query:\n"+query);
-            }
+            //} catch (Exception e)
+            //{
+            //    MessageBox.Show("Error on query:\n"+query);
+            //}
             
 
             

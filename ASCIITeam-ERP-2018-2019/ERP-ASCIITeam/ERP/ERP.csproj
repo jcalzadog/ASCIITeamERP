@@ -229,6 +229,9 @@
       <DependentUpon>CrystalReportInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Presentacion\Invoices\DataSetInvoice.cs">
+      <DependentUpon>DataSetInvoice.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Invoices\DataSetInvoice.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -103,5 +103,10 @@ namespace ERP.Dominio.Gestores
             conector.setData("update invoices set deleted=1 where num_invoice=" + num_invoice);
         }
 
+        public decimal getIdInvoice(decimal num_invoice)
+        {
+            return Convert.ToDecimal(conector.DLookUp("ID", "INVOICES", "NUM_INVOICE='" + num_invoice + "'"));
+        }
+
     }
 }

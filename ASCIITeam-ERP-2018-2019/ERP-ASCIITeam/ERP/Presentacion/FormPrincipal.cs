@@ -2421,7 +2421,9 @@ namespace ERP
 
         private void btnPrintInvoice_Click(object sender, EventArgs e)
         {
-            PrintInvoice invoicePrinted = new PrintInvoice();
+
+            decimal idInvoice = invoice.gestor.getIdInvoice(Convert.ToDecimal(dgvInvoices.SelectedRows[0].Cells[0].Value));
+            PrintInvoice invoicePrinted = new PrintInvoice(idInvoice);
             invoicePrinted.Show();
         }
 
