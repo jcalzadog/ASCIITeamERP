@@ -35,8 +35,11 @@ namespace ERP.Presentacion.Invoices
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.txtTotalNeto.Text = "0";
             this.txtTotal.Text = "0";
-            
-            
+            foreach (DataGridViewColumn column in this.dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

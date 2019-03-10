@@ -31,6 +31,7 @@ namespace ERP.Presentacion.Invoices
             dgvClientes.BackgroundColor = Color.Black;
             dgvClientes.ReadOnly = true;                               
             cargarClientes();
+        
         }
         public void cargarClientes() {
             //dgvClientes.Columns.Clear();
