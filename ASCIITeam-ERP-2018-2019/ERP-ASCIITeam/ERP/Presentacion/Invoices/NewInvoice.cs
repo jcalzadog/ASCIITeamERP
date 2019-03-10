@@ -19,8 +19,8 @@ namespace ERP.Presentacion.Invoices
         Invoicees i;
         Customer c;
         int taxes = 21;
-        List<Producto> listaProducts = new List<Producto>();
-        List<LinesInvoices> listaLineas = new List<LinesInvoices>();
+        List<Object> listaItems = new List<Object>();
+        
         public NewInvoice()
         {   
             InitializeComponent();
@@ -55,10 +55,13 @@ namespace ERP.Presentacion.Invoices
                 float total = price * amount;
                 total = (float)Math.Round(total, 2);
                 this.dataGridView1.Rows.Add(description, amount, price, total);
-                float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
-                this.txtTotalNeto.Text = xneto.ToString();
-                float xtotal = xneto + ((xneto * 21) / 100);
+                float xtotal = float.Parse(this.txtTotal.Text.ToString()) + total;
                 this.txtTotal.Text = xtotal.ToString();
+
+                this.txtTotalNeto.Text = calcularIVA().ToString();
+                
+                LinesInvoices li = new LinesInvoices(description,amount,xtotal,0,0);
+                listaItems.Add(li);
             }
         }
 
@@ -75,17 +78,25 @@ namespace ERP.Presentacion.Invoices
                 float price = float.Parse(this.txtPriceProduct.Text.Replace(".", ",").Replace("'", ""));
                 price = (float)Math.Round(price, 2);
                 int amount = int.Parse(this.amountProducts.Value.ToString());
-                string product = this.cmbProducts.SelectedItem.ToString();
+                string product =    i.gestor.getProductName( (decimal)this.cmbProducts.SelectedValue);
                 float total = price * amount;
                 total = (float)Math.Round(total, 2);
                 this.dataGridView1.Rows.Add(product, amount, price, total);
-                float xneto = float.Parse(this.txtTotalNeto.Text.ToString()) + total;
-                this.txtTotalNeto.Text = xneto.ToString();
-                float xtotal = xneto + ((xneto * taxes) / 100);
+                float xtotal = float.Parse(this.txtTotal.Text.ToString()) + total;
                 this.txtTotal.Text = xtotal.ToString();
+                
+                this.txtTotalNeto.Text = calcularIVA().ToString();
+
+                ProductsInvoices pi = new ProductsInvoices(Convert.ToInt32(this.cmbProducts.SelectedValue), 0, amount, xtotal);
+                listaItems.Add(pi);
             }
         }
-
+        public float calcularIVA() {
+            float xtotal = float.Parse(this.txtTotal.Text.ToString());
+            float xtotalneto = xtotal - ((xtotal * taxes) / 100);
+            this.txtTotalNeto.Text = xtotalneto.ToString();
+            return xtotalneto;
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             selectCustomer sc = new selectCustomer();
@@ -152,13 +163,41 @@ namespace ERP.Presentacion.Invoices
 
         private void cmbProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cmbProducts.Text.ToString().Equals("Nothing"))
-            {
-                this.txtPriceProduct.Text = "";
-            }
-            else {
-                decimal precio = i.gestor.productPrice(this.cmbProducts.Text.ToString());
+            
+        
+                decimal precio = i.gestor.productPrice((decimal)this.cmbProducts.SelectedValue);
                 this.txtPriceProduct.Text = precio.ToString();
+            
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listaItems.Count; i++)
+            {
+                if (listaItems.ElementAt(i).GetType() == typeof(ProductsInvoices))
+                {
+                    //hacer insert en products invoices
+                }
+                else {
+                    //hacer insert en lines invoices
+                }
+            }
+        }
+
+        private void btnRemoveSelected_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount > 1)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+                    this.txtTotal.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells[3].Value)).ToString();
+                    listaItems.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                    dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+                    this.txtTotalNeto.Text = calcularIVA().ToString();
+
+
+                }
             }
         }
     }

@@ -23,21 +23,30 @@ namespace ERP.Dominio.Gestores
         public void comboProducts(ComboBox c)
         {
             DataSet data = new DataSet();
-            data = conector.getData("SELECT NAME FROM PRODUCTS ", "PRODUCTS");
-            Decimal cuentaProductos = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "");
-            c.Items.Add("Nothing");
-            for (int i = 0; i < cuentaProductos; i++)
-            {
-                c.Items.Add(data.Tables[0].Rows[i][0].ToString());
-            }
+            data = conector.getData("SELECT NAME,IDPRODUCT FROM PRODUCTS ", "PRODUCTS");
+            //Decimal cuentaProductos = (Decimal)conector.DLookUp("COUNT(IDPRODUCT)", "PRODUCTS", "");
+            
+            //for (int i = 0; i < cuentaProductos; i++)
+            //{
+            //   // c.Items.Add(data.Tables[0].Rows[i][0].ToString());
+               
+            //}
+            
+            c.DisplayMember ="NAME";
+            c.ValueMember = "IDPRODUCT";
+            c.DataSource = data.Tables[0];
             c.SelectedIndex = 0;
            
         }
-        public decimal productPrice(String product) {
-            decimal precio = (decimal)conector.DLookUp("PRICE", "PRODUCTS", "UPPER(NAME)='"+product.ToUpper()+"'");
+        public decimal productPrice(decimal id)
+        {
+            decimal precio = (decimal)conector.DLookUp("PRICE", "PRODUCTS","IDPRODUCT="+id);
             return precio;
         }
-
+        public string getProductName(decimal id) {
+            string name = conector.DLookUp("NAME", "PRODUCTS", "IDPRODUCT=" + id).ToString();
+            return name;
+        }
         /// <summary>
         /// realiza las inserciones necesarias para generar una factura a partir de un pedido
         /// </summary>

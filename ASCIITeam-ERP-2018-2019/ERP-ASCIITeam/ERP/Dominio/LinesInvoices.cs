@@ -8,19 +8,86 @@ namespace ERP.Dominio
 {
     class LinesInvoices
     {
-        public int id;
-        public string description;
-        public int amount;
-        public float price;
-        public int refinvoice;
-        public int deleted;
-        public LinesInvoices(int id, string description, int amount, float price, int refinvoice) {
-            this.id = id;
-            this.description = description;
-            this.amount = amount;
-            this.price = price;
-            this.refinvoice = refinvoice;
-            this.deleted = 0;
+
+        private string description;
+        private int amount;
+        private float price;
+        private int refinvoice;
+        private int deleted;
+
+      
+
+        public LinesInvoices(string description, int amount, float price, int refinvoice, int deleted)
+        {
+            this.Description = description;
+            this.Amount = amount;
+            this.Price = price;
+            this.Refinvoice = refinvoice;
+            this.Deleted = deleted;
+        }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+
+            set
+            {
+                description = value;
+            }
+        }
+
+        public int Amount
+        {
+            get
+            {
+                return amount;
+            }
+
+            set
+            {
+                amount = value;
+            }
+        }
+
+        public float Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
+            }
+        }
+
+        public int Refinvoice
+        {
+            get
+            {
+                return refinvoice;
+            }
+
+            set
+            {
+                refinvoice = value;
+            }
+        }
+
+        public int Deleted
+        {
+            get
+            {
+                return deleted;
+            }
+
+            set
+            {
+                deleted = value;
+            }
         }
     }
 }
