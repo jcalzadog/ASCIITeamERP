@@ -72,13 +72,13 @@ namespace ERP.Dominio.Gestores
 
                 if (existe > 0)
                 {
-                    MessageBox.Show("El usuario se ha añadido correctamente.");
+                    new VentanaPersonalizada("The product has been added correctly.").ShowDialog();
                     creado = true;
                 }
             }
             else
             {
-                String mensaje = "El nombre de producto no es Valido.";
+                String mensaje = "The product name is not valid.";
                 VentanaPersonalizada cambio = new VentanaPersonalizada(mensaje);
                 cambio.ShowDialog();
                 //MessageBox.Show("El nombre de producto no es Valido.");
