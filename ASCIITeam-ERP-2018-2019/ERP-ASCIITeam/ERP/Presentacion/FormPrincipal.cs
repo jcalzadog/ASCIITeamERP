@@ -119,23 +119,35 @@ namespace ERP
 
         public void cargarInvoices()
         {
+            dgvInvoices.Columns.Clear();
             invoice.gestor.loadTable();
-            dgvInvoices.DataSource = invoice.gestor.tabla;
+
+            dgvInvoices.Columns.Add("NUM_INVOICE", "NUM_INVOICE");
+            dgvInvoices.Columns.Add("DATETIME", "DATETIME");
+            dgvInvoices.Columns.Add("CUSTOMER", "CUSTOMER");
+            dgvInvoices.Columns.Add("NET", "NET");
+            dgvInvoices.Columns.Add("TOTAL", "TOTAL");
+
+            DataTable tInvoices = invoice.gestor.tabla;
+            int i = 0;
+            foreach (DataRow row in tInvoices.Rows)
+            {
+                dgvInvoices.Rows.Add(row["NUM_INVOICE"], row["DATETIME"], row["CUSTOMER"], row["NET"], row["TOTAL"]);
+
+                string numfact = Convert.ToString(dgvInvoices.Rows[i].Cells[0].Value);
+
+                if (invoice.gestor.isPosted(numfact))
+                {
+                    dgvInvoices.Rows[i].Cells[0].Style.BackColor = Color.Green;
+                    dgvInvoices.Rows[i].Cells[0].Style.SelectionBackColor = Color.Transparent;
+                }
+                i++;
+
+            }
             dgvInvoices.RowHeadersVisible = false;
             dgvInvoices.AllowUserToAddRows = false;
             dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoices.BackgroundColor = Color.Black;
-            dgvInvoices.Columns[0].Visible = false;
-            foreach (DataGridViewRow fila in dgvInvoices.Rows)
-            {
-                string numfact = Convert.ToString(fila.Cells[0].Value);
-                
-                if (invoice.gestor.isPosted(numfact))
-                {
-                    fila.Cells[0].Style.BackColor = Color.Red;
-                    fila.Cells[0].Style.SelectionBackColor = Color.Transparent;
-                }
-            }
         }
 
         public void cargarIncomes()
@@ -1374,7 +1386,7 @@ namespace ERP
             {
 
                 string id = ((decimal)dgvOrders.Rows[filaOrders].Cells[10].Value).ToString();
-                DeleteOrder dlg = new DeleteOrder();
+                DeleteInvoice dlg = new DeleteInvoice();
                 dlg.ShowDialog();
                 if (dlg.Acept)
                 {
@@ -1394,7 +1406,9 @@ namespace ERP
 
         private void tbcMenuPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvOrders.ClearSelection();
+            dgvOrders.ClearSelection(); cargarInvoices();
+            dgvInvoices.ClearSelection();
+            
         }
 
         private void cbxCustomerDeleted_CheckedChanged(object sender, EventArgs e)
@@ -2402,6 +2416,70 @@ namespace ERP
         {
             ((Button)sender).BackColor = Color.Black;
             ((Button)sender).ForeColor = Color.White;
+        }
+
+
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            PrintInvoice invoicePrinted = new PrintInvoice();
+            invoicePrinted.Show();
+        }
+
+            //SELECT PARA LA FACTURA USANDO UNION
+/*            SELECT P.NAME DESCR, SUM(OP.AMOUNT)AMO, OP.PRICESALE PRIC
+    FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT
+        INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER
+    WHERE OI.IDINVOICE = 3
+    GROUP BY P.NAME, OP.PRICESALE
+UNION
+SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC
+    FROM LINES_INVOICE LI
+    WHERE LI.REFINVOICE = 3
+UNION
+SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
+    FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT
+    WHERE PI.IDINVOICE = 3;*/
+
+        private void dgvInvoices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (dgvInvoices.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("Can't un-post this invoice, please post it now.").Show();
+                } else if (txtPassAccounting.Text == "accounting")
+                {
+                    invoice.gestor.post(dgvInvoices.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    cargarInvoices();
+                }
+                else
+                {
+                    new VentanaPersonalizada("The ACCOUNTING password is incorrect!.").Show();
+                }
+                txtPassAccounting.Text = "";
+            }
+
+        }
+
+        private void btnDeleteInvoice_Click(object sender, EventArgs e)
+        {
+            if (dgvInvoices.SelectedRows.Count == 1)
+            {
+                if (dgvInvoices.SelectedRows[0].Cells[0].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("You cannot delete a posted invoice.").ShowDialog();
+                } else
+                {
+                    DeleteInvoice dlg = new DeleteInvoice();
+                    dlg.ShowDialog();
+                    if (dlg.Acept)
+                    invoice.gestor.delete(dgvInvoices.SelectedRows[0].Cells[0].Value.ToString());
+                }
+            } else
+            {
+                new VentanaPersonalizada("Select an invoice first.").ShowDialog();
+            }
+            cargarInvoices();
         }
     }
 }
