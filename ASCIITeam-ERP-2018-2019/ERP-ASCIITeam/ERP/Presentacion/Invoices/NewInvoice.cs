@@ -217,6 +217,9 @@ namespace ERP.Presentacion.Invoices
                     {
                         ProductsInvoices aux = (ProductsInvoices)listaItems.ElementAt(j);
                         i.gestor.insertarProductInvoices(aux.Idproduct, idinvoice, aux.Amount, aux.Price);
+                    } else if (listaItems.ElementAt(j).GetType()== typeof(DetailOrder))
+                    {
+                        //como es un detail order no tiene que insertarlo, ya se encuentra insertado previamente
                     }
                     else
                     {
