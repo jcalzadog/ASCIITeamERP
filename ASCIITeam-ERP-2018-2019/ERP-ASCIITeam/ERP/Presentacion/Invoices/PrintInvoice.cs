@@ -19,29 +19,29 @@ namespace ERP.Presentacion.Invoices
 
         private void PrintInvoice_Load(object sender, EventArgs e)
         {
-            DataSet data = new DataSet();
-            ConnectOracle search = new ConnectOracle();
-            DataTable tcustomers = new DataTable();
+            //DataSet data = new DataSet();
+            //ConnectOracle search = new ConnectOracle();
+            //DataTable tcustomers = new DataTable();
 
-            tcustomers.Columns.Add("Name", Type.GetType("System.String"));
-            tcustomers.Columns.Add("Surname", Type.GetType("System.String"));
+            //tcustomers.Columns.Add("Name", Type.GetType("System.String"));
+            //tcustomers.Columns.Add("Surname", Type.GetType("System.String"));
 
-            data = search.getData("select * from clientes", "customers");
-            DataTable tmp = data.Tables["customers"];
+            //data = search.getData("select * from clientes", "customers");
+            //DataTable tmp = data.Tables["customers"];
 
-            foreach (DataRow row in tmp.Rows)
-            {
-                tcustomers.Rows.Add(new Object[] { row["nombre"], row["apellido1"] });
-            }
+            //foreach (DataRow row in tmp.Rows)
+            //{
+            //    tcustomers.Rows.Add(new Object[] { row["nombre"], row["apellido1"] });
+            //}
 
-            /*tcustomers.Rows.Add(new Object[] { "Luis", "Ayuga" });
-            tcustomers.Rows.Add(new Object[] { "Pedro", "Juarez" });*/
+            ///*tcustomers.Rows.Add(new Object[] { "Luis", "Ayuga" });
+            //tcustomers.Rows.Add(new Object[] { "Pedro", "Juarez" });*/
 
-            CrystalReportInvoice miReporte = new CrystalReportInvoice();
-            miReporte.Database.Tables["Customers"].SetDataSource(tcustomers);
+            //CrystalReportInvoice miReporte = new CrystalReportInvoice();
+            //miReporte.Database.Tables["Customers"].SetDataSource(tcustomers);
 
 
-            crystalReportViewer1.ReportSource = miReporte;
+            //crystalReportViewer1.ReportSource = miReporte;
 
 
             //DataTable tinvo = llenaInvo();
