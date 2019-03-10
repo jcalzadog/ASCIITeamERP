@@ -3,12 +3,8 @@ using ERP.Dominio.Gestores;
 using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Invoices
@@ -24,6 +20,7 @@ namespace ERP.Presentacion.Invoices
         public NewInvoice()
         {   
             InitializeComponent();
+            cargarComponentes();
             i = new Invoicees();
             c = new Customer();
             i.gestor.comboProducts(this.cmbProducts);
@@ -39,6 +36,25 @@ namespace ERP.Presentacion.Invoices
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+
+        }
+        public void cargarComponentes()
+        {
+            aparienciaBotones(btnSearch);
+            aparienciaBotones(btnAdd);
+            aparienciaBotones(btnAddProduct);
+            aparienciaBotones(btnRemoveSelected);
+            aparienciaBotones(btnAccept);
+            aparienciaBotones(btnCancel);
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
 
         }
 
