@@ -54,6 +54,26 @@ namespace ERP.Dominio.Gestores
             conector.setData("insert into orders_invoices values ('"+idOrderInvoice+"', '"+idOrder+"', '"+idInvoice+"')");
             return numberInvoice;
         }
+
+        /// <summary>
+        /// realiza las inserciones necesarias para generar una factura a partir de una factua a mano
+        /// </summary>
+        /// <param name="idCustomer">cliente al que se le va a generar la factura</param>
+        /// <param name="amount">cantidad total a la que asciende la factura CON IVA</param>
+        /// <return>idInvoice generado, de cara a insertar sus respectivas lineas y productos de factura</return>
+        public decimal generateInvoice(decimal idCustomer, decimal amount)
+        {
+            decimal numberInvoice = (decimal)conector.DLookUp("nvl(MAX(NUM_INVOICE)+1,TO_NUMBER(TO_CHAR(sysdate,'YYYY')||'0000')+1)", "invoices", "(NUM_INVOICE>TO_NUMBER(TO_CHAR(sysdate,'YYYY')||'0000') and NUM_INVOICE<TO_NUMBER(TO_CHAR(sysdate,'YYYY')+1||'0000'))");
+
+            decimal idInvoice = (decimal)conector.DLookUp("nvl(MAX(ID)+1,1)", "invoices", "");
+            
+            
+            conector.setData("insert into invoices values ( '" + numberInvoice + "', sysdate, '" + idCustomer + "', '" + amount + "', 0, 0, '" + idInvoice + "')");
+            
+            return idInvoice;
+        }
+
+
         /// <summary>
         /// carga en tabla las facturas
         /// </summary>
