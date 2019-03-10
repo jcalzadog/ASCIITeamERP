@@ -1874,6 +1874,7 @@
             this.btnUpdateInvoice.TabIndex = 12;
             this.btnUpdateInvoice.Text = "Update Invoice";
             this.btnUpdateInvoice.UseVisualStyleBackColor = true;
+            this.btnUpdateInvoice.Click += new System.EventHandler(this.btnUpdateInvoice_Click);
             this.btnUpdateInvoice.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
             this.btnUpdateInvoice.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 

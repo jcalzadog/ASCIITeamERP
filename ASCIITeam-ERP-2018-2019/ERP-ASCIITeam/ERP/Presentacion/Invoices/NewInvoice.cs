@@ -36,7 +36,7 @@ namespace ERP.Presentacion.Invoices
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-
+            //
         }
         public void cargarComponentes()
         {

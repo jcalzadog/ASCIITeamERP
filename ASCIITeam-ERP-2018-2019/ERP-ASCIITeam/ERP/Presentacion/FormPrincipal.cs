@@ -2404,6 +2404,7 @@ namespace ERP
         {
             NewInvoice ni = new NewInvoice();
             ni.ShowDialog();
+            cargarInvoices();
         }
 
         private void btn_MouseEnterStyle(object sender, EventArgs e)
@@ -2478,6 +2479,27 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
                     invoice.gestor.delete(dgvInvoices.SelectedRows[0].Cells[0].Value.ToString());
                 }
             } else
+            {
+                new VentanaPersonalizada("Select an invoice first.").ShowDialog();
+            }
+            cargarInvoices();
+        }
+
+        private void btnUpdateInvoice_Click(object sender, EventArgs e)
+        {
+            if (dgvInvoices.SelectedRows.Count == 1)
+            {
+                if (dgvInvoices.SelectedRows[0].Cells[0].Style.BackColor == Color.Green)
+                {
+                    new VentanaPersonalizada("You cannot modify a posted invoice.").ShowDialog();
+                }
+                else
+                {
+                    //codigo para ir al editor
+
+                }
+            }
+            else
             {
                 new VentanaPersonalizada("Select an invoice first.").ShowDialog();
             }
