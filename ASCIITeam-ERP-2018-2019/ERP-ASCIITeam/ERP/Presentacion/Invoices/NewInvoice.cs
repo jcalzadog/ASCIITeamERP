@@ -165,32 +165,47 @@ namespace ERP.Presentacion.Invoices
         }
 
         private void cmbProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        
+        {       
                 decimal precio = i.gestor.productPrice((decimal)this.cmbProducts.SelectedValue);
-                this.txtPriceProduct.Text = precio.ToString();
-            
+                this.txtPriceProduct.Text = precio.ToString(); 
         }
-
+        
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listaItems.Count; i++)
+            if (this.txtCustomer.Text.Equals("") || dataGridView1.RowCount==0)
             {
-                if (listaItems.ElementAt(i).GetType() == typeof(ProductsInvoices))
-                {
-                    //hacer insert en products invoices
-                }
-                else {
-                    //hacer insert en lines invoices
-                }
+                VentanaPersonalizada vp = new VentanaPersonalizada("You haven't selected any customer or the invoice is empty ");
+                vp.ShowDialog();
             }
+            else
+            {
+                int idcliente = Convert.ToInt32(i.gestor.getIdCliente(this.txtCustomer.Text.ToString()));
+                float amount = float.Parse(this.txtTotal.Text.ToString());
+                int idinvoice = Convert.ToInt32(i.gestor.generateInvoice(idcliente, amount));
+
+                for (int j = 0; j < listaItems.Count; j++)
+                {
+                    if (listaItems.ElementAt(j).GetType() == typeof(ProductsInvoices))
+                    {
+                        ProductsInvoices aux = (ProductsInvoices)listaItems.ElementAt(j);
+                        i.gestor.insertarProductInvoices(aux.Idproduct, idinvoice, aux.Amount, aux.Price);
+                    }
+                    else
+                    {
+                        LinesInvoices aux = (LinesInvoices)listaItems.ElementAt(j);
+                        i.gestor.insertarLinesInvoices(aux.Description, idinvoice, aux.Amount, aux.Price);
+                    }
+                }
+                i.gestor.loadTable();
+                this.Dispose();
+            }
+           
+            
         }
 
         private void btnRemoveSelected_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount > 1)
-            {
+         
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
 
@@ -201,7 +216,7 @@ namespace ERP.Presentacion.Invoices
 
 
                 }
-            }
+            
         }
     }
     
