@@ -161,12 +161,12 @@ namespace ERP.Presentacion.Orders
         {
             if (dgvCart.SelectedRows.Count > 0)
             {
-               for (int i = 0; i < dgvCart.SelectedRows.Count;i++)
-                {
-                    lblTotal.Text = (Convert.ToDecimal(lblTotal.Text) - Convert.ToDecimal(dgvCart.SelectedRows[i].Cells[3].Value)).ToString();
-                    dgvCart.Rows.Remove(dgvCart.SelectedRows[i]);
-                    details.RemoveAt(dgvCart.SelectedRows[i].Index);
-                }
+                
+                lblTotal.Text = (Convert.ToDecimal(lblTotal.Text) - Convert.ToDecimal(dgvCart.SelectedRows[0].Cells[3].Value)).ToString();
+                details.RemoveAt(dgvCart.SelectedRows[0].Index);
+                dgvCart.Rows.Remove(dgvCart.SelectedRows[0]);
+                    
+                
             }
         }
 

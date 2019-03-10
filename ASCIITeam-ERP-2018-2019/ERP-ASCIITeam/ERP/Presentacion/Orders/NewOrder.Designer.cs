@@ -124,6 +124,7 @@
             this.dgvCart.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCart.Location = new System.Drawing.Point(78, 188);
             this.dgvCart.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCart.MultiSelect = false;
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersVisible = false;
