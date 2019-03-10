@@ -84,6 +84,7 @@
     <Compile Include="Dominio\PendingPayments.cs" />
     <Compile Include="Dominio\Platforms.cs" />
     <Compile Include="Dominio\Producto.cs" />
+    <Compile Include="Dominio\ProductsInvoices.cs" />
     <Compile Include="Dominio\Role.cs" />
     <Compile Include="Dominio\User.cs" />
     <Compile Include="Dominio\Util\Encryptor.cs" />

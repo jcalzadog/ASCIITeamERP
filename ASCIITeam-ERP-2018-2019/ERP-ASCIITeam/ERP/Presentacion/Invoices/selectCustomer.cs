@@ -31,6 +31,7 @@ namespace ERP.Presentacion.Invoices
             dgvClientes.BackgroundColor = Color.Black;
             dgvClientes.ReadOnly = true;                               
             cargarClientes();
+        
         }
         public void cargarClientes() {
             //dgvClientes.Columns.Clear();
@@ -57,7 +58,7 @@ namespace ERP.Presentacion.Invoices
         private void filtrarTablaClientes(String name)
         {
             String condicion = "";
-            condicion += " UPPER(C.NAME) like '%" + name.ToUpper() + "%' OR UPPER(C.SURNAME) like '%" + name.ToUpper() +"' OR C.DNI like '%" + name + "%' AND C.DELETED=0";
+            condicion += " (UPPER(C.NAME) like '%" + name.ToUpper() + "%' OR UPPER(C.SURNAME) like '%" + name.ToUpper() +"%' OR C.DNI like '%" + name + "%') AND C.DELETED=0";
 
             dgvClientes.Columns.Clear();
             c.gestorCliente.leerClientes(condicion);
