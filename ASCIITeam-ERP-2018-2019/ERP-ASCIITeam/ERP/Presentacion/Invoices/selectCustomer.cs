@@ -1,12 +1,7 @@
 ﻿using ERP.Dominio.Gestores;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERP.Presentacion.Invoices
@@ -18,6 +13,7 @@ namespace ERP.Presentacion.Invoices
         public selectCustomer()
         {
             InitializeComponent();
+            cargarComponentes();
             dgvClientes.Columns.Add("DNI", "DNI");
             dgvClientes.Columns.Add("NAME", "NAME");
             dgvClientes.Columns.Add("SURNAME", "SURNAME");
@@ -32,6 +28,34 @@ namespace ERP.Presentacion.Invoices
             dgvClientes.ReadOnly = true;                               
             cargarClientes();
         
+        }
+
+        public void cargarComponentes()
+        {
+            aparienciaBotones(btnAccept);
+            aparienciaBotones(btnCancel);
+        }
+
+        public void aparienciaBotones(Button btn)
+        {
+            btn.BackColor = Color.Black;
+            btn.ForeColor = Color.White;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderColor = Color.Black;
+            btn.FlatAppearance.BorderSize = 1;
+
+        }
+
+        private void btn_MouseEnterStyle(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
+        }
+
+        private void btn_MouseLeaveStyle(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
         }
         public void cargarClientes() {
             //dgvClientes.Columns.Clear();

@@ -67,7 +67,7 @@
             this.cmbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducts.FormattingEnabled = true;
             this.cmbProducts.Location = new System.Drawing.Point(101, 96);
-            this.cmbProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProducts.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProducts.Name = "cmbProducts";
             this.cmbProducts.Size = new System.Drawing.Size(240, 24);
             this.cmbProducts.TabIndex = 58;
@@ -76,18 +76,20 @@
             // btnAddProduct
             // 
             this.btnAddProduct.Location = new System.Drawing.Point(785, 97);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(100, 28);
             this.btnAddProduct.TabIndex = 57;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            this.btnAddProduct.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnAddProduct.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // txtPriceProduct
             // 
             this.txtPriceProduct.Location = new System.Drawing.Point(632, 97);
-            this.txtPriceProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPriceProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtPriceProduct.Name = "txtPriceProduct";
             this.txtPriceProduct.Size = new System.Drawing.Size(132, 22);
             this.txtPriceProduct.TabIndex = 56;
@@ -97,7 +99,7 @@
             // amountProducts
             // 
             this.amountProducts.Location = new System.Drawing.Point(443, 97);
-            this.amountProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amountProducts.Margin = new System.Windows.Forms.Padding(4);
             this.amountProducts.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -150,24 +152,28 @@
             // btnAccept
             // 
             this.btnAccept.Location = new System.Drawing.Point(724, 599);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 28);
             this.btnAccept.TabIndex = 51;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            this.btnAccept.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnAccept.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(832, 599);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 50;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // label9
             // 
@@ -193,7 +199,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(799, 538);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
@@ -203,7 +209,7 @@
             // 
             this.txtTotalNeto.Enabled = false;
             this.txtTotalNeto.Location = new System.Drawing.Point(519, 538);
-            this.txtTotalNeto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalNeto.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalNeto.Name = "txtTotalNeto";
             this.txtTotalNeto.ReadOnly = true;
             this.txtTotalNeto.Size = new System.Drawing.Size(132, 22);
@@ -212,7 +218,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(-175, 86);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(135, 28);
             this.btnRemove.TabIndex = 45;
@@ -224,7 +230,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 252);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -235,18 +241,20 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(785, 149);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnAdd.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(632, 149);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(132, 22);
             this.txtPrice.TabIndex = 42;
@@ -255,7 +263,7 @@
             // amount
             // 
             this.amount.Location = new System.Drawing.Point(443, 149);
-            this.amount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amount.Margin = new System.Windows.Forms.Padding(4);
             this.amount.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -278,7 +286,7 @@
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(101, 149);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(240, 24);
@@ -318,7 +326,7 @@
             // 
             this.txtCustomer.Enabled = false;
             this.txtCustomer.Location = new System.Drawing.Point(101, 34);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(240, 22);
             this.txtCustomer.TabIndex = 36;
@@ -336,13 +344,15 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(377, 32);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 34;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnSearch.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // label10
             // 
@@ -377,20 +387,22 @@
             // btnRemoveSelected
             // 
             this.btnRemoveSelected.Location = new System.Drawing.Point(13, 206);
-            this.btnRemoveSelected.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveSelected.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveSelected.Name = "btnRemoveSelected";
             this.btnRemoveSelected.Size = new System.Drawing.Size(136, 28);
             this.btnRemoveSelected.TabIndex = 62;
             this.btnRemoveSelected.Text = "Remove Selected";
             this.btnRemoveSelected.UseVisualStyleBackColor = true;
             this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
+            this.btnRemoveSelected.MouseEnter += new System.EventHandler(this.btn_MouseEnterStyle);
+            this.btnRemoveSelected.MouseLeave += new System.EventHandler(this.btn_MouseLeaveStyle);
             // 
             // NewInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(948, 642);
+            this.ClientSize = new System.Drawing.Size(960, 683);
             this.ControlBox = false;
             this.Controls.Add(this.btnRemoveSelected);
             this.Controls.Add(this.label10);
@@ -422,7 +434,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(966, 689);
             this.Name = "NewInvoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -58,6 +58,18 @@ namespace ERP.Presentacion.Invoices
 
         }
 
+        private void btn_MouseEnterStyle(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.White;
+            ((Button)sender).ForeColor = Color.Black;
+        }
+
+        private void btn_MouseLeaveStyle(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Black;
+            ((Button)sender).ForeColor = Color.White;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (this.txtDescription.Text.Equals("") || this.txtPrice.Text.Equals(""))
