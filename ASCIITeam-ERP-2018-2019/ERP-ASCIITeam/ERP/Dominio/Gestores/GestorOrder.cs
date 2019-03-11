@@ -15,6 +15,15 @@ namespace ERP.Dominio.Gestores
             tOrders = new DataTable();
             conector = new ConnectOracle();
         }
+        /// <summary>
+        /// Devuelve la cuantia total de un pedido
+        /// </summary>
+        /// <param name="idOrder"> id del pedido</param>
+        /// <returns></returns>
+        public decimal getTotalOder (decimal idOrder)
+        {
+            return (decimal)conector.DLookUp("total", "orders", "idorder=" + idOrder);
+        }
 
         public void leerOrders(string condicion)
         {

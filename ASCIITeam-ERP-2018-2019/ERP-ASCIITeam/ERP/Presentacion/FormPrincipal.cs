@@ -2495,7 +2495,7 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
                 }
                 else
                 {
-                    //codigo para ir al editor
+                    new NewInvoice(dgvInvoices.SelectedRows[0].Cells[0].Value.ToString()).ShowDialog();
 
                 }
             }

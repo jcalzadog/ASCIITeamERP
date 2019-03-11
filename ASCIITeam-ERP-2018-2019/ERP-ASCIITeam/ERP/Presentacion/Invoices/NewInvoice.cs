@@ -3,6 +3,7 @@ using ERP.Dominio.Gestores;
 using ERP.Presentacion.ErroresCambios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace ERP.Presentacion.Invoices
         Customer c;
         int taxes = 21;
         List<Object> listaItems = new List<Object>();
-        
+        string editing_number = "";
         public NewInvoice()
         {   
             InitializeComponent();
@@ -38,6 +39,22 @@ namespace ERP.Presentacion.Invoices
             }
             //
         }
+
+        public NewInvoice (string editing_number): this()
+        {
+            this.editing_number = editing_number;
+            this.listaItems = i.gestor.getItems(Convert.ToDecimal(editing_number));
+            this.txtTotal.Text = i.gestor.getTotalInvoice(Convert.ToDecimal(editing_number)).ToString();
+            this.txtTotalNeto.Text = (Convert.ToDecimal(txtTotal.Text) * (decimal)0.79).ToString();
+            this.txtCustomer.Text = i.gestor.getDNICustomer(editing_number);
+            DataTable tabla = i.gestor.getTable(editing_number);
+            foreach (DataRow r in tabla.Rows)
+            {
+                dataGridView1.Rows.Add(r[0], r[1], r[2], r[3], Convert.ToDecimal(r[2])*Convert.ToDecimal(r[3]));
+            }
+            
+        }
+
         public void cargarComponentes()
         {
             aparienciaBotones(btnSearch);
@@ -91,7 +108,7 @@ namespace ERP.Presentacion.Invoices
 
                 this.txtTotalNeto.Text = calcularIVA().ToString();
                 
-                LinesInvoices li = new LinesInvoices(description,amount,xtotal,0,0);
+                LinesInvoices li = new LinesInvoices(description,amount,price,0,0);
                 listaItems.Add(li);
             }
         }
@@ -209,8 +226,16 @@ namespace ERP.Presentacion.Invoices
             {
                 int idcliente = Convert.ToInt32(i.gestor.getIdCliente(this.txtCustomer.Text.ToString()));
                 float amount = float.Parse(this.txtTotal.Text.ToString());
-                int idinvoice = Convert.ToInt32(i.gestor.generateInvoice(idcliente, amount));
-
+                int idinvoice=0;
+                if (!this.editing_number.Equals(""))
+                {
+                    i.gestor.deleteDetails(Convert.ToDecimal(editing_number));
+                    idinvoice = Convert.ToInt16(i.gestor.getIdInvoice(Convert.ToDecimal(editing_number)));
+                    i.gestor.editInvoice(editing_number, idcliente, amount);
+                } else
+                {
+                    idinvoice = Convert.ToInt32(i.gestor.generateInvoice(idcliente, amount));
+                }
                 for (int j = 0; j < listaItems.Count; j++)
                 {
                     if (listaItems.ElementAt(j).GetType() == typeof(ProductsInvoices))
@@ -227,7 +252,7 @@ namespace ERP.Presentacion.Invoices
                         i.gestor.insertarLinesInvoices(aux.Description, idinvoice, aux.Amount, aux.Price);
                     }
                 }
-                i.gestor.loadTable();
+                
                 this.Dispose();
             }
            
@@ -237,16 +262,21 @@ namespace ERP.Presentacion.Invoices
         private void btnRemoveSelected_Click(object sender, EventArgs e)
         {
          
-                if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                if (listaItems.ElementAt(dataGridView1.SelectedRows[0].Index).GetType() == typeof(DetailOrder))
                 {
-
+                    new VentanaPersonalizada("This item cannot be deleted because it comes from the order.").ShowDialog();
+                }
+                else
+                {
                     this.txtTotal.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells[3].Value)).ToString();
                     listaItems.RemoveAt(dataGridView1.SelectedRows[0].Index);
                     dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
                     this.txtTotalNeto.Text = calcularIVA().ToString();
 
-
                 }
+            }
             
         }
     }
