@@ -2449,7 +2449,7 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
             {
                 if (dgvInvoices.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.Green)
                 {
-                    new VentanaPersonalizada("Can't un-post this invoice, please post it now.").Show();
+                    new VentanaPersonalizada("Can't un-post this invoice, \nplease post it now.").Show();
                 } else if (txtPassAccounting.Text == "accounting")
                 {
                     invoice.gestor.post(dgvInvoices.Rows[e.RowIndex].Cells[0].Value.ToString());

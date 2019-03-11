@@ -228,7 +228,7 @@ namespace ERP.Dominio.Gestores
         public DataTable getTable (string editing_number)
         {
             decimal idInvoice = getIdInvoice(Convert.ToDecimal(editing_number));
-            String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO,OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
+            String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO, OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
                                 "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
                             "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
                            "WHERE OI.IDINVOICE =" + idInvoice
@@ -236,11 +236,11 @@ namespace ERP.Dominio.Gestores
                             "UNION " +
                            "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
                             "FROM LINES_INVOICE LI " +
-                           "WHERE LI.REFINVOICE =" + idInvoice + " order by li.id"
+                           "WHERE LI.REFINVOICE =" + idInvoice + ""
                            + " UNION " +
                            "SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC, ROUND(PI.AMOUNT * PI.PRICESALE, 2) TOTALPRIC " +
                             "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT " +
-                           "WHERE PI.IDINVOICE =" + idInvoice + " order by pi.idproinv";
+                           "WHERE PI.IDINVOICE =" + idInvoice + "";
 
             DataSet data = conector.getData(queryContentProducts, "table");
             DataTable tmp = data.Tables["table"];

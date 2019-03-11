@@ -135,7 +135,7 @@ namespace ERP.Presentacion.Invoices
                 
                 this.txtTotalNeto.Text = calcularIVA().ToString();
 
-                ProductsInvoices pi = new ProductsInvoices(Convert.ToInt32(this.cmbProducts.SelectedValue), 0, amount, xtotal);
+                ProductsInvoices pi = new ProductsInvoices(Convert.ToInt32(this.cmbProducts.SelectedValue), 0, amount, total);
                 listaItems.Add(pi);
             }
         }
@@ -266,7 +266,7 @@ namespace ERP.Presentacion.Invoices
             {
                 if (listaItems.ElementAt(dataGridView1.SelectedRows[0].Index).GetType() == typeof(DetailOrder))
                 {
-                    new VentanaPersonalizada("This item cannot be deleted because it comes from the order.").ShowDialog();
+                    new VentanaPersonalizada("This item cannot be deleted because \nit comes from the order.").ShowDialog();
                 }
                 else
                 {
