@@ -228,50 +228,19 @@ namespace ERP.Dominio.Gestores
         public DataTable getTable (string editing_number)
         {
             decimal idInvoice = getIdInvoice(Convert.ToDecimal(editing_number));
-            //String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO, OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
-            //                    "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
-            //                "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
-            //               "WHERE OI.IDINVOICE =" + idInvoice
-            //               + " GROUP BY P.NAME,OP.PRICESALE " +
-            //                "UNION " +
-            //               "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
-            //                "FROM LINES_INVOICE LI " +
-            //               "WHERE LI.REFINVOICE =" + idInvoice + ""
-            //               + " UNION " +
-            //               "SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC, ROUND(PI.AMOUNT * PI.PRICESALE, 2) TOTALPRIC " +
-            //                "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT " +
-            //               "WHERE PI.IDINVOICE =" + idInvoice + "";
-
-            //String queryContentProducts = "SELECT P.NAME DESCR, SUM(OP.AMOUNT)AMO, OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
-            //                                    "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
-            //                                                    "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
-            //                                    "WHERE OI.IDINVOICE = " + idInvoice + " " +
-            //                                    "GROUP BY P.NAME, OP.PRICESALE " +
-            //                                "UNION " +
-            //                                "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
-            //                                    "FROM LINES_INVOICE LI " +
-            //                                    "WHERE LI.REFINVOICE = " + idInvoice + " " +
-            //                                "UNION " +
-            //                                "SELECT Pd.NAME DESCR, SUM(PI.AMOUNT) AMO, PI.PRICESALE PRIC, ROUND(SUM(PI.AMOUNT) * PI.PRICESALE, 2) TOTALPRIC " +
-            //                                    "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS Pd ON PI.IDPRODUCT = Pd.IDPRODUCT " +
-            //                                    "WHERE PI.IDINVOICE = " + idInvoice + " " +
-            //                                    "GROUP BY Pd.NAME, PI.PRICESALE";
-
-            String queryContentProducts = " SELECT P.NAME DESCR,SUM(PI.AMOUNT) AMO,P.PRICE PRICE, ROUND(SUM(PI.AMOUNT) * P.PRICE, 2) TOTALPRIC " +
-                                "FROM PRODUCTS P INNER JOIN PRODUCTS_INVOICES PI ON P.IDPRODUCT = PI.IDPRODUCT " +
-                                "WHERE PI.IDINVOICE =" + idInvoice + " " +
-                                "GROUP BY P.NAME, P.PRICE " +
+            String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO, OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
+                                "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
+                            "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
+                           "WHERE OI.IDINVOICE =" + idInvoice
+                           + " GROUP BY P.NAME,OP.PRICESALE " +
                             "UNION " +
-                            "SELECT LI.DESCRIPTION DESCR, SUM(LI.AMOUNT)AMO, LI.PRICE PRICE, ROUND(SUM(LI.AMOUNT) * LI.PRICE, 2) TOTALPRIC " +
-                                "FROM LINES_INVOICE LI " +
-                                "WHERE LI.REFINVOICE =" + idInvoice + " " +
-                                "GROUP BY LI.DESCRIPTION, LI.PRICE " +
-                            "UNION " +
-                            "SELECT P.NAME DESCR, SUM(OP.AMOUNT) AMO, OP.PRICESALE PRICE, ROUND(SUM(OP.AMOUNT) * op.PRICESALE, 2) TOTALPRIC " +
-                                "FROM PRODUCTS P INNER JOIN ORDERSPRODUCTS OP ON P.IDPRODUCT = OP.REFPRODUCT " +
-                                    "INNER JOIN ORDERS_INVOICES OI on OP.REFORDER = OI.IDORDER " +
-                                "WHERE OI.IDINVOICE =" + idInvoice + " " +
-                                "GROUP BY P.NAME, OP.PRICESALE";
+                           "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
+                            "FROM LINES_INVOICE LI " +
+                           "WHERE LI.REFINVOICE =" + idInvoice + ""
+                           + " UNION " +
+                           "SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC, ROUND(PI.AMOUNT * PI.PRICESALE, 2) TOTALPRIC " +
+                            "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT " +
+                           "WHERE PI.IDINVOICE =" + idInvoice + "";
 
             DataSet data = conector.getData(queryContentProducts, "table");
             DataTable tmp = data.Tables["table"];
@@ -282,20 +251,7 @@ namespace ERP.Dominio.Gestores
         {
             conector.setData("update invoices set refcustomer=" + idcliente + ", amount='" + amount.ToString().Replace('.', ',') + "' where num_invoice=" + editing_number);
         }
-
-        public void borrarDatosViejosProductsInvoicesModificarFactura(int idinvoice,String nameProduct,int amount,int pricesale)
-        {
-            MessageBox.Show(nameProduct + " - " +  amount + " - " + pricesale);
-            decimal idProduct = Convert.ToDecimal(conector.DLookUp("IDPRODUCT", "PRODUCTS", "NAME='" + nameProduct + "'"));
-            conector.setData("DELETE FROM PRODUCTS_INVOICES WHERE IDINVOICE =" + idinvoice + " AND IDPRODUCT=" + idProduct); //+ " AND AMOUNT=" +amount+ " AND PRICESALE=" + pricesale);
-        }
-
-        public void borrarDatosViejosLinesInvoicesModificarFactura(int idinvoice,String description, int amount, int price)
-        {
-            conector.setData("DELETE FROM LINES_INVOICE WHERE REFINVOICE=" + idinvoice + " AND DESCRIPTION='" + description + "' AND AMOUNT="+amount + " AND PRICE=" + price);
-        }
-
     }
 
-
+   
 }

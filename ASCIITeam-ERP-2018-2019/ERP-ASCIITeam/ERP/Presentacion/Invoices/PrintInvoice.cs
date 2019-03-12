@@ -50,35 +50,19 @@ namespace ERP.Presentacion.Invoices
             tProducts.Columns.Add("Total", Type.GetType("System.String"));
 
 
-            //String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO,OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
-            //                    "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
-            //                "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
-            //               "WHERE OI.IDINVOICE =" + this.idInvoice
-            //               + " GROUP BY P.NAME,OP.PRICESALE " +
-            //                "UNION " +
-            //               "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
-            //                "FROM LINES_INVOICE LI " +
-            //               "WHERE LI.REFINVOICE =" + this.idInvoice
-            //               + " UNION " +
-            //               "SELECT P.NAME DESCR, SUM(PI.AMOUNT) AMO, PI.PRICESALE PRIC, ROUND(SUM(PI.AMOUNT) * PI.PRICESALE, 2) TOTALPRIC " +
-            //                "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT " +
-            //               "WHERE PI.IDINVOICE =" + this.idInvoice +
-            //               " GROUP BY P.NAME,PI.PRICESALE";
-            String queryContentProducts = " SELECT P.NAME DESCR,SUM(PI.AMOUNT) AMO,P.PRICE PRIC, ROUND(SUM(PI.AMOUNT) * P.PRICE, 2) TOTALPRIC " +
-                                                "FROM PRODUCTS P INNER JOIN PRODUCTS_INVOICES PI ON P.IDPRODUCT = PI.IDPRODUCT " +
-                                                "WHERE PI.IDINVOICE =" + idInvoice + " " +
-                                                "GROUP BY P.NAME, P.PRICE " +
-                                            "UNION " +
-                                            "SELECT LI.DESCRIPTION DESCR, SUM(LI.AMOUNT)AMO, LI.PRICE PRIC, ROUND(SUM(LI.AMOUNT) * LI.PRICE, 2) TOTALPRIC " +
-                                                "FROM LINES_INVOICE LI " +
-                                                "WHERE LI.REFINVOICE =" + idInvoice + " " +
-                                                "GROUP BY LI.DESCRIPTION, LI.PRICE " +
-                                            "UNION " +
-                                            "SELECT P.NAME DESCR, SUM(OP.AMOUNT) AMO, OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * op.PRICESALE, 2) TOTALPRIC " +
-                                                "FROM PRODUCTS P INNER JOIN ORDERSPRODUCTS OP ON P.IDPRODUCT = OP.REFPRODUCT " +
-                                                    "INNER JOIN ORDERS_INVOICES OI on OP.REFORDER = OI.IDORDER " +
-                                                "WHERE OI.IDINVOICE =" + idInvoice + " " +
-                                                "GROUP BY P.NAME, OP.PRICESALE";
+            String queryContentProducts = "SELECT P.NAME DESCR,SUM(OP.AMOUNT) AMO,OP.PRICESALE PRIC, ROUND(SUM(OP.AMOUNT) * OP.PRICESALE, 2) TOTALPRIC " +
+                                "FROM ORDERSPRODUCTS OP INNER JOIN PRODUCTS P ON OP.REFPRODUCT = P.IDPRODUCT " +
+                            "INNER JOIN ORDERS_INVOICES OI ON OP.REFORDER = OI.IDORDER " +
+                           "WHERE OI.IDINVOICE =" + this.idInvoice
+                           + " GROUP BY P.NAME,OP.PRICESALE " +
+                            "UNION " +
+                           "SELECT LI.DESCRIPTION DESCR, LI.AMOUNT AMO, LI.PRICE PRIC, ROUND(LI.AMOUNT * LI.PRICE, 2) TOTALPRIC " +
+                            "FROM LINES_INVOICE LI " +
+                           "WHERE LI.REFINVOICE =" + this.idInvoice
+                           + " UNION " +
+                           "SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC, ROUND(PI.AMOUNT * PI.PRICESALE, 2) TOTALPRIC " +
+                            "FROM PRODUCTS_INVOICES PI INNER JOIN PRODUCTS P ON PI.IDPRODUCT = P.IDPRODUCT " +
+                           "WHERE PI.IDINVOICE =" + this.idInvoice;
 
             data = search.getData(queryContentProducts, "table");
             DataTable tmp = data.Tables["table"];
