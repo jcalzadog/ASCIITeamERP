@@ -115,6 +115,14 @@ namespace ERP
             controlErroresPlataformas();
             controlErroresCategorias();
             controlErroresClientes();
+
+            Shown += new EventHandler(FormPrincipal_Shown);
+            // To report progress from the background worker we need to set this property
+            backgroundWorker1.WorkerReportsProgress = true;
+            // This event will be raised on the worker thread when the worker starts
+            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+            // This event will be raised when we call ReportProgress
+            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
         }
 
         public void cargarInvoices()
@@ -398,7 +406,7 @@ namespace ERP
             dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOrders.BackgroundColor = Color.Black;
             dgvOrders.ReadOnly = true;
-            dgvOrders.Sort(dgvOrders.Columns[10],ListSortDirection.Descending);
+            dgvOrders.Sort(dgvOrders.Columns[10], ListSortDirection.Descending);
         }
 
         private void cargarTablaClientes(String condicion)
@@ -2504,6 +2512,122 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
                 new VentanaPersonalizada("Select an invoice first.").ShowDialog();
             }
             cargarInvoices();
+        }
+
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            if(!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync();
+            else
+                MessageBox.Show("Can't run the bw twice!");
+            //backgroundWorker1.RunWorkerAsync();
+        }
+
+        void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Your background task goes here
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    // Report progress to 'UI' thread
+            //    backgroundWorker1.ReportProgress(i);
+            //    // Simulate long task
+            //    System.Threading.Thread.Sleep(10);
+            //}
+            int max_time = 100;
+            int time = 1;
+            do
+            {
+                if (time % 1 == 0)
+                {
+                    dgvOrders= recargarOrdersConHilo();
+                }
+                backgroundWorker1.ReportProgress(time);
+                System.Threading.Thread.Sleep(1000);
+                time += 1;
+
+
+            } while (true);
+
+        }
+
+        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // The progress percentage is a property of e
+            //progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private DataGridView recargarOrdersConHilo()
+        {
+            //dgvOr.Columns.Clear();
+            DataGridView dgvOr = new DataGridView();
+
+            orders.gestorOrder.leerOrders("", eliminadoOrders);
+
+            DataTable tOrders = orders.gestorOrder.tOrders;
+
+            dgvOr.Columns.Add("DAT", "DAT");
+            dgvOr.Columns.Add("PREPAID", "PREPAID");
+            dgvOr.Columns.Add("REST", "REST");
+            dgvOr.Columns.Add("TOTAL", "TOTAL");
+            dgvOr.Columns.Add("", "CONFIRMED");
+            dgvOr.Columns.Add("", "LABELED");
+            dgvOr.Columns.Add("", "SENT");
+            dgvOr.Columns.Add("", "INVOICED");
+            dgvOr.Columns.Add("SURNAME", "SURNAME");
+            dgvOr.Columns.Add("PAYMETHOD", "PAYMETHOD");
+            dgvOr.Columns.Add("ID", "ID");
+
+            int i = 0;
+            foreach (DataRow row in tOrders.Rows)
+            {
+                dgvOr.Rows.Add(row["DAT"], row["PREPAID"], row["REST"], row["TOTAL"], row, row, row, row
+                    , row["SURNAME"], row["PAYMETHOD"], row["ID"]);
+
+                dgvOr.Rows[i].Cells[4].Value = "";
+                dgvOr.Rows[i].Cells[4].Style.BackColor = Color.Red;
+
+                dgvOr.Rows[i].Cells[5].Value = "";
+                dgvOr.Rows[i].Cells[5].Style.BackColor = Color.Red;
+
+                dgvOr.Rows[i].Cells[6].Value = "";
+                dgvOr.Rows[i].Cells[6].Style.BackColor = Color.Red;
+
+                dgvOr.Rows[i].Cells[7].Value = "";
+                dgvOr.Rows[i].Cells[7].Style.BackColor = Color.Red;
+
+                //decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(dgvOrders.Rows[i].Cells[10].Value));
+                decimal statusRow = orders.gestorOrder.getstatus(Convert.ToDecimal(Convert.ToString(row["ID"])));
+                switch (Convert.ToInt32(statusRow))
+                {
+                    case 1:
+                        dgvOr.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        break;
+                    case 2:
+                        dgvOr.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        break;
+                    case 3:
+                        dgvOr.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[6].Style.BackColor = Color.Green;
+                        break;
+                    case 4:
+                        dgvOr.Rows[i].Cells[4].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[5].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[6].Style.BackColor = Color.Green;
+                        dgvOr.Rows[i].Cells[7].Style.BackColor = Color.Green;
+                        break;
+                }
+                i++;
+            }
+
+            dgvOr.Columns[4].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOr.Columns[5].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOr.Columns[6].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dgvOr.Columns[7].DefaultCellStyle.SelectionBackColor = Color.Transparent;
+
+            //dgvOr.Sort(dgvOrders.Columns[10],ListSortDirection.Descending);
+            return dgvOr;
         }
     }
 }
