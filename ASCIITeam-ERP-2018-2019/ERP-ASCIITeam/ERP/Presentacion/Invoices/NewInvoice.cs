@@ -17,6 +17,9 @@ namespace ERP.Presentacion.Invoices
         Customer c;
         int taxes = 21;
         List<Object> listaItems = new List<Object>();
+        List<Object[]> listaRemoveProduct = new List<Object[]>();
+        List<Object[]> listaRemoveLines = new List<Object[]>();
+
         string editing_number = "";
         public NewInvoice()
         {   
@@ -238,6 +241,17 @@ namespace ERP.Presentacion.Invoices
                 }
                 for (int j = 0; j < listaItems.Count; j++)
                 {
+                    //Borro registros anteriores e inserto los nuevos.
+                    for(int l = 0; l< listaRemoveProduct.Count; l++)
+                    {
+                        i.gestor.borrarDatosViejosProductsInvoicesModificarFactura(idinvoice,Convert.ToString(listaRemoveProduct.ElementAt(l)[0]),Convert.ToInt32(listaRemoveProduct.ElementAt(l)[1]), Convert.ToInt32(listaRemoveProduct.ElementAt(l)[2]));
+                    }
+
+                    for (int l = 0; l < listaRemoveLines.Count; l++)
+                    {
+                        i.gestor.borrarDatosViejosLinesInvoicesModificarFactura(idinvoice, Convert.ToString(listaRemoveLines.ElementAt(l)[0]), Convert.ToInt32(listaRemoveLines.ElementAt(l)[1]), Convert.ToInt32(listaRemoveLines.ElementAt(l)[2]));
+                    }
+
                     if (listaItems.ElementAt(j).GetType() == typeof(ProductsInvoices))
                     {
                         ProductsInvoices aux = (ProductsInvoices)listaItems.ElementAt(j);
@@ -264,6 +278,17 @@ namespace ERP.Presentacion.Invoices
          
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                int idinvoice = 0;
+                if (!this.editing_number.Equals(""))
+                {
+                    idinvoice = Convert.ToInt16(i.gestor.getIdInvoice(Convert.ToDecimal(editing_number)));
+                }
+                else
+                {
+                    idinvoice = -1;
+                }
+
+
                 if (listaItems.ElementAt(dataGridView1.SelectedRows[0].Index).GetType() == typeof(DetailOrder))
                 {
                     new VentanaPersonalizada("This item cannot be deleted because \nit comes from the order.").ShowDialog();
@@ -271,6 +296,28 @@ namespace ERP.Presentacion.Invoices
                 else
                 {
                     this.txtTotal.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells[3].Value)).ToString();
+                    for (int j = 0; j < listaItems.Count; j++)
+                    {
+                        if (listaItems.ElementAt(j).GetType() == typeof(ProductsInvoices))
+                        {
+                            ProductsInvoices aux = (ProductsInvoices)listaItems.ElementAt(j);
+                            if ((Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value) == aux.Amount) && (Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value) == aux.Price))
+                            {
+                                //i.gestor.borrarDatosViejosProductsInvoicesModificarFactura(idinvoice);
+                                listaRemoveProduct.Add(new object[] { dataGridView1.SelectedRows[0].Cells[0].Value, Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value), Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value)});
+                            }
+                        }
+                        else if (listaItems.ElementAt(j).GetType() == typeof(DetailOrder))
+                        {
+                            //como es un detail order no tiene que insertarlo, ya se encuentra insertado previamente
+                        }
+                        else
+                        {
+                            LinesInvoices aux = (LinesInvoices)listaItems.ElementAt(j);
+                            //i.gestor.borrarDatosViejosLinesInvoicesModificarFactura(idinvoice);
+                            listaRemoveLines.Add(new object[] { dataGridView1.SelectedRows[0].Cells[0].Value, Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value), Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value) });
+                        }
+                    }
                     listaItems.RemoveAt(dataGridView1.SelectedRows[0].Index);
                     dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
                     this.txtTotalNeto.Text = calcularIVA().ToString();
