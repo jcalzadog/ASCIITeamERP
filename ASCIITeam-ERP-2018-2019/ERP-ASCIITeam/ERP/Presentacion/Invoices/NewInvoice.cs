@@ -52,6 +52,7 @@ namespace ERP.Presentacion.Invoices
             {
                 dataGridView1.Rows.Add(r[0], r[1], r[2], r[3], Convert.ToDecimal(r[2])*Convert.ToDecimal(r[3]));
             }
+
             
         }
 
