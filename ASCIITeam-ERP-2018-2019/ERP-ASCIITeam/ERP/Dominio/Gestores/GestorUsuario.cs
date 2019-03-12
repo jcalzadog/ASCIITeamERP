@@ -157,8 +157,8 @@ namespace ERP.Dominio.Gestores
 
             Decimal numPermisosTotales = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", "");
             Decimal numPermisos = (Decimal)conector.DLookUp("COUNT(IDPERMIT)", "PERMITS", " NAME LIKE '%MANAGEMENT%'");
-            
 
+           // MessageBox.Show(Convert.ToString(U.idUser));
             Decimal tienePermiso = 0;
             int j = 0;
             for (int i = Convert.ToInt32(numPermisos); i < numPermisosTotales; i++)
