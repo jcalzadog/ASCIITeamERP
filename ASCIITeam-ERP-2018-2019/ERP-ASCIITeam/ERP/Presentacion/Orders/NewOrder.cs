@@ -66,6 +66,7 @@ namespace ERP.Presentacion.Orders
                 dgvCart.Rows.Add(row[0], row[1], row[2], row[3]);
             }
             details = order.gestorOrder.getDetails(decimal.Parse((string)orderId));
+            throw new Exception();
             //establecer total fecha prepagado, lista de objetos , metodo de pago
             lblTotal.Text = editingOrder.total.ToString();
             lblDate.Text = editingOrder.date.ToString("dd/MM/yyyy");

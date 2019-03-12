@@ -151,6 +151,8 @@ namespace ERP
             dgvInvoices.AllowUserToAddRows = false;
             dgvInvoices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInvoices.BackgroundColor = Color.Black;
+            dgvInvoices.Sort(dgvInvoices.Columns[0], ListSortDirection.Descending);
+            dgvInvoices.ClearSelection();
         }
 
         public void cargarIncomes()

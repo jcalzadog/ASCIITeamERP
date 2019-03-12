@@ -100,7 +100,7 @@ namespace ERP.Dominio.Gestores
             decimal lines =Convert.ToDecimal(conector.DLookUp("count(id)", "lines_invoice", "refinvoice=" + idInvoice));
             if (lines > 0)
             {
-                DataSet lines_invoice = conector.getData("select description, amount, price from lines_invoice where refinvoice=" + idInvoice + " order by id", "lineas");
+                DataSet lines_invoice = conector.getData("select description, amount, price from lines_invoice where refinvoice=" + idInvoice, "lineas");
                 foreach (DataRow r in lines_invoice.Tables["lineas"].Rows)
                 {
                     items.Add(new LinesInvoices((string)r["description"], Convert.ToInt16(r["amount"]), (float)Convert.ToDouble(r["price"]), Convert.ToInt16(idInvoice), 0));
@@ -110,7 +110,7 @@ namespace ERP.Dominio.Gestores
             decimal products = Convert.ToDecimal(conector.DLookUp("count(idproinv)", "products_invoices", "idinvoice=" + idInvoice));
             if (products > 0)
             {
-                DataSet lines_invoice = conector.getData("select idproduct, amount, pricesale from products_invoices where idinvoice=" + idInvoice + " order by idproinv", "lineas");
+                DataSet lines_invoice = conector.getData("select idproduct, amount, pricesale from products_invoices where idinvoice=" + idInvoice, "lineas");
                 foreach (DataRow r in lines_invoice.Tables["lineas"].Rows)
                 {
                     items.Add(new ProductsInvoices(Convert.ToInt16(r["idproduct"]), Convert.ToInt16(idInvoice), Convert.ToInt16(r["amount"]),(float)Convert.ToDecimal(r["pricesale"])));
