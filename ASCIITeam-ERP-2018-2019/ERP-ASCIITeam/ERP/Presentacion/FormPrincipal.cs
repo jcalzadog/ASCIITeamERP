@@ -23,6 +23,7 @@ using ERP.Presentacion.CashBook.Validations;
 using ERP.Presentacion.CashBook.PendingPayment;
 using ERP.Presentacion.CashBook.DDebts;
 using ERP.Presentacion.Invoices;
+using System.Diagnostics;
 
 namespace ERP
 {
@@ -116,13 +117,7 @@ namespace ERP
             controlErroresCategorias();
             controlErroresClientes();
 
-            Shown += new EventHandler(FormPrincipal_Shown);
-            // To report progress from the background worker we need to set this property
-            backgroundWorker1.WorkerReportsProgress = true;
-            // This event will be raised on the worker thread when the worker starts
-            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            // This event will be raised when we call ReportProgress
-            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
+            
         }
 
         public void cargarInvoices()
@@ -2514,52 +2509,7 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
             cargarInvoices();
         }
 
-        private void FormPrincipal_Shown(object sender, EventArgs e)
-        {
-            if (!backgroundWorker1.IsBusy)
-            {
-                backgroundWorker1.RunWorkerAsync();
-            }
-            else
-            {
-                //MessageBox.Show("Can't run the bw twice!");
-            }
-            //backgroundWorker1.RunWorkerAsync();
-        }
 
-        void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            // Your background task goes here
-            //for (int i = 0; i <= 100; i++)
-            //{
-            //    // Report progress to 'UI' thread
-            //    backgroundWorker1.ReportProgress(i);
-            //    // Simulate long task
-            //    System.Threading.Thread.Sleep(10);
-            //}
-            int max_time = 100;
-            int time = 1;
-            do
-            {
-                if (time % 1 == 0)
-                {
-                    //MessageBox.Show("Funciona en segundo: " + time);
-                    dgvOrders = recargarOrdersConHilo();
-                }
-                backgroundWorker1.ReportProgress(time);
-                System.Threading.Thread.Sleep(1000);
-                time += 1;
-
-
-            } while (true);
-
-        }
-
-        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            // The progress percentage is a property of e
-            //progressBar1.Value = e.ProgressPercentage;
-        }
 
         private DataGridView recargarOrdersConHilo()
         {
@@ -2635,5 +2585,42 @@ SELECT P.NAME DESCR, PI.AMOUNT AMO, PI.PRICESALE PRIC
             return dgvOr;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (dgvOrders.SelectedRows.Count > 0)
+            {
+                int fila = dgvOrders.SelectedRows[0].Index;
+                Debug.Print("num fila vieja: " + fila);
+                int cantidad = dgvOrders.Rows.Count;
+                cargarTablaOrders(txtSearchOrder.Text.Equals("Search...") ? "" : txtSearchOrder.Text);
+                int cantidadNueva = dgvOrders.Rows.Count;
+                if (cantidad > cantidadNueva)
+                {
+                    fila = fila + cantidad - cantidadNueva;
+                }
+                else if (cantidad < cantidadNueva)
+                {
+                    fila = fila + cantidadNueva - cantidad;
+                }
+                dgvOrders.ClearSelection();
+                Debug.Print("num fila nueva: " + fila);
+                dgvOrders.Rows[fila].Selected = true;
+            } else
+            {
+                cargarTablaOrders(txtSearchOrder.Text.Equals("Search...") ? "" : txtSearchOrder.Text);
+                dgvOrders.ClearSelection();
+            }
+         
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+
+            timer1 = new Timer();
+            timer1.Interval = 1000; //se establecen 5 seg
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+        }
     }
 }
