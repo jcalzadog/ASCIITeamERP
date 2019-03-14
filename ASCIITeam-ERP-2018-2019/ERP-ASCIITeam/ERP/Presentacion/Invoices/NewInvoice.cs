@@ -1,6 +1,7 @@
 ﻿using ERP.Dominio;
 using ERP.Dominio.Gestores;
 using ERP.Presentacion.ErroresCambios;
+using ERP.Presentacion.Orders;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,13 +19,15 @@ namespace ERP.Presentacion.Invoices
         int taxes = 21;
         List<Object> listaItems = new List<Object>();
         string editing_number = "";
+
+        decimal idProdSelec=0;
+
         public NewInvoice()
         {   
             InitializeComponent();
             cargarComponentes();
             i = new Invoicees();
             c = new Customer();
-            i.gestor.comboProducts(this.cmbProducts);
             
             this.dataGridView1.Columns.Add("DESCRIPTION", "DESCRIPTION");
             this.dataGridView1.Columns.Add("AMOUNT", "AMOUNT");
@@ -116,7 +119,7 @@ namespace ERP.Presentacion.Invoices
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (this.cmbProducts.Text.ToString().Equals("Nothing") || this.txtPriceProduct.Text.Equals(""))
+            if (this.txtProdSelecc.Text.ToString().Equals("Click to select product...") || this.txtPriceProduct.Text.Equals(""))
             {
                 VentanaPersonalizada vp = new VentanaPersonalizada("You must fill al the fields");
                 vp.ShowDialog();
@@ -124,20 +127,25 @@ namespace ERP.Presentacion.Invoices
             }
             else
             {
-                float price = float.Parse(this.txtPriceProduct.Text.Replace(".", ",").Replace("'", ""));
+                float price = float.Parse(this.txtPriceProduct.Text.Replace(".", ",").Replace("'", "").Replace("-",""));
                 price = (float)Math.Round(price, 2);
                 int amount = int.Parse(this.amountProducts.Value.ToString());
-                string product =    i.gestor.getProductName( (decimal)this.cmbProducts.SelectedValue);
                 float total = price * amount;
                 total = (float)Math.Round(total, 2);
-                this.dataGridView1.Rows.Add(product, amount, price, total);
+                this.dataGridView1.Rows.Add(txtProdSelecc.Text, amount, price, total);
                 float xtotal = float.Parse(this.txtTotal.Text.ToString()) + total;
                 this.txtTotal.Text = xtotal.ToString();
                 
                 this.txtTotalNeto.Text = calcularIVA().ToString();
 
-                ProductsInvoices pi = new ProductsInvoices(Convert.ToInt32(this.cmbProducts.SelectedValue), 0, amount, price);
+                ProductsInvoices pi = new ProductsInvoices(Convert.ToInt16(idProdSelec), 0, amount, price);
                 listaItems.Add(pi);
+
+                idProdSelec = 0;
+                amountProducts.Value = 1;
+                txtProdSelecc.Text = "Click to select product...";
+                txtPriceProduct.Text = "";
+
             }
         }
         public float calcularIVA() {
@@ -210,11 +218,6 @@ namespace ERP.Presentacion.Invoices
             e.Handled = !valido;
         }
 
-        private void cmbProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {       
-                decimal precio = i.gestor.productPrice((decimal)this.cmbProducts.SelectedValue);
-                this.txtPriceProduct.Text = precio.ToString(); 
-        }
         
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -279,6 +282,25 @@ namespace ERP.Presentacion.Invoices
                 }
             }
             
+        }
+
+        private void txtProdSelecc_Click(object sender, EventArgs e)
+        {
+            SelectProduct selector = new SelectProduct();
+            selector.ShowDialog();
+            if (selector.Acepta)
+            {
+                idProdSelec = selector.IdProd;
+                amountProducts.Value = selector.Cantidad;
+                txtProdSelecc.Text = selector.NameProd;
+                txtPriceProduct.Text = selector.Price.ToString();
+            } else
+            {
+                idProdSelec = 0;
+                amountProducts.Value = 1;
+                txtProdSelecc.Text = "Click to select product...";
+                txtPriceProduct.Text ="";
+            }
         }
     }
     

@@ -2294,9 +2294,9 @@ namespace ERP
                                     dgv.ClearSelection();
 
                                     //Se ha facturado
-                                    invoice.gestor.generateInvoice(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
-                                    VentanaPersonalizada vp = new VentanaPersonalizada("The order has been invoiced.");
-                                    vp.ShowDialog();
+                                    decimal numgenerado=invoice.gestor.generateInvoice(Convert.ToDecimal(dgvOrders.Rows[e.RowIndex].Cells[10].Value));
+                                    PrintInvoice informe = new PrintInvoice(invoice.gestor.getIdInvoice(numgenerado));
+                                    informe.Show();
                                 }
                                 else if (statusRow == 4)
                                 {
